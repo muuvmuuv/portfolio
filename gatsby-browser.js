@@ -1,7 +1,5 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+require('./src/styles/app.scss')
 
-// You can delete this file if you're not using it
+const dayjs = require('dayjs')
+require('dayjs/locale/de')
+dayjs.locale('de')

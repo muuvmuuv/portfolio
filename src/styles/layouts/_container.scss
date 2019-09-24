@@ -1,0 +1,21 @@
+.container {
+  padding-right: var(--container-padding-x);
+  padding-left: var(--container-padding-x);
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $breakpoint, $max-width in $container-max-widths {
+    @include screen($breakpoint) {
+      max-width: $max-width;
+    }
+  }
+
+  &--small {
+    max-width: map-get($container-max-widths, md);
+  }
+
+  &--medium {
+    max-width: map-get($container-max-widths, lg);
+  }
+}

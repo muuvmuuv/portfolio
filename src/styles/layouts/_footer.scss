@@ -1,0 +1,13 @@
+#footer {
+  padding: 0 var(--spacing-xl);
+  font-size: var(--text-sm);
+  margin-right: negative(var(--spacing-xs));
+  margin-bottom: var(--spacing-xl);
+
+  a {
+    display: inline-block;
+    color: var(--color-light-20);
+    margin-right: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+  }
+}

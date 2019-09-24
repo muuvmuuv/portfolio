@@ -1,0 +1,24 @@
+article {
+  table {
+    thead tr {
+      border-bottom: 2px solid var(--color-09);
+    }
+
+    th,
+    td {
+      padding: var(--spacing-xs) var(--spacing-sm);
+
+      &:not(:last-child) {
+        border-right: 1px solid var(--color-09);
+      }
+    }
+
+    th {
+      font-weight: var(--font-bold);
+    }
+
+    tr {
+      border: 1px solid var(--color-09);
+    }
+  }
+}

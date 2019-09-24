@@ -1,0 +1,61 @@
+// is installed locally
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: $font-display;
+  src: local('Inter'), local('Inter-Regular'),
+    url('#{$font-path}/Inter/Inter-Regular.woff2') format('woff2'),
+    url('#{$font-path}/Inter/Inter-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-display: $font-display;
+  src: local('Inter-Italic'),
+    url('#{$font-path}/Inter/Inter-Italic.woff2') format('woff2'),
+    url('#{$font-path}/Inter/Inter-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: $font-display;
+  src: local('Inter-Medium'),
+    url('#{$font-path}/Inter/Inter-Medium.woff2') format('woff2'),
+    url('#{$font-path}/Inter/Inter-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: $font-display;
+  src: local('Inter-SemiBold'),
+    url('#{$font-path}/Inter/Inter-SemiBold.woff2') format('woff2'),
+    url('#{$font-path}/Inter/Inter-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: $font-display;
+  src: local('Inter-Bold'),
+    url('#{$font-path}/Inter/Inter-Bold.woff2') format('woff2'),
+    url('#{$font-path}/Inter/Inter-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: $font-display;
+  src: local('Inter-Black'),
+    url('#{$font-path}/Inter/Inter-Black.woff2') format('woff2'),
+    url('#{$font-path}/Inter/Inter-Black.woff') format('woff');
+}

@@ -1,0 +1,11 @@
+#main {
+  position: relative;
+  z-index: 10;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#article {
+  margin-top: var(--spacing-xxl);
+  margin-bottom: var(--spacing-xxl);
+}

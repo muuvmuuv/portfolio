@@ -1,0 +1,6 @@
+- [ ] add md table of contents
+- [ ] add NOW deployment
+- [ ] add bundle analyzer
+- [ ] analyze via bundlephobia
+- [ ] add github bots to auto update dependecies
+- [ ] add tests?!

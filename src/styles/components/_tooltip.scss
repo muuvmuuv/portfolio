@@ -1,0 +1,121 @@
+// https://github.com/ghosh/microtip/blob/master/microtip.css
+
+$tooltip-offset: 7px;
+
+.tooltip {
+  position: relative;
+
+  &:hover::before,
+  &:hover::after,
+  &:focus::before,
+  &:focus::after {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  &::before,
+  &::after {
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 10;
+    transform-origin: top;
+  }
+
+  &::before {
+    transition: all 110ms ease-in-out 0s;
+    background-size: 100% auto;
+    content: '';
+  }
+
+  &::after {
+    content: attr(aria-label);
+    transition: all 120ms ease-in-out 0s;
+    background: var(--color-light);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-dark);
+    font-size: var(--text-xs);
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    white-space: nowrap;
+    font-family: var(--font-sans);
+  }
+
+  &[data-position]::before {
+    background-repeat: no-repeat;
+  }
+
+  &[data-position|='top']::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36px' height='12px'%3E%3Cpath fill='%23fff' transform='rotate(0)' d='M2.658,0.000 C-13.615,0.000 50.938,0.000 34.662,0.000 C28.662,0.000 23.035,12.002 18.660,12.002 C14.285,12.002 8.594,0.000 2.658,0.000 Z'/%3E%3C/svg%3E");
+    height: 6px;
+    width: 18px;
+    margin-bottom: calc(#{$tooltip-offset} - 6px);
+  }
+
+  &[data-position|='top']::after {
+    margin-bottom: $tooltip-offset;
+  }
+
+  &[data-position|='top']::before {
+    transform: translate3d(-50%, 0, 0);
+    bottom: 100%;
+    left: 50%;
+  }
+
+  &[data-position|='top']:hover::before {
+    transform: translate3d(-50%, -5px, 0);
+  }
+
+  &[data-position|='top']::after {
+    transform: translate3d(-50%, 0, 0);
+    bottom: 100%;
+    left: 50%;
+  }
+
+  &[data-position='top']:hover::after {
+    transform: translate3d(-50%, -5px, 0);
+  }
+
+  &[data-position|='bottom']::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36px' height='12px'%3E%3Cpath fill='%23fff' transform='rotate(180 18 6)' d='M2.658,0.000 C-13.615,0.000 50.938,0.000 34.662,0.000 C28.662,0.000 23.035,12.002 18.660,12.002 C14.285,12.002 8.594,0.000 2.658,0.000 Z'/%3E%3C/svg%3E");
+    height: 6px;
+    width: 18px;
+    margin-top: calc(#{$tooltip-offset} - 6px);
+  }
+
+  &[data-position|='bottom']::after {
+    margin-top: $tooltip-offset;
+  }
+
+  &[data-position|='bottom']::before {
+    transform: translate3d(-50%, -10px, 0);
+    bottom: auto;
+    left: 50%;
+    top: 100%;
+  }
+
+  &[data-position|='bottom']:hover::before {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  &[data-position|='bottom']::after {
+    transform: translate3d(-50%, -10px, 0);
+    top: 100%;
+    left: 50%;
+  }
+
+  &[data-position='bottom']:hover::after {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  &[data-position|='left']::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12px' height='36px'%3E%3Cpath fill='%23fff' transform='rotate(-90 18 18)' d='M2.658,0.000 C-13.615,0.000 50.938,0.000 34.662,0.000 C28.662,0.000 23.035,12.002 18.660,12.002 C14.285,12.002 8.594,0.000 2.658,0.000 Z'/%3E%3C/svg%3E");
+  }
+
+  &[data-position|='right']::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12px' height='36px'%3E%3Cpath fill='%23fff' transform='rotate(90 6 6)' d='M2.658,0.000 C-13.615,0.000 50.938,0.000 34.662,0.000 C28.662,0.000 23.035,12.002 18.660,12.002 C14.285,12.002 8.594,0.000 2.658,0.000 Z'/%3E%3C/svg%3E");
+  }
+}

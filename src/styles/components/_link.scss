@@ -1,0 +1,18 @@
+a {
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+article a,
+a.link {
+  color: var(--color-primary);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.07em;
+
+  &:hover {
+    text-decoration-style: solid;
+  }
+}

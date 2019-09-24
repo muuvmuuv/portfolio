@@ -1,0 +1,10 @@
+// is installed locally
+
+@font-face {
+  font-family: 'Abril Fatface';
+  font-style: normal;
+  font-weight: 400;
+  font-display: $font-display;
+  src: local('AbrilFatface'), local('AbrilFatface-Regular'),
+    url('#{$font-path}/Abril-Fatface/AbrilFatface-Regular.ttf') format('ttf');
+}

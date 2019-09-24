@@ -1,0 +1,54 @@
+@mixin screen($breakpoint) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (max-width: 100%) {
+      @content;
+    }
+    @warn ""
+      + "No value for `#{$breakpoint}`. Content will be max width."
+      + "Available breakpoints are: #{map-keys($grid-breakpoints)}.";
+  }
+}
+
+@mixin reducedMotion() {
+  @media screen and (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin center($pos) {
+  @if ($pos == 'x') {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if ($pos == 'y') {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if ($pos == 'xy' or $pos == 'yx') {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  } @else {
+    left: auto;
+    top: auto;
+    transform: none;
+  }
+}
+
+@function negative($val) {
+  @return calc(#{$val} * -1);
+}
+
+@function lighten($color, $percentage) {
+  @return scale-color($color, $lightness: $percentage);
+}
+
+@function darken($color, $percentage) {
+  @return scale-color($color, $lightness: negative($percentage));
+}
+
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}

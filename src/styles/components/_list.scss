@@ -1,0 +1,80 @@
+article {
+  ol,
+  ul {
+    margin-left: 30px;
+    list-style-position: outside;
+
+    ol,
+    ul {
+      margin-top: var(--spacing-xs);
+      margin-bottom: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    li {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: var(--spacing-xs);
+      }
+
+      &::before {
+        position: absolute;
+      }
+    }
+  }
+
+  ul {
+    > li {
+      &::before {
+        content: '▁';
+        left: -19px;
+        top: 6px;
+        width: 13px;
+        height: 13px;
+        font-size: var(--text-xs);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.6;
+      }
+
+      // &:nth-child(1n)::before {
+      //   content: '♡';
+      // }
+      // &:nth-child(2n)::before {
+      //   content: '♢';
+      // }
+      // &:nth-child(3n)::before {
+      //   content: '♤';
+      // }
+      // &:nth-child(4n)::before {
+      //   content: '♧';
+      // }
+    }
+  }
+
+  ol {
+    counter-reset: counter;
+
+    > li {
+      counter-increment: counter;
+
+      &::before {
+        content: counter(counter) '.';
+        left: -19px;
+        top: 8px;
+        width: 13px;
+        height: 13px;
+        font-size: var(--text-xs);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.6;
+      }
+    }
+  }
+}

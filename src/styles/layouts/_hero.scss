@@ -1,0 +1,120 @@
+#hero {
+  position: relative;
+  overflow: hidden; // backdrop is wider than the window
+
+  .backdrop {
+    position: absolute;
+    z-index: -1;
+    top: -2%;
+    left: -2%;
+    width: 104%;
+    height: 104%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      filter: blur(2px);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: -1%;
+      left: -1%;
+      width: 102%;
+      height: 102%;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(31, 36, 46, 0.9) 60%,
+        #1f242e 75%
+      );
+    }
+  }
+
+  .container {
+    display: grid;
+    grid-template-areas: 'title' 'info';
+    grid-template-columns: 1fr;
+    column-gap: var(--spacing-md);
+    row-gap: var(--spacing-lg);
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 100px;
+    padding-bottom: var(--spacing-lg);
+
+    @include screen(sm) {
+      padding-top: 150px;
+    }
+
+    @include screen(md) {
+      grid-template-areas: 'title info';
+      grid-template-columns: auto auto;
+      padding-top: 150px;
+    }
+
+    @include screen(lg) {
+      padding-top: 200px;
+    }
+
+    @include screen(xl) {
+      padding-top: 250px;
+      padding-bottom: var(--spacing-xxl);
+    }
+  }
+
+  .post-title {
+    grid-area: title;
+    margin-bottom: var(--spacing-sm);
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: var(--text-xxl);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    h2 {
+      font-family: var(--font-mono);
+      color: var(--color-light-60);
+    }
+  }
+
+  .post-info {
+    grid-area: info;
+    position: relative;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--text-sm);
+    font-family: var(--font-mono);
+    user-select: none;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-width: 1px;
+      border-style: solid;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      border-image: linear-gradient(135deg, var(--color-light), transparent);
+      border-image-slice: 10% 0 0 90%;
+    }
+
+    &::after {
+      right: 0;
+      bottom: 0;
+      border-image: linear-gradient(135deg, transparent, var(--color-light));
+      border-image-slice: 0 90% 10% 0;
+    }
+
+    .pre {
+      font-weight: var(--font-semi-bold);
+      text-transform: uppercase;
+    }
+  }
+}
