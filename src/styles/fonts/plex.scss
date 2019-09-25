@@ -2,7 +2,22 @@
 
 // node_modules/@ibm/plex/scss/mono/_index.scss
 
-$font-prefix: '~@ibm/plex/';
+// $font-prefix: '~@ibm/plex/';
 
-@import '~@ibm/plex/scss/mono/regular/index';
-@import '~@ibm/plex/scss/mono/bold/index';
+// @import '~@ibm/plex/scss/mono/regular/index';
+// @import '~@ibm/plex/scss/mono/bold/index';
+
+$font-path: '~@ibm/plex/';
+$font-display: fallback;
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: $font-display;
+  src: local('IBM Plex Mono'), local('IBMPlexMono'),
+    url('#{$font-path}/IBM-Plex-Mono/fonts/complete/woff2/IBMPlexMono-Regular.woff2')
+      format('woff2'),
+    url('#{$font-path}/IBM-Plex-Mono/fonts/complete/woff/IBMPlexMono-Regular.woff')
+      format('woff');
+}

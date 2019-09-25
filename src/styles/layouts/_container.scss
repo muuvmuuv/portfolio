@@ -6,7 +6,7 @@
   margin-left: auto;
 
   @each $breakpoint, $max-width in $container-max-widths {
-    @include screen($breakpoint) {
+    @include breakpoint-up($breakpoint) {
       max-width: $max-width;
     }
   }

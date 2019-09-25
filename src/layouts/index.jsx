@@ -1,13 +1,19 @@
 import React from 'react'
-import Header from './header'
+import { ContextProviderComponent } from '../context'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
-import '../corporate'
+import Header from './Header'
 
 const Layout = ({ children }) => (
-  <>
-    <Header></Header>
-    <main>{children}</main>
-  </>
+  <ContextProviderComponent>
+    <HelmetProvider>
+      <Helmet>
+        <meta name="name" content="content" />
+      </Helmet>
+      <Header></Header>
+      <main>{children}</main>
+    </HelmetProvider>
+  </ContextProviderComponent>
 )
 
 export default Layout

@@ -1,5 +1,5 @@
 #header {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 100;
@@ -13,8 +13,8 @@
   transition: var(--transition-fast);
 
   &.sticky {
-    background: var(--color-dark-80);
     padding: var(--spacing-md) var(--container-padding-x);
+    background: var(--color-dark-80);
     backdrop-filter: blur(4px);
   }
 
@@ -26,4 +26,8 @@
   #nav {
     grid-area: nav;
   }
+}
+
+.header-fixed #header {
+  position: fixed;
 }

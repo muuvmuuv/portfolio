@@ -3,27 +3,7 @@
   overflow: hidden; // backdrop is wider than the window
 
   .backdrop {
-    position: absolute;
-    z-index: -1;
-    top: -2%;
-    left: -2%;
-    width: 104%;
-    height: 104%;
-    overflow: hidden;
-
-    img {
-      width: 100%;
-      filter: blur(2px);
-    }
-
     &::after {
-      content: '';
-      position: absolute;
-      z-index: 1;
-      top: -1%;
-      left: -1%;
-      width: 102%;
-      height: 102%;
       background: linear-gradient(
         to bottom,
         transparent 0%,
@@ -44,21 +24,21 @@
     padding-top: 100px;
     padding-bottom: var(--spacing-lg);
 
-    @include screen(sm) {
+    @include breakpoint-up(sm) {
       padding-top: 150px;
     }
 
-    @include screen(md) {
+    @include breakpoint-up(md) {
       grid-template-areas: 'title info';
       grid-template-columns: auto auto;
       padding-top: 150px;
     }
 
-    @include screen(lg) {
+    @include breakpoint-up(lg) {
       padding-top: 200px;
     }
 
-    @include screen(xl) {
+    @include breakpoint-up(xl) {
       padding-top: 250px;
       padding-bottom: var(--spacing-xxl);
     }

@@ -1,5 +1,6 @@
 import React from 'react'
-import Member from './member'
+
+import Member from './Member'
 
 const Members = ({ list }) => {
   return list.map((m, i) => {

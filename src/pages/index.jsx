@@ -1,49 +1,37 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import Portfolio from '../components/portfolio'
+import Helmet from 'react-helmet'
+import { Link } from 'gatsby'
 
-const PagesIndex = () => {
-  const data = useStaticQuery(graphql`
-    query PortfolioQuery {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              title
-              subtitle
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 1600) {
-                    src
-                  }
-                }
-              }
-              thumb {
-                childImageSharp {
-                  fluid(maxWidth: 300) {
-                    src
-                  }
-                }
-              }
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `)
+import { ContextConsumer } from '../context'
+import SEO from '../components/SEO'
+import Backdrop from '../components/Backdrop'
 
-  const portfolio = data.allMarkdownRemark.edges
+const PageIndex = () => (
+  <ContextConsumer>
+    {({ data, set }) => (
+      <>
+        <SEO></SEO>
+        <Helmet
+          bodyAttributes={{ page: 'index', class: 'header-fixed' }}
+        ></Helmet>
 
-  return (
-    <div className="gallery">
-      {portfolio.map((p, i) => (
-        <Portfolio item={p.node} key={i}></Portfolio>
-      ))}
-    </div>
-  )
-}
+        <div className="showcase">
+          <Link className="item" to="/projects">
+            <Backdrop src="/showcase/01.jpg"></Backdrop>
+            <div className="content">Projects</div>
+          </Link>
+          <Link className="item" to="/photography">
+            <Backdrop src="/showcase/02.jpg"></Backdrop>
+            <div className="content">Photography</div>
+          </Link>
+          <Link className="item" to="/writings">
+            <Backdrop src="/showcase/04.jpg"></Backdrop>
+            <div className="content">Writings</div>
+          </Link>
+        </div>
+      </>
+    )}
+  </ContextConsumer>
+)
 
-export default PagesIndex
+export default PageIndex

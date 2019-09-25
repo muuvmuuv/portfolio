@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 const Portfolio = ({ item }) => {
   const article = item.frontmatter
@@ -11,9 +12,9 @@ const Portfolio = ({ item }) => {
     <article className="portfolio">
       <h2>{article.title}</h2>
       <h3>{article.subtitle}</h3>
-      <a href={meta.slug} className="btn btn-primary">
+      <Link to={meta.slug} className="btn btn-primary">
         Show more
-      </a>
+      </Link>
       <img src={article.image.childImageSharp.fluid.src} alt={article.title} />
     </article>
   )

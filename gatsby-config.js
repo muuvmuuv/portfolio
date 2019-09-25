@@ -1,17 +1,19 @@
 const { yellow } = require('kleur')
+const { activeEnv } = require('./gatsby/utils')
+const metadata = require('./metadata')
+const { parsed } = require('dotenv').config()
 
-const activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development'
-const isDev = activeEnv === 'development'
+console.log(`Using environment: ${yellow(activeEnv)}\n`)
 
-console.log(`Using environment config: ${yellow(activeEnv)}\n`)
+const siteMetadata = {
+  ...metadata,
+  ...{
+    siteUrl: parsed.SITE_URL,
+  },
+}
 
 module.exports = {
-  siteMetadata: {
-    title: `Marvin/Digital`,
-    author: `muuvmuuv`,
-    description: `Projects Marvin Heilemann has been working on now and in the past.`,
-  },
+  siteMetadata,
   plugins: [
     'gatsby-plugin-layout',
     `gatsby-plugin-react-helmet`,
@@ -41,8 +43,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `portfolio`,
-        path: `${__dirname}/content/portfolio`,
+        name: `projects`,
+        path: `${__dirname}/content/projects`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `writings`,
+        path: `${__dirname}/content/writings`,
       },
     },
     {

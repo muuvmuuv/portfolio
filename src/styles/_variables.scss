@@ -12,24 +12,19 @@ $container-max-widths: (
   xl: 1140px,
 );
 
-$images-path: '';
-
-$font-path: '/fonts';
-$font-display: swap;
-$font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-  Roboto, Arial, 'Segoe UI', 'Noto Sans', sans-serif;
-$font-family-serif: 'Abril Fatface', sans-serif;
+$font-path: '/fonts' !default;
+$font-display: swap !default;
 
 $color-primary: #00e2a1;
 $color-dark: #1f242e;
 
 :root {
-  --breakpoint-offset: 100px;
   --container-padding-x: var(--spacing-lg);
   --content-margin: var(--spacing-xl);
 
-  --font-sans: #{$font-family-sans};
-  --font-serif: #{$font-family-serif};
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    Roboto, Arial, 'Segoe UI', 'Noto Sans', sans-serif;
+  --font-serif: 'Abril Fatface', -webkit-pictograph, serif;
   --font-mono: 'IBM Plex Mono', 'mononoki', Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
   --font-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
@@ -97,7 +92,8 @@ $color-dark: #1f242e;
   --color-green: #38fc73;
   --color-green-20: #{rgba(#38fc73, 0.2)};
 
-  --transition-fast: all 0.2s ease;
+  --transition-fast: all 0.2s cubic-bezier(0.57, 0.39, 0.39, 0.57);
+  --transition-slow: all 0.4s cubic-bezier(0.57, 0.39, 0.39, 0.57);
 
   --border-radius-sm: 0.2rem;
   --border-radius: 0.3rem;

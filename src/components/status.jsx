@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { capitalizeString } from '../utils/transform'
 
 const Status = ({ state }) => {

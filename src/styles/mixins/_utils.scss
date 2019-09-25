@@ -1,0 +1,7 @@
+@function negative($val) {
+  @return calc(#{$val} * -1);
+}
+
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}

@@ -1,0 +1,25 @@
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+@mixin reducedMotion() {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-transparency
+@mixin reducedTransparency() {
+  @media (prefers-reduced-transparency: reduce) {
+    @content;
+  }
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+@mixin themeDark() {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+@mixin themeLight() {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}

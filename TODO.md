@@ -1,3 +1,10 @@
+- [x] add eslint
+- [x] use Gatsby Link component
+- [x] put null/false/true into own component
+- [x] this fonts must be loaded in order
+  - Sync: Abril Fatface
+  - Sync: IBM Plex Mono
+  - Async: Inter
 - [ ] add md table of contents
 - [ ] add NOW deployment
 - [ ] add bundle analyzer

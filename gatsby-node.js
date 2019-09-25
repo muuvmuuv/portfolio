@@ -1,67 +1,9 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { bgYellow } = require('kleur')
+const { slugify } = require('./gatsby/utils')
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-
-  const query = graphql(`
-    {
-      allMarkdownRemark(
-        filter: { fields: { slug: { ne: null } } }
-        sort: { fields: [fields___started, fields___ended], order: ASC }
-      ) {
-        edges {
-          node {
-            frontmatter {
-              published
-            }
-            fields {
-              slug
-              started
-              ended
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  return query.then(({ data: { allMarkdownRemark }, errors }) => {
-    if (errors || !allMarkdownRemark) {
-      return Promise.reject(errors)
-    }
-
-    allMarkdownRemark.edges.forEach(({ node }) => {
-      console.log()
-      console.log('Creating page for...')
-      console.log(node.fields.slug)
-      console.log(node.fields)
-      console.log(node.frontmatter)
-      console.log()
-
-      if (!node.frontmatter.published) {
-        console.log(
-          bgYellow().black('This page is not published:'),
-          node.fields.slug
-        )
-        return
-      }
-
-      return createPage({
-        path: node.fields.slug,
-        component: path.resolve('./src/templates/PortfolioSingle.jsx'),
-        context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
-          slug: node.fields.slug,
-        },
-      })
-    })
-  })
-}
-
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === 'MarkdownRemark') {
@@ -75,16 +17,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node.frontmatter
     )
 
-    const slug = createFilePath({ node, getNode })
     const fileNode = getNode(node.parent)
     const source = fileNode.sourceInstanceName
 
-    console.log(node.frontmatter)
+    let slug = createFilePath({ node, getNode })
+    slug = slugify(slug)
 
     createNodeField({
       node,
       name: 'slug',
-      value: slug,
+      value: `/${source}/${slug}`,
     })
     createNodeField({
       node,
@@ -102,4 +44,61 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: node.frontmatter.ended,
     })
   }
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  const result = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: { fields: { slug: { ne: null } } }
+        sort: { fields: [fields___started, fields___ended], order: ASC }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              published
+            }
+            fields {
+              slug
+              source
+              started
+              ended
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    console.log()
+    console.log(`(${node.fields.source}) Creating page...`)
+    console.log(JSON.stringify(node.fields, null, 2))
+    console.log(JSON.stringify(node.frontmatter, null, 2))
+    console.log()
+
+    if (!node.frontmatter.published) {
+      console.log(
+        bgYellow().black('This page is not published:'),
+        node.fields.slug
+      )
+      return
+    }
+
+    function capitalizeString(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1)
+    }
+
+    const templateName = capitalizeString(node.fields.source)
+
+    return createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/${templateName}Single.jsx`),
+      context: {
+        slug: node.fields.slug,
+      },
+    })
+  })
 }
