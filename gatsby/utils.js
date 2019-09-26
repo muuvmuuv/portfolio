@@ -8,54 +8,37 @@ const slugify = (text, separator) => {
     .toString()
     .toLowerCase()
     .trim()
-
-  const sets = [
-    { to: 'a', from: '[ÀÁÂÃÄÅÆĀĂĄẠẢẤẦẨẪẬẮẰẲẴẶ]' },
-    { to: 'c', from: '[ÇĆĈČ]' },
-    { to: 'd', from: '[ÐĎĐÞ]' },
-    { to: 'e', from: '[ÈÉÊËĒĔĖĘĚẸẺẼẾỀỂỄỆ]' },
-    { to: 'g', from: '[ĜĞĢǴ]' },
-    { to: 'h', from: '[ĤḦ]' },
-    { to: 'i', from: '[ÌÍÎÏĨĪĮİỈỊ]' },
-    { to: 'j', from: '[Ĵ]' },
-    { to: 'ij', from: '[Ĳ]' },
-    { to: 'k', from: '[Ķ]' },
-    { to: 'l', from: '[ĹĻĽŁ]' },
-    { to: 'm', from: '[Ḿ]' },
-    { to: 'n', from: '[ÑŃŅŇ]' },
-    { to: 'o', from: '[ÒÓÔÕÖØŌŎŐỌỎỐỒỔỖỘỚỜỞỠỢǪǬƠ]' },
-    { to: 'oe', from: '[Œ]' },
-    { to: 'p', from: '[ṕ]' },
-    { to: 'r', from: '[ŔŖŘ]' },
-    { to: 's', from: '[ßŚŜŞŠ]' },
-    { to: 't', from: '[ŢŤ]' },
-    { to: 'u', from: '[ÙÚÛÜŨŪŬŮŰŲỤỦỨỪỬỮỰƯ]' },
-    { to: 'w', from: '[ẂŴẀẄ]' },
-    { to: 'x', from: '[ẍ]' },
-    { to: 'y', from: '[ÝŶŸỲỴỶỸ]' },
-    { to: 'z', from: '[ŹŻŽ]' },
-    { to: '-', from: "[·/_,:;']" },
-  ]
-
-  sets.forEach(set => {
-    text = text.replace(new RegExp(set.from, 'gi'), set.to)
-  })
-
-  text = text
-    .toString()
-    .toLowerCase()
     .replace(/\s+/g, '-') // Replace spaces with -
     .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w\-]+/g, '') // Remove all non-word chars
-    .replace(/\--+/g, '-') // Replace multiple - with single -
+    .replace(/[^\w-]+/g, '') // Remove all non-word chars
+    .replace(/-+/g, '-') // Replace multiple - with single -
     .replace(/^-+/, '') // Trim - from start of text
     .replace(/-+$/, '') // Trim - from end of text
+    .replace(/[·/_,:;']/g, '-') // Replace unwanted characters with -
 
-  if (typeof separator !== 'undefined' && separator !== '-') {
+  if (separator && separator !== '-') {
     text = text.replace(/-/g, separator)
   }
 
   return text
 }
 
-module.exports = { activeEnv, isDev, isProd, slugify }
+const consoleImage = (src, scale = 50) => {
+  const img = new Image()
+
+  img.onload = function() {
+    const width = Math.floor((this.width / 100) * scale)
+    const height = Math.floor((this.height / 100) * scale)
+    const style = `
+      font-size: 1px;
+      padding: ${height}px ${width}px;
+      background: url(${src}) no-repeat;
+      background-size: contain;
+    `
+    console.log('%c ', style)
+  }
+
+  img.src = src
+}
+
+module.exports = { activeEnv, isDev, isProd, slugify, consoleImage }

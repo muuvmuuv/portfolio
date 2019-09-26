@@ -1,5 +1,5 @@
 const pkg = require('./package.json')
-const { isProd } = require('./gatsby/utils')
+const { isProd, isDev, consoleImage } = require('./gatsby/utils')
 const dayjs = require('dayjs')
 const UTC = require('dayjs/plugin/utc')
 const LocalizedFormat = require('dayjs/plugin/localizedFormat')
@@ -20,7 +20,7 @@ function setDefaultTime() {
   dayjs.extend(UTC)
   dayjs.locale('en')
 
-  if (window.isDev) {
+  if (isDev) {
     console.log('Preferred language:', window.navigator.language)
   }
 }
@@ -71,4 +71,5 @@ https://github.com/muuvmuuv/portfolio 🔒
     styleBold,
     styleShared
   )
+  consoleImage(`${window.location.origin}/me.gif`)
 }
