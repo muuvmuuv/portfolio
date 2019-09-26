@@ -9,8 +9,9 @@
   grid-template-columns: auto auto;
   align-items: center;
   justify-content: space-between;
-  user-select: none;
   transition: var(--transition-fast);
+  user-select: none;
+  pointer-events: none;
 
   &.sticky {
     padding: var(--spacing-md) var(--container-padding-x);
@@ -19,11 +20,13 @@
   }
 
   #logo {
+    pointer-events: auto;
     grid-area: logo;
     width: 40px;
   }
 
   #nav {
+    pointer-events: auto;
     grid-area: nav;
   }
 }

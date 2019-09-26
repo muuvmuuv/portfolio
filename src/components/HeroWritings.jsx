@@ -4,7 +4,7 @@ import Time from './Time'
 
 const HeroWritings = ({ img, title, time }) => (
   <div id="hero">
-    <Backdrop src={img.image.childImageSharp.fluid.src}></Backdrop>
+    <Backdrop img={img.image.childImageSharp.fluid}></Backdrop>
 
     <div className="container">
       <div className="post-title">

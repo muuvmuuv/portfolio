@@ -5,9 +5,11 @@
   - Sync: Abril Fatface
   - Sync: IBM Plex Mono
   - Async: Inter
+- [ ] add custom slug to all pages
 - [ ] add md table of contents
 - [ ] add NOW deployment
 - [ ] add bundle analyzer
 - [ ] analyze via bundlephobia
 - [ ] add github bots to auto update dependecies
+- [ ] add lighthouse from M8FINDER project
 - [ ] add tests?!

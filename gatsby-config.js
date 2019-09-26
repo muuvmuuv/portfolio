@@ -1,6 +1,7 @@
 const { yellow } = require('kleur')
-const { activeEnv } = require('./gatsby/utils')
+const { activeEnv, isDev } = require('./gatsby/utils')
 const metadata = require('./metadata')
+const pkg = require('./package.json')
 const { parsed } = require('dotenv').config()
 
 console.log(`Using environment: ${yellow(activeEnv)}\n`)
@@ -24,10 +25,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    `gatsby-plugin-postcss`,
     {
       resolve: 'gatsby-plugin-purgecss',
       options: {
-        ignore: ['src/styles'],
+        // ignore: ['src/styles'],
       },
     },
     'gatsby-transformer-json',
@@ -57,6 +59,10 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        excerpt_separator: `<!-- EXCERPT -->`,
+        tableOfContents: {
+          maxDepth: 3,
+        },
         commonmark: false,
         footnotes: true,
         pedantic: true,
@@ -95,6 +101,25 @@ module.exports = {
         theme_color: '#00e2a1',
         display: 'browser',
         icon: './static/favicon.svg',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+      options: {
+        analyzerMode: 'static',
+        reportFilename: `./reports/v${pkg.version.replace(
+          /\.(?:.(?!\.))+$/, // remove path number including dot
+          '.0' // add zero path number including dot
+        )}/treemap.html`,
+        openAnalyzer: false,
+        logLevel: 'error',
+        defaultSizes: 'parsed',
+        production: !isDev,
+        // TODO: exclude react stuff
+        excludeAssets: /node_modules|react/,
+        statsOptions: {
+          exclude: /node_modules/,
+        },
       },
     },
   ],

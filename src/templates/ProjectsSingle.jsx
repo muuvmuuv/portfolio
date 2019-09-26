@@ -8,7 +8,7 @@ import { scrollTo } from '../utils/animate'
 import { prefersReducedMotion } from '../utils/accessibility'
 import { isDev } from '../environment'
 
-class PortfolioSingle extends React.Component {
+class Single extends React.Component {
   refs = []
 
   componentDidMount() {
@@ -66,15 +66,16 @@ class PortfolioSingle extends React.Component {
     return (
       <>
         <Helmet
-          bodyAttributes={{ page: 'projects', class: 'header-fixed' }}
-        ></Helmet>
+          bodyAttributes={{ page: 'projects', class: 'single header-fixed' }}
+        />
         <SEO
           title={frontmatter.title}
           description={frontmatter.subtitle}
           {...attr}
-        ></SEO>
+        />
 
         <HeroProjects item={frontmatter} />
+
         <article
           id="article"
           className="container"
@@ -98,7 +99,7 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             fluid(maxWidth: 1600) {
-              src
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -134,4 +135,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default PortfolioSingle
+export default Single

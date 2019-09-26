@@ -9,7 +9,7 @@ import DataType from './DataType'
 const HeroProjects = ({ item }) => (
   <div id="hero">
     <Backdrop
-      src={item.image.childImageSharp.fluid.src}
+      img={item.image.childImageSharp.fluid}
       alt={item.title}
     ></Backdrop>
 

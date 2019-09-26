@@ -1,6 +1,7 @@
 import React from 'react'
 import dayjs from 'dayjs'
 
+import { isDev } from '../environment'
 import DataType from './DataType'
 
 const Time = ({ date, format = 'L' }) => {
@@ -9,7 +10,9 @@ const Time = ({ date, format = 'L' }) => {
   }
 
   date = new Date(date)
-  console.log(date)
+  if (isDev) {
+    console.log(date)
+  }
   const niceDate = dayjs(date).format(format)
   const dateTime = dayjs(date).format()
 

@@ -1,23 +1,19 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-
 import { ContextConsumer } from '../context'
+import SEO from '../components/SEO'
 
-const PageError = props => (
+const Page = () => (
   <ContextConsumer>
-    {({ data, set }) => {
-      console.log(data)
-      console.log(props)
+    {({ data, set }) => (
+      <>
+        <SEO title="ERROR" />
+        <Helmet bodyAttributes={{ page: 'error' }} />
 
-      return (
-        <>
-          <Helmet bodyAttributes={{ page: 'error' }}></Helmet>
-
-          <h1>ERROR</h1>
-        </>
-      )
-    }}
+        <h1>ERROR</h1>
+      </>
+    )}
   </ContextConsumer>
 )
 
-export default PageError
+export default Page

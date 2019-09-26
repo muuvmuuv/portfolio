@@ -5,9 +5,10 @@ import { ContextConsumer } from '../context'
 import SEO from '../components/SEO'
 
 import Portfolio from '../components/Portfolio'
+import { isDev } from '../environment'
 
 const Page = () => {
-  const data = useStaticQuery(graphql`
+  const results = useStaticQuery(graphql`
     query DevelopmentQuery {
       allMarkdownRemark(filter: { fields: { source: { eq: "projects" } } }) {
         edges {
@@ -18,14 +19,14 @@ const Page = () => {
               image {
                 childImageSharp {
                   fluid(maxWidth: 1600) {
-                    src
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
               thumb {
                 childImageSharp {
                   fluid(maxWidth: 300) {
-                    src
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
@@ -39,16 +40,20 @@ const Page = () => {
     }
   `)
 
-  const items = data.allMarkdownRemark.edges
+  const items = results.allMarkdownRemark.edges
+
+  if (isDev) {
+    console.log(items)
+  }
 
   return (
     <ContextConsumer>
       {({ data, set }) => (
         <>
-          <SEO title="Development"></SEO>
+          <SEO title="Development" />
           <Helmet
-            bodyAttributes={{ page: 'development', class: 'header-fixed' }}
-          ></Helmet>
+            bodyAttributes={{ page: 'projects', class: 'home header-fixed' }}
+          />
 
           <div className="gallery">
             {items.map((item, index) => (

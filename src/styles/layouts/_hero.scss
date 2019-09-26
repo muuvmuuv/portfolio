@@ -4,11 +4,20 @@
 
   .backdrop {
     &::after {
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(31, 36, 46, 0.9) 60%,
-        #1f242e 75%
+      // https://github.com/w3c/csswg-drafts/issues/1332
+      // https://github.com/larsenwork/postcss-easing-gradients
+      background: transparent;
+      background-image: linear-gradient(
+        to top,
+        var(--color-dark),
+        cubic-bezier(0.61, 0, 0.23, 0.91),
+        transparent
+      );
+      background-image: linear-gradient(
+        to top,
+        hsla(330, 100%, 45%, 1),
+        cubic-bezier(0.2, 0, 0.23, 0.91),
+        hsla(210, 100%, 45%, 0.4)
       );
     }
   }

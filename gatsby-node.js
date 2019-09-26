@@ -33,16 +33,6 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
       name: 'source',
       value: source,
     })
-    createNodeField({
-      node,
-      name: 'started',
-      value: node.frontmatter.started,
-    })
-    createNodeField({
-      node,
-      name: 'ended',
-      value: node.frontmatter.ended,
-    })
   }
 }
 
@@ -51,10 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      allMarkdownRemark(
-        filter: { fields: { slug: { ne: null } } }
-        sort: { fields: [fields___started, fields___ended], order: ASC }
-      ) {
+      allMarkdownRemark(filter: { fields: { slug: { ne: null } } }) {
         edges {
           node {
             frontmatter {
@@ -63,8 +50,6 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
               source
-              started
-              ended
             }
           }
         }

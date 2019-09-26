@@ -1,13 +1,16 @@
 import React from 'react'
+import Img from 'gatsby-image'
 
-const Backdrop = ({ src }) => {
-  if (!src) {
-    return <div className="backdrop">No image src</div>
-  }
-
+const Backdrop = ({ img, alt }) => {
   return (
     <div className="backdrop">
-      <div className="img" style={{ backgroundImage: `url(${src})` }}></div>
+      <Img
+        className="img"
+        fluid={img}
+        objectFit="cover"
+        objectPosition="center top"
+        alt={alt}
+      />
     </div>
   )
 }

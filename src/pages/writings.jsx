@@ -3,11 +3,18 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import { ContextConsumer } from '../context'
 import SEO from '../components/SEO'
+import { isDev } from '../environment'
 
 const Page = () => {
-  const data = useStaticQuery(graphql`
+  const results = useStaticQuery(graphql`
     query WritingsQuery {
-      allMarkdownRemark(filter: { fields: { source: { eq: "writings" } } }) {
+      allMarkdownRemark(
+        filter: { fields: { source: { eq: "writings" } } }
+        sort: {
+          fields: [frontmatter___created, frontmatter___modified]
+          order: DESC
+        }
+      ) {
         edges {
           node {
             frontmatter {
@@ -16,29 +23,36 @@ const Page = () => {
             fields {
               slug
             }
+            excerpt
           }
         }
       }
     }
   `)
 
-  const items = data.allMarkdownRemark.edges
+  const items = results.allMarkdownRemark.edges
 
-  console.log(items)
+  if (isDev) {
+    console.log(items)
+  }
 
   return (
     <ContextConsumer>
       {({ data, set }) => (
         <>
-          <SEO title="Writings"></SEO>
-          <Helmet bodyAttributes={{ page: 'writings' }}></Helmet>
+          <SEO title="Writings" />
+          <Helmet bodyAttributes={{ page: 'writings', class: 'home' }} />
 
-          <div className="list">
-            {items.map((item, index) => (
-              <Link key={index} to={item.node.fields.slug}>
-                {item.node.frontmatter.title}
-              </Link>
-            ))}
+          <div className="container container--medium">
+            <div className="list">
+              {items.map((item, index) => (
+                <Link key={index} to={item.node.fields.slug}>
+                  {item.node.frontmatter.title}
+
+                  <p>{item.node.excerpt}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </>
       )}

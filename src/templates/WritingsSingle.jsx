@@ -6,9 +6,16 @@ import SEO from '../components/SEO'
 import { isDev } from '../environment'
 import HeroWritings from '../components/HeroWritings'
 
-class PortfolioSingle extends React.Component {
+import './test.css'
+
+class Single extends React.Component {
   render() {
-    const { frontmatter, html } = this.props.data.markdownRemark
+    const {
+      frontmatter,
+      html,
+      excerpt,
+      tableOfContents,
+    } = this.props.data.markdownRemark
 
     if (isDev) {
       console.log(frontmatter)
@@ -29,10 +36,12 @@ class PortfolioSingle extends React.Component {
 
     return (
       <>
-        <Helmet bodyAttributes={{ page: 'writings', class: 'header-fixed' }} />
+        <Helmet
+          bodyAttributes={{ page: 'writings', class: 'single header-fixed' }}
+        />
         <SEO
           title={frontmatter.title}
-          description={frontmatter.description}
+          description={frontmatter.description || excerpt}
           {...attr}
         />
 
@@ -41,6 +50,7 @@ class PortfolioSingle extends React.Component {
           img={frontmatter.header}
           time={frontmatter.created}
         />
+
         <article
           id="article"
           className="container container--small"
@@ -48,6 +58,11 @@ class PortfolioSingle extends React.Component {
             __html: html || fallbackContent,
           }}
         />
+
+        <div
+          className="toc"
+          dangerouslySetInnerHTML={{ __html: tableOfContents }}
+        ></div>
       </>
     )
   }
@@ -66,7 +81,7 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 1600) {
-                src
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -81,8 +96,10 @@ export const pageQuery = graphql`
         slug
       }
       html
+      excerpt
+      tableOfContents
     }
   }
 `
 
-export default PortfolioSingle
+export default Single

@@ -1,35 +1,32 @@
 .backdrop {
   position: absolute;
   z-index: -1;
-  top: -2%;
-  left: -2%;
-  width: 104%;
-  height: 104%;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  user-select: none;
+  pointer-events: none;
 
   .img {
     transition: var(--transition-fast);
-    filter: blur(2px);
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    will-change: filter;
+    will-change: transform;
   }
 
   &::after {
     content: '';
     position: absolute;
     z-index: 1;
-    top: -1%;
-    left: -1%;
-    width: 102%;
-    height: 102%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: var(--color-dark-80);
+    transition: var(--transition-fast);
+    backdrop-filter: blur(4px);
+    will-change: backdrop-filter;
   }
 }

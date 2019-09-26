@@ -1,8 +1,17 @@
 [page='writings'] {
-  #hero {
-    .container {
-      display: block;
-      text-align: center;
+  &.home {
+    main {
+      margin-top: var(--spacing-xxl);
+      padding: var(--spacing-xxl) 0;
+    }
+  }
+
+  &.single {
+    #hero {
+      .container {
+        display: block;
+        text-align: center;
+      }
     }
   }
 }

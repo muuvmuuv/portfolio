@@ -1,0 +1,29 @@
+version: "3.7"
+
+#
+# [ services ]
+#
+services:
+  nginx:
+    image: marvin:nginx
+    build:
+      context: ./docker/nginx
+      args:
+        - version=1.17.4
+    container_name: marvin-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - type: bind
+        consistency: cached
+        source: ./public
+        target: /var/www
+        volume:
+          nocopy: true
+      # - type: bind
+      #   source: ./docker/nginx/conf.d/
+      #   target: /etc/nginx/conf.d/
+      # - type: bind
+      #   source: ./docker/nginx/certs/
+      #   target: /etc/nginx/ssl/
