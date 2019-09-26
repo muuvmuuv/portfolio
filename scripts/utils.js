@@ -16,13 +16,13 @@ const slugify = (text, separator) => {
     .toString()
     .toLowerCase()
     .trim()
+    .replace(/[·/_,:;']/g, '-') // Replace unwanted characters with -
     .replace(/\s+/g, '-') // Replace spaces with -
     .replace(/&/g, '-and-') // Replace & with 'and'
     .replace(/[^\w-]+/g, '') // Remove all non-word chars
     .replace(/-+/g, '-') // Replace multiple - with single -
     .replace(/^-+/, '') // Trim - from start of text
     .replace(/-+$/, '') // Trim - from end of text
-    .replace(/[·/_,:;']/g, '-') // Replace unwanted characters with -
 
   if (separator && separator !== '-') {
     text = text.replace(/-/g, separator)
