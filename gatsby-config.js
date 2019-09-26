@@ -1,7 +1,7 @@
+const path = require('path')
 const { yellow } = require('kleur')
-const { activeEnv, isDev } = require('./gatsby/utils')
+const { activeEnv, isDev, getPkgVersion } = require('./scripts/utils')
 const metadata = require('./metadata')
-const pkg = require('./package.json')
 const { parsed } = require('dotenv').config()
 
 console.log(`Using environment: ${yellow(activeEnv)}\n`)
@@ -107,19 +107,13 @@ module.exports = {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
         analyzerMode: 'static',
-        reportFilename: `./reports/v${pkg.version.replace(
-          /\.(?:.(?!\.))+$/, // remove path number including dot
-          '.0' // add zero path number including dot
-        )}/treemap.html`,
+        reportFilename: path.resolve(
+          __dirname,
+          `reports/v${getPkgVersion()}/treemap.html`
+        ),
         openAnalyzer: false,
-        logLevel: 'error',
-        defaultSizes: 'parsed',
-        production: !isDev,
-        // TODO: exclude react stuff
-        excludeAssets: /node_modules|react/,
-        statsOptions: {
-          exclude: /node_modules/,
-        },
+        production: true,
+        disabled: isDev,
       },
     },
   ],

@@ -5,7 +5,6 @@ export default function HTML(props) {
     <html>
       <head>
         <meta charSet="utf-8" />
-        <meta name="generator" content="GatsbyJS" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
           name="viewport"

@@ -1,7 +1,7 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { bgYellow } = require('kleur')
-const { slugify } = require('./gatsby/utils')
+const { slugify } = require('./scripts/utils')
 
 exports.onCreateNode = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions

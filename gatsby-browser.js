@@ -1,5 +1,9 @@
-const pkg = require('./package.json')
-const { isProd, isDev, consoleImage } = require('./gatsby/utils')
+const {
+  isProd,
+  isDev,
+  consoleImage,
+  getPkgVersion,
+} = require('./scripts/utils')
 const dayjs = require('dayjs')
 const UTC = require('dayjs/plugin/utc')
 const LocalizedFormat = require('dayjs/plugin/localizedFormat')
@@ -59,7 +63,7 @@ function printCorporateMessage() {
     border-bottom-right-radius: 3px;
   `
 
-  console.log(`%cMarvin/Design%cv${pkg.version}`, styleName, styleVersion)
+  console.log(`%cMarvin/Design%cv${getPkgVersion()}`, styleName, styleVersion)
   console.log(
     `%c
 Welcome fellow %cdeveloper%c!  🎉
