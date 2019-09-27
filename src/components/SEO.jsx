@@ -19,10 +19,10 @@ const SEO = ({
 
       // set default social-media images
       if (!ogImage) {
-        ogImage = `${data.site.siteMetadata.siteUrl}/og-image.png`
+        ogImage = `${data.site.siteMetadata.siteUrl}/og-image.jpg`
       }
       if (!twitterCard) {
-        twitterCard = `${data.site.siteMetadata.siteUrl}/twitter-card.png`
+        twitterCard = `${data.site.siteMetadata.siteUrl}/twitter-card.jpg`
       }
 
       return (

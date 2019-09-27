@@ -7,7 +7,7 @@
 const path = require('path')
 const { yellow } = require('kleur')
 const { getPkgVersion, getSiteMetadata } = require('./gatsby/utils')
-const { activeEnv, isDev } = require('./gatsby/environment')
+const { activeEnv } = require('./gatsby/environment')
 
 console.log(`Using environment: ${yellow(activeEnv)}\n`)
 
@@ -144,8 +144,6 @@ module.exports = {
           `reports/v${getPkgVersion()}/treemap.html`
         ),
         openAnalyzer: false,
-        production: true,
-        disabled: isDev,
       },
     },
   ],

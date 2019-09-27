@@ -1,6 +1,6 @@
 {
   "name": "marvin-digital",
-  "version": "3.1.0",
+  "version": "3.0.0",
   "private": true,
   "description": "Portfolio of Marvin Heilemann (@muuvmuuv)",
   "repository": {
@@ -12,16 +12,16 @@
     "start": "npm run develop",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
+    "clean": "del-cli ./public/** ./.cache",
     "build": "gatsby build",
     "rebuild": "run-s clean build",
     "compose": "npm run build && make up",
     "−−−−−−−−−−−−−−−−  AUDITS/ANALYTICS  −−−−−−−−−−−−−−−−–": "",
     "audit": "run-s build lighthouse audit-open",
     "audit-open": "run-p audit:*",
-    "audit:report-mobile": "open ./reports/v$(echo ${npm_package_version} | sed 's/\\(.*\\)\\.[0-9]/\\1/').0/lhr.mobile.html",
-    "audit:report-desktop": "open ./reports/v$(echo ${npm_package_version} | sed 's/\\(.*\\)\\.[0-9]/\\1/').0/lhr.desktop.html",
-    "audit:treemap": "open ./reports/v$(echo ${npm_package_version} | sed 's/\\(.*\\)\\.[0-9]/\\1/').0/treemap.html",
+    "audit:report-mobile": "sh ./scripts/open.sh lhr.mobile.html",
+    "audit:report-desktop": "sh ./scripts/open.sh lhr.desktop.html",
+    "audit:treemap": "sh ./scripts/open.sh treemap.html",
     "lighthouse": "node ./scripts/lighthouse.js",
     "−−−−−−−−−−−−−−−−−−−  LINT/TEST  −−−−−−−−−−−−−−−−−−−−–": "",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
@@ -66,6 +66,7 @@
     "react-helmet-async": "^1.0.3"
   },
   "devDependencies": {
+    "del-cli": "^3.0.0",
     "eslint": "^6.4.0",
     "eslint-config-react-app": "^5.0.2",
     "lighthouse": "^5.4.0",

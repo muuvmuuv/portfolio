@@ -38,7 +38,6 @@ async function createNewVersion() {
           value: 'custom',
         },
       ]),
-      initial: 1,
     },
     {
       type: prev => (prev === 'custom' ? 'text' : null),
@@ -88,6 +87,21 @@ function writeVersion(version) {
   })
 }
 
+function createDirectoryTree(version) {
+  return new Promise(resolve => {
+    fs.mkdir(
+      path.resolve(__dirname, '../reports', `v${version}`),
+      { recursive: true },
+      err => {
+        if (err) {
+          throw new Error(err.message)
+        }
+        resolve()
+      }
+    )
+  })
+}
+
 createNewVersion().then(version => {
   pkg.version = version
 
@@ -96,5 +110,8 @@ createNewVersion().then(version => {
   })
   writeVersion(version).then(() => {
     console.log(green('Saved version as static file!'))
+  })
+  createDirectoryTree(version).then(() => {
+    console.log(green('Created directory tree!'))
   })
 })
