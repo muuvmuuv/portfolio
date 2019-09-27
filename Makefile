@@ -14,8 +14,17 @@ destroy:
 stop:
 	docker-compose stop
 
+start:
+	docker-compose start
+
+restart:
+	docker exec marvin-nginx /usr/share/nginx-reload.sh
+
 top:
 	docker-compose top nginx
+
+logs:
+	docker logs -f marvin-nginx
 
 intimg:
 	docker run -it --entrypoint bash nginx

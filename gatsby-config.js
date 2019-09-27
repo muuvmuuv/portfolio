@@ -1,20 +1,18 @@
+/**
+ * Gatsby's Config APIs
+ *
+ * @see https://www.gatsbyjs.org/docs/gatsby-config/
+ */
+
 const path = require('path')
 const { yellow } = require('kleur')
-const { activeEnv, isDev, getPkgVersion } = require('./scripts/utils')
-const metadata = require('./metadata')
-const { parsed } = require('dotenv').config()
+const { getPkgVersion, getSiteMetadata } = require('./gatsby/utils')
+const { activeEnv, isDev } = require('./gatsby/environment')
 
 console.log(`Using environment: ${yellow(activeEnv)}\n`)
 
-const siteMetadata = {
-  ...metadata,
-  ...{
-    siteUrl: parsed.SITE_URL,
-  },
-}
-
 module.exports = {
-  siteMetadata,
+  siteMetadata: getSiteMetadata(),
   plugins: [
     'gatsby-plugin-layout',
     `gatsby-plugin-react-helmet`,
@@ -72,7 +70,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 1200, // TODO: smaller max width, please
+              maxWidth: 1200,
               backgroundColor: 'transparent',
               linkImagesToOriginal: true,
               quality: 75,
@@ -101,6 +99,40 @@ module.exports = {
         theme_color: '#00e2a1',
         display: 'browser',
         icon: './static/favicon.svg',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-humans-txt`,
+      options: {
+        team: [
+          {
+            Developer: `Marvin Heilemann`,
+            GitHub: `muuvmuuv`,
+            Twitter: `@muuvmuuv`,
+          },
+        ],
+        thanks: [`Gatsby`, `Node`],
+        site: {
+          Standards: 'HTML5, SCSS, JSON, TXT, ES10',
+          Components: 'Normalize.css, Tailwindcss',
+          Softwares: 'VS Code, SublimeText, Brave',
+        },
+        note: `Made in the beautiful Frankfurt am Main 🏙`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [
+          {
+            userAgent: '*',
+            allow: '/',
+          },
+          {
+            userAgent: '*',
+            disallow: ['/me.gif', '/version.txt'],
+          },
+        ],
       },
     },
     {

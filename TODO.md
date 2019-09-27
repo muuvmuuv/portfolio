@@ -5,11 +5,23 @@
   - Sync: Abril Fatface
   - Sync: IBM Plex Mono
   - Async: Inter
+- [x] replace package.json with version.txt to reduce size
 - [ ] add custom slug to all pages
 - [ ] add md table of contents
+- [ ] test purgecss with classes from Markdown files
 - [ ] add NOW deployment
-- [ ] add bundle analyzer
-- [ ] analyze via bundlephobia
-- [ ] add github bots to auto update dependecies
-- [ ] add lighthouse from M8FINDER project
+- [x] add "increase version" by script
+- [x] add bundle analyzer
+- [x] analyze via bundlephobia
+- [ ] add github bots to auto update dependencies
+- [x] add lighthouse from M8FINDER project
+- [ ] add League of Legends API to show profile and stats
+- [ ] add classes to tags https://github.com/gatsbyjs/gatsby/issues/17824
+- [ ] Upload all writings
+  - [ ] Grammatical corrections
+  - [ ] Find images on Unsplash
+- [ ] Update current projects
+  - [ ] More text
+  - [ ] Update images
+- [ ] Upload some photos (best off's)
 - [ ] add tests?!

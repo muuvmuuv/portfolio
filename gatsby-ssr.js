@@ -1,5 +1,5 @@
 /**
- * Server Side Rendering (SSR)
+ * Gatsby's SSR (Server Side Rendering) APIs
  *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
+ * @see https://www.gatsbyjs.org/docs/ssr-apis/
  */

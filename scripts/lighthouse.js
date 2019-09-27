@@ -5,7 +5,7 @@ const { dim, green } = require('kleur')
 const taskz = require('taskz')
 const chromeLauncher = require('chrome-launcher')
 const lighthouse = require('lighthouse')
-const { getPkgVersion } = require('./utils')
+const { getPkgVersion } = require('../gatsby/utils')
 
 const pkgVersion = getPkgVersion()
 const BASE = path.resolve(__dirname, '..')

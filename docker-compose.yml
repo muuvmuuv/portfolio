@@ -22,8 +22,11 @@ services:
         volume:
           nocopy: true
       # - type: bind
-      #   source: ./docker/nginx/conf.d/
-      #   target: /etc/nginx/conf.d/
-      # - type: bind
       #   source: ./docker/nginx/certs/
       #   target: /etc/nginx/ssl/
+      # - type: bind
+      #   source: ./docker/nginx/components/
+      #   target: /etc/nginx/components/
+      # - type: bind
+      #   source: ./docker/nginx/conf.d/
+      #   target: /etc/nginx/conf.d/
