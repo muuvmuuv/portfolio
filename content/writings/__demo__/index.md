@@ -1,6 +1,7 @@
 ---
 title: Das ist, eine $" tolle Demo
 # description: Ein kleines süßes Gedicht
+slug: custom slug
 created: 09-23-2019
 modified: 07-12-2019
 

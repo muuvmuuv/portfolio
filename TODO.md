@@ -6,7 +6,7 @@
   - Sync: IBM Plex Mono
   - Async: Inter
 - [x] replace package.json with version.txt to reduce size
-- [ ] add custom slug to all pages
+- [x] add custom slug to all pages
 - [ ] add md table of contents
 - [ ] test purgecss with classes from Markdown files
 - [ ] add NOW deployment

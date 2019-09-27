@@ -18,7 +18,10 @@ module.exports = async ({ node, getNode, actions }) => {
     const fileNode = getNode(node.parent)
     const source = fileNode.sourceInstanceName
 
-    let slug = createFilePath({ node, getNode })
+    let slug = node.frontmatter.slug
+    if (!slug) {
+      slug = createFilePath({ node, getNode })
+    }
     slug = slugify(slug)
 
     createNodeField({
