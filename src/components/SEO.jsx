@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { StaticQuery, graphql } from 'gatsby'
 
 const SEO = ({
@@ -16,6 +16,8 @@ const SEO = ({
     query={detailsQuery}
     render={data => {
       const metaDescription = description || data.site.siteMetadata.description
+
+      console.log(data)
 
       // set default social-media images
       if (!ogImage) {
@@ -33,62 +35,32 @@ const SEO = ({
           title={title}
           defaultTitle={data.site.siteMetadata.title}
           titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-          meta={[
-            {
-              name: 'language',
-              content: lang,
-            },
-            {
-              name: 'description',
-              content: metaDescription,
-            },
-            {
-              property: 'og:title',
-              content: title,
-            },
-            {
-              property: 'og:description',
-              content: metaDescription,
-            },
-            {
-              property: 'og:type',
-              content: 'website',
-            },
-            {
-              property: 'og:image',
-              content: ogImage,
-            },
-            {
-              name: 'twitter:card',
-              content: 'summary_large_image',
-            },
-            {
-              name: 'twitter:creator',
-              content: `@${data.site.siteMetadata.author}`,
-            },
-            {
-              name: 'twitter:title',
-              content: title,
-            },
-            {
-              name: 'twitter:description',
-              content: metaDescription,
-            },
-            {
-              name: 'twitter:image',
-              content: twitterCard,
-            },
-          ]
-            .concat(
-              keywords && keywords.length > 0
-                ? {
-                    name: 'keywords',
-                    content: keywords.join(', '),
-                  }
-                : []
-            )
-            .concat(meta)}
-        />
+          meta={meta.concat(
+            keywords && keywords.length > 0
+              ? {
+                  name: 'keywords',
+                  content: keywords.join(', '),
+                }
+              : []
+          )}
+        >
+          <meta name="language" content={lang} />
+          <meta name="description" content={metaDescription} />
+
+          <meta name="og:title" content={title} />
+          <meta name="og:description" content={metaDescription} />
+          <meta name="og:type" content="website" />
+          <meta name="og:image" content={ogImage} />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:creator"
+            content={`@${data.site.siteMetadata.author}`}
+          />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={metaDescription} />
+          <meta name="twitter:image" content={twitterCard} />
+        </Helmet>
       )
     }}
   />

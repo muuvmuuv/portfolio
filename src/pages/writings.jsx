@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { ContextConsumer } from '../context'
 import SEO from '../components/SEO'
 import { isDev } from '../environment'

@@ -10,16 +10,17 @@
 - [ ] add md table of contents
 - [x] test purgecss with classes from Markdown files
 - [ ] add NOW deployment
-  - [ ] Setup Nameserver
+  - [x] Setup Nameserver
+    - [ ] Test
   - [ ] Everything pushed to master -> marvin.digital
   - [ ] Everything pushed to development -> dev.marvin.digital
   - [ ] Everything pushed to by hand -> dev.marvin.digital
 - [ ] ~~replace React with [Preact][1]~~
-- [ ] test react helmet async
+- [x] test react helmet async
 - [x] add "increase version" by script
 - [x] add bundle analyzer
 - [x] analyze via bundlephobia
-- [ ] add github bots to auto update dependencies
+- [x] add github bots to auto update dependencies
 - [x] add lighthouse from M8FINDER project
 - [ ] add League of Legends API to show profile and stats
 - [ ] add classes to tags https://github.com/gatsbyjs/gatsby/issues/17824

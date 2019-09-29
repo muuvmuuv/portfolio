@@ -44,6 +44,7 @@
     "dotenv": "^8.1.0",
     "gatsby": "^2.15.28",
     "gatsby-image": "^2.2.23",
+    "gatsby-plugin-canonical-urls": "^2.1.10",
     "gatsby-plugin-catch-links": "^2.1.12",
     "gatsby-plugin-humans-txt": "^1.1.4",
     "gatsby-plugin-layout": "^1.1.10",
@@ -51,7 +52,6 @@
     "gatsby-plugin-postcss": "^2.1.10",
     "gatsby-plugin-purgecss": "^4.0.1",
     "gatsby-plugin-react-helmet": "^3.1.10",
-    "gatsby-plugin-react-helmet-canonical-urls": "^1.2.0",
     "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sass": "^2.1.17",
     "gatsby-plugin-sharp": "^2.2.27",
@@ -69,7 +69,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "react-helmet": "^5.2.1",
     "react-helmet-async": "^1.0.3"
   },
   "devDependencies": {

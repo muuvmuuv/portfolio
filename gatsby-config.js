@@ -17,9 +17,10 @@ module.exports = {
     'gatsby-plugin-layout',
     `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-react-helmet-canonical-urls',
+      resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: process.env.GATSBY_SITE_URL,
+        siteUrl: process.env.SITE_URL,
+        stripQueryString: true,
       },
     },
     `gatsby-plugin-sass`,
