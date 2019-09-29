@@ -66,7 +66,7 @@ module.exports = {
         pedantic: true,
         gfm: true,
         plugins: [
-          // 'remark-p',
+          // 'remark-custom-classes',
           {
             resolve: 'gatsby-remark-images',
             options: {

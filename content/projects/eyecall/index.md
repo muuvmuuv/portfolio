@@ -4,8 +4,8 @@ subtitle: A new way to communicate with your customers
 image: eyecall-preview.png
 thumb: eyecall-preview.png
 
-started: 01-11-2016
-ended: 01-27-2017
+started: 2016-01-11
+ended: 2017-01-27
 
 status: outdated
 website: https://www.eyecall.de/

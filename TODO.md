@@ -8,8 +8,14 @@
 - [x] replace package.json with version.txt to reduce size
 - [x] add custom slug to all pages
 - [ ] add md table of contents
-- [ ] test purgecss with classes from Markdown files
+- [x] test purgecss with classes from Markdown files
 - [ ] add NOW deployment
+  - [ ] Setup Nameserver
+  - [ ] Everything pushed to master -> marvin.digital
+  - [ ] Everything pushed to development -> dev.marvin.digital
+  - [ ] Everything pushed to by hand -> dev.marvin.digital
+- [ ] ~~replace React with [Preact][1]~~
+- [ ] test react helmet async
 - [x] add "increase version" by script
 - [x] add bundle analyzer
 - [x] analyze via bundlephobia
@@ -24,4 +30,12 @@
   - [ ] More text
   - [ ] Update images
 - [ ] Upload some photos (best off's)
+- [ ] check all pages with screen reader
+- [ ] check all pages with reduced motion
+- [ ] check all pages with reduced transparenzy
 - [ ] add tests?!
+- [ ] move from bash script to [Nim][2]
+
+[1]:
+  https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-preact
+[2]: https://nim-lang.org/docs/tut1.html

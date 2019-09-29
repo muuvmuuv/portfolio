@@ -47,7 +47,7 @@ class Single extends React.Component {
 
     const homeUrl = this.props.location.origin
     if (frontmatter.thumb.facebook.resize.src) {
-      attr.ogImage = `ogImage=${homeUrl}${frontmatter.thumb.facebook.resize.src}`
+      attr.ogImage = `${homeUrl}${frontmatter.thumb.facebook.resize.src}`
     }
     if (frontmatter.thumb.twitter.resize.src) {
       attr.twitterCard = `${homeUrl}${frontmatter.thumb.twitter.resize.src}`

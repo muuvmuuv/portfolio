@@ -1,6 +1,6 @@
 ---
 title: Das ist, eine $" tolle Demo
-# description: Ein kleines süßes Gedicht
+description: Ein kleines süßes Gedicht
 slug: custom slug
 created: 09-23-2019
 modified: 07-12-2019
@@ -42,6 +42,53 @@ Bedeutung hat.
 Zeigt der Schmerz; Leidenschaft oder das Gefühl geborgen und entflohen zu sein.
 Die Gründe dieses schönen Gefühls, sind kein Schmerz, der nicht gerne ertragen
 wird, sondern Schmerz welcher schützt. Schützt vor Leidenschaft, welche Falsch
+gesprochen wird. Schützt vor Geborgenheit und dem Willen allem schlechten zu
+entfliehen. Sobald ich meine Augen wieder schließe, der Tag sein Ende und alle
+Wahrheit sein Gedanken nimmt, fällt die Nacht hinein. Die der man verfällt und
+die welche einem tiefe Wünsche und Gefühle wahr werden lässt. Nacht die einem
+alle Angst und den Schmerz nimmt Worte zu sagen. In der kein Mut benötigt wird
+und kein Herz einen aufhält eventuell das falsche zu tun. Manchmal ist der
+Stern, der so Hell erscheint auch der welcher am nächsten unerreichbar ist.
+
+## Some what
+
+Zeigt der Schmerz; Leidenschaft oder das Gefühl geborgen und entflohen zu sein.
+Die Gründe dieses schönen Gefühls, sind kein Schmerz, der nicht gerne ertragen
+wird, sondern Schmerz welcher schützt. Schützt vor Leidenschaft, welche Falsch
+gesprochen wird. Schützt vor Geborgenheit und dem Willen allem schlechten zu
+entfliehen. Sobald ich meine Augen wieder schließe, der Tag sein Ende und alle
+Wahrheit sein Gedanken nimmt, fällt die Nacht hinein. Die der man verfällt und
+die welche einem tiefe Wünsche und Gefühle wahr werden lässt. Nacht die einem
+alle Angst und den Schmerz nimmt Worte zu sagen. In der kein Mut benötigt wird
+und kein Herz einen aufhält eventuell das falsche zu tun. Manchmal ist der
+Stern, der so Hell erscheint auch der welcher am nächsten unerreichbar ist.
+
+Zeigt der Schmerz; Leidenschaft oder das Gefühl geborgen und entflohen zu sein.
+Die Gründe dieses schönen Gefühls, sind kein Schmerz, der nicht gerne ertragen
+wird, sondern Schmerz welcher schützt. Schützt vor Leidenschaft, welche Falsch
+gesprochen wird. Schützt vor Geborgenheit und dem Willen allem schlechten zu
+entfliehen. Sobald ich meine Augen wieder schließe, der Tag sein Ende und alle
+Wahrheit sein Gedanken nimmt, fällt die Nacht hinein. Die der man verfällt und
+die welche einem tiefe Wünsche und Gefühle wahr werden lässt. Nacht die einem
+alle Angst und den Schmerz nimmt Worte zu sagen. In der kein Mut benötigt wird
+und kein Herz einen aufhält eventuell das falsche zu tun. Manchmal ist der
+Stern, der so Hell erscheint auch der welcher am nächsten unerreichbar ist Zeigt
+der Schmerz; Leidenschaft oder das Gefühl geborgen und entflohen zu sein. Die
+Gründe dieses schönen Gefühls, sind kein Schmerz, der nicht gerne ertragen wird,
+sondern Schmerz welcher schützt. Schützt vor Leidenschaft, welche Falsch
+gesprochen wird. Schützt vor Geborgenheit und dem Willen allem schlechten zu
+entfliehen. Sobald ich meine Augen wieder schließe, der Tag sein Ende und alle
+Wahrheit sein Gedanken nimmt, fällt die Nacht hinein. Die der man verfällt und
+die welche einem tiefe Wünsche und Gefühle wahr werden lässt. Nacht die einem
+alle Angst und den Schmerz nimmt Worte zu sagen. In der kein Mut benötigt wird
+und kein Herz einen aufhält eventuell das falsche zu tun. Manchmal ist der
+Stern, der so Hell erscheint auch der welcher am nächsten unerreichbar ist.Zeigt
+der Schmerz; Leidenschaft oder das Gefühl geborgen und entflohen zu sein. Die
+Gründe dieses schönen Gefühls, sind kein Schmerz, der nicht gerne ertragen wird,
+sondern Schmerz welcher schützt. Schützt vor Leidenschaft, welche Falsch
+
+## Last
+
 gesprochen wird. Schützt vor Geborgenheit und dem Willen allem schlechten zu
 entfliehen. Sobald ich meine Augen wieder schließe, der Tag sein Ende und alle
 Wahrheit sein Gedanken nimmt, fällt die Nacht hinein. Die der man verfällt und

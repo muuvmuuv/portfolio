@@ -17,6 +17,7 @@ tags: [blog, website]
 categories: [website]
 ---
 
-Isabella Gensch is the best friend of Marvin and he is working on her website as often as he has time to push her career as a make up artist.
+Isabella Gensch is the best friend of Marvin and he is working on her website as
+often as he has time to push her career as a make up artist.
 
 ![Isabellagensch](isabella.png)

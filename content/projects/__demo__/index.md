@@ -5,8 +5,8 @@ image: img-01.jpg
 thumb: img-02.jpg
 published: true
 
-started: 09-23-2019
-ended: 09-28-2019
+started: 2019-09-23
+ended: 2019-10-02
 
 status: wip
 website: https://marvin.digital/

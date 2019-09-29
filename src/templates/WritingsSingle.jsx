@@ -5,7 +5,9 @@ import Helmet from 'react-helmet'
 import SEO from '../components/SEO'
 import { isDev } from '../environment'
 import HeroWritings from '../components/HeroWritings'
+import Article from '../layouts/Article'
 
+// TODO: still not working
 import './test.css'
 
 class Single extends React.Component {
@@ -28,12 +30,6 @@ class Single extends React.Component {
       attr.keywords = frontmatter.keywords
     }
 
-    const fallbackContent = (
-      <div className="container">
-        <h3>Sorry, more will come soon!</h3>
-      </div>
-    )
-
     return (
       <>
         <Helmet
@@ -51,18 +47,7 @@ class Single extends React.Component {
           time={frontmatter.created}
         />
 
-        <article
-          id="article"
-          className="container container--small"
-          dangerouslySetInnerHTML={{
-            __html: html || fallbackContent,
-          }}
-        />
-
-        <div
-          className="toc"
-          dangerouslySetInnerHTML={{ __html: tableOfContents }}
-        ></div>
+        <Article html={html} toc={tableOfContents} />
       </>
     )
   }

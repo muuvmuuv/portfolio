@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "public": false,
+  "name": "portfolio",
+  "scope": "muuvmuuv",
+  "regions": [
+    "bru1"
+  ],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "public"
+      }
+    }
+  ]
+}
