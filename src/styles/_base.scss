@@ -32,16 +32,6 @@ code {
   white-space: pre-wrap;
 }
 
-code {
-  background: var(--color-gray-300);
-  padding: 0 4px;
-  font-size: var(--text-sm);
-  height: 100%;
-  display: inline-block;
-  border-radius: var(--border-radius-sm);
-  margin: 0 1px;
-}
-
 hr {
   border-bottom: 1px solid var(--color-09);
   margin-bottom: var(--content-margin);
@@ -76,7 +66,6 @@ article {
   figure,
   table,
   blockquote,
-  code,
   p,
   ul,
   ol,
@@ -89,8 +78,14 @@ article {
     margin-bottom: var(--content-margin);
   }
 
+  h2 {
+    &:not(:first-of-type) {
+      padding-top: var(--spacing-xs); // margin does not work here
+    }
+  }
+
   p {
-    margin-top: -7px;
+    margin-top: -7px; // NOTE: typo fix
   }
 
   h1 {

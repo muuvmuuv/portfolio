@@ -1,0 +1,5 @@
+.gatsby-resp-image-link,
+.gatsby-resp-image-image {
+  transition: var(--transition-fast);
+  will-change: transform;
+}

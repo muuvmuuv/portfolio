@@ -1,5 +1,7 @@
 article {
   table {
+    display: flow-root;
+
     thead tr {
       border-bottom: 2px solid var(--color-09);
     }

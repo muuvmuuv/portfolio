@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 10;
   padding: var(--spacing-lg) var(--container-padding-x);
   display: grid;
   grid-template-areas: 'logo nav';

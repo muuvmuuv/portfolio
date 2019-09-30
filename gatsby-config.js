@@ -67,11 +67,10 @@ module.exports = {
         pedantic: true,
         gfm: true,
         plugins: [
-          // 'remark-custom-classes',
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 1200,
+              maxWidth: 1600,
               backgroundColor: 'transparent',
               linkImagesToOriginal: true,
               quality: 75,
@@ -83,6 +82,39 @@ module.exports = {
             resolve: 'gatsby-remark-emoji',
             options: {
               emojiConversion: 'shortnameToUnicode',
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+              prompt: {
+                user: 'root',
+                host: 'localhost',
+                global: false,
+              },
+            },
+          },
+          {
+            resolve: `remark-custom-classes`,
+            options: {
+              types: {
+                image: 'container',
+                heading: 'container container--small',
+                blockquote: 'container container--small',
+                // thematicBreak: 'container container--small',
+                list: 'container container--small',
+                table: 'container container--small',
+                footnoteDefinition: 'container container--small',
+                paragraph: 'container container--small',
+              },
+              tags: {
+                hr: 'container',
+              },
+              remark: {
+                images: 'container',
+                prismjs: 'container container--small',
+              },
             },
           },
         ],

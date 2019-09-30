@@ -7,6 +7,7 @@
   - Async: Inter
 - [x] replace package.json with version.txt to reduce size
 - [x] add custom slug to all pages
+- [ ] test `postcss-easing-gradients` with Scss loaded in `/src`
 - [ ] add md table of contents
 - [x] test purgecss with classes from Markdown files
 - [ ] add NOW deployment
@@ -33,7 +34,7 @@
 - [ ] Upload some photos (best off's)
 - [ ] check all pages with screen reader
 - [ ] check all pages with reduced motion
-- [ ] check all pages with reduced transparenzy
+- [ ] check all pages with reduced transparency
 - [ ] add tests?!
 - [ ] move from bash script to [Nim][2]
 

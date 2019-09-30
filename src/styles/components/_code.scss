@@ -1,0 +1,213 @@
+p code {
+  background: var(--color-08);
+  font-size: var(--text-sm);
+  margin: 0 2px;
+  padding: 2px 7px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-07);
+  color: var(--color-03);
+}
+
+.gatsby-highlight {
+  margin-bottom: var(--content-margin);
+}
+
+.gatsby-highlight-code-line {
+  background-color: var(--color-09);
+  display: block;
+  margin-left: calc(var(--text-sm) * -1 - 1px);
+  padding-left: var(--text-sm);
+  margin-right: negative(var(--spacing-sm));
+  padding-right: var(--spacing-sm);
+  border-left: 1px solid var(--color-primary);
+  position: relative;
+  z-index: 1;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  position: relative;
+  tab-size: 2;
+  hyphens: none;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: normal;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: #efd563;
+  line-height: 1.6;
+}
+
+pre > code[class*='language-'] {
+  font-size: 1em;
+}
+
+pre[class*='language-'],
+:not(pre) > code[class*='language-'] {
+  background: var(--color-dark);
+}
+
+pre[class*='language-'],
+:not(pre) > code[class*='language-'] {
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-08);
+  overflow: auto;
+}
+
+pre[class*='language-'] {
+  position: relative;
+}
+pre[class*='language-'] code {
+  white-space: pre;
+  display: block;
+}
+
+pre[class*='language-'].line-numbers {
+  padding-left: var(--spacing-xxl);
+  counter-reset: linenumber;
+}
+
+pre[class*='language-'].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+// ++++++++++ line numbers +++++++++++
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  border-right: 1px solid var(--color-08);
+  user-select: none;
+  height: 100%;
+  padding: var(--spacing-sm) 0;
+}
+
+.line-numbers-rows > span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: var(--color-07);
+  display: block;
+  padding: 0 var(--spacing-sm);
+  text-align: right;
+}
+
+// ++++++++++ command line prompt +++++++++++
+
+.command-line-prompt {
+  border-right: 1px solid var(--color-08);
+  display: block;
+  float: left;
+  font-size: 100%;
+  letter-spacing: -1px;
+  margin-right: 1em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.command-line-prompt > span:before {
+  color: #999;
+  content: ' ';
+  display: block;
+  padding-right: 0.8em;
+}
+
+.command-line-prompt > span[data-user]:before {
+  content: '[' attr(data-user) '@' attr(data-host) '] $';
+}
+
+.command-line-prompt > span[data-user='root']:before {
+  content: '[' attr(data-user) '@' attr(data-host) '] #';
+}
+
+.command-line-prompt > span[data-prompt]:before {
+  content: attr(data-prompt);
+}
+
+// ++++++++++ tokenization +++++++++++
+
+.token.namespace {
+  opacity: 0.7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6f705e;
+}
+.token.operator,
+.token.boolean,
+.token.number {
+  color: var(--color-05);
+}
+.token.function {
+  color: #1ab3da;
+}
+.token.attr-name,
+.token.string,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #78d888;
+}
+.token.selector,
+.token.inserted {
+  color: #a6e22d;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.token.important,
+.token.deleted {
+  color: #ff3b83;
+}
+.token.regex,
+.token.statement {
+  color: #76d9e6;
+}
+.token.placeholder,
+.token.variable {
+  color: var(--color-05);
+}
+.token.important,
+.token.statement,
+.token.bold {
+  font-weight: var(--font-bold);
+}
+.token.punctuation {
+  color: var(--color-05);
+}
+.token.entity {
+  cursor: help;
+}
+.token.italic {
+  font-style: italic;
+}
+
+code.language-markup {
+  color: #f9f9f9;
+}
+code.language-markup .token.tag {
+  color: #ef3b7d;
+}
+code.language-markup .token.attr-name {
+  color: #a6e22d;
+}
+code.language-markup .token.attr-value {
+  color: #e6d06c;
+}
+code.language-markup .token.style,
+code.language-markup .token.script {
+  color: #76d9e6;
+}
+code.language-markup .token.script .token.keyword {
+  color: #76d9e6;
+}

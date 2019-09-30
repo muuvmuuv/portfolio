@@ -2,22 +2,25 @@ import React from 'react'
 
 import { scrollTo } from '../utils/animate'
 import { prefersReducedMotion } from '../utils/accessibility'
+import Lightbox from '../scripts/lightbox'
 
 class Article extends React.Component {
   scrollElements = []
 
   componentDidMount() {
+    Lightbox.init()
+
     this.scrollElements = document.querySelectorAll(
       '.footnote-backref, .footnote-ref, .toc a'
     )
-    console.log(this.scrollElements)
-
     this.scrollElements.forEach(ref => {
       ref.addEventListener('click', this.handleClick)
     })
   }
 
   componentWillUnmount() {
+    Lightbox.destroy()
+
     this.scrollElements.forEach(ref => {
       ref.removeEventListener('click', this.handleClick)
     })
@@ -47,7 +50,7 @@ class Article extends React.Component {
       <>
         <article
           id="article"
-          className="container container--small"
+          // className="container container--small"
           dangerouslySetInnerHTML={{
             __html: this.props.html || fallbackContent,
           }}
