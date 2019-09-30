@@ -12,18 +12,6 @@ p code {
   margin-bottom: var(--content-margin);
 }
 
-.gatsby-highlight-code-line {
-  background-color: var(--color-09);
-  display: block;
-  margin-left: calc(var(--text-sm) * -1 - 1px);
-  padding-left: var(--text-sm);
-  margin-right: negative(var(--spacing-sm));
-  padding-right: var(--spacing-sm);
-  border-left: 1px solid var(--color-primary);
-  position: relative;
-  z-index: 1;
-}
-
 code[class*='language-'],
 pre[class*='language-'] {
   position: relative;
@@ -49,10 +37,9 @@ pre[class*='language-'],
 
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {
-  padding: var(--spacing-sm);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--color-08);
-  overflow: auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'side code';
 }
 
 pre[class*='language-'] {
@@ -61,10 +48,35 @@ pre[class*='language-'] {
 pre[class*='language-'] code {
   white-space: pre;
   display: block;
+  grid-area: code;
+  border: 1px solid var(--color-08);
+  padding: var(--spacing-sm);
 }
 
+// ++++++++++ code hightlight +++++++++++
+
+.gatsby-highlight-code-line {
+  display: block;
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: #{rgba(lighten($color-dark, 20%), 0.2)};
+    margin-left: -52px;
+    border-left: 1px solid var(--color-primary);
+    height: 100%;
+    width: calc(100% + 64px);
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+// ++++++++++ line numbers +++++++++++
+
 pre[class*='language-'].line-numbers {
-  padding-left: var(--spacing-xxl);
   counter-reset: linenumber;
 }
 
@@ -73,13 +85,12 @@ pre[class*='language-'].line-numbers > code {
   white-space: inherit;
 }
 
-// ++++++++++ line numbers +++++++++++
-
 .line-numbers .line-numbers-rows {
-  position: absolute;
+  grid-area: side;
+  border: 1px solid var(--color-08);
+  border-right: 0;
   pointer-events: none;
   top: 0;
-  border-right: 1px solid var(--color-08);
   user-select: none;
   height: 100%;
   padding: var(--spacing-sm) 0;
@@ -113,7 +124,7 @@ pre[class*='language-'].line-numbers > code {
 }
 
 .command-line-prompt > span:before {
-  color: #999;
+  color: var(--color-06);
   content: ' ';
   display: block;
   padding-right: 0.8em;
