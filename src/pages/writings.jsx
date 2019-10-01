@@ -47,8 +47,7 @@ const Page = () => {
             <div className="list">
               {items.map((item, index) => (
                 <Link key={index} to={item.node.fields.slug}>
-                  {item.node.frontmatter.title}
-
+                  <h2>{item.node.frontmatter.title}</h2>
                   <p>{item.node.excerpt}</p>
                 </Link>
               ))}
