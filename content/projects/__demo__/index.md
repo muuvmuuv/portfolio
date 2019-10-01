@@ -34,12 +34,16 @@ categories: [website]
 
 ## Text block
 
-Sleep in the bathroom sink allways wanting ⛱ food. Rub whiskers on :+1: bare
+<div class="container container--small hello">
+ <p>this is already HTML</p>
+</div>
+
+Sleep in the bathroom sink allways wantings ⛱ food. Rub whiskers on :+1: bare
 skin act innocent intently sniff hand intrigued by the shower, but hide from
 vacuum cleaner yet i see a bird i stare at it i meow at it i do a <b>wiggle come
-here, eat a plant, kill</b> a hand prance along on **_top of the garden
+here, eat a plant, kill</b> a hands prance along on **_top of the garden
 fence_**, annoy the neighbor's dog and make it bark. Throw down 😍 all the stuff
-in the kitchen white cat sleeps on a https://marvin.digital black shirt the cat
+in the kitchen white cat sleep on a https://marvin.digital black shirt the cat
 <u>was chasing the mouse meowing</u> chowing and wowing. I’m so hungry i’m so
 hungry but ew not for that try to hold own back foot <s>to clean it but foot
 reflexively</s> kicks you in face, go into a rage and bite own foot, hard decide
@@ -55,11 +59,11 @@ This site was built using [GitHub Pages](https://pages.github.com/). let me out,
 _let me-out, let me-aow, let meaow,_ meaow!. Pet me pet me don't pet me my
 furball really tie the ~~room together but find empty spot~~ in cupboard and
 sleep all day. Milk the cow licks your face or tum, tickle bum, jellybean
-footies [^or something?] curly toes. Curl into a furry donut.
+footies[^or something?] cudasrly toes. Curl into a furry donut.
 
 ## Lists
 
-- this´
+- this
 - is
 - a
 - complete
@@ -83,9 +87,9 @@ _Some normal text because the parser has problems here._
 
 ### Task list
 
-- [x] Finish my changes
+- [x] Checkbox list
 - [ ] Push my commits to GitHub
-- [ ] Open a pull request
+- [ ] One with **inner** html
 
 ## Tables
 

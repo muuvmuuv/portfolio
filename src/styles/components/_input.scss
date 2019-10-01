@@ -1,0 +1,72 @@
+[type='checkbox'] {
+  display: none;
+
+  & + .task-list-item,
+  & + span {
+    position: relative;
+    user-select: none;
+
+    &::before {
+      display: inline-block;
+      width: var(--spacing-lg);
+      height: var(--spacing-lg);
+      margin-right: var(--spacing-sm);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--border-radius);
+      content: '';
+      vertical-align: top;
+      transition: var(--transition-fast);
+    }
+
+    &::after {
+      display: none;
+      position: absolute;
+      top: 4px;
+      left: 5px;
+      width: 14px;
+      height: 7px;
+      transform: rotate(-45deg);
+      border-left: 2px solid var(--color-white);
+      border-bottom: 2px solid var(--color-white);
+      content: '';
+    }
+  }
+
+  &:checked + span {
+    &::before {
+      background: var(--jobportal-color-primary);
+      border-color: var(--jobportal-color-primary);
+    }
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+.task-list-item {
+  &::before {
+    display: inline-block;
+    width: var(--spacing-lg);
+    height: var(--spacing-lg);
+    margin-left: negative(var(--spacing-sm));
+    border: 1px solid var(--color-08);
+    border-radius: var(--border-radius);
+    content: '';
+    vertical-align: top;
+    transition: var(--transition-fast);
+  }
+
+  &::after {
+    display: none;
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    width: 14px;
+    height: 7px;
+    transform: rotate(-45deg);
+    border-left: 2px solid var(--color-white);
+    border-bottom: 2px solid var(--color-white);
+    content: '';
+  }
+}

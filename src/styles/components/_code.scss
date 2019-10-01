@@ -1,11 +1,11 @@
 p code {
-  background: var(--color-08);
+  background: var(--color-09);
   font-size: var(--text-sm);
   margin: 0 2px;
   padding: 2px 7px;
   border-radius: var(--border-radius-sm);
-  border: 1px solid var(--color-07);
-  color: var(--color-03);
+  border: 1px solid var(--color-dark);
+  color: var(--color-05);
 }
 
 .gatsby-highlight {
@@ -24,6 +24,7 @@ pre[class*='language-'] {
   font-size: var(--text-sm);
   color: #efd563;
   line-height: 1.6;
+  margin: 0;
 }
 
 pre > code[class*='language-'] {

@@ -1,8 +1,16 @@
 article {
-  sup a {
-    font-family: var(--font-mono);
-    text-decoration: none;
-    margin-left: 2px;
+  sup {
+    display: inline-block;
+    font-size: var(--text-sm);
+    margin-left: 4px;
+
+    a {
+      font-family: var(--font-mono);
+      text-decoration: none;
+      display: block;
+      margin: 0;
+      line-height: 1;
+    }
   }
 }
 

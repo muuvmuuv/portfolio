@@ -44,8 +44,6 @@ class Article extends React.Component {
       </div>
     )
 
-    console.log(this.props)
-
     return (
       <>
         <article

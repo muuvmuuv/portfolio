@@ -16,7 +16,7 @@
   - [ ] Everything pushed to master -> marvin.digital
   - [ ] Everything pushed to development -> dev.marvin.digital
   - [ ] Everything pushed to by hand -> dev.marvin.digital
-- [ ] ~~replace React with [Preact][1]~~
+- [ ] ~~replace React with [Preact][1]~~ (does not work ATM)
 - [x] test react helmet async
 - [x] add "increase version" by script
 - [x] add bundle analyzer
@@ -37,7 +37,10 @@
 - [ ] check all pages with reduced transparency
 - [ ] add tests?!
 - [ ] move from bash script to [Nim][2]
+- [ ] check markdown for ["Vary sentence length"][3]
+- [ ] check markdown for [Readability][4]
 
-[1]:
-  https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-preact
+[1]: https://www.gatsbyjs.org/packages/gatsby-plugin-preact/
 [2]: https://nim-lang.org/docs/tut1.html
+[3]: https://github.com/wooorm/write-music
+[4]: https://wooorm.com/readability/

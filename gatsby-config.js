@@ -62,7 +62,7 @@ module.exports = {
         tableOfContents: {
           maxDepth: 3,
         },
-        commonmark: false,
+        commonmark: true,
         footnotes: true,
         pedantic: true,
         gfm: true,
@@ -95,21 +95,22 @@ module.exports = {
               },
             },
           },
+          `remark-checkbox-spanner`,
           {
             resolve: `remark-custom-classes`,
             options: {
-              types: {
+              root: {
                 image: 'container',
                 heading: 'container container--small',
                 blockquote: 'container container--small',
-                // thematicBreak: 'container container--small',
+                thematicBreak: 'container container--small',
                 list: 'container container--small',
                 table: 'container container--small',
                 footnoteDefinition: 'container container--small',
                 paragraph: 'container container--small',
               },
-              tags: {
-                hr: 'container',
+              tag: {
+                h2: 'color--red',
               },
               remark: {
                 images: 'container',

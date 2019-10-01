@@ -28,7 +28,7 @@ article {
   }
 
   ul {
-    > li {
+    > li:not(.task-list-item) {
       &::before {
         content: '▁';
         left: 0;

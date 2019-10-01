@@ -1,8 +1,8 @@
-/* #hero .backdrop::after {
+#hero .backdrop::after {
   background-image: linear-gradient(
     to top,
-    #1f232e,
+    #1e252d,
     cubic-bezier(0.61, 0, 0.23, 0.91),
     transparent
   );
-} */
+}
