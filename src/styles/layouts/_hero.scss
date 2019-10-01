@@ -6,19 +6,20 @@
     &::after {
       // https://github.com/w3c/csswg-drafts/issues/1332
       // https://github.com/larsenwork/postcss-easing-gradients
+      // https://larsenwork.com/easing-gradients/
       background: transparent;
-      background-image: linear-gradient(
-        to top,
-        var(--color-dark),
-        cubic-bezier(0.61, 0, 0.23, 0.91),
-        transparent
-      );
-      background-image: linear-gradient(
-        to top,
-        hsla(330, 100%, 45%, 1),
-        cubic-bezier(0.2, 0, 0.23, 0.91),
-        hsla(210, 100%, 45%, 0.4)
-      );
+      // background-image: linear-gradient(
+      //   to top,
+      //   var(--color-dark),
+      //   cubic-bezier(0.61, 0, 0.23, 0.91),
+      //   transparent
+      // );
+      // background-image: linear-gradient(
+      //   to top,
+      //   hsla(330, 100%, 45%, 1),
+      //   cubic-bezier(0.2, 0, 0.23, 0.91),
+      //   hsla(210, 100%, 45%, 0.4)
+      // );
     }
   }
 
@@ -30,7 +31,7 @@
     row-gap: var(--spacing-lg);
     align-items: center;
     justify-content: space-between;
-    padding-top: 100px;
+    padding-top: 120px;
     padding-bottom: var(--spacing-lg);
 
     @include breakpoint-up(sm) {

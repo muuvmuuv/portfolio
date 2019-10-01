@@ -6,6 +6,15 @@
 }
 
 #article {
-  margin-top: var(--spacing-xxl);
-  margin-bottom: var(--spacing-xxl);
+  margin-top: var(--spacing-xl);
+  margin-bottom: 10rem;
+
+  @include breakpoint-up(sm) {
+    margin-bottom: 20rem;
+  }
+
+  @include breakpoint-up(lg) {
+    margin-top: var(--spacing-xxl);
+    margin-bottom: 30rem;
+  }
 }

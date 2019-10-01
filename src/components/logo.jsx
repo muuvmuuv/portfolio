@@ -4,15 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import logo from '../images/logo-white.svg'
 
 const Logo = () => {
-  const data = useStaticQuery(graphql`
-    query SiteMetaQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const data = useStaticQuery(query)
 
   return (
     <div id="logo">
@@ -22,5 +14,15 @@ const Logo = () => {
     </div>
   )
 }
+
+const query = graphql`
+  query SiteMetaQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
 
 export default Logo

@@ -1,37 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const defaultContextValue = {
-  data: {
-    menuOpen: false,
-  },
-  set: () => {},
+const DEFAULT_STATE = {
+  title: null,
 }
 
-const { Provider, Consumer } = React.createContext(defaultContextValue)
+const GlobalContext = React.createContext([DEFAULT_STATE, () => {}])
+const { Consumer, Provider } = GlobalContext
 
-class ContextProviderComponent extends React.Component {
-  constructor(props) {
-    super(props)
+const GlobalProvider = props => {
+  const [state, setState] = useState(DEFAULT_STATE)
 
-    this.setData = this.setData.bind(this)
-    this.state = {
-      ...defaultContextValue,
-      set: this.setData,
-    }
-  }
-
-  setData(newData) {
-    this.setState(state => ({
-      data: {
-        ...state.data,
-        ...newData,
-      },
-    }))
-  }
-
-  render() {
-    return <Provider value={this.state}>{this.props.children}</Provider>
-  }
+  return <Provider value={[state, setState]}>{props.children}</Provider>
 }
 
-export { Consumer as ContextConsumer, ContextProviderComponent }
+export { Consumer as GlobalConsumer, GlobalProvider, GlobalContext }

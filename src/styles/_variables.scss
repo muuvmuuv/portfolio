@@ -94,8 +94,8 @@ $color-dark: #1f242e;
   --color-green: #38fc73;
   --color-green-20: #{rgba(#38fc73, 0.2)};
 
-  --transition-fast: all 0.2s cubic-bezier(0.57, 0.39, 0.39, 0.57);
-  --transition-slow: all 0.4s cubic-bezier(0.57, 0.39, 0.39, 0.57);
+  --transition-fast: 0.2s cubic-bezier(0.57, 0.39, 0.39, 0.57);
+  --transition-slow: 0.4s cubic-bezier(0.57, 0.39, 0.39, 0.57);
 
   --border-radius-sm: 0.2rem;
   --border-radius: 0.3rem;

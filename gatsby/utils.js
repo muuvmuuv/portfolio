@@ -49,3 +49,10 @@ module.exports.getSiteMetadata = () => {
     },
   }
 }
+
+/**
+ * Remove trainling slash from URI.
+ */
+module.exports.removeTrailingSlash = path => {
+  return path === `/` ? path : path.replace(/\/$/, '')
+}

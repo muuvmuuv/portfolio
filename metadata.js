@@ -13,23 +13,23 @@ module.exports = {
   ],
   menuLinks: [
     {
-      name: 'home',
+      name: 'Root',
       link: '/',
     },
     {
-      name: 'about',
+      name: 'About',
       link: '/about',
     },
     {
-      name: 'development',
-      link: '/development',
+      name: 'Projects',
+      link: '/projects',
     },
     {
-      name: 'photography',
+      name: 'Photography',
       link: '/photography',
     },
     {
-      name: 'writings',
+      name: 'Writings',
       link: '/writings',
     },
   ],

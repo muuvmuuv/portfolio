@@ -109,9 +109,6 @@ module.exports = {
                 footnoteDefinition: 'container container--small',
                 paragraph: 'container container--small',
               },
-              tag: {
-                h2: 'color--red',
-              },
               remark: {
                 images: 'container',
                 prismjs: 'container container--small',
@@ -121,6 +118,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-remove-trailing-slashes`,
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sitemap',
     {

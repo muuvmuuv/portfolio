@@ -5,13 +5,12 @@
   z-index: 10;
   padding: var(--spacing-lg) var(--container-padding-x);
   display: grid;
-  grid-template-areas: 'logo nav';
-  grid-template-columns: auto auto;
+  grid-template-areas: 'logo back nav';
+  grid-template-columns: auto auto 1fr;
   align-items: center;
-  justify-content: space-between;
+  column-gap: var(--spacing-md);
   transition: var(--transition-fast);
   user-select: none;
-  pointer-events: none;
 
   &.sticky {
     padding: var(--spacing-md) var(--container-padding-x);
@@ -20,14 +19,17 @@
   }
 
   #logo {
-    pointer-events: auto;
     grid-area: logo;
     width: 40px;
   }
 
   #nav {
-    pointer-events: auto;
     grid-area: nav;
+    justify-self: end;
+  }
+
+  #back {
+    grid-area: back;
   }
 }
 

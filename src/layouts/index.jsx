@@ -1,16 +1,16 @@
 import React from 'react'
-import { ContextProviderComponent } from '../context'
+import { GlobalProvider } from '../context'
 import { HelmetProvider } from 'react-helmet-async'
 
 import Header from './Header'
 
-const Layout = ({ children }) => (
-  <ContextProviderComponent>
+const App = ({ children, location }) => (
+  <GlobalProvider>
     <HelmetProvider>
-      <Header></Header>
+      <Header location={location}></Header>
       <main>{children}</main>
     </HelmetProvider>
-  </ContextProviderComponent>
+  </GlobalProvider>
 )
 
-export default Layout
+export default App

@@ -2,6 +2,7 @@ import React from 'react'
 
 import Logo from '../components/Logo'
 import Navigation from '../components/Navigation'
+import Breadcrumb from '../components/Breadcrumb'
 
 class Header extends React.Component {
   constructor(props) {
@@ -31,8 +32,9 @@ class Header extends React.Component {
   render() {
     return (
       <header id="header" className={this.state.sticky ? 'sticky' : ''}>
-        <Logo></Logo>
-        <Navigation></Navigation>
+        <Logo />
+        <Breadcrumb location={this.props.location} />
+        <Navigation />
       </header>
     )
   }

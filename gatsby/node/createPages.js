@@ -1,5 +1,6 @@
 const path = require('path')
 const { bgYellow } = require('kleur')
+const { removeTrailingSlash } = require('../utils')
 
 module.exports = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -42,12 +43,13 @@ module.exports = async ({ graphql, actions }) => {
     }
 
     const templateName = capitalizeString(node.fields.source)
+    const slug = removeTrailingSlash(node.fields.slug)
 
     return createPage({
-      path: node.fields.slug,
+      path: slug,
       component: path.resolve(`./src/templates/${templateName}Single.jsx`),
       context: {
-        slug: node.fields.slug,
+        slug,
       },
     })
   })
