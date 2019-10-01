@@ -1,72 +1,74 @@
 [type='checkbox'] {
   display: none;
 
-  & + .task-list-item,
   & + span {
     position: relative;
-    user-select: none;
+    display: inline-flex;
+    align-items: center;
+
+    &::before,
+    &::after {
+      user-select: none;
+      cursor: pointer;
+    }
 
     &::before {
+      content: '';
       display: inline-block;
       width: var(--spacing-lg);
       height: var(--spacing-lg);
       margin-right: var(--spacing-sm);
-      border: 1px solid var(--color-gray-200);
-      border-radius: var(--border-radius);
-      content: '';
-      vertical-align: top;
+      border: 1px solid var(--color-08);
       transition: var(--transition-fast);
+      background: var(--color-background);
     }
 
     &::after {
+      content: '';
       display: none;
       position: absolute;
-      top: 4px;
+      top: 6px;
       left: 5px;
-      width: 14px;
-      height: 7px;
+      width: 15px;
+      height: 8px;
       transform: rotate(-45deg);
-      border-left: 2px solid var(--color-white);
-      border-bottom: 2px solid var(--color-white);
-      content: '';
+      border-left: 2px solid var(--color-08);
+      border-bottom: 2px solid var(--color-08);
     }
   }
 
   &:checked + span {
     &::before {
-      background: var(--jobportal-color-primary);
-      border-color: var(--jobportal-color-primary);
+      background: var(--color-primary);
+      border-color: var(--color-primary);
     }
 
     &::after {
       display: block;
     }
   }
+
+  &:disabled {
+    + span {
+      &::before,
+      &::after {
+        cursor: not-allowed;
+      }
+
+      &::before {
+        border-color: var(--color-09);
+      }
+    }
+
+    &:checked + span {
+      &::before {
+        background: var(--color-09);
+        border-color: var(--color-09);
+      }
+    }
+  }
 }
 
 .task-list-item {
-  &::before {
-    display: inline-block;
-    width: var(--spacing-lg);
-    height: var(--spacing-lg);
-    margin-left: negative(var(--spacing-sm));
-    border: 1px solid var(--color-08);
-    border-radius: var(--border-radius);
-    content: '';
-    vertical-align: top;
-    transition: var(--transition-fast);
-  }
-
-  &::after {
-    display: none;
-    position: absolute;
-    top: 4px;
-    left: 5px;
-    width: 14px;
-    height: 7px;
-    transform: rotate(-45deg);
-    border-left: 2px solid var(--color-white);
-    border-bottom: 2px solid var(--color-white);
-    content: '';
-  }
+  padding-left: 0;
 }

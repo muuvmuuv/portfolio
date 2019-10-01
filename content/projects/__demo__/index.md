@@ -91,6 +91,18 @@ _Some normal text because the parser has problems here._
 - [ ] Push my commits to GitHub
 - [ ] One with **inner** html
 
+## Form
+
+<div class="container container--small">
+  <form>
+    <fieldset>
+      <label for="fc-checkbox">This is a label</label>
+      <input type="checkbox" name="checkbox" id="fc-checkbox" />
+      <span for="fc-checkbox">This is a checkbox</span>
+    </fieldset>
+  </form>
+</div>
+
 ## Tables
 
 | key |                                                                                                     value                                                                                                      |

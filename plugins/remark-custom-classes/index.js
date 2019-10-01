@@ -1,5 +1,4 @@
 const visit = require('unist-util-visit')
-const fs = require('fs')
 
 const typesAliasses = {
   heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
@@ -136,8 +135,6 @@ module.exports = ({ markdownAST }, pluginOptions) => {
       }
     })
   }
-
-  fs.writeFileSync('./tmp/md-ast.json', JSON.stringify(markdownAST, null, 2))
 
   return markdownAST
 }

@@ -83,6 +83,8 @@ $color-dark: #1f242e;
   --color-02: #f3f5fa;
   --color-01: #fafcff;
 
+  --color-background: var(--color-dark);
+
   --color-orange: #ffbf00;
   --color-orange-20: #{rgba(#ffbf00, 0.2)};
   --color-red: #ff0000;

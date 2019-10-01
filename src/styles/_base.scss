@@ -18,7 +18,7 @@ body {
   font-family: var(--font-sans);
   line-height: 1.5;
   color: var(--color-light);
-  background: var(--color-dark);
+  background: var(--color-background);
   overscroll-behavior: none;
   scroll-behavior: smooth;
 
@@ -63,6 +63,7 @@ abbr {
 }
 
 article {
+  form,
   figure,
   table,
   blockquote,
