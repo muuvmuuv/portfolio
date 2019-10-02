@@ -21,6 +21,13 @@ module.exports = {
       link: '/about',
     },
     {
+      name: 'Setup',
+      external: true,
+      // link: '/about/setup', use Notion API later?
+      link:
+        'https://www.notion.so/marvins/Setup-9ad349afe68942ae807dc31c9afccd7d',
+    },
+    {
       name: 'Projects',
       link: '/projects',
     },

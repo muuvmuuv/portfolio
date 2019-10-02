@@ -1,5 +1,4 @@
 const pkg = require('../package.json')
-const { parsed } = require('dotenv').config()
 const metadata = require('../metadata')
 
 /**
@@ -41,13 +40,11 @@ module.exports.getPkgVersion = (dots = true) => {
 /**
  * Assign env data to metadata.
  */
-module.exports.getSiteMetadata = () => {
-  return {
-    ...metadata,
-    ...{
-      siteUrl: parsed.SITE_URL,
-    },
-  }
+module.exports.siteMetadata = {
+  ...metadata,
+  ...{
+    siteUrl: process.env.SITE_URL,
+  },
 }
 
 /**

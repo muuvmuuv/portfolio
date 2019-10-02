@@ -1,5 +1,5 @@
 import React from 'react'
-import { GlobalProvider } from '../context'
+import { GlobalProvider } from '@app/context'
 import { HelmetProvider } from 'react-helmet-async'
 
 import Header from './Header'

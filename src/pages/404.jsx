@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import SEO from '../components/SEO'
+import SEO from '@components/SEO'
 
 const Page = () => (
   <>

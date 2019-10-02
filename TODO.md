@@ -39,8 +39,12 @@
 - [ ] move from bash script to [Nim][2]
 - [ ] check markdown for ["Vary sentence length"][3]
 - [ ] check markdown for [Readability][4]
+- [ ] generate [rich snippets][5]
+- [ ] use [Scheme customizations][6] to map post meta e.g. for authors
 
 [1]: https://www.gatsbyjs.org/packages/gatsby-plugin-preact/
 [2]: https://nim-lang.org/docs/tut1.html
 [3]: https://github.com/wooorm/write-music
 [4]: https://wooorm.com/readability/
+[5]: https://www.gatsbyjs.org/docs/seo/
+[6]: https://www.gatsbyjs.org/docs/schema-customization/#foreign-key-fields

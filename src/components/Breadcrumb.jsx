@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
-import { GlobalContext } from '../context'
+import { Link } from 'gatsby'
+import { GlobalContext } from '@app/context'
+import { useSiteMetadata } from '@hooks/use-site-metadata'
 
 const Breadcrumb = ({ location: { pathname } }) => {
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery(query)
+  const siteMetadata = useSiteMetadata()
   const [state] = useContext(GlobalContext)
 
   const fragments = pathname.split('/')
@@ -13,59 +12,36 @@ const Breadcrumb = ({ location: { pathname } }) => {
   fragments.pop()
 
   const menuLinks = siteMetadata.menuLinks
-  // const menuLinks = [
-  //   {
-  //     name: 'Projects',
-  //     link: '/projects',
-  //   },
-  //   {
-  //     name: 'Demo',
-  //     link: '/projects/demo',
-  //   },
-  // ]
 
-  console.log(state)
-  console.log(menuLinks)
-  console.log(fragments)
-
-  const path = menuLinks.filter(({ name, link }) => {
+  const path = menuLinks.filter(({ name, external }) => {
+    if (external) return false // ignore
     const menuIndex = fragments.indexOf(name.toLowerCase())
     if (menuIndex > -1) {
-      const menu = menuLinks[menuIndex]
-      console.log(menu)
-      return menu
+      return menuLinks[menuIndex]
     }
     return false
   })
 
-  console.log(path)
-  console.log(path.length)
-
   return state.title ? (
-    <div id="back">
-      <span>/ </span>
+    <div id="breadcrumb">
+      <span className="breadcrumb__divider" key="BCB">
+        /{' '}
+      </span>
       {path.map(({ name, link }, index) => (
-        <>
-          <Link to={link}>{name}</Link>
-          {index < path.length ? <span> / </span> : ''}
-        </>
+        <span key={`BCI${index}`}>
+          <Link to={link} className="breadcrumb__link">
+            {name}
+          </Link>
+          <span className="breadcrumb__divider">
+            {index < path.length ? ' / ' : null}
+          </span>
+        </span>
       ))}
-      <span>{state.title}</span>
+      <span className="breadcrumb__active" key="BCA">
+        {state.title}
+      </span>
     </div>
   ) : null
 }
-
-const query = graphql`
-  {
-    site {
-      siteMetadata {
-        menuLinks {
-          name
-          link
-        }
-      }
-    }
-  }
-`
 
 export default Breadcrumb

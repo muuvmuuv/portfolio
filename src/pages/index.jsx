@@ -1,11 +1,11 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { graphql, Link } from 'gatsby'
-import { GlobalConsumer } from '../context'
-import SEO from '../components/SEO'
-import { isDev } from '../environment'
+import { GlobalConsumer } from '@app/context'
+import SEO from '@components/SEO'
+import { isDev } from '@app/environment'
 
-import Backdrop from '../components/Backdrop'
+import Backdrop from '@components/Backdrop'
 
 class Page extends React.Component {
   static contextType = GlobalConsumer

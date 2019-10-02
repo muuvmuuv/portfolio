@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { scrollTo } from '../utils/animate'
-import { prefersReducedMotion } from '../utils/accessibility'
-import Lightbox from '../scripts/lightbox'
+import { scrollTo } from '@utils/animate'
+import { prefersReducedMotion } from '@utils/accessibility'
+import Lightbox from '@scripts/lightbox'
 
 class Article extends React.Component {
   scrollElements = []

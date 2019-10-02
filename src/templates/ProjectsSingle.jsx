@@ -1,12 +1,12 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { GlobalConsumer } from '../context'
-import Article from '../layouts/Article'
-import SEO from '../components/SEO'
-import { isDev } from '../environment'
+import { GlobalConsumer } from '@app/context'
+import Article from '@layouts/Article'
+import SEO from '@components/SEO'
+import { isDev } from '@app/environment'
 
-import HeroProjects from '../components/HeroProjects'
+import HeroProjects from '@components/HeroProjects'
 
 class Single extends React.Component {
   static contextType = GlobalConsumer

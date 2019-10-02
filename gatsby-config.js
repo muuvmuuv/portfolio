@@ -4,17 +4,36 @@
  * @see https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const path = require('path')
 const { yellow } = require('kleur')
-const { getPkgVersion, getSiteMetadata } = require('./gatsby/utils')
+const { getPkgVersion, siteMetadata } = require('./gatsby/utils')
 const { activeEnv } = require('./gatsby/environment')
 
 console.log(`Using environment: ${yellow(activeEnv)}\n`)
 
 module.exports = {
-  siteMetadata: getSiteMetadata(),
+  siteMetadata,
   plugins: [
-    'gatsby-plugin-layout',
+    {
+      resolve: 'gatsby-plugin-module-resolver',
+      options: {
+        root: './src',
+        aliases: {
+          '@app': './',
+          '@components': './components',
+          '@layouts': './layouts',
+          '@scripts': './scripts',
+          '@utils': './utils',
+          '@hooks': './hooks',
+          '@images': './images',
+        },
+      },
+    },
+    `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
@@ -25,12 +44,7 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
-    {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        // ignore: ['src/styles'],
-      },
-    },
+    'gatsby-plugin-purgecss',
     'gatsby-transformer-json',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

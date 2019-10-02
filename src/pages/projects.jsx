@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet-async'
-import { GlobalConsumer } from '../context'
-import SEO from '../components/SEO'
-import { isDev } from '../environment'
+import { GlobalConsumer } from '@app/context'
+import SEO from '@components/SEO'
+import { isDev } from '@app/environment'
 
-import Portfolio from '../components/Portfolio'
+import Portfolio from '@components/Portfolio'
 
 class Page extends React.Component {
   static contextType = GlobalConsumer

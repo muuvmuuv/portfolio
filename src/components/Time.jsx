@@ -1,7 +1,7 @@
 import React from 'react'
 import dayjs from 'dayjs'
 
-import { isDev } from '../environment'
+import { isDev } from '@app/environment'
 import DataType from './DataType'
 
 const Time = ({ date, format = 'L' }) => {

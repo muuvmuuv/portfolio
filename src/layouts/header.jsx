@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Logo from '../components/Logo'
-import Navigation from '../components/Navigation'
-import Breadcrumb from '../components/Breadcrumb'
+import Logo from '@components/Logo'
+import Navigation from '@components/Navigation'
+import Breadcrumb from '@components/Breadcrumb'
 
 class Header extends React.Component {
   constructor(props) {
@@ -21,6 +21,10 @@ class Header extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  shouldComponentUpdate(_, nextState) {
+    return !(this.state.sticky === nextState.sticky)
   }
 
   handleScroll(event) {

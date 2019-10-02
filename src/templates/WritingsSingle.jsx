@@ -1,12 +1,12 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { GlobalConsumer } from '../context'
-import Article from '../layouts/Article'
-import SEO from '../components/SEO'
-import { isDev } from '../environment'
+import { GlobalConsumer } from '@app/context'
+import Article from '@layouts/Article'
+import SEO from '@components/SEO'
+import { isDev } from '@app/environment'
 
-import HeroWritings from '../components/HeroWritings'
+import HeroWritings from '@components/HeroWritings'
 
 // TODO: still not working
 import './test.css'
