@@ -1,6 +1,7 @@
 /_old
 /tmp
 .env.*
+/reports
 
 # Logs
 logs
