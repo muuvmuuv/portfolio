@@ -1,11 +1,9 @@
-import React, { useContext } from 'react'
-import { GlobalContext } from '@app/context'
+import React from 'react'
 import { useSiteMetadata } from '@hooks/use-site-metadata'
 import Link from './Link'
 
 const Breadcrumb = ({ location: { pathname } }) => {
   const siteMetadata = useSiteMetadata()
-  const [state] = useContext(GlobalContext)
 
   const fragments = pathname.split('/')
   fragments.shift()
@@ -22,7 +20,7 @@ const Breadcrumb = ({ location: { pathname } }) => {
     return false
   })
 
-  return state.title ? (
+  return true ? (
     <div id="breadcrumb">
       <span className="breadcrumb__divider" key="BCB">
         /{' '}
@@ -38,7 +36,7 @@ const Breadcrumb = ({ location: { pathname } }) => {
         </span>
       ))}
       <span className="breadcrumb__active" key="BCA">
-        {state.title}
+        TEST
       </span>
     </div>
   ) : null

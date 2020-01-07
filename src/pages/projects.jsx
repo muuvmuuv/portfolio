@@ -1,20 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet-async'
-import { GlobalConsumer } from '@app/context'
 import SEO from '@components/SEO'
 import { isDev } from '@app/environment'
 
 import Portfolio from '@components/Portfolio'
 
 class Page extends React.Component {
-  static contextType = GlobalConsumer
-
   render() {
     const { withDates, withoutStartDate, withoutEndDate } = this.props.data
-    const [state, setState] = this.context
-
-    setState(s => ({ ...s, title: 'Projects' }))
 
     const idList = new Set(withoutStartDate.edges.map(x => x.node.id))
     const items = [
@@ -31,7 +25,6 @@ class Page extends React.Component {
     if (isDev) {
       console.group('Projects')
       console.log(this)
-      console.log(state)
       console.log(items)
       console.groupEnd()
     }

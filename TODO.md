@@ -1,9 +1,9 @@
-- [ ] update NPM
-- [ ] see if new start template has some recommendations
+- [x] update NPM
+- [x] see if new start template has some recommendations
 - [ ] read docs a little
 - [ ] repair console errors
 - [ ] remove deprecated stuff
-- [ ] check why `-` is a regular file and not `f`
+- [x] check why `-` is a regular file and not `f`
 
 * [x] add eslint
 * [x] use Gatsby Link component
@@ -16,6 +16,7 @@
 * [x] add custom slug to all pages
 * [ ] test `postcss-easing-gradients` with Scss loaded in `/src`
 * [ ] add md table of contents
+* [ ] new start page: https://labs.semplice.com/s5-vertical-grid
 * [x] test purgecss with classes from Markdown files
 * [ ] add NOW deployment
   - [ ] Setup Nameserver
@@ -43,9 +44,11 @@
   - [ ] More text
   - [ ] Update images
 * [ ] Upload some photos (best off's)
+* [ ] setup SimpleAnalytics
 * [ ] check all pages with screen reader
 * [ ] check all pages with reduced motion
 * [ ] check all pages with reduced transparency
+* [ ] PWA: add service worker for offline usage
 * [ ] add tests?!
 * [ ] ~~move from bash script to [Nim][2]~~
 * [ ] check markdown for ["Vary sentence length"][3]

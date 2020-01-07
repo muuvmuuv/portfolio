@@ -1,16 +1,17 @@
 import React from 'react'
-import { GlobalProvider } from '@app/context'
 import { HelmetProvider } from 'react-helmet-async'
+
+import { Store } from '@store'
 
 import Header from './Header'
 
-const App = ({ children, location }) => (
-  <GlobalProvider>
+const App = ({ children }) => (
+  <Store>
     <HelmetProvider>
-      <Header location={location}></Header>
+      <Header></Header>
       <main>{children}</main>
     </HelmetProvider>
-  </GlobalProvider>
+  </Store>
 )
 
 export default App

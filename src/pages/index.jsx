@@ -2,25 +2,18 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { graphql } from 'gatsby'
 import Link from '@components/Link'
-import { GlobalConsumer } from '@app/context'
 import SEO from '@components/SEO'
 import { isDev } from '@app/environment'
 
 import Backdrop from '@components/Backdrop'
 
 class Page extends React.Component {
-  static contextType = GlobalConsumer
-
   render() {
     const { Img01, Img02, Img04 } = this.props.data
-    const [state, setState] = this.context
-
-    setState(s => ({ ...s, title: null }))
 
     if (isDev) {
       console.group('Index')
       console.log(this)
-      console.log(state)
       console.log(Img01)
       console.groupEnd()
     }

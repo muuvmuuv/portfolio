@@ -11,7 +11,7 @@ require('dotenv').config({
 const path = require('path')
 const { yellow } = require('kleur')
 const { getPkgVersion, siteMetadata } = require('./gatsby/utils')
-const { activeEnv } = require('./gatsby/environment')
+const { activeEnv, isDev } = require('./gatsby/environment')
 
 console.log(`Using environment: ${yellow(activeEnv)}\n`)
 
@@ -24,6 +24,7 @@ module.exports = {
         root: './src',
         aliases: {
           '@app': './',
+          '@store': './store',
           '@components': './components',
           '@layouts': './layouts',
           '@scripts': './scripts',
@@ -33,13 +34,7 @@ module.exports = {
         },
       },
     },
-    // `gatsby-plugin-layout`,
-    {
-      resolve: 'gatsby-plugin-transition-link',
-      options: {
-        layout: require.resolve(`./src/layouts/Index.jsx`),
-      },
-    },
+    `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
@@ -165,11 +160,11 @@ module.exports = {
         ],
         thanks: [`Gatsby`, `Node`],
         site: {
-          Standards: 'HTML5, SCSS, JSON, TXT, ES10',
-          Components: 'Normalize.css, Tailwindcss',
-          Softwares: 'VS Code, SublimeText, Brave',
+          Standards: 'HTML5, SCSS, JSON, TXT, ESNEXT, GraphQL, API, Rest',
+          Components: 'Normalize.css, Preact, React',
+          Softwares: 'VS Code, SublimeText, Brave, Firefox Developer Edition',
         },
-        note: `Made in the beautiful Frankfurt am Main 🏙`,
+        note: `Made in the beautiful city Frankfurt am Main 🏙`,
       },
     },
     {
@@ -197,11 +192,13 @@ module.exports = {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
         analyzerMode: 'static',
+        production: true,
+        disable: isDev,
+        openAnalyzer: true,
         reportFilename: path.resolve(
           __dirname,
           `reports/v${getPkgVersion()}/treemap.html`
         ),
-        openAnalyzer: false,
       },
     },
   ],

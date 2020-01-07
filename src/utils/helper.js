@@ -44,6 +44,9 @@ export function getRandomInt(min = 0, max = 999) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+/**
+ * Returns empty HTML escaped spaces.
+ */
 export function s(n = 1) {
   return '&nbsp;'.repeat(n)
 }

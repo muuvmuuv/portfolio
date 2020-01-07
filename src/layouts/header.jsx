@@ -23,15 +23,15 @@ class Header extends React.Component {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (
-      this.state.sticky !== nextState.sticky ||
-      this.props.location.pathname !== nextProps.location.pathname
-    ) {
-      return true
-    }
-    return false
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if (
+  //     this.state.sticky !== nextState.sticky ||
+  //     this.props.location.pathname !== nextProps.location.pathname
+  //   ) {
+  //     return true
+  //   }
+  //   return false
+  // }
 
   handleScroll(event) {
     this.setState({
@@ -43,7 +43,7 @@ class Header extends React.Component {
     return (
       <header id="header" className={this.state.sticky ? 'sticky' : ''}>
         <Logo />
-        <Breadcrumb location={this.props.location} />
+        {/* <Breadcrumb /> */}
         <Navigation />
       </header>
     )

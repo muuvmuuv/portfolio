@@ -16,11 +16,12 @@
     padding: var(--spacing-md) var(--container-padding-x);
     background: var(--color-dark-80);
     backdrop-filter: blur(4px);
+    // TODO: reduced transparency
   }
 
   #logo {
     grid-area: logo;
-    width: 40px;
+    width: 35px;
   }
 
   #navigation {

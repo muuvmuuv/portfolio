@@ -6,10 +6,10 @@
   top: 0;
   left: 0;
   background: var(--color-dark-80);
-  backdrop-filter: blur(4px);
+  // backdrop-filter: blur(4px);
 
   @include reducedTransparency() {
     background: var(--color-dark);
-    backdrop-filter: none;
+    // backdrop-filter: none;
   }
 }

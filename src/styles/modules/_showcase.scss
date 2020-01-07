@@ -38,10 +38,6 @@
         .img {
           transform: scale(1.05);
         }
-
-        &::after {
-          backdrop-filter: blur(0);
-        }
       }
     }
   }

@@ -2,25 +2,18 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Link from '@components/Link'
 import { Helmet } from 'react-helmet-async'
-import { GlobalConsumer } from '@app/context'
 import SEO from '@components/SEO'
 import { isDev } from '@app/environment'
 
 class Page extends React.Component {
-  static contextType = GlobalConsumer
-
   render() {
     const {
       allMarkdownRemark: { edges },
     } = this.props.data
-    const [state, setState] = this.context
-
-    setState(s => ({ ...s, title: 'Writings' }))
 
     if (isDev) {
       console.group('Writings')
       console.log(this)
-      console.log(state)
       console.log(edges)
       console.groupEnd()
     }

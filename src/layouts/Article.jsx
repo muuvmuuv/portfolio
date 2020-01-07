@@ -53,14 +53,12 @@ class Article extends React.Component {
             __html: this.props.html || fallbackContent,
           }}
         />
-        {this.props.toc ? (
+        {this.props.toc ?? (
           <div
             role="navigation"
             className="toc"
             dangerouslySetInnerHTML={{ __html: this.props.toc }}
           />
-        ) : (
-          ''
         )}
       </>
     )

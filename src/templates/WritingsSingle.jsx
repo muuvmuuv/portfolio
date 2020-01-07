@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { GlobalConsumer } from '@app/context'
 import Article from '@layouts/Article'
 import SEO from '@components/SEO'
 import { isDev } from '@app/environment'
@@ -9,8 +8,6 @@ import { isDev } from '@app/environment'
 import HeroWritings from '@components/HeroWritings'
 
 class Single extends React.Component {
-  static contextType = GlobalConsumer
-
   render() {
     const {
       frontmatter,
@@ -18,14 +15,10 @@ class Single extends React.Component {
       excerpt,
       tableOfContents,
     } = this.props.data.markdownRemark
-    const [state, setState] = this.context
-
-    setState(s => ({ ...s, title: frontmatter.title }))
 
     if (isDev) {
       console.group('WritingsSingle')
       console.log(this)
-      console.log(state)
       console.log(frontmatter)
       console.groupEnd()
     }

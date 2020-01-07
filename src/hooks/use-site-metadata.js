@@ -14,7 +14,7 @@ export const useSiteMetadata = () => {
             menuLinks {
               name
               link
-              type
+              external
             }
           }
         }
