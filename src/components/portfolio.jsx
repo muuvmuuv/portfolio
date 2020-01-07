@@ -1,13 +1,13 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Link from './Link'
 import Img from 'gatsby-image'
 
 const Portfolio = ({ item }) => {
   const article = item.frontmatter
   const meta = item.fields
 
-  console.log(article)
-  console.log(meta)
+  // console.log(article)
+  // console.log(meta)
 
   return (
     <article className="portfolio">

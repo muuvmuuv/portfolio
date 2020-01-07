@@ -39,7 +39,7 @@ const Lightbox = {
 
   createOverlay() {
     this.overlay = document.createElement('div')
-    this.overlay.id = 'overlay'
+    this.overlay.classList = 'overlay'
     document.documentElement.appendChild(this.overlay)
   },
 

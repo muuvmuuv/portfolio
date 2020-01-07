@@ -17,8 +17,6 @@ const SEO = ({
     render={data => {
       const metaDescription = description || data.site.siteMetadata.description
 
-      console.log(data)
-
       // set default social-media images
       if (!ogImage) {
         ogImage = `${data.site.siteMetadata.siteUrl}/og-image.jpg`

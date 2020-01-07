@@ -1,2 +1,256 @@
 #navigation {
+  &.open {
+    .wrapper,
+    .overlay {
+      display: flex;
+    }
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .wrapper {
+    display: none;
+    z-index: 21;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  nav {
+    font-size: var(--text-lg);
+    font-family: var(--font-mono);
+    margin-left: -10%;
+
+    .nav-link {
+      display: block;
+      padding: var(--spacing-xs) 0;
+      margin-bottom: var(--spacing-xxs);
+
+      span {
+        margin-right: var(--spacing-md);
+        opacity: 0.6;
+      }
+    }
+
+    .cwd {
+      margin-bottom: var(--spacing-xxs);
+      opacity: 0.6;
+    }
+  }
+
+  .trigger {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    z-index: 22;
+
+    .hli::before,
+    .hli::after {
+      background-color: var(--color-light);
+    }
+
+    .hl {
+      position: absolute;
+      z-index: 10;
+      width: 28px;
+      height: 2px;
+      overflow: hidden;
+    }
+
+    .hli {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 84px;
+      height: 2px;
+      will-change: transform;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 28px;
+        height: 2px;
+        background-color: var(--color-light);
+      }
+
+      &::before {
+        left: -56px;
+      }
+
+      &::after {
+        left: 0;
+      }
+    }
+
+    .hl1,
+    .hl2,
+    .hl3,
+    .hc1,
+    .hc2 {
+      left: 6px;
+    }
+
+    .hl1 {
+      top: 15px;
+    }
+
+    .hl2 {
+      top: 23px;
+    }
+
+    .hl3 {
+      top: 25px;
+    }
+
+    .hc1,
+    .hc2 {
+      top: 20px;
+    }
+
+    .hc1 {
+      transform: rotate(45deg);
+    }
+
+    .hc2 {
+      transform: rotate(-45deg);
+    }
+
+    .lh,
+    .hli {
+      transition-duration: 0.6s;
+      transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .hli::before,
+    .hli::after {
+      transition-property: transform;
+      transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .hci1,
+    .hci2 {
+      transform: translateX(-33.3%);
+    }
+
+    .hli1 {
+      transition-delay: 0.2s;
+    }
+
+    .hli2 {
+      transition-delay: 0.25s;
+    }
+
+    .hli2::before,
+    .hli2::after {
+      transition-delay: 0.05s;
+    }
+
+    .hli3 {
+      transition-delay: 0.3s;
+    }
+
+    .hli3::before,
+    .hli3::after {
+      transition-delay: 0.1s;
+    }
+
+    .hci1 {
+      transition-delay: 0s;
+    }
+
+    .hci2 {
+      transition-delay: 0.05s;
+    }
+
+    .hci2::before,
+    .hci2::after {
+      transition-delay: 0.1s;
+    }
+
+    &:hover {
+      .hli::before,
+      .hli::after {
+        transform: translateX(200%);
+      }
+
+      .hli1::before,
+      .hli1::after,
+      .hli2::before,
+      .hli2::after,
+      .hli3::before,
+      .hli3::after {
+        transition-duration: 1s;
+      }
+
+      .hci1::before,
+      .hci1::after,
+      .hci2::before,
+      .hci2::after {
+        transition-duration: 0s;
+      }
+    }
+  }
+
+  &.open .trigger {
+    .hli1,
+    .hli2,
+    .hli3 {
+      transform: translateX(33.3%);
+    }
+
+    .hci1,
+    .hci2 {
+      transform: translateX(0);
+    }
+
+    .hli1 {
+      transition-delay: 0s;
+    }
+
+    .hli2 {
+      transition-delay: 0.05s;
+    }
+
+    .hli3 {
+      transition-delay: 0.1s;
+    }
+
+    .hci1 {
+      transition-delay: 0.25s;
+    }
+
+    .hci2 {
+      transition-delay: 0.3s;
+    }
+
+    &:hover {
+      .hci1::before,
+      .hci1::after,
+      .hci2::before,
+      .hci2::after {
+        transition-duration: 1s;
+      }
+
+      .hli1::before,
+      .hli1::after,
+      .hli2::before,
+      .hli2::after,
+      .hli3::before,
+      .hli3::after {
+        transition-duration: 0s;
+      }
+    }
+  }
 }

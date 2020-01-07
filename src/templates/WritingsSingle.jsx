@@ -8,9 +8,6 @@ import { isDev } from '@app/environment'
 
 import HeroWritings from '@components/HeroWritings'
 
-// TODO: still not working
-import './test.css'
-
 class Single extends React.Component {
   static contextType = GlobalConsumer
 

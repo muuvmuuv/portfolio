@@ -4,22 +4,30 @@
 
   .backdrop {
     &::after {
-      // https://github.com/w3c/csswg-drafts/issues/1332
-      // https://github.com/larsenwork/postcss-easing-gradients
-      // https://larsenwork.com/easing-gradients/
       background: transparent;
-      // background-image: linear-gradient(
-      //   to top,
-      //   var(--color-dark),
-      //   cubic-bezier(0.61, 0, 0.23, 0.91),
-      //   transparent
-      // );
-      // background-image: linear-gradient(
-      //   to top,
-      //   hsla(330, 100%, 45%, 1),
-      //   cubic-bezier(0.2, 0, 0.23, 0.91),
-      //   hsla(210, 100%, 45%, 0.4)
-      // );
+      // BUG: #1
+      background-image: linear-gradient(
+        to top,
+        #1e252d,
+        cubic-bezier(0.66, 0, 0.41, 0.42),
+        transparent
+      );
+      background-image: linear-gradient(
+        0deg,
+        rgba(30, 37, 45, 1),
+        rgba(30, 37, 45, 0.9914) 14.71%,
+        rgba(30, 37, 45, 0.9662) 26.23%,
+        rgba(30, 37, 45, 0.92531) 35.17%,
+        rgba(30, 37, 45, 0.86963) 42.15%,
+        rgba(30, 37, 45, 0.80006) 47.76%,
+        rgba(30, 37, 45, 0.7175) 52.63%,
+        rgba(30, 37, 45, 0.62286) 57.34%,
+        rgba(30, 37, 45, 0.51704) 62.52%,
+        rgba(30, 37, 45, 0.40094) 68.77%,
+        rgba(30, 37, 45, 0.27546) 76.69%,
+        rgba(30, 37, 45, 0.14152) 86.9%,
+        rgba(30, 37, 45, 0)
+      );
     }
   }
 

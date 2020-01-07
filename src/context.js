@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const DEFAULT_STATE = {
   title: null,
+  navOpen: false,
 }
 
 const GlobalContext = React.createContext([DEFAULT_STATE, () => {}])

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { Link } from 'gatsby'
 import { GlobalContext } from '@app/context'
 import { useSiteMetadata } from '@hooks/use-site-metadata'
+import Link from './Link'
 
 const Breadcrumb = ({ location: { pathname } }) => {
   const siteMetadata = useSiteMetadata()

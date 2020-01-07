@@ -23,8 +23,14 @@ class Header extends React.Component {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
-  shouldComponentUpdate(_, nextState) {
-    return !(this.state.sticky === nextState.sticky)
+  shouldComponentUpdate(nextProps, nextState) {
+    if (
+      this.state.sticky !== nextState.sticky ||
+      this.props.location.pathname !== nextProps.location.pathname
+    ) {
+      return true
+    }
+    return false
   }
 
   handleScroll(event) {

@@ -33,7 +33,13 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-layout`,
+    // `gatsby-plugin-layout`,
+    {
+      resolve: 'gatsby-plugin-transition-link',
+      options: {
+        layout: require.resolve(`./src/layouts/Index.jsx`),
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
@@ -179,6 +185,12 @@ module.exports = {
             disallow: ['/me.gif', '/version.txt'],
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-remove-generator',
+      options: {
+        removeVersionOnly: true,
       },
     },
     {

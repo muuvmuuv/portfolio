@@ -23,8 +23,12 @@
 - [x] analyze via bundlephobia
 - [x] add github bots to auto update dependencies
 - [x] add lighthouse from M8FINDER project
+- [ ] use better [color system][10]
+- [ ] use CSS blend modes (overlay)
 - [ ] add League of Legends API to show profile and stats
 - [ ] add classes to tags https://github.com/gatsbyjs/gatsby/issues/17824
+- [ ] use Inter variable Font: https://rsms.me/inter/var-test.html
+- [ ] set font feature settings: https://rsms.me/inter/#features
 - [ ] Upload all writings
   - [ ] Grammatical corrections
   - [ ] Find images on Unsplash
@@ -41,6 +45,11 @@
 - [ ] check markdown for [Readability][4]
 - [ ] generate [rich snippets][5]
 - [ ] use [Scheme customizations][6] to map post meta e.g. for authors
+- [ ] use [Guess.js][7]
+- [ ] use new iPad and Apple Pencil to make ["Marvin/Design"-Logo][8]
+  - [ ] new color profile
+  - [ ] light theme (will be default)
+- [ ] Eventually by Font; [ZOOM-PRO][9]
 
 [1]: https://www.gatsbyjs.org/packages/gatsby-plugin-preact/
 [2]: https://nim-lang.org/docs/tut1.html
@@ -48,3 +57,7 @@
 [4]: https://wooorm.com/readability/
 [5]: https://www.gatsbyjs.org/docs/seo/
 [6]: https://www.gatsbyjs.org/docs/schema-customization/#foreign-key-fields
+[7]: https://github.com/guess-js/guess/issues/233#issuecomment-537542342
+[8]: https://cdn.dribbble.com/uploads/2566/original/3b90b34984de0d727ac99e2fc28afda8.png?1569966332
+[9]: https://thedesignersfoundry.com/zoom-pro
+[10]: https://stripe.com/de/blog/accessible-color-systems

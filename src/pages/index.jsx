@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import Link from '@components/Link'
 import { GlobalConsumer } from '@app/context'
 import SEO from '@components/SEO'
 import { isDev } from '@app/environment'
@@ -27,7 +28,12 @@ class Page extends React.Component {
     return (
       <>
         <SEO />
-        <Helmet bodyAttributes={{ page: 'index', class: 'header-fixed' }} />
+        <Helmet
+          bodyAttributes={{
+            page: 'index',
+            class: 'header-fixed header-click-through',
+          }}
+        />
 
         <div className="showcase">
           <Link className="item" to="/projects">

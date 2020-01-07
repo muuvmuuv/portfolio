@@ -43,7 +43,7 @@ RUN printf "\n\e[96m>\e[0m\033[1m Build brotli \e[0m\n\n" \
 
 
 # ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-# Start NGINX
+# NGINX
 # ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
 
 FROM nginx:${version}
@@ -60,6 +60,7 @@ COPY conf.d/        /etc/nginx/conf.d/
 COPY components/    /etc/nginx/components/
 COPY nginx.conf     /etc/nginx/nginx.conf
 COPY certs/*        /etc/nginx/ssl/
+
 
 # ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
 # Install packages

@@ -97,8 +97,10 @@ _Some normal text because the parser has problems here._
   <form>
     <fieldset>
       <label for="fc-checkbox">This is a label</label>
-      <input type="checkbox" name="checkbox" id="fc-checkbox" />
-      <span for="fc-checkbox">This is a checkbox</span>
+      <div class="form-control">
+        <input type="checkbox" name="checkbox" id="fc-checkbox" />
+        <span for="fc-checkbox">This is a checkbox</span>
+      </div>
     </fieldset>
   </form>
 </div>

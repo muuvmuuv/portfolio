@@ -11,33 +11,48 @@ module.exports = {
     'writings',
     'photography',
   ],
+  /**
+   * - => regular file
+   * d => directory
+   * l => link
+   */
   menuLinks: [
     {
       name: 'Root',
       link: '/',
+      type: null,
     },
     {
       name: 'About',
       link: '/about',
+      type: '-',
     },
     {
       name: 'Setup',
-      external: true,
       // link: '/about/setup', use Notion API later?
       link:
         'https://www.notion.so/marvins/Setup-9ad349afe68942ae807dc31c9afccd7d',
+      type: 'l',
     },
     {
       name: 'Projects',
       link: '/projects',
+      type: 'd',
     },
     {
       name: 'Photography',
       link: '/photography',
+      type: 'd',
     },
     {
       name: 'Writings',
       link: '/writings',
+      type: 'd',
+    },
+    {
+      name: 'CHANGELOG.md',
+      link: '/changelog',
+      type: '-',
     },
   ],
   socialLinks: [

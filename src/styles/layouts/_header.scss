@@ -5,7 +5,7 @@
   z-index: 10;
   padding: var(--spacing-lg) var(--container-padding-x);
   display: grid;
-  grid-template-areas: 'logo back nav';
+  grid-template-areas: 'logo breadcrumb nav';
   grid-template-columns: auto auto 1fr;
   align-items: center;
   column-gap: var(--spacing-md);
@@ -23,16 +23,26 @@
     width: 40px;
   }
 
-  #nav {
+  #navigation {
     grid-area: nav;
     justify-self: end;
   }
 
-  #back {
-    grid-area: back;
+  #breadcrumb {
+    grid-area: breadcrumb;
   }
 }
 
 .header-fixed #header {
   position: fixed;
+}
+
+.header-click-through #header {
+  pointer-events: none;
+
+  #logo,
+  #navigation,
+  #breadcrumb {
+    pointer-events: auto;
+  }
 }

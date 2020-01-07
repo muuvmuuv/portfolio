@@ -5,6 +5,7 @@
 
 - [Start](#start)
 - [Deploy](#deploy)
+- [Issues](#issues)
 
 ## Start
 
@@ -15,3 +16,8 @@ for development.
 
 Since I use [now](https://zeit.co/muuvmuuv/portfolio) for my website, it is
 deployed there and fully automated.
+
+## Issues
+
+Issues are referenced with `// BUG: #<NUMBER>` and can be seen in
+[ISSUES.md](./ISSUES.md).

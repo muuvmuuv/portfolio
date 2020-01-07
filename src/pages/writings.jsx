@@ -1,5 +1,6 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import Link from '@components/Link'
 import { Helmet } from 'react-helmet-async'
 import { GlobalConsumer } from '@app/context'
 import SEO from '@components/SEO'

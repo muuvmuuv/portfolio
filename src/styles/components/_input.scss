@@ -1,7 +1,11 @@
+:root {
+  --checkbox-size: var(--spacing-lg);
+}
+
 [type='checkbox'] {
   position: absolute;
-  width: var(--spacing-lg);
-  height: var(--spacing-lg);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
   margin: 0;
   border: 0;
   z-index: 1;
@@ -22,8 +26,8 @@
     &::before {
       content: '';
       display: inline-block;
-      width: var(--spacing-lg);
-      height: var(--spacing-lg);
+      width: var(--checkbox-size);
+      height: var(--checkbox-size);
       margin-right: var(--spacing-sm);
       border: 1px solid var(--color-08);
       transition: var(--transition-fast);
@@ -34,10 +38,10 @@
       content: '';
       display: none;
       position: absolute;
-      top: 6px;
+      top: 7px;
       left: 5px;
-      width: 15px;
-      height: 8px;
+      width: calc(var(--checkbox-size) * 0.6);
+      height: calc(var(--checkbox-size) * 0.25);
       transform: rotate(-45deg);
       border-left: 2px solid var(--color-08);
       border-bottom: 2px solid var(--color-08);
@@ -56,6 +60,8 @@
   }
 
   &:disabled {
+    cursor: not-allowed;
+
     + span {
       &::before,
       &::after {
@@ -78,4 +84,10 @@
 
 .task-list-item {
   padding-left: 0;
+  --checkbox-size: 1.2rem;
+
+  span::after {
+    top: 8px;
+    left: 4px;
+  }
 }
