@@ -21,3 +21,5 @@ deployed there and fully automated.
 
 Issues are referenced with `// BUG: #<NUMBER>` and can be seen in
 [ISSUES.md](./ISSUES.md).
+
+> Copyright (c) Marvin Heilemann
