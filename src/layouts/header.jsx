@@ -43,7 +43,7 @@ class Header extends React.Component {
     return (
       <header id="header" className={this.state.sticky ? 'sticky' : ''}>
         <Logo />
-        {/* <Breadcrumb /> */}
+        <Breadcrumb data={this.props.breadcrumb} />
         <Navigation />
       </header>
     )

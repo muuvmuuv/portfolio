@@ -100,6 +100,7 @@ module.exports = {
             },
           },
           {
+            // BUG: #2
             resolve: `gatsby-remark-prismjs`,
             options: {
               noInlineHighlight: true,
@@ -136,6 +137,15 @@ module.exports = {
     `gatsby-plugin-remove-trailing-slashes`,
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sitemap',
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        useAutoGen: true,
+        useClassNames: true,
+        autoGenHomeLabel: `Root`,
+        exclude: [`/404`],
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
