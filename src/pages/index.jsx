@@ -1,50 +1,69 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { graphql } from 'gatsby'
-import Link from '@components/Link'
-import SEO from '@components/SEO'
-import { isDev } from '@app/environment'
 
-import Backdrop from '@components/Backdrop'
+import { isDev } from '../environment'
+import Link from '../components/Link'
+import SEO from '../components/SEO'
+import Backdrop from '../components/Backdrop'
+import { History } from '../store'
 
-class Page extends React.Component {
-  render() {
-    const { Img01, Img02, Img04 } = this.props.data
+const Page = ({
+  pageContext: { breadcrumb },
+  data: { Img01, Img02, Img04 },
+}) => {
+  const pageName = 'Index'
+  const historyDispatch = useContext(History.Dispatch)
 
-    if (isDev) {
-      console.group('Index')
-      console.log(this)
-      console.log(Img01)
-      console.groupEnd()
-    }
+  useEffect(() => {
+    historyDispatch({
+      location: breadcrumb.location,
+      crumbLabel: pageName,
+      crumbs: breadcrumb.crumbs,
+    })
+  })
 
-    return (
-      <>
-        <SEO />
-        <Helmet
-          bodyAttributes={{
-            page: 'index',
-            class: 'header-fixed header-click-through',
-          }}
-        />
-
-        <div className="showcase">
-          <Link className="item" to="/projects">
-            <Backdrop img={Img01.childImageSharp.fluid}></Backdrop>
-            <div className="content">Projects</div>
-          </Link>
-          <Link className="item" to="/photography">
-            <Backdrop img={Img02.childImageSharp.fluid}></Backdrop>
-            <div className="content">Photography</div>
-          </Link>
-          <Link className="item" to="/writings">
-            <Backdrop img={Img04.childImageSharp.fluid}></Backdrop>
-            <div className="content">Writings</div>
-          </Link>
-        </div>
-      </>
-    )
+  if (isDev) {
+    console.group(pageName)
+    console.log(Img01)
+    console.groupEnd()
   }
+
+  return (
+    <>
+      <SEO />
+      <Helmet
+        bodyAttributes={{
+          page: pageName.toLowerCase(),
+          class: 'header-fixed header-click-through',
+        }}
+      />
+
+      <div className="showcase">
+        <Link className="item" to="/projects">
+          <Backdrop img={Img01.childImageSharp.fluid}></Backdrop>
+          <div className="content">
+            <h2>Projects</h2>
+            <h3>Basement dweller first</h3>
+          </div>
+        </Link>
+        <Link className="item" to="/photography">
+          <Backdrop img={Img02.childImageSharp.fluid}></Backdrop>
+          <div className="content">
+            <h2>Photography</h2>
+            <h3>All around the world</h3>
+          </div>
+        </Link>
+        <Link className="item" to="/writings">
+          <Backdrop img={Img04.childImageSharp.fluid}></Backdrop>
+          <div className="content">
+            <h2>Writings</h2>
+            <h3>.....</h3>
+          </div>
+        </Link>
+      </div>
+    </>
+  )
 }
 
 export const pageQuery = graphql`

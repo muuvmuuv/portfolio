@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Breadcrumb as BreadcrumbPlugin } from 'gatsby-plugin-breadcrumb'
 
-const Breadcrumb = ({ data: { location, crumbs } }) => {
-  // TODO: https://github.com/sbardian/gatsby-plugin-breadcrumb/issues/42
-  return <BreadcrumbPlugin crumbs={crumbs} crumbLabel={location.name} />
+import { History } from '../store'
+
+// TODO: https://github.com/sbardian/gatsby-plugin-breadcrumb/issues/42
+const Breadcrumb = () => {
+  const { location, crumbLabel, crumbs } = useContext(History.State)
+  console.log({ location, crumbLabel, crumbs })
+
+  return (
+    <BreadcrumbPlugin
+      crumbs={crumbs}
+      crumbSeparator="/"
+      crumbLabel={crumbLabel}
+      disableLinks={['/', location]}
+    />
+  )
 }
 
 export default Breadcrumb

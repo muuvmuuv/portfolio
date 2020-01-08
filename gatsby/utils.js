@@ -25,7 +25,10 @@ module.exports.slugify = (text, separator) => {
 }
 
 /**
- * Return current version, but only minor, major, patches will always be zero.
+ * Return current version, with major and patches set
+ * to zero for a easier way of handling reports.
+ *
+ * (optional) remove dots
  *
  * @param {boolean} dots Remove dots from version
  */

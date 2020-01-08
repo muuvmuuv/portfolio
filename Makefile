@@ -9,7 +9,7 @@ build:
 	docker-compose build
 
 destroy:
-	docker-compose down
+	docker-compose down --volumes
 
 stop:
 	docker-compose stop
@@ -17,20 +17,16 @@ stop:
 start:
 	docker-compose start
 
-restart:
+restart: restart-nginx
+	# docker-compose restart marvin-xxxx
+
+restart-nginx:
 	docker exec marvin-nginx /usr/share/nginx-reload.sh
-
-top:
-	docker-compose top nginx
-
-logs:
-	docker logs -f marvin-nginx
-
-intimg:
-	docker run -it --entrypoint bash nginx
-
-intcon:
-	docker exec -i -t marvin-nginx bash
 
 newcert:
 	webssl --removeOld --addToKeychain
+
+create-env:
+	cp .env.development .env.production
+
+setup: create-env

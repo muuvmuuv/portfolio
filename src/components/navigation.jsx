@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import { useSiteMetadata } from '@hooks/use-site-metadata'
-import { Nav } from '@store'
+
+import { Nav } from '../store'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 import Link from './Link'
 
 const Navigation = () => {

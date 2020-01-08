@@ -5,6 +5,12 @@
 
 - [Start](#start)
 - [Deploy](#deploy)
+- [Docker](#docker)
+  - [Interactive shell session](#interactive-shell-session)
+    - [Image](#image)
+    - [Container](#container)
+    - [Logs](#logs)
+    - [Performance (top)](#performance-top)
 - [Issues](#issues)
 
 ## Start
@@ -16,6 +22,34 @@ for development.
 
 Since I use [now](https://zeit.co/muuvmuuv/portfolio) for my website, it is
 deployed there and fully automated.
+
+## Docker
+
+### Interactive shell session
+
+#### Image
+
+```shell
+docker run -it --entrypoint bash nginx
+```
+
+#### Container
+
+```shell
+docker exec -i -t marvin-nginx bash
+```
+
+#### Logs
+
+```shell
+docker logs -f marvin-nginx
+```
+
+#### Performance (top)
+
+```shell
+docker-compose top nginx
+```
 
 ## Issues
 

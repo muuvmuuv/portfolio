@@ -20,7 +20,7 @@
     width: 100%;
     height: 100%;
 
-    @include breakpoint-down(md) {
+    @include breakpoint-down(xs) {
       display: none;
       z-index: 21;
       position: fixed;
@@ -43,7 +43,7 @@
     .nav-link {
       margin-left: var(--spacing-lg);
 
-      @include breakpoint-down(md) {
+      @include breakpoint-down(xs) {
         padding: var(--spacing-xs) 0;
         margin-bottom: var(--spacing-xxs);
       }
@@ -61,7 +61,7 @@
     background: transparent;
     z-index: 22;
 
-    @include breakpoint-up(md) {
+    @include breakpoint-up(sm) {
       display: none;
     }
 

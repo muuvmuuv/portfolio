@@ -1,0 +1,25 @@
+.breadcrumb:first-of-type .breadcrumb__link__disabled,
+.breadcrumb__title {
+  display: none;
+}
+
+.breadcrumb {
+  display: inline-block;
+  font-size: var(--text-sm);
+  letter-spacing: 1px;
+
+  .breadcrumb__link {
+    opacity: 0.8;
+    transition: opacity var(--transition-fast);
+    margin-right: var(--spacing-xs);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .breadcrumb__separator {
+    opacity: 0.8;
+    margin-right: var(--spacing-xs);
+  }
+}

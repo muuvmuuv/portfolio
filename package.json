@@ -1,6 +1,6 @@
 {
   "name": "marvin-digital",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": true,
   "description": "Portfolio of Marvin Heilemann (@muuvmuuv)",
   "repository": {
@@ -42,7 +42,7 @@
     "dayjs": "^1.8.19",
     "gatsby": "^2.18.18",
     "gatsby-image": "^2.2.37",
-    "gatsby-plugin-breadcrumb": "^6.2.3",
+    "gatsby-plugin-breadcrumb": "^6.3.0",
     "gatsby-plugin-canonical-urls": "^2.1.18",
     "gatsby-plugin-catch-links": "^2.1.21",
     "gatsby-plugin-humans-txt": "^1.1.4",
@@ -50,6 +50,7 @@
     "gatsby-plugin-manifest": "^2.2.34",
     "gatsby-plugin-module-resolver": "^1.0.3",
     "gatsby-plugin-postcss": "^2.1.18",
+    "gatsby-plugin-preact": "^3.1.24",
     "gatsby-plugin-purgecss": "^4.0.1",
     "gatsby-plugin-react-helmet": "^3.1.18",
     "gatsby-plugin-remove-generator": "^1.0.4",
@@ -68,6 +69,7 @@
     "kleur": "^3.0.3",
     "node-sass": "^4.13.0",
     "postcss-easing-gradients": "^3.0.1",
+    "preact": "^10.2.1",
     "prismjs": "^1.18.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",

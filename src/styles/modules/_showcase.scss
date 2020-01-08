@@ -1,57 +1,92 @@
 .showcase {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    '.'
+    '.'
+    '.';
   user-select: none;
+  height: 100vh;
 
-  @include breakpoint-up(md) {
-    flex-direction: row;
+  @include breakpoint-up(lg) {
+    grid-template-areas: '. . .';
+  }
+
+  &:hover {
+    .item {
+      .backdrop {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   .item {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition-fast);
+    transition: all ease-in-out 220ms;
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    width: 100%;
-    height: 33.333333%;
-    transform: translate3d(0, 0, 0);
 
-    @include breakpoint-up(md) {
-      width: 33.333333%;
-      height: 100%;
+    @include breakpoint-up(lg) {
+      align-items: flex-end;
     }
 
     &:hover {
-      @include breakpoint-down(sm) {
-        height: 60%;
-      }
-
-      @include breakpoint-up(md) {
-        width: 40%;
-      }
-
       .backdrop {
+        &::after {
+          opacity: 0;
+        }
+
         .img {
           transform: scale(1.05);
         }
       }
-    }
-  }
 
-  .content {
-    font-family: var(--font-serif);
-    font-size: var(--text-xxl);
-
-    @include breakpoint-up(md) {
-      font-size: var(--text-xl);
+      .content {
+        @include breakpoint-up(lg) {
+          transform: translateY(-100px);
+          opacity: 1;
+        }
+      }
     }
 
-    @include breakpoint-up(xl) {
-      font-size: var(--text-xxl);
+    .backdrop {
+      .img {
+        will-change: transform;
+      }
+
+      &::after {
+        transition: opacity var(--transition-fast);
+        opacity: 0.3;
+
+        @include breakpoint-up(lg) {
+          opacity: 0;
+        }
+      }
+    }
+
+    .content {
+      text-align: center;
+      transition: all 200ms ease-in-out;
+
+      @include breakpoint-up(lg) {
+        transform: translateY(-70px);
+        opacity: 0;
+      }
+
+      h2 {
+        font-size: var(--text-xxl);
+        font-family: var(--font-serif);
+        font-weight: var(--font-bold);
+      }
+
+      h3 {
+        font-size: var(--text-md);
+        margin-top: var(--spacing-sm);
+      }
     }
   }
 }

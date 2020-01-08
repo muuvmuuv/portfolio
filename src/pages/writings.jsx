@@ -1,41 +1,55 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { graphql } from 'gatsby'
-import Link from '@components/Link'
 import { Helmet } from 'react-helmet-async'
-import SEO from '@components/SEO'
-import { isDev } from '@app/environment'
 
-class Page extends React.Component {
-  render() {
-    const {
-      allMarkdownRemark: { edges },
-    } = this.props.data
+import { isDev } from '../environment'
+import Link from '../components/Link'
+import SEO from '../components/SEO'
+import { History } from '../store'
 
-    if (isDev) {
-      console.group('Writings')
-      console.log(this)
-      console.log(edges)
-      console.groupEnd()
-    }
+const Page = ({
+  pageContext: { breadcrumb },
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => {
+  const pageName = 'Writings'
+  const historyDispatch = useContext(History.Dispatch)
 
-    return (
-      <>
-        <SEO title="Writings" />
-        <Helmet bodyAttributes={{ page: 'writings', class: 'home' }} />
+  useEffect(() => {
+    historyDispatch({
+      location: breadcrumb.location,
+      crumbLabel: pageName,
+      crumbs: breadcrumb.crumbs,
+    })
+  })
 
-        <div className="container container--medium">
-          <div className="list">
-            {edges.map(({ node }, index) => (
-              <Link key={index} to={node.fields.slug}>
-                <h2>{node.frontmatter.title}</h2>
-                <p>{node.excerpt}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </>
-    )
+  if (isDev) {
+    console.group(pageName)
+    console.log(edges)
+    console.log(breadcrumb)
+    console.groupEnd()
   }
+
+  return (
+    <>
+      <SEO title={pageName} />
+      <Helmet
+        bodyAttributes={{ page: pageName.toLowerCase(), class: 'home' }}
+      />
+
+      <div className="container container--medium">
+        <div className="list">
+          {edges.map(({ node }, index) => (
+            <Link key={index} to={node.fields.slug}>
+              <h2>{node.frontmatter.title}</h2>
+              <p>{node.excerpt}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </>
+  )
 }
 
 export const pageQuery = graphql`

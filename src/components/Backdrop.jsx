@@ -9,7 +9,7 @@ const Backdrop = ({ img, alt }) => {
         fluid={img}
         objectFit="cover"
         objectPosition="center top"
-        alt={alt || 'No alternative text'}
+        alt={alt}
       />
     </div>
   )

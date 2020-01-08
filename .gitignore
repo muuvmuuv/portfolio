@@ -1,7 +1,9 @@
 /_old
 /tmp
 .env.*
+!.env.development
 /reports
+docker/nginx/certs
 
 # Logs
 logs

@@ -1,54 +1,68 @@
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
-import Article from '@layouts/Article'
-import SEO from '@components/SEO'
-import { isDev } from '@app/environment'
 
-import HeroProjects from '@components/HeroProjects'
+import { isDev } from '../environment'
+import Article from '../layouts/Article'
+import SEO from '../components/SEO'
+import HeroProjects from '../components/HeroProjects'
+import { History } from '../store'
 
-class Single extends React.Component {
-  render() {
-    const { frontmatter, html, excerpt } = this.props.data.markdownRemark
+const Single = ({
+  pageContext: { breadcrumb },
+  data: {
+    markdownRemark: { frontmatter, html, excerpt },
+  },
+  location,
+}) => {
+  const historyDispatch = useContext(History.Dispatch)
 
-    if (isDev) {
-      console.group('ProjectSingle')
-      console.log(this)
-      console.log(frontmatter)
-      console.groupEnd()
-    }
+  useEffect(() => {
+    historyDispatch({
+      location: breadcrumb.location,
+      crumbLabel: frontmatter.title,
+      crumbs: breadcrumb.crumbs,
+    })
+  })
 
-    const attr = {}
-
-    const homeUrl = this.props.location.origin
-    if (frontmatter.thumb.facebook.resize.src) {
-      attr.ogImage = `${homeUrl}${frontmatter.thumb.facebook.resize.src}`
-    }
-    if (frontmatter.thumb.twitter.resize.src) {
-      attr.twitterCard = `${homeUrl}${frontmatter.thumb.twitter.resize.src}`
-    }
-
-    if (frontmatter.keywords && frontmatter.keywords.length > 0) {
-      attr.keywords = frontmatter.keywords
-    }
-
-    return (
-      <>
-        <Helmet
-          bodyAttributes={{ page: 'projects', class: 'single header-fixed' }}
-        />
-        <SEO
-          title={frontmatter.title}
-          description={frontmatter.subtitle || excerpt}
-          {...attr}
-        />
-
-        <HeroProjects item={frontmatter} />
-
-        <Article html={html} />
-      </>
-    )
+  if (isDev) {
+    console.group('ProjectSingle')
+    console.log(this)
+    console.log(frontmatter)
+    console.log(breadcrumb)
+    console.groupEnd()
   }
+
+  const attr = {}
+
+  const homeUrl = location.origin
+  if (frontmatter.thumb.facebook.resize.src) {
+    attr.ogImage = `${homeUrl}${frontmatter.thumb.facebook.resize.src}`
+  }
+  if (frontmatter.thumb.twitter.resize.src) {
+    attr.twitterCard = `${homeUrl}${frontmatter.thumb.twitter.resize.src}`
+  }
+
+  if (frontmatter.keywords && frontmatter.keywords.length > 0) {
+    attr.keywords = frontmatter.keywords
+  }
+
+  return (
+    <>
+      <Helmet
+        bodyAttributes={{ page: 'projects', class: 'single header-fixed' }}
+      />
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.subtitle || excerpt}
+        {...attr}
+      />
+
+      <HeroProjects item={frontmatter} />
+
+      <Article html={html} />
+    </>
+  )
 }
 
 export const pageQuery = graphql`

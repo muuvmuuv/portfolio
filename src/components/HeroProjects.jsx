@@ -1,7 +1,7 @@
 import React from 'react'
+
 import Backdrop from './Backdrop'
 import Time from './Time'
-
 import Status from './Status'
 import Members from './Members'
 import DataType from './DataType'

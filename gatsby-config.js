@@ -18,22 +18,7 @@ console.log(`Using environment: ${yellow(activeEnv)}\n`)
 module.exports = {
   siteMetadata,
   plugins: [
-    {
-      resolve: 'gatsby-plugin-module-resolver',
-      options: {
-        root: './src',
-        aliases: {
-          '@app': './',
-          '@store': './store',
-          '@components': './components',
-          '@layouts': './layouts',
-          '@scripts': './scripts',
-          '@utils': './utils',
-          '@hooks': './hooks',
-          '@images': './images',
-        },
-      },
-    },
+    `gatsby-plugin-preact`, // file size saving 🍾
     `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet`,
     {
@@ -142,8 +127,21 @@ module.exports = {
       options: {
         useAutoGen: true,
         useClassNames: true,
-        autoGenHomeLabel: `Root`,
         exclude: [`/404`],
+        crumbLabelUpdates: [
+          {
+            pathname: '/projects',
+            crumbLabel: 'Projects',
+          },
+          {
+            pathname: '/photography',
+            crumbLabel: 'Photography',
+          },
+          {
+            pathname: '/writings',
+            crumbLabel: 'Writings',
+          },
+        ],
       },
     },
     {

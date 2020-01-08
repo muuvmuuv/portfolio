@@ -1,6 +1,7 @@
 import React from 'react'
-import Link from './Link'
 import Img from 'gatsby-image'
+
+import Link from './Link'
 
 const Portfolio = ({ item }) => {
   const article = item.frontmatter

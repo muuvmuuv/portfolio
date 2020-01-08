@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { capitalizeString } from '@utils/transform'
+import { capitalizeString } from '../utils/transform'
 
 const Status = ({ state }) => {
   const stateTransformed = capitalizeString(state)

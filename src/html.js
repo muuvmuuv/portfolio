@@ -1,3 +1,10 @@
+/**
+ * Customize the default `html.js`.
+ *
+ * @see https://www.gatsbyjs.org/docs/custom-html/
+ * @file .cache/default-html.js
+ */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -16,6 +23,7 @@ export default function HTML(props) {
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
         <noscript key="noscript" id="gatsby-noscript">
+          {/*TODO: Show beautiful message here*/}
           This app works best with JavaScript enabled.
         </noscript>
         <div

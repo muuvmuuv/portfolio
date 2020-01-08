@@ -13,7 +13,7 @@
   - Async: Inter
 - [x] replace package.json with version.txt to reduce size
 - [x] add custom slug to all pages
-- [ ] test `postcss-easing-gradients` with Scss loaded in `/src`
+- [x] test `postcss-easing-gradients` with Scss loaded in `/src`
 - [ ] add md table of contents
 - [ ] new start page: https://labs.semplice.com/s5-vertical-grid
 - [x] test purgecss with classes from Markdown files
@@ -22,8 +22,11 @@
     - [ ] Test
   - [ ] Everything pushed to master -> marvin.digital
   - [ ] Everything pushed to development -> dev.marvin.digital
-  - [ ] Everything pushed to by hand -> dev.marvin.digital
 - [ ] replace React with [Preact][1] (check if it works now)
+- [ ] new image for start: me while coding
+- [ ] new image for start: me while writing
+- [ ] Add footer with: version, social-media, imprint, changelog, copyright
+      notice
 - [x] test react helmet async
 - [x] add "increase version" by script
 - [x] add bundle analyzer

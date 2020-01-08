@@ -140,10 +140,12 @@ const Lightbox = {
 
       this.clickOutside = VanillaClickOutside(
         element,
-        { removeListener: false },
-        () => {
-          this.zoomOut()
-        }
+        state => {
+          if (state) {
+            this.zoomOut()
+          }
+        },
+        { removeListener: false }
       )
     } else {
       this.zoomOut()

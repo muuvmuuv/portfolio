@@ -21,9 +21,9 @@ services:
         target: /var/www
         volume:
           nocopy: true
-      # - type: bind
-      #   source: ./docker/nginx/certs/
-      #   target: /etc/nginx/ssl/
+      - type: bind
+        source: ./docker/nginx/certs/
+        target: /etc/nginx/ssl/
       # - type: bind
       #   source: ./docker/nginx/components/
       #   target: /etc/nginx/components/

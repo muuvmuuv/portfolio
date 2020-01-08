@@ -3,6 +3,7 @@ title: Der Morgen, die Nacht
 description: Ein kleines süßes Gedicht
 created: 02-23-2015
 modified: 07-12-2019
+language: de
 
 header:
   image: image.jpg
