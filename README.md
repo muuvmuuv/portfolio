@@ -56,4 +56,4 @@ docker-compose top nginx
 Issues are referenced with `// BUG: #<NUMBER>` and can be seen in
 [ISSUES.md](./ISSUES.md).
 
-> Copyright (c) Marvin Heilemann
+> Copyright © Marvin Heilemann
