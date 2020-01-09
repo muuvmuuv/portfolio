@@ -62,6 +62,8 @@
   - [ ] new color profile
   - [ ] light theme (will be default, with auto switch based on OS appearance)
 - [ ] Eventually by Font; [ZOOM-PRO][9]
+- [ ] use external CMS service for data instead of file based
+- [ ] open source the code 🤫
 
 [1]: https://www.gatsbyjs.org/packages/gatsby-plugin-preact/
 [2]: https://nim-lang.org/docs/tut1.html
