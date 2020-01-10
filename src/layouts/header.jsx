@@ -1,18 +1,13 @@
 import React from 'react'
 
 import Logo from '../components/Logo'
-import Navigation from '../components/Navigation'
 import Breadcrumb from '../components/Breadcrumb'
+import Navigation from '../components/Navigation'
+import ThemeSwitch from '../components/ThemeSwitch'
 
 class Header extends React.PureComponent {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      sticky: false,
-    }
-
-    this.handleScroll = this.handleScroll.bind(this)
+  state = {
+    sticky: false,
   }
 
   componentDidMount() {
@@ -24,7 +19,7 @@ class Header extends React.PureComponent {
   }
 
   // TODO: test this with SSR
-  handleScroll(event) {
+  handleScroll = (event) => {
     this.setState({
       sticky: window.pageYOffset > 0,
     })
@@ -36,6 +31,7 @@ class Header extends React.PureComponent {
         <Logo />
         <Breadcrumb />
         <Navigation />
+        <ThemeSwitch />
       </header>
     )
   }

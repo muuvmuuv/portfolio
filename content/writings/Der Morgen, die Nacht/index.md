@@ -3,7 +3,6 @@ title: Der Morgen, die Nacht
 description: Ein kleines süßes Gedicht
 created: 02-23-2015
 modified: 07-12-2019
-language: de
 
 header:
   image: image.jpg
@@ -11,7 +10,7 @@ header:
   link: https://unsplash.com/@alphonzs?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge
   source: unsplash
 
-tags: [german]
+language: de
 keywords: [dreams]
 ---
 

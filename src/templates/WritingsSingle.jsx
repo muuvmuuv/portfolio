@@ -54,6 +54,7 @@ const Single = ({
         img={frontmatter.header}
         time={frontmatter.created}
         lang={frontmatter.language}
+        keywords={frontmatter.keywords}
       />
 
       <Article html={html} toc={tableOfContents} />
@@ -70,7 +71,6 @@ export const pageQuery = graphql`
         title
         description
         created
-        language
         header {
           image {
             childImageSharp {
@@ -83,8 +83,8 @@ export const pageQuery = graphql`
           link
           source
         }
+        language
         keywords
-        tags
       }
       fields {
         slug

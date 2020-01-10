@@ -7,11 +7,11 @@
 
 import React from 'react'
 
-import { Scheme } from './scheme'
+import { Theme } from './theme'
 import { History } from './history'
 import { Nav } from './nav'
 
-const providers = [<Scheme.Provider />, <History.Provider />, <Nav.Provider />]
+const providers = [<Theme.Provider />, <History.Provider />, <Nav.Provider />]
 
 const Store = ({ children: initial }) =>
   providers.reduce(
@@ -19,4 +19,4 @@ const Store = ({ children: initial }) =>
     initial
   )
 
-export { Store, Scheme, History, Nav }
+export { Store, Theme, History, Nav }

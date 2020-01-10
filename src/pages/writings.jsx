@@ -6,6 +6,7 @@ import { isDev } from '../environment'
 import Link from '../components/Link'
 import SEO from '../components/SEO'
 import { History } from '../store'
+import Time from '../components/Time'
 
 const Page = ({
   pageContext: { breadcrumb },
@@ -40,11 +41,16 @@ const Page = ({
 
       <div className="container container--medium">
         <div className="list">
-          {edges.map(({ node }, index) => (
-            <Link key={index} to={node.fields.slug}>
-              <h2>{node.frontmatter.title}</h2>
-              <p>{node.excerpt}</p>
-            </Link>
+          {edges.map(({ node: { frontmatter, fields, excerpt } }, index) => (
+            <div className="item" key={index}>
+              <Link to={fields.slug}>
+                <header>
+                  <h2>{frontmatter.title}</h2>
+                  <Time date={frontmatter.created} />
+                </header>
+                <p>{excerpt}</p>
+              </Link>
+            </div>
           ))}
         </div>
       </div>
@@ -65,6 +71,8 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             title
+            keywords
+            created
           }
           fields {
             slug

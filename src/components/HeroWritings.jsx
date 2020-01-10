@@ -4,8 +4,9 @@ import Backdrop from './Backdrop'
 import Time from './Time'
 import Language from './Language'
 import Separator from './Separator'
+import Keywords from './Keywords'
 
-const HeroWritings = ({ img, title, lang, time }) => (
+const HeroWritings = ({ img, title, keywords, lang, time }) => (
   <div id="hero">
     <Backdrop img={img.image.childImageSharp.fluid}></Backdrop>
 
@@ -13,6 +14,8 @@ const HeroWritings = ({ img, title, lang, time }) => (
       <div className="post-title">
         <h1>{title}</h1>
         <h2>
+          <Keywords list={keywords} />
+          <Separator />
           <Time date={time} format="LL" />
           <Separator />
           <Language lang={lang} />

@@ -1,0 +1,152 @@
+#theme-switch {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--switch-color-dark);
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 1px 1px #{rgba($color-dark, 0.26)},
+    0 3px 2px #{rgba($color-dark, 0.12)};
+  border: none;
+  transform: translate3d(0, 0, 0);
+
+  --switch-color-light: #fff;
+  --switch-color-dark: #000;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  &::before {
+    top: 8px;
+    left: 8px;
+    width: 24px;
+    height: 24px;
+    // TODO: as soon as linear-gradients support custom properties, replace the scss vars here
+    background-image: linear-gradient(
+      to right,
+      var(--switch-color-light) 50%,
+      var(--switch-color-dark) 50.01%
+    );
+    border: 2px solid var(--switch-color-light);
+    transition: transform 500ms ease-out;
+  }
+
+  &::after {
+    top: 15px;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    background: var(--switch-color-light);
+    mix-blend-mode: difference;
+  }
+
+  &.animating {
+    &[mode='dark'],
+    &[mode='light'] {
+      &::after {
+        animation: scaleInner 500ms ease forwards;
+      }
+    }
+
+    &[mode='auto'] {
+      &::before {
+        animation: moveBefore 300ms ease forwards;
+      }
+      &::after {
+        animation: moveAfter 300ms ease forwards;
+      }
+    }
+  }
+
+  &[mode='dark'] {
+    background: var(--switch-color-light);
+
+    &::before {
+      border: 2px solid var(--switch-color-dark);
+      transform: rotate(180deg);
+    }
+  }
+
+  &[mode='auto'] {
+    background: var(--switch-color-light);
+
+    &::before {
+      background: var(--switch-color-dark);
+      border-color: var(--switch-color-dark);
+      top: 12px;
+      left: 12px;
+      width: 21px;
+      height: 21px;
+    }
+
+    &::after {
+      content: 'A';
+      color: var(--switch-color-dark);
+      font-family: var(--font-sans);
+      font-weight: var(--font-bold);
+      font-size: 10px;
+      text-indent: 5px;
+      line-height: 27px;
+      top: 7px;
+      left: 7px;
+      width: 22px;
+      height: 22px;
+    }
+
+    &[theme='light'] {
+      background: var(--switch-color-dark);
+
+      &::before {
+        background: var(--switch-color-light);
+        border-color: var(--switch-color-light);
+      }
+    }
+  }
+}
+
+@keyframes scaleInner {
+  50% {
+    transform: scale(1.8);
+  }
+}
+
+@keyframes moveBefore {
+  0% {
+    top: 15px;
+    left: 15px;
+  }
+  65% {
+    top: 9px;
+    left: 9px;
+  }
+  100% {
+    top: 12px;
+    left: 12px;
+  }
+}
+
+@keyframes moveAfter {
+  0% {
+    color: transparent;
+    top: 3px;
+    left: 3px;
+  }
+  40% {
+    color: transparent;
+  }
+  65% {
+    top: 9px;
+    left: 9px;
+  }
+  100% {
+    color: var(--switch-color-dark);
+    top: 7px;
+    left: 7px;
+  }
+}

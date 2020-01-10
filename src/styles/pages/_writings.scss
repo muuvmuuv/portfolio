@@ -24,8 +24,7 @@
   }
 
   .list {
-    a {
-      display: block;
+    .item {
       margin-bottom: var(--spacing-xl);
       padding-bottom: var(--spacing-xs);
 
@@ -34,10 +33,20 @@
       }
     }
 
+    header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: var(--spacing-md);
+    }
+
     h2 {
       font-family: var(--font-serif);
       font-size: var(--text-xl);
-      margin-bottom: var(--spacing-md);
+    }
+
+    time {
+      color: var(--color-02);
     }
 
     p {

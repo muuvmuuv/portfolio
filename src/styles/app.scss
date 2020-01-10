@@ -9,6 +9,13 @@
 @import 'base';
 
 // ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+// Themes
+
+@import 'themes/dark';
+@import 'themes/light';
+@import 'themes/hc';
+
+// ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
 // Fonts
 
 @import 'fonts/inter';
@@ -46,6 +53,7 @@
 @import 'components/separator';
 @import 'components/table';
 @import 'components/text';
+@import 'components/theme-switch';
 @import 'components/tooltip';
 
 // ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄

@@ -4,7 +4,6 @@ description: Ein kleines süßes Gedicht
 slug: custom slug
 created: 09-23-2019
 modified: 07-12-2019
-language: en
 
 header:
   image: image.jpg
@@ -12,7 +11,7 @@ header:
   link: https://unsplash.com/@daniilvnoutchkov?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge
   source: unsplash
 
-tags: [german]
+language: en
 keywords: [dreams]
 ---
 

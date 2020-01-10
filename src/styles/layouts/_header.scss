@@ -5,7 +5,7 @@
   z-index: 10;
   padding: var(--spacing-lg) var(--container-padding-x);
   display: grid;
-  grid-template-areas: 'logo breadcrumb nav';
+  grid-template-areas: 'logo breadcrumb nav theme';
   grid-template-columns: auto auto 1fr;
   align-items: center;
   column-gap: var(--spacing-md);
@@ -32,6 +32,11 @@
   #breadcrumb {
     grid-area: breadcrumb;
   }
+
+  #theme-switch {
+    grid-area: theme;
+    margin-left: var(--spacing-xs);
+  }
 }
 
 .header-fixed #header {
@@ -43,7 +48,8 @@
 
   #logo,
   #navigation,
-  #breadcrumb {
+  #breadcrumb,
+  #theme-switch {
     pointer-events: auto;
   }
 }

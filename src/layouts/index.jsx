@@ -3,12 +3,15 @@ import { HelmetProvider } from 'react-helmet-async'
 
 import { Store } from '../store'
 import Header from './Header'
+import Layout from './Layout'
 
 const App = ({ children }) => (
   <Store>
     <HelmetProvider>
-      <Header></Header>
-      <main>{children}</main>
+      <Layout>
+        <Header></Header>
+        <main>{children}</main>
+      </Layout>
     </HelmetProvider>
   </Store>
 )
