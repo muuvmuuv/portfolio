@@ -7,6 +7,7 @@
 @import 'mixins';
 @import 'reset';
 @import 'base';
+@import 'animations';
 
 // ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
 // Themes
@@ -36,7 +37,6 @@
 // ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
 // Components
 
-@import 'components/animation';
 @import 'components/backdrop';
 @import 'components/button';
 @import 'components/code';

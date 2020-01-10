@@ -22,6 +22,24 @@ export function getRandomDate(
 }
 
 /**
+ * Get documents real height.
+ */
+export function getDocumentHeight() {
+  const body = document.body
+  const html = document.documentElement
+
+  let height = Math.max(
+    body.scrollHeight,
+    body.offsetHeight,
+    html.clientHeight,
+    html.scrollHeight,
+    html.offsetHeight
+  )
+
+  return height
+}
+
+/**
  * Returns a random number between min (inclusive) and max (exclusive)
  *
  * @see https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range

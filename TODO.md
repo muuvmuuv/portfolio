@@ -15,7 +15,7 @@
 - [x] add custom slug to all pages
 - [x] test `postcss-easing-gradients` with Scss loaded in `/src`
 - [ ] add md table of contents
-- [ ] new start page: https://labs.semplice.com/s5-vertical-grid
+- [x] new start page: https://labs.semplice.com/s5-vertical-grid
 - [x] test purgecss with classes from Markdown files
 - [ ] add NOW deployment
   - [ ] Setup Nameserver

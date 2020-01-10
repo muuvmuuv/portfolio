@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { scrollTo } from '../utils/animate'
+import { updateLocationHash, getDocumentHeight } from '../utils/helper'
 import { prefersReducedMotion } from '../utils/accessibility'
 import Lightbox from '../scripts/lightbox'
 
@@ -10,30 +11,64 @@ class Article extends React.Component {
   componentDidMount() {
     Lightbox.init()
 
-    this.scrollElements = document.querySelectorAll(
-      '.footnote-backref, .footnote-ref, .toc a'
-    )
-    this.scrollElements.forEach(ref => {
-      ref.addEventListener('click', this.handleClick)
-    })
+    // TODO: put article blocks into separate components
+    if (!prefersReducedMotion()) {
+      this.scrollElements = document.querySelectorAll(
+        '.footnote-backref, .footnote-ref, .toc a'
+      )
+      this.scrollElements.forEach((ref) => {
+        ref.addEventListener('click', this.handleClick)
+      })
+    }
   }
 
   componentWillUnmount() {
     Lightbox.destroy()
 
-    this.scrollElements.forEach(ref => {
-      ref.removeEventListener('click', this.handleClick)
-    })
+    if (this.scrollElements.length > 0) {
+      this.scrollElements.forEach((ref) => {
+        ref.removeEventListener('click', this.handleClick)
+      })
+    }
   }
 
-  handleClick(event) {
-    if (prefersReducedMotion()) {
-      return
-    }
+  handleClick = (event) => {
     event.preventDefault()
     const target = document.getElementById(event.target.hash.substr(1))
     if (target) {
-      scrollTo(target)
+      const offsetPosition = scrollTo(target)
+
+      // highlight target element when reached
+      function onScrollEvent() {
+        if (
+          window.scrollY === offsetPosition || // reached element
+          window.scrollY === getDocumentHeight() - window.innerHeight || // reached document end
+          window.scrollY === 0 // reached document start
+        ) {
+          removeListeners()
+          updateLocationHash(target.id)
+
+          target.classList.add('highlight')
+          setTimeout(() => {
+            target.classList.remove('highlight')
+          }, 2400)
+        }
+      }
+
+      // remove event listeners when user interrupts `scrollTo` function
+      function detectScrollInterrupt() {
+        removeListeners()
+      }
+
+      function removeListeners() {
+        window.removeEventListener('scroll', onScrollEvent)
+        window.removeEventListener('wheel', detectScrollInterrupt)
+        window.removeEventListener('keyup', detectScrollInterrupt)
+      }
+
+      window.addEventListener('scroll', onScrollEvent)
+      window.addEventListener('wheel', detectScrollInterrupt)
+      window.addEventListener('keyup', detectScrollInterrupt)
     }
   }
 
@@ -48,7 +83,6 @@ class Article extends React.Component {
       <>
         <article
           id="article"
-          // className="container container--small"
           dangerouslySetInnerHTML={{
             __html: this.props.html || fallbackContent,
           }}

@@ -15,7 +15,18 @@ article {
 }
 
 .footnotes {
+  @extend .container;
+  @extend .container--small;
+
   a {
     text-decoration: none;
+  }
+
+  li {
+    transition: background 240ms linear;
+  }
+
+  .highlight {
+    background: var(--color-10);
   }
 }

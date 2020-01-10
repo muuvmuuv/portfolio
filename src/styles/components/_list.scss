@@ -41,19 +41,6 @@ article {
         justify-content: center;
         opacity: 0.6;
       }
-
-      // &:nth-child(1n)::before {
-      //   content: '♡';
-      // }
-      // &:nth-child(2n)::before {
-      //   content: '♢';
-      // }
-      // &:nth-child(3n)::before {
-      //   content: '♤';
-      // }
-      // &:nth-child(4n)::before {
-      //   content: '♧';
-      // }
     }
   }
 
@@ -66,7 +53,7 @@ article {
       &::before {
         content: counter(counter) '.';
         left: 0;
-        top: 8px;
+        top: 7px;
         width: 13px;
         height: 13px;
         font-size: var(--text-sm);
