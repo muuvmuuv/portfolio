@@ -2,8 +2,8 @@
 title: Das ist, eine $" tolle Demo
 description: Ein kleines süßes Gedicht
 slug: custom slug
-created: 09-23-2019
-modified: 07-12-2019
+created: 2019-09-23
+modified: 2019-07-12
 
 header:
   image: image.jpg
