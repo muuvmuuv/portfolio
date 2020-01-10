@@ -16,7 +16,11 @@
     padding: var(--spacing-md) var(--container-padding-x);
     background: var(--color-dark-80);
     backdrop-filter: blur(4px);
-    // TODO: reduced transparency
+
+    @media (prefers-reduced-transparency: reduce) {
+      background: var(--color-dark);
+      backdrop-filter: none;
+    }
   }
 
   #logo {

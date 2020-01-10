@@ -4,8 +4,6 @@ import dayjs from 'dayjs'
 import DataType from './DataType'
 
 const Time = ({ date, format = 'L' }) => {
-  console.log(date)
-
   if (!date) {
     return <DataType tooltip="Not set" type="null"></DataType>
   }

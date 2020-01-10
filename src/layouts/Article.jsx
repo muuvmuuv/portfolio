@@ -79,6 +79,8 @@ class Article extends React.Component {
       </div>
     )
 
+    console.log(this.props.toc)
+
     return (
       <>
         <article
@@ -87,7 +89,7 @@ class Article extends React.Component {
             __html: this.props.html || fallbackContent,
           }}
         />
-        {this.props.toc ?? (
+        {this.props.toc && (
           <div
             role="navigation"
             className="toc"

@@ -20,8 +20,8 @@ const Lightbox = {
     )
 
     if (this.elements && this.elements.length > 0) {
-      this.elements.forEach(el => {
-        el.addEventListener('click', e => this.zoom(e, el))
+      this.elements.forEach((el) => {
+        el.addEventListener('click', (e) => this.zoom(e, el))
       })
     }
   },
@@ -31,7 +31,7 @@ const Lightbox = {
     document.removeEventListener('click', this.clickOutside)
 
     if (this.elements && this.elements.length > 0) {
-      this.elements.forEach(el => {
+      this.elements.forEach((el) => {
         el.removeEventListener('click', this.zoom)
       })
     }
@@ -50,6 +50,7 @@ const Lightbox = {
   zoomIn() {
     this.isZoomed = true
 
+    // TODO: reduced motion, no zoom
     const parent = this.target.parentElement
     const clientRect = this.target.getBoundingClientRect()
     const clientHeight = Math.round(clientRect.height)
@@ -140,7 +141,7 @@ const Lightbox = {
 
       this.clickOutside = VanillaClickOutside(
         element,
-        state => {
+        (state) => {
           if (state) {
             this.zoomOut()
           }

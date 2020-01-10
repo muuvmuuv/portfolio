@@ -15,6 +15,7 @@ const Single = ({
   },
 }) => {
   const historyDispatch = useContext(History.Dispatch)
+  console.log(tableOfContents)
 
   useEffect(() => {
     historyDispatch({
@@ -26,7 +27,6 @@ const Single = ({
 
   if (isDev) {
     console.group('WritingsSingle')
-    console.log(this)
     console.log(frontmatter)
     console.log(breadcrumb)
     console.groupEnd()

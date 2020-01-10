@@ -85,7 +85,6 @@ module.exports = {
             },
           },
           {
-            // BUG: #2
             resolve: `gatsby-remark-prismjs`,
             options: {
               noInlineHighlight: true,
@@ -94,6 +93,13 @@ module.exports = {
                 host: 'localhost',
                 global: false,
               },
+            },
+          },
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'nofollow',
             },
           },
           `remark-checkbox-spanner`,
@@ -116,6 +122,7 @@ module.exports = {
               },
             },
           },
+          'gatsby-remark-check-links',
         ],
       },
     },

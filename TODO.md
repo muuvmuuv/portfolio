@@ -22,7 +22,7 @@
     - [ ] Test
   - [ ] Everything pushed to master -> marvin.digital
   - [ ] Everything pushed to development -> dev.marvin.digital
-- [ ] replace React with [Preact][1] (check if it works now)
+- [ ] replace React with [Preact][1] (check if it works when finished)
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
 - [ ] Add footer with: version, social-media, imprint, changelog, copyright
@@ -33,12 +33,13 @@
 - [x] analyze via bundlephobia
 - [x] add github bots to auto update dependencies
 - [x] add lighthouse from M8FINDER project
-- [ ] use better [color system][10]
+- [ ] add scroll to top
 - [ ] use CSS blend modes (overlay)
 - [ ] add League of Legends API to show profile and stats
-- [ ] add classes to tags https://github.com/gatsbyjs/gatsby/issues/17824
+- [x] add classes to tags https://github.com/gatsbyjs/gatsby/issues/17824
 - [ ] use Inter variable Font: https://rsms.me/inter/var-test.html
-- [ ] set font feature settings: https://rsms.me/inter/#features
+- [ ] set font feature settings (numbers, dates, etc.):
+      https://rsms.me/inter/#features
 - [ ] Upload all writings
   - [ ] Grammatical corrections
   - [ ] Find images on Unsplash
@@ -47,11 +48,12 @@
   - [ ] Update images
 - [ ] Upload some photos (best off's)
 - [ ] setup SimpleAnalytics
+- [ ] check pages with Firefox Axe
 - [ ] check all pages with screen reader
 - [ ] check all pages with reduced motion
 - [ ] check all pages with reduced transparency
 - [ ] PWA: add service worker for offline usage
-- [ ] add tests?!
+- [ ] ~~add tests?!~~
 - [ ] ~~move from bash script to [Nim][2]~~
 - [ ] check markdown for ["Vary sentence length"][3]
 - [ ] check markdown for [Readability][4]
@@ -60,10 +62,11 @@
 - [ ] use [Guess.js][7]
 - [ ] use new iPad and Apple Pencil to make ["Marvin/Design"-Logo][8]
   - [ ] new color profile
-  - [ ] light theme (will be default, with auto switch based on OS appearance)
+  - [ ] use better [color system][10]
+  - [ ] light theme
 - [ ] Eventually by Font; [ZOOM-PRO][9]
 - [ ] use external CMS service for data instead of file based
-- [ ] open source the code 🤫
+- [ ] open source the code 🤫 (requires above)
 
 [1]: https://www.gatsbyjs.org/packages/gatsby-plugin-preact/
 [2]: https://nim-lang.org/docs/tut1.html

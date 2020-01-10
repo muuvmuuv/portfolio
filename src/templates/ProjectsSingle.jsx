@@ -27,7 +27,6 @@ const Single = ({
 
   if (isDev) {
     console.group('ProjectSingle')
-    console.log(this)
     console.log(frontmatter)
     console.log(breadcrumb)
     console.groupEnd()
