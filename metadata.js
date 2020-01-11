@@ -34,10 +34,6 @@ module.exports = {
       name: 'Writings',
       link: '/writings',
     },
-    {
-      name: 'Changelog',
-      link: '/changelog',
-    },
   ],
   socialLinks: [
     {

@@ -79,16 +79,18 @@ class Article extends React.Component {
       </div>
     )
 
-    console.log(this.props.toc)
-
     return (
       <>
-        <article
-          id="article"
-          dangerouslySetInnerHTML={{
-            __html: this.props.html || fallbackContent,
-          }}
-        />
+        {this.props.children ? (
+          <article id="article">{this.props.children}</article>
+        ) : (
+          <article
+            id="article"
+            dangerouslySetInnerHTML={{
+              __html: this.props.html || fallbackContent,
+            }}
+          />
+        )}
         {this.props.toc && (
           <div
             role="navigation"

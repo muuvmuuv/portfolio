@@ -25,6 +25,7 @@
 - [ ] replace React with [Preact][1] (check if it works when finished)
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
+- [ ] put scss theme stuff in own mixin for compat.
 - [ ] Add footer with: version, social-media, imprint, changelog, copyright
       notice
 - [x] test react helmet async

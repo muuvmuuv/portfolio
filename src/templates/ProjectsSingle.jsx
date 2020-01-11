@@ -48,13 +48,16 @@ const Single = ({
 
   return (
     <>
-      <Helmet
-        bodyAttributes={{ page: 'projects', class: 'single header-fixed' }}
-      />
       <SEO
         title={frontmatter.title}
         description={frontmatter.subtitle || excerpt}
         {...attr}
+      />
+      <Helmet
+        bodyAttributes={{
+          page: 'projects',
+          class: 'single header-fixed',
+        }}
       />
 
       <HeroProjects item={frontmatter} />

@@ -116,3 +116,18 @@
     }
   }
 }
+
+.hero-small #hero {
+  .container {
+    padding-top: 120px;
+    padding-bottom: var(--spacing-lg);
+
+    @include breakpoint-up(sm) {
+      padding-top: 150px;
+    }
+
+    @include breakpoint-up(xl) {
+      padding-bottom: var(--spacing-xxl);
+    }
+  }
+}
