@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 
 import { Nav } from '../store'
-import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { useMenuLinks } from '../hooks/use-menu-links'
 import Link from './Link'
 
 const Navigation = () => {
-  const { menuLinks } = useSiteMetadata()
+  const menuLinks = useMenuLinks()
   const navState = useContext(Nav.State)
   const navDispatch = useContext(Nav.Dispatch)
 

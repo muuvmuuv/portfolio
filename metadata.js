@@ -35,6 +35,20 @@ module.exports = {
       link: '/writings',
     },
   ],
+  footerLinks: [
+    {
+      name: 'Credits',
+      link: '/credits',
+    },
+    {
+      name: 'Changelog',
+      link: '/changelog',
+    },
+    {
+      name: 'Imprint',
+      link: '/imprint',
+    },
+  ],
   socialLinks: [
     {
       name: 'Twitter',

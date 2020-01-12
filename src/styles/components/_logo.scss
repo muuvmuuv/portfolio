@@ -1,0 +1,18 @@
+.logo {
+  width: var(--logo-size);
+  height: var(--logo-size);
+
+  --logo-size: 35px;
+
+  svg {
+    --logo-color: var(--color-light);
+  }
+}
+
+[theme='light'] {
+  .logo {
+    svg {
+      --logo-color: var(--color-dark);
+    }
+  }
+}

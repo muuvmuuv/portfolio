@@ -1,0 +1,60 @@
+.icon {
+  display: inline-block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  --icon-size: 0px; // default is set in react component
+  --icon-color-light: var(--color-light);
+  --icon-color-dark: var(--icon-color-light);
+
+  &:hover {
+    svg {
+      fill: var(--icon-color-light);
+    }
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--icon-color-light);
+  }
+
+  &[name='twitter'] {
+    --icon-color-light: #07a3f2;
+  }
+  &[name='github'] {
+    --icon-color-light: #3d7ac0;
+  }
+  &[name='instagram'] {
+    --icon-color-light: #e43e6c;
+  }
+  &[name='dribbble'] {
+    --icon-color-light: #ed5689;
+  }
+  &[name='unsplash'] {
+    --icon-color-light: #ffffff;
+    --icon-color-dark: #000000;
+  }
+  &[name='discord'] {
+    --icon-color-light: #718cda;
+  }
+  &[name='lol'] {
+    --icon-color-light: #947341;
+  }
+}
+
+.icon-group {
+  display: flex;
+  align-items: center;
+}
+
+[theme='light'] .icon {
+  &:hover svg,
+  svg {
+    fill: var(--icon-color-dark);
+  }
+}

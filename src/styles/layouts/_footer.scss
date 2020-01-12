@@ -1,13 +1,54 @@
 #footer {
-  padding: 0 var(--spacing-xl);
-  font-size: var(--text-sm);
-  margin-right: negative(var(--spacing-xs));
-  margin-bottom: var(--spacing-xl);
+  display: grid;
+  justify-items: center;
+  padding-top: var(--spacing-xxl);
+  padding-bottom: 10rem;
 
-  a {
-    display: inline-block;
-    color: var(--color-light-20);
-    margin-right: var(--spacing-xs);
-    margin-bottom: var(--spacing-xs);
+  @include breakpoint-up(sm) {
+    padding-bottom: 20rem;
+  }
+
+  @include breakpoint-up(lg) {
+    padding-bottom: 30rem;
+  }
+
+  .logo {
+    --logo-size: 80px;
+    opacity: 0.05;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .list {
+    margin-bottom: var(--spacing-md);
+
+    li {
+      display: inline-block;
+      margin: 0 var(--spacing-xxs);
+    }
+
+    a {
+      padding: var(--spacing-xs);
+      transition: opacity 260ms ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .social a {
+    opacity: 0.5;
+  }
+
+  .links a {
+    opacity: 0.2;
+  }
+
+  .icon {
+    --icon-size: 20px;
+  }
+
+  svg {
+    // fill: var(--color-light);
   }
 }

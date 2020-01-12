@@ -1,5 +1,5 @@
 #header {
-  position: sticky;
+  position: relative;
   top: 0;
   width: 100%;
   z-index: 10;
@@ -13,6 +13,7 @@
   user-select: none;
 
   &.sticky {
+    position: sticky;
     padding: var(--spacing-md) var(--container-padding-x);
     background: var(--color-dark-80);
     backdrop-filter: blur(4px);
@@ -23,9 +24,8 @@
     }
   }
 
-  #logo {
+  .logo {
     grid-area: logo;
-    width: 35px;
   }
 
   #navigation {
@@ -50,10 +50,20 @@
 .header-click-through #header {
   pointer-events: none;
 
-  #logo,
+  .logo,
   #navigation,
   #breadcrumb,
   #theme-switch {
     pointer-events: auto;
+  }
+}
+
+[theme='light'] #header {
+  &.sticky {
+    background: var(--color-light-80);
+
+    @media (prefers-reduced-transparency: reduce) {
+      background: var(--color-light);
+    }
   }
 }

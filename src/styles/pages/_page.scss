@@ -1,7 +1,12 @@
-[page='page'] {
+.page {
   #hero {
     .container {
       justify-content: center;
+    }
+
+    .post-title,
+    h1 {
+      margin-bottom: 0;
     }
   }
 }

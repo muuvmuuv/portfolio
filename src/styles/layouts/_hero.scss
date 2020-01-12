@@ -74,7 +74,7 @@
 
     h2 {
       font-family: var(--font-mono);
-      color: var(--color-light-60);
+      color: var(--text-color-richer);
     }
   }
 
@@ -119,15 +119,38 @@
 
 .hero-small #hero {
   .container {
-    padding-top: 120px;
-    padding-bottom: var(--spacing-lg);
+    padding-top: 100px;
+    padding-bottom: var(--spacing-md);
 
     @include breakpoint-up(sm) {
-      padding-top: 150px;
+      padding-top: 120px;
     }
 
     @include breakpoint-up(xl) {
-      padding-bottom: var(--spacing-xxl);
+      padding-bottom: var(--spacing-md);
+    }
+  }
+}
+
+[theme='light'] #hero {
+  .backdrop {
+    &::after {
+      background-image: linear-gradient(
+        0deg,
+        rgb(255, 255, 255),
+        rgba(255, 255, 255, 0.9914) 14.71%,
+        rgba(255, 255, 255, 0.9662) 26.23%,
+        rgba(255, 255, 255, 0.92531) 35.17%,
+        rgba(255, 255, 255, 0.86963) 42.15%,
+        rgba(255, 255, 255, 0.80006) 47.76%,
+        rgba(255, 255, 255, 0.7175) 52.63%,
+        rgba(255, 255, 255, 0.62286) 57.34%,
+        rgba(255, 255, 255, 0.51704) 62.52%,
+        rgba(255, 255, 255, 0.40094) 68.77%,
+        rgba(255, 255, 255, 0.27546) 76.69%,
+        rgba(255, 255, 255, 0.14152) 86.9%,
+        rgba(255, 255, 255, 0)
+      );
     }
   }
 }

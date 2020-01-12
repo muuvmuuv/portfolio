@@ -3,6 +3,9 @@ import { Helmet } from 'react-helmet-async'
 
 import { Theme } from '../store'
 
+/**
+ * Global site wrapper.
+ */
 const Layout = ({ children }) => {
   const themeState = useContext(Theme.State)
 

@@ -16,3 +16,10 @@ a.link {
     text-decoration-style: solid;
   }
 }
+
+[theme='light'] {
+  article a,
+  a.link {
+    color: var(--color-primary-dark);
+  }
+}

@@ -34,7 +34,30 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    `gatsby-plugin-mdx`,
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.svg$/,
+          options: {
+            props: {
+              preserveAspectRatio: 'xMidYMid meet',
+              width: '100%',
+              height: '100%',
+            },
+          },
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          // would work, but can not pass props to it so useless to give e.g. a page title
+          // default: require.resolve('./src/templates/PageSingle.jsx'),
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

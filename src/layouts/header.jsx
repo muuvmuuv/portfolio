@@ -20,6 +20,9 @@ class Header extends React.PureComponent {
 
   // TODO: test this with SSR
   handleScroll = (event) => {
+    const isFixed = document.body.classList.contains('header-fixed')
+    if (!isFixed) return
+
     this.setState({
       sticky: window.pageYOffset > 0,
     })

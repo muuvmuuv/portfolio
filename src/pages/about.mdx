@@ -1,9 +1,7 @@
-import LayoutPage from '../components/LayoutPage'
-import Blockquote from '../components/Blockquote'
-
-export default ({ children }) => (
-  <LayoutPage name="About">{children}</LayoutPage>
-)
+import Page from '../templates/PageSingle.jsx'
+export default (props) => {
+  return <Page props={props} name="About" />
+}
 
 # About
 
@@ -89,7 +87,7 @@ Needs Component
 
 ## Code blocks
 
-```jsx{numberLines: true}
+```jsx
 import { Component } from 'react'
 
 class Test extends Component {
@@ -122,7 +120,7 @@ Some basic preformated text block
                 is
 ```
 
-```bash{outputLines: 3-7}
+```bash
 ~/Documents/M8FINDER/API master !1 *1
 marvinheilemann@marvin❯ py src/app.py
 Traceback (most recent call last):

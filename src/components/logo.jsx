@@ -1,28 +1,19 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 
-import logo from '../images/logo-white.svg'
+import { useSiteData } from '../hooks/use-site-data'
+import LogoComponent from '../images/logo.svg'
 
 const Logo = () => {
-  const data = useStaticQuery(query)
+  const sitedata = useSiteData()
 
   return (
-    <div id="logo">
-      <a href="/">
-        <img src={logo} alt={data.site.siteMetadata.title} />
-      </a>
+    <div className="logo">
+      <Link href="/">
+        <LogoComponent alt={`Logo of ${sitedata.title}`} />
+      </Link>
     </div>
   )
 }
-
-const query = graphql`
-  query SiteMetaQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
 
 export default Logo

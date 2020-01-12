@@ -1,0 +1,21 @@
+article {
+  figure {
+    margin-bottom: var(--content-margin);
+    border: 1px solid var(--color-09);
+
+    > img,
+    > picture,
+    > span {
+      padding: var(--spacing-md);
+    }
+
+    a {
+      position: relative;
+    }
+
+    figcaption {
+      border-top: 1px solid var(--color-09);
+      padding: var(--spacing-md);
+    }
+  }
+}
