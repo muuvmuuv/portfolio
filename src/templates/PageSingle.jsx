@@ -8,8 +8,8 @@ import { History } from '../store'
 import HeroPage from '../components/HeroPage'
 import Article from '../layouts/Article'
 
-import Blockquote from '../shortcodes/Blockquote'
-const mdxShortcodes = { Blockquote }
+import Quote from '../shortcodes/Quote'
+const mdxShortcodes = { Quote }
 
 /**
  * Wrapper for MDX pages.

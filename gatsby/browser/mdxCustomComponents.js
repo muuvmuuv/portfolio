@@ -53,7 +53,9 @@ const ThematicBreak = (props) => (
 )
 const Blockquote = (props) => (
   <ContainerSmall>
-    <blockquote {...props} />
+    <blockquote {...props}>
+      <p>{props.children.props.children}</p>
+    </blockquote>
   </ContainerSmall>
 )
 const UnorderedList = (props) => (

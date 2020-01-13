@@ -1,9 +1,11 @@
 [theme='light']:root {
-  --background-color: var(--color-light);
+  --background-color: var(--color-01);
 
   --text-color-normal: var(--color-dark);
-  --text-color-light: var(--color-04);
-  --text-color-richer: var(--color-07);
-  --text-color-dark: var(--color-09);
-  --text-color-highlight: var(--color-primary);
+  --text-color-light: var(--color-02);
+  --text-color-richer: var(--color-05);
+  --text-color-dark: var(--color-07);
+  --text-color-highlight: var(--color-primary-dark);
+
+  --divider-color: var(--color-02);
 }

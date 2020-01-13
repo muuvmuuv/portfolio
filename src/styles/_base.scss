@@ -78,15 +78,11 @@ article {
     margin-bottom: var(--content-margin);
   }
 
-  h2 {
-    &:not(:first-of-type) {
-      padding-top: var(--spacing-xs); // margin does not work here
-    }
-  }
-
-  p {
-    margin-top: -7px; // this fixes typo height
-  }
+  // h2 {
+  //   &:not(:first-of-type) {
+  //     padding-top: var(--spacing-xs); // margin does not work here
+  //   }
+  // }
 
   h1 {
     font-size: var(--text-xxl);

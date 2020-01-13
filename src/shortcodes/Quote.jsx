@@ -1,13 +1,13 @@
 import React from 'react'
 // import Img from 'gatsby-image'
 
-const Blockquote = ({ children, user }) => {
+const Quote = ({ children, user }) => {
   return (
-    <blockquote>
+    <div className="quote">
       <p>{children}</p>
       <footer>{user.name}</footer>
-    </blockquote>
+    </div>
   )
 }
 
-export default Blockquote
+export default Quote

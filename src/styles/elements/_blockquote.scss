@@ -1,38 +1,11 @@
 article {
   blockquote {
-    position: relative;
     margin: 0 0 var(--content-margin) 0;
-    padding: var(--spacing-xxl) var(--spacing-xxl)
-      calc(var(--spacing-xxl) - 5px);
-    background: var(--color-10);
-    font-family: var(--font-serif);
-    z-index: 0;
-    text-align: center;
-
-    &::before {
-      content: '"';
-      position: absolute;
-      top: 0px;
-      left: 20px;
-      font-size: 200px;
-      font-weight: var(--font-black);
-      font-family: var(--font-serif);
-      line-height: 1;
-      z-index: -1;
-      opacity: 0.1;
-    }
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-left: 2px solid var(--color-primary);
 
     p {
       margin-bottom: 0;
-    }
-
-    footer {
-      margin-top: var(--spacing-lg);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: var(--text-sm);
-      font-weight: var(--font-semi-bold);
-      font-family: var(--font-sans);
     }
   }
 }

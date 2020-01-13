@@ -29,7 +29,7 @@
       padding-bottom: var(--spacing-xs);
 
       &:not(:last-child) {
-        border-bottom: 1px solid var(--color-10);
+        border-bottom: 1px solid var(--divider-color);
       }
     }
 
@@ -46,11 +46,12 @@
     }
 
     time {
-      color: var(--color-02);
+      color: var(--text-color-dark);
     }
 
     p {
       font-size: var(--text-lg);
+      color: var(--text-color-dark);
     }
   }
 }
