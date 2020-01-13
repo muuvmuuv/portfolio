@@ -7,8 +7,11 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import dayjs from 'dayjs'
 
 export default function HTML(props) {
+  const thisYear = dayjs().get('y')
+
   return (
     <html lang="en" {...props.htmlAttributes}>
       <head>
@@ -22,9 +25,9 @@ export default function HTML(props) {
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
+        {/*TODO: Show beautiful message here*/}
         <noscript key="noscript" id="gatsby-noscript">
-          {/*TODO: Show beautiful message here*/}
-          This app works best with JavaScript enabled.
+          I mean... we have {thisYear}, please enable your JavaScript
         </noscript>
         <div
           key={`body`}

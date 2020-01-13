@@ -15,7 +15,7 @@ const Footer = () => {
       <Logo />
       <ul className="list social">
         {socialLinks.map(({ name, icon, link }) => (
-          <li>
+          <li key={name}>
             <a
               href={link}
               title={name}
@@ -30,7 +30,7 @@ const Footer = () => {
       </ul>
       <ul className="list links">
         {footerLinks.map(({ name, link }) => (
-          <li>
+          <li key={name}>
             <Link to={link}>{name}</Link>
           </li>
         ))}

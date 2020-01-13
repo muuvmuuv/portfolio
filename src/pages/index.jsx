@@ -40,21 +40,21 @@ const Page = ({
       />
 
       <div className="showcase">
-        <Link className="item" to="/projects">
+        <Link className="item" to="/projects" key="projects">
           <Backdrop img={Img01.childImageSharp.fluid}></Backdrop>
           <div className="content">
             <h2>Projects</h2>
             <h3>Basement dweller first</h3>
           </div>
         </Link>
-        <Link className="item" to="/photography">
+        <Link className="item" to="/photography" key="photography">
           <Backdrop img={Img02.childImageSharp.fluid}></Backdrop>
           <div className="content">
             <h2>Photography</h2>
             <h3>All around the world</h3>
           </div>
         </Link>
-        <Link className="item" to="/writings">
+        <Link className="item" to="/writings" key="writings">
           <Backdrop img={Img04.childImageSharp.fluid}></Backdrop>
           <div className="content">
             <h2>Writings</h2>
