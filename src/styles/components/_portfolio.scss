@@ -1,0 +1,36 @@
+// TODO: do this as gallery: https://dribbble.com/shots/6154629-Gallerie-Due-Concept/attachments
+
+.gallery {
+  margin-top: var(--spacing-xxl);
+}
+
+.portfolio {
+  display: grid;
+  margin-bottom: var(--spacing-xxl);
+  grid-template-areas: 'image info';
+  grid-template-columns: 1fr 300px;
+
+  .info {
+    grid-area: info;
+    margin-top: var(--spacing-xl);
+    margin-left: var(--spacing-md);
+
+    h2 {
+      font-family: var(--font-serif);
+      font-weight: var(--font-bold);
+      font-size: var(--text-xl);
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-color-highlight);
+    }
+
+    h3 {
+      color: var(--text-color-richer);
+      margin-bottom: var(--spacing-sm);
+    }
+  }
+
+  .gatsby-image-wrapper {
+    grid-area: image;
+    border: 1px solid var(--border-color-light);
+  }
+}

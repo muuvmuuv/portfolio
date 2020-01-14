@@ -39,6 +39,8 @@ const Page = ({
         bodyAttributes={{ page: pageName.toLowerCase(), class: 'home' }}
       />
 
+      <h1 className="headline">{pageName}</h1>
+
       <div className="container container--medium">
         <div className="list">
           {edges.map(({ node: { frontmatter, fields, excerpt } }, index) => (

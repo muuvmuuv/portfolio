@@ -11,14 +11,16 @@ const Portfolio = ({ item }) => {
   // console.log(meta)
 
   return (
-    <article className="portfolio">
-      <h2>{article.title}</h2>
-      <h3>{article.subtitle}</h3>
-      <Link to={meta.slug} className="btn btn-primary">
-        Show more
-      </Link>
+    <div className="portfolio">
       <Img fluid={article.image.childImageSharp.fluid} alt={article.title} />
-    </article>
+      <div className="info">
+        <h2>{article.title}</h2>
+        <h3>{article.subtitle}</h3>
+        <Link to={meta.slug} className="btn btn-primary">
+          Show more
+        </Link>
+      </div>
+    </div>
   )
 }
 

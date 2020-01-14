@@ -23,11 +23,11 @@ const Page = ({
   })
 
   // weird sort function, but works
-  const idList = new Set(withoutStartDate.edges.map(x => x.node.id))
+  const idList = new Set(withoutStartDate.edges.map((x) => x.node.id))
   const items = [
     ...withDates.edges,
     ...withoutStartDate.edges,
-    ...withoutEndDate.edges.filter(d => !idList.has(d.node.id)),
+    ...withoutEndDate.edges.filter((d) => !idList.has(d.node.id)),
   ].sort((starting, ending) => {
     return (
       new Date(ending.node.frontmatter.ended) -
@@ -48,11 +48,13 @@ const Page = ({
       <Helmet
         bodyAttributes={{
           page: pageName.toLowerCase(),
-          class: 'home header-fixed',
+          class: 'home',
         }}
       />
 
-      <div className="gallery">
+      <h1 className="headline">{pageName}</h1>
+
+      <div className="container gallery">
         {items.map((item, index) => (
           <Portfolio item={item.node} key={index}></Portfolio>
         ))}

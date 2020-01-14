@@ -35,6 +35,8 @@ const Page = ({ pageContext: { breadcrumb } }) => {
         }}
       />
 
+      <h1 className="headline">{pageName}</h1>
+
       <div className="gallery">content will come soon</div>
     </>
   )
