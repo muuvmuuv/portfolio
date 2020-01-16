@@ -16,28 +16,60 @@ const DataType = ({ type, tooltip, position = 'top' }) => {
     case 'null':
       return (
         <span className={'mono color--orange ' + classes.join(' ')} {...attr}>
-          {type}
+          null
         </span>
+      )
+
+    case 'array':
+      return (
+        <>
+          [
+          <span className={'mono color--orange ' + classes.join(' ')} {...attr}>
+            null
+          </span>
+          ]
+        </>
+      )
+
+    case 'object':
+      return (
+        <>
+          {
+            <span
+              className={'mono color--orange ' + classes.join(' ')}
+              {...attr}
+            >
+              key: null
+            </span>
+          }
+        </>
       )
 
     case 'false':
       return (
         <span className={'mono color--red ' + classes.join(' ')} {...attr}>
-          {type}
+          false
         </span>
       )
 
     case 'true':
       return (
         <span className={'mono color--green ' + classes.join(' ')} {...attr}>
-          {type}
+          true
         </span>
       )
 
     case 'number':
       return (
         <span className={'mono color--blue ' + classes.join(' ')} {...attr}>
-          {type}
+          number
+        </span>
+      )
+
+    case 'string':
+      return (
+        <span className={'mono color--blue ' + classes.join(' ')} {...attr}>
+          string
         </span>
       )
 

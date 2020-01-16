@@ -1,7 +1,8 @@
 .container {
+  width: 100%;
+  max-width: auto;
   padding-right: var(--container-padding-x);
   padding-left: var(--container-padding-x);
-  width: 100%;
   margin-right: auto;
   margin-left: auto;
 
@@ -12,10 +13,14 @@
   }
 
   &--small {
-    max-width: map-get($container-max-widths, md);
+    @include breakpoint-up(lg) {
+      max-width: map-get($container-max-widths, md);
+    }
   }
 
   &--medium {
-    max-width: map-get($container-max-widths, lg);
+    @include breakpoint-up(lg) {
+      max-width: map-get($container-max-widths, lg);
+    }
   }
 }

@@ -9,15 +9,11 @@ module.exports = async ({ node, getNode, actions }) => {
       published: true,
       status: 'wip',
       website: '',
-      role: [],
       team: [],
+      role: [],
     }
 
-    node.frontmatter = Object.assign(
-      {},
-      nodeFrontmatterDefault,
-      node.frontmatter
-    )
+    node.frontmatter = { ...nodeFrontmatterDefault, ...node.frontmatter }
 
     console.log(node.frontmatter)
 

@@ -46,16 +46,24 @@ const HeroProjects = ({ item }) => (
           </li>
           <li>
             <span className="pre">Team:</span>{' '}
-            <Members list={item.team}></Members>
+            {item.team.length > 0 ? (
+              <Members list={item.team}></Members>
+            ) : (
+              <DataType tooltip="Not set" type="array"></DataType>
+            )}
           </li>
           <li>
             <span className="pre">Role:</span>{' '}
-            {item.role.map((r, i) => (
-              <span>
-                {r}
-                {i < item.role.length - 1 && ', '}
-              </span>
-            ))}
+            {item.role.length > 0 ? (
+              item.role.map((r, i) => (
+                <span key={i}>
+                  {r}
+                  {i < item.role.length - 1 && ', '}
+                </span>
+              ))
+            ) : (
+              <DataType tooltip="Not set" type="array"></DataType>
+            )}
           </li>
         </ul>
       </div>

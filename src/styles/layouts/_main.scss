@@ -13,6 +13,8 @@
     top: -80px;
     left: -40px;
     opacity: 0.05;
+    user-select: none;
+    pointer-events: none;
   }
 }
 

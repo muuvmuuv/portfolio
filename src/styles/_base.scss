@@ -25,6 +25,19 @@ body {
   @include reducedMotion() {
     scroll-behavior: auto;
   }
+
+  &::before {
+    content: 'xs';
+    display: none;
+  }
+
+  @each $breakpoint, $max-width in $container-max-widths {
+    @include breakpoint-up($breakpoint) {
+      &::before {
+        content: '#{$breakpoint}';
+      }
+    }
+  }
 }
 
 pre,
