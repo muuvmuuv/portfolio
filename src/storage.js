@@ -30,7 +30,7 @@ function removeItem(key) {
 }
 
 function clearAll() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     localStorage.clear()
     resolve()
   })

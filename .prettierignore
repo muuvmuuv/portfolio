@@ -1,4 +1,6 @@
 node_modules
 .cache
-*.json
+.git
 public
+reports
+*.json

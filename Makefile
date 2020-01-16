@@ -26,7 +26,14 @@ restart-nginx:
 newcert:
 	webssl --removeOld --addToKeychain
 
+
+# ----------------------------
+# Setup
+
 create-env:
 	cp .env.development .env.production
 
-setup: create-env
+create-reports-dir:
+	mkdir -p reports
+
+setup: create-env create-reports-dir

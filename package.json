@@ -33,8 +33,9 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "lint": "eslint src/**/*.{js,jsx}",
     "−−−−−−−−−−−−−−−−−  SCRIPTS/TOOLS  −−−−−−−−−−−−−−−−–−−": "",
+    "preinstall": "make setup",
+    "postinstall": "npm run compose",
     "version": "node ./scripts/version.js",
-    "−−−−−−−−−−−−−−−−−−−−  COMMON  −−−−−−−−−−−−−−−−–−−−−−−": "",
     "pretty": "pretty-quick"
   },
   "dependencies": {
@@ -96,6 +97,7 @@
     "lighthouse": "^5.6.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "prompts": "^2.3.0",
     "semver": "^7.1.1",
     "taskz": "^1.3.0",

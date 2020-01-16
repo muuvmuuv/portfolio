@@ -14,7 +14,7 @@ const SEO = ({
 }) => (
   <StaticQuery
     query={detailsQuery}
-    render={data => {
+    render={(data) => {
       const metaDescription = description || data.site.siteMetadata.description
 
       // set default social-media images
