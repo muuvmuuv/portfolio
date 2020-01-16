@@ -38,16 +38,16 @@ module.exports = () => {
   `
 
   console.log(
-    `%cMarvin/Design`,
-    `%cv${process.env.GATSBY_APP_VERSION}`,
+    `%cMarvin/Design%cv${process.env.GATSBY_APP_VERSION}`,
     styleName,
     styleVersion
   )
   console.log(
     `%c
 Welcome fellow %cdeveloper%c!  🎉
-I'm happy to see you here. If you want to have look on my code
-and the architecture, my portfolio is available on GitHub:
+I'm happy to see you here. If you want to have
+look on my code and the architecture, my
+portfolio is available on GitHub:
 https://github.com/muuvmuuv/portfolio 🔒
     `,
     styleShared,

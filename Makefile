@@ -17,6 +17,9 @@ stop:
 start:
 	docker-compose start
 
+logs:
+	docker logs marvin-nginx
+
 restart: restart-nginx
 	# docker-compose restart marvin-xxxx
 
@@ -31,9 +34,14 @@ newcert:
 # Setup
 
 create-env:
-	cp .env.development .env.production
+	if test -f .env.production; \
+	then echo Production environment file already exist, exiting...; exit 0; \
+	else cp .env.development .env.production; echo Created production environment file; \
+	fi
 
-create-reports-dir:
+create-dirs:
 	mkdir -p reports
+	mkdir -p docker/nginx/certs
 
-setup: create-env create-reports-dir
+setup: create-env create-dirs
+	@echo Success!

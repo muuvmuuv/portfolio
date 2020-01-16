@@ -24,10 +24,11 @@
   - [ ] Everything pushed to development -> dev.marvin.digital
 - [x] replace React with [Preact][1] (check if it works when finished)
 - [x] add version to GraphQL data not as file...
-- [ ] remove "build brotli from source" with a already finished build
-- [ ] always use latest NGINX image
-- [ ] test prod build locally with SSL and brotli compression
-- [ ] test prod builds Node env
+- [x] remove "build brotli from source" with a already finished build
+- [x] always use latest NGINX image
+- [x] test prod build locally with SSL and brotli compression
+- [ ] fix issue with node env version in prod build
+- [ ] fix issue with header on prod build
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
 - [ ] MDX pages are not using remark images plugin
