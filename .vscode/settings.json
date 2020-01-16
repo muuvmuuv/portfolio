@@ -1,11 +1,11 @@
 {
+  "todo-tree.filtering.excludeGlobs": [
+    "**/*.md",
+  ],
   "cSpell.words": [
     "dayjs",
     "dribbble",
     "taskz",
     "xing"
-  ],
-  "todo-tree.filtering.excludeGlobs": [
-    "**/*.md",
   ]
 }
