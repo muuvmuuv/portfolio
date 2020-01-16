@@ -13,7 +13,7 @@
     top: 0px;
     left: 20px;
     font-size: 200px;
-    font-weight: var(--font-black);
+    font-weight: var(--font-bold);
     font-family: var(--font-serif);
     line-height: 1;
     z-index: -1;
@@ -29,12 +29,12 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: var(--text-sm);
-    font-weight: var(--font-semi-bold);
+    font-weight: var(--font-bold);
     font-family: var(--font-sans);
   }
 }
 
-[theme='light'] {
+@include themeLight() {
   .quote {
     background: var(--color-02);
   }

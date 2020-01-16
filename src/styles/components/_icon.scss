@@ -17,6 +17,12 @@
     }
   }
 
+  &.icon-text {
+    vertical-align: middle;
+    width: auto;
+    height: auto;
+  }
+
   svg {
     width: 100%;
     height: 100%;
@@ -52,9 +58,11 @@
   align-items: center;
 }
 
-[theme='light'] .icon {
-  &:hover svg,
-  svg {
-    fill: var(--icon-color-dark);
+@include themeLight() {
+  .icon {
+    &:hover svg,
+    svg {
+      fill: var(--icon-color-dark);
+    }
   }
 }

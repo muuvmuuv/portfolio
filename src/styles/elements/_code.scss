@@ -65,14 +65,19 @@ pre[class*='language-'] code {
     content: '';
     position: absolute;
     background-color: #{rgba(lighten($color-dark, 20%), 0.2)};
-    margin-left: -52px;
     border-left: 1px solid var(--color-primary);
     height: 100%;
-    width: calc(100% + 64px);
+    width: calc(100% + 26px);
+    margin-left: -13px;
     z-index: -1;
     pointer-events: none;
     user-select: none;
   }
+}
+
+.line-numbers .gatsby-highlight-code-line::before {
+  width: calc(100% + 64px);
+  margin-left: -52px;
 }
 
 // ++++++++++ line numbers +++++++++++

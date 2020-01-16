@@ -76,20 +76,22 @@
   }
 }
 
-[theme='light'] #header {
-  &::before {
-    background-image: linear-gradient(
-      to bottom,
-      var(--color-light-40),
-      transparent
-    );
-  }
+@include themeLight() {
+  #header {
+    &::before {
+      background-image: linear-gradient(
+        to bottom,
+        var(--color-light-40),
+        transparent
+      );
+    }
 
-  &.sticky {
-    background: var(--color-light-80);
+    &.sticky {
+      background: var(--color-light-80);
 
-    @media (prefers-reduced-transparency: reduce) {
-      background: var(--color-light);
+      @media (prefers-reduced-transparency: reduce) {
+        background: var(--color-light);
+      }
     }
   }
 }

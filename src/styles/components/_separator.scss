@@ -1,4 +1,7 @@
 .separator {
   font-size: var(--text-sm);
   margin: 0 var(--spacing-xs);
+  transform: translateY(-2px);
+  display: inline-block;
+  cursor: default;
 }

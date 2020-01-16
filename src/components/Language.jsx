@@ -1,7 +1,9 @@
 import React from 'react'
 
-const Language = ({ lang }) => {
-  switch (lang) {
+import DataType from './DataType'
+
+const Language = ({ code }) => {
+  switch (code) {
     case 'de':
       return (
         <span className="lang" aria-label="German" role="img">
@@ -11,11 +13,11 @@ const Language = ({ lang }) => {
     case 'en':
       return (
         <span className="lang" aria-label="English" role="img">
-          🇺🇸
+          🇬🇧
         </span>
       )
     default:
-      return <span className="status">Unknown language `{lang}`</span>
+      return <DataType type="null" tooltip="Country code unknown"></DataType>
   }
 }
 

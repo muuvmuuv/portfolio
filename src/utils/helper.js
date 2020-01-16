@@ -12,7 +12,7 @@ export function updateLocationHash(newHash) {
 }
 
 /**
- * Returns a random date between start and end
+ * Returns a random date between start and end.
  */
 export function getRandomDate(
   start = dayjs().subtract(1, 'year'),

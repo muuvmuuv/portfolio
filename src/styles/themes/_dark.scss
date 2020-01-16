@@ -1,14 +1,16 @@
-[theme='dark']:root {
-  --background-color: var(--color-dark);
+@include themeDark() {
+  &:root {
+    --background-color: var(--color-dark);
 
-  --text-color-normal: var(--color-light);
-  --text-color-light: var(--color-03);
-  --text-color-richer: var(--color-05);
-  --text-color-dark: var(--color-07);
-  --text-color-highlight: var(--color-primary);
+    --text-color-normal: var(--color-light);
+    --text-color-light: var(--color-03);
+    --text-color-richer: var(--color-05);
+    --text-color-dark: var(--color-07);
+    --text-color-highlight: var(--color-primary);
 
-  --border-color-normal: var(--color-07);
-  --border-color-light: var(--color-09);
+    --border-color-normal: var(--color-07);
+    --border-color-light: var(--color-09);
 
-  --divider-color: var(--color-09);
+    --divider-color: var(--color-09);
+  }
 }

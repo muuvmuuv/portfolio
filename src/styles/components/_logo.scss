@@ -9,7 +9,7 @@
   }
 }
 
-[theme='light'] {
+@include themeLight() {
   .logo {
     svg {
       --logo-color: var(--color-dark);

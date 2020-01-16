@@ -48,12 +48,19 @@ const icons = {
   wordpress: <WordpressIcon />,
   xing: <XingIcon />,
   youtube: <YoutubeIcon />,
+  link: '↗',
 }
 
-const Icon = ({ name }) => {
+const Icon = ({ name, textOnly }) => {
   const IconElement = icons[name] || <span>Icon not found</span>
+
+  let classes = 'icon'
+  if (textOnly) {
+    classes += ' icon-text'
+  }
+
   return (
-    <span className="icon" name={name}>
+    <span className={classes} name={name}>
       {IconElement}
     </span>
   )

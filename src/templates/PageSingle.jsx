@@ -1,59 +1,52 @@
 import React, { useEffect, useContext } from 'react'
-import { MDXProvider } from '@mdx-js/react'
 import { Helmet } from 'react-helmet-async'
 
 import { isDev } from '../environment'
-import SEO from '../components/SEO'
 import { History } from '../store'
-import HeroPage from '../components/HeroPage'
 import Article from '../layouts/Article'
-
-import Quote from '../shortcodes/Quote'
-const mdxShortcodes = { Quote }
+import SEO from '../components/SEO'
+import HeroPage from '../components/HeroPage'
 
 /**
  * Wrapper for MDX pages.
  */
 const Page = ({
-  // use props here because don't know how to do it in another way
-  props: {
-    children,
-    pageContext: { breadcrumb },
+  children,
+  pageContext: {
+    breadcrumb,
+    frontmatter: { title, subtitle },
   },
-  name,
 }) => {
-  const pageName = name || 'Undefined'
   const historyDispatch = useContext(History.Dispatch)
 
   useEffect(() => {
     historyDispatch({
       location: breadcrumb.location,
-      crumbLabel: pageName,
+      crumbLabel: title,
       crumbs: breadcrumb.crumbs,
     })
   })
 
   if (isDev) {
-    console.group(pageName)
-    console.log(name)
+    console.group(title)
     console.log(breadcrumb)
     console.groupEnd()
   }
 
   return (
-    <MDXProvider components={mdxShortcodes}>
-      <SEO title={pageName} />
+    <>
+      <SEO title={title} />
       <Helmet
         bodyAttributes={{
-          page: pageName.toLowerCase(),
+          page: title.toLowerCase(),
           class: `page header-fixed hero-small`,
         }}
       />
 
-      <HeroPage title={pageName} />
+      <HeroPage title={title} subtitle={subtitle} />
 
       <Article>{children}</Article>
-    </MDXProvider>
+    </>
   )
 }
 

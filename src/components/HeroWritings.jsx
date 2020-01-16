@@ -18,7 +18,7 @@ const HeroWritings = ({ img, title, keywords, lang, time }) => (
           <Separator />
           <Time date={time} format="LL" />
           <Separator />
-          <Language lang={lang} />
+          <Language code={lang} />
         </h2>
       </div>
     </div>

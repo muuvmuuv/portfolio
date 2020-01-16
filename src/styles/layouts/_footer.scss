@@ -3,6 +3,7 @@
   justify-items: center;
   padding-top: var(--spacing-xxl);
   padding-bottom: 10rem;
+  user-select: none;
 
   @include breakpoint-up(sm) {
     padding-bottom: 20rem;
@@ -48,7 +49,7 @@
     --icon-size: 20px;
   }
 
-  svg {
-    // fill: var(--color-light);
+  .copyright {
+    opacity: 0.2;
   }
 }

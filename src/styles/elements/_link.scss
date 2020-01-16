@@ -17,7 +17,7 @@ a.link {
   }
 }
 
-[theme='light'] {
+@include themeLight() {
   article a,
   a.link {
     color: var(--color-primary-dark);

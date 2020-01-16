@@ -1,6 +1,7 @@
 const dayjs = require('dayjs')
 const UTC = require('dayjs/plugin/utc')
 const LocalizedFormat = require('dayjs/plugin/localizedFormat')
+
 const { isDev } = require('../environment.js')
 
 const availableLanguages = ['en', 'de']
@@ -8,8 +9,8 @@ const availableLanguages = ['en', 'de']
 // include locale for each available language
 require('dayjs/locale/de')
 
-const localeHelper = lang => {
-  const locale = availableLanguages.find(locale => {
+const localeHelper = (lang) => {
+  const locale = availableLanguages.find((locale) => {
     if (locale === lang) {
       return true
     }

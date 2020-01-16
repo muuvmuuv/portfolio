@@ -42,6 +42,8 @@
     width: 10px;
     height: 10px;
     background: var(--switch-color-light);
+
+    // BUG: chrome has issues with `mix-blend-mode`
     mix-blend-mode: difference;
   }
 
@@ -98,6 +100,7 @@
       height: 22px;
     }
 
+    // don't use `@include themeLight()` because this differs
     &[theme='light'] {
       background: var(--switch-color-dark);
 

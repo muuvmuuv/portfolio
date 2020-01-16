@@ -1,14 +1,16 @@
-[theme='light']:root {
-  --background-color: var(--color-01);
+@include themeLight() {
+  &:root {
+    --background-color: var(--color-01);
 
-  --text-color-normal: var(--color-dark);
-  --text-color-light: var(--color-02);
-  --text-color-richer: var(--color-05);
-  --text-color-dark: var(--color-07);
-  --text-color-highlight: var(--color-primary-dark);
+    --text-color-normal: var(--color-dark);
+    --text-color-light: var(--color-02);
+    --text-color-richer: var(--color-05);
+    --text-color-dark: var(--color-07);
+    --text-color-highlight: var(--color-primary-dark);
 
-  --border-color-normal: var(--color-04);
-  --border-color-light: var(--color-02);
+    --border-color-normal: var(--color-04);
+    --border-color-light: var(--color-02);
 
-  --divider-color: var(--color-02);
+    --divider-color: var(--color-02);
+  }
 }

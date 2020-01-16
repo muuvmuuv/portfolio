@@ -1,5 +1,4 @@
 const pkg = require('../package.json')
-const metadata = require('../metadata')
 
 /**
  * Slugify a string.
@@ -41,18 +40,19 @@ module.exports.getPkgVersion = (dots = true) => {
 }
 
 /**
- * Assign env data to metadata.
+ * Build meta data object
  */
 module.exports.siteMetadata = {
-  ...metadata,
+  ...require('../metadata'),
   ...{
     siteUrl: process.env.SITE_URL,
+    version: pkg.version,
   },
 }
 
 /**
  * Remove trainling slash from URI.
  */
-module.exports.removeTrailingSlash = path => {
+module.exports.removeTrailingSlash = (path) => {
   return path === `/` ? path : path.replace(/\/$/, '')
 }

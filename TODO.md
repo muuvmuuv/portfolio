@@ -22,11 +22,13 @@
     - [ ] Test
   - [ ] Everything pushed to master -> marvin.digital
   - [ ] Everything pushed to development -> dev.marvin.digital
-- [ ] replace React with [Preact][1] (check if it works when finished)
+- [x] replace React with [Preact][1] (check if it works when finished)
+- [x] add version to GraphQL data not as file...
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
-- [ ] put scss theme stuff in own mixin for compat.
-- [ ] Add footer with: version, social-media, imprint, changelog, copyright
+- [ ] MDX pages are not using remark images plugin
+- [x] put scss theme stuff in own mixin for compat.
+- [x] Add footer with: version, social-media, imprint, changelog, copyright
       notice
 - [x] test react helmet async
 - [x] add "increase version" by script
@@ -35,12 +37,13 @@
 - [x] add github bots to auto update dependencies
 - [x] add lighthouse from M8FINDER project
 - [ ] add scroll to top
-- [ ] use CSS blend modes (overlay)
+- [ ] ~~use CSS blend modes (overlay)~~
 - [ ] add League of Legends API to show profile and stats
+  - https://developer.riotgames.com/apis
 - [x] add classes to tags https://github.com/gatsbyjs/gatsby/issues/17824
 - [ ] use Inter variable Font: https://rsms.me/inter/var-test.html
 - [ ] set font feature settings (numbers, dates, etc.):
-      https://rsms.me/inter/#features
+  - https://rsms.me/inter/#features
 - [ ] Upload all writings
   - [ ] Grammatical corrections
   - [ ] Find images on Unsplash
@@ -56,17 +59,17 @@
 - [ ] PWA: add service worker for offline usage
 - [ ] ~~add tests?!~~
 - [ ] ~~move from bash script to [Nim][2]~~
-- [ ] check markdown for ["Vary sentence length"][3]
-- [ ] check markdown for [Readability][4]
-- [ ] generate [rich snippets][5]
+- [ ] (auto) check markdown for ["Vary sentence length"][3]
+- [ ] (auto) check markdown for [Readability][4]
+- [ ] (auto) generate [rich snippets][5]
 - [ ] use [Scheme customizations][6] to map post meta e.g. for authors
-- [ ] use [Guess.js][7]
+- [ ] use [Guess.js][7] <- this is just awesome, if it works with Gatsby
 - [ ] use new iPad and Apple Pencil to make ["Marvin/Design"-Logo][8]
   - [ ] new color profile
   - [ ] use better [color system][10]
-  - [ ] light theme
-- [ ] Eventually by Font; [ZOOM-PRO][9]
-- [ ] use external CMS service for data instead of file based
+- [x] light theme
+- [ ] ~~Eventually new Font: [ZOOM-PRO][9]~~ (too expensive)
+- [ ] !!! use external CMS service for data instead of file based !!!
 - [ ] open source the code 🤫 (requires above)
 
 [1]: https://www.gatsbyjs.org/packages/gatsby-plugin-preact/

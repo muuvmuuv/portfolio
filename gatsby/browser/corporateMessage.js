@@ -1,5 +1,4 @@
 const consoleImage = require('./consoleImage')
-const version = require('../../static/version')
 
 /**
  * Print some cool stuff to the console.
@@ -38,7 +37,12 @@ module.exports = () => {
     border-bottom-right-radius: 3px;
   `
 
-  console.log(`%cMarvin/Design%cv${version}`, styleName, styleVersion)
+  console.log(
+    `%cMarvin/Design`,
+    `%cv${process.env.GATSBY_APP_VERSION}`,
+    styleName,
+    styleVersion
+  )
   console.log(
     `%c
 Welcome fellow %cdeveloper%c!  🎉
@@ -50,5 +54,6 @@ https://github.com/muuvmuuv/portfolio 🔒
     styleBold,
     styleShared
   )
+
   consoleImage(`${window.location.origin}/me.gif`, 50)
 }

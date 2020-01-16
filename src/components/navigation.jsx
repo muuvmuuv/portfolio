@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { Nav } from '../store'
 import { useMenuLinks } from '../hooks/use-menu-links'
 import Link from './Link'
+import Icon from './Icon'
 
 const Navigation = () => {
   const menuLinks = useMenuLinks()
@@ -52,7 +53,8 @@ const Navigation = () => {
                     target="_blank"
                     className="nav-link"
                   >
-                    {name}↗
+                    {name}
+                    <Icon name="link" textOnly={true} />
                   </a>
                 ) : (
                   <Link to={link} className="nav-link">

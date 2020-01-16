@@ -13,12 +13,12 @@
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
-@mixin themeDark() {
+@mixin schemeDark() {
   @media (prefers-color-scheme: dark) {
     @content;
   }
 }
-@mixin themeLight() {
+@mixin schemeLight() {
   @media (prefers-color-scheme: light) {
     @content;
   }

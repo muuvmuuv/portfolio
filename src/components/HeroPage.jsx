@@ -1,14 +1,11 @@
 import React from 'react'
 
-// import Backdrop from './Backdrop'
-
-const HeroPage = ({ img, title }) => (
+const HeroPage = ({ title, subtitle }) => (
   <div id="hero">
-    {/* <Backdrop img={img.image.childImageSharp.fluid}></Backdrop> */}
-
     <div className="container">
       <div className="post-title">
         <h1>{title}</h1>
+        {subtitle && <h2>{subtitle}</h2>}
       </div>
     </div>
   </div>

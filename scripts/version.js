@@ -76,21 +76,6 @@ function writePkg(content) {
   })
 }
 
-function writeVersion(version) {
-  return new Promise((resolve) => {
-    fs.writeFile(
-      path.resolve(__dirname, '../static/version'),
-      version,
-      (err) => {
-        if (err) {
-          throw new Error(err.message)
-        }
-        resolve()
-      }
-    )
-  })
-}
-
 function createDirectoryTree(version) {
   return new Promise((resolve) => {
     fs.mkdir(
@@ -111,9 +96,6 @@ createNewVersion().then((version) => {
 
   writePkg(pkg).then(() => {
     console.log(green('Saved version to package.json!'))
-  })
-  writeVersion(version).then(() => {
-    console.log(green('Saved version as static file!'))
   })
   createDirectoryTree(version).then(() => {
     console.log(green('Created directory tree!'))

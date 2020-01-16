@@ -10,7 +10,7 @@ article {
   }
 }
 
-[theme='light'] {
+@include themeLight() {
   article {
     blockquote {
       background: var(--color-02);

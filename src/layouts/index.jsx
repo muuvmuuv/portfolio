@@ -1,21 +1,31 @@
-import React from 'react'
-import { HelmetProvider } from 'react-helmet-async'
+import React, { useContext } from 'react'
+import { HelmetProvider, Helmet } from 'react-helmet-async'
+import { MDXProvider } from '@mdx-js/react'
 
-import { Store } from '../store'
+import { Theme } from '../store'
 import Header from './Header'
-import Layout from './Layout'
 import Footer from './Footer'
 
-const App = ({ children }) => (
-  <Store>
+import mdxElements from '../components/MDXElements'
+
+const App = ({ children }) => {
+  const themeState = useContext(Theme.State)
+
+  return (
     <HelmetProvider>
-      <Layout>
+      <MDXProvider components={mdxElements}>
+        <Helmet
+          htmlAttributes={{
+            theme: themeState.theme,
+          }}
+        />
+
         <Header></Header>
         <main>{children}</main>
         <Footer></Footer>
-      </Layout>
+      </MDXProvider>
     </HelmetProvider>
-  </Store>
-)
+  )
+}
 
 export default App

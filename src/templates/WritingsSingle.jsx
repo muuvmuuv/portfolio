@@ -1,12 +1,12 @@
-import { graphql } from 'gatsby'
 import React, { useContext, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { graphql } from 'gatsby'
 
 import { isDev } from '../environment'
+import { History } from '../store'
 import Article from '../layouts/Article'
 import SEO from '../components/SEO'
 import HeroWritings from '../components/HeroWritings'
-import { History } from '../store'
 
 const Single = ({
   pageContext: { breadcrumb },

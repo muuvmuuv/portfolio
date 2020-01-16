@@ -9,11 +9,52 @@ require('dotenv').config({
 })
 
 const path = require('path')
-const { yellow } = require('kleur')
+const { yellow, blue } = require('kleur')
 const { getPkgVersion, siteMetadata } = require('./gatsby/utils')
 const { activeEnv, isDev } = require('./gatsby/environment')
 
-console.log(`Using environment: ${yellow(activeEnv)}\n`)
+console.log(`Environment: ${yellow(activeEnv)}\n`)
+console.log(`Version: ${blue(siteMetadata.version)}\n`)
+process.env.GATSBY_APP_VERSION = siteMetadata.version
+
+// https://www.gatsbyjs.org/docs/mdx/plugins/
+const commonRemarkPlugins = [
+  {
+    resolve: 'gatsby-remark-images',
+    options: {
+      maxWidth: 1600,
+      backgroundColor: 'transparent',
+      linkImagesToOriginal: true,
+      quality: 75,
+      withWebp: true,
+      showCaptions: true,
+    },
+  },
+  {
+    resolve: 'gatsby-remark-emoji',
+    options: {
+      emojiConversion: 'shortnameToUnicode',
+    },
+  },
+  {
+    resolve: `gatsby-remark-prismjs`,
+    options: {
+      noInlineHighlight: true,
+      prompt: {
+        user: 'root',
+        host: 'localhost',
+        global: false,
+      },
+      // BUG: https://github.com/gatsbyjs/gatsby/issues/17997
+      // BUG: https://github.com/gatsbyjs/gatsby/issues/20642
+      // plugins: [
+      //   require.resolve(
+      //     'prismjs/plugins/show-invisibles/prism-show-invisibles'
+      //   ),
+      // ],
+    },
+  },
+]
 
 module.exports = {
   siteMetadata,
@@ -50,19 +91,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        defaultLayouts: {
-          // would work, but can not pass props to it so useless to give e.g. a page title
-          // default: require.resolve('./src/templates/PageSingle.jsx'),
-        },
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
       },
     },
     {
@@ -80,6 +119,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/templates/PageSingle.jsx'),
+        },
+        gatsbyRemarkPlugins: [...commonRemarkPlugins],
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         excerpt_separator: `<!-- EXCERPT -->`,
@@ -91,34 +139,7 @@ module.exports = {
         pedantic: true,
         gfm: true,
         plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1600,
-              backgroundColor: 'transparent',
-              linkImagesToOriginal: true,
-              quality: 75,
-              withWebp: true,
-              showCaptions: true,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-emoji',
-            options: {
-              emojiConversion: 'shortnameToUnicode',
-            },
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              noInlineHighlight: true,
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-                global: false,
-              },
-            },
-          },
+          ...commonRemarkPlugins,
           {
             resolve: 'gatsby-remark-external-links',
             options: {
@@ -128,6 +149,7 @@ module.exports = {
           },
           `remark-checkbox-spanner`,
           {
+            // TODO: try to replace this in the future with MDX custom components/shortcodes
             resolve: `remark-custom-classes`,
             options: {
               root: {
