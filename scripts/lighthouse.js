@@ -59,7 +59,7 @@ const DEST = path.resolve(REPORTS, `v${pkgVersion}`)
    */
   destroy(reason) {
     if (this.chrome) {
-      // console.log('Trying to kill Chrome because ' + reason)
+      console.log('Trying to kill Chrome because ' + reason)
       this.chrome.kill()
       this.chrome = null
     }
@@ -92,15 +92,15 @@ const DEST = path.resolve(REPORTS, `v${pkgVersion}`)
    * @param {string} device Device which lighthouse should emulate
    */
   async runLighthouse(ctx, device) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       this.options.emulatedFormFactor = device
       lighthouse(this.homeUrl, this.options, this.config)
-        .then(results => {
+        .then((results) => {
           ctx[device] = {} // initial set
           ctx[device].results = results
           resolve()
         })
-        .catch(error => {
+        .catch((error) => {
           this.destroy('lighthouse failed')
           throw new Error(error)
         })
@@ -111,7 +111,7 @@ const DEST = path.resolve(REPORTS, `v${pkgVersion}`)
    * Beautify report with prettier.
    */
   beautifyData(string, parser) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const rgxComments = /(<!--|\/\*)[\s\S]*?(-->|\*\/)/g
       string = string.replace(rgxComments, '') // remove all comments
       prettier
@@ -119,7 +119,7 @@ const DEST = path.resolve(REPORTS, `v${pkgVersion}`)
           editorconfig: true,
           useCache: true,
         })
-        .then(opts => {
+        .then((opts) => {
           opts.parser = parser
           const result = prettier.format(string, opts)
           resolve(result)
@@ -139,10 +139,10 @@ const DEST = path.resolve(REPORTS, `v${pkgVersion}`)
 
     report = await this.beautifyData(report, 'html')
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const fileName = `lhr.${device}.html`
       const filePath = path.resolve(DEST, fileName)
-      fs.writeFile(filePath, report, 'utf-8', err => {
+      fs.writeFile(filePath, report, 'utf-8', (err) => {
         if (err) {
           throw new Error(err.message)
         }
@@ -163,10 +163,10 @@ const DEST = path.resolve(REPORTS, `v${pkgVersion}`)
 
     lhr = await this.beautifyData(JSON.stringify(lhr), 'json')
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const fileName = `lhr.${device}.json`
       const filePath = path.resolve(DEST, fileName)
-      fs.writeFile(filePath, lhr, 'utf-8', err => {
+      fs.writeFile(filePath, lhr, 'utf-8', (err) => {
         if (err) {
           throw new Error(err.message)
         }
@@ -185,14 +185,14 @@ const DEST = path.resolve(REPORTS, `v${pkgVersion}`)
       return Promise.reject('No lighthouse results!')
     }
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const fileName = `lhr.${device}.jpeg`
       const filePath = path.resolve(DEST, fileName)
 
       let imageData = lhr.audits['final-screenshot'].details.data
       imageData = imageData.replace(/^data:.*;base64,/, '')
 
-      fs.writeFile(filePath, imageData, 'base64', err => {
+      fs.writeFile(filePath, imageData, 'base64', (err) => {
         if (err) {
           throw new Error(err.message)
         }
@@ -206,12 +206,12 @@ const DEST = path.resolve(REPORTS, `v${pkgVersion}`)
    */
   async run() {
     const devices = ['mobile', 'desktop']
-    devices.forEach(device => {
+    devices.forEach((device) => {
       devices[device] = taskz([
         {
           text: 'Running lighthouse...',
           stopOnError: true,
-          task: ctx => this.runLighthouse(ctx, device),
+          task: (ctx) => this.runLighthouse(ctx, device),
         },
         {
           text: 'Saving results...',
@@ -219,15 +219,15 @@ const DEST = path.resolve(REPORTS, `v${pkgVersion}`)
             [
               {
                 text: 'Saving report to html...',
-                task: ctx => this.saveReport(ctx, device),
+                task: (ctx) => this.saveReport(ctx, device),
               },
               {
                 text: 'Saving lhr to JSON...',
-                task: ctx => this.saveLhr(ctx, device),
+                task: (ctx) => this.saveLhr(ctx, device),
               },
               {
                 text: 'Saving screenshots...',
-                task: ctx => this.saveScreenshot(ctx, device),
+                task: (ctx) => this.saveScreenshot(ctx, device),
               },
             ],
             { parallel: true }

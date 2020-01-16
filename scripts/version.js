@@ -16,10 +16,10 @@ const SEMVER_INCREMENTS = [
   'prerelease',
 ]
 
-const isValidVersion = input => Boolean(valid(input))
-const isValidInput = input =>
+const isValidVersion = (input) => Boolean(valid(input))
+const isValidInput = (input) =>
   SEMVER_INCREMENTS.includes(input) || isValidVersion(input)
-const isLowerThanOrEqualTo = version => {
+const isLowerThanOrEqualTo = (version) => {
   return !isValidVersion(version) || lte(version, currentVersion)
 }
 
@@ -29,7 +29,7 @@ async function createNewVersion() {
       type: 'select',
       name: 'version',
       message: 'New version',
-      choices: SEMVER_INCREMENTS.map(increment => ({
+      choices: SEMVER_INCREMENTS.map((increment) => ({
         title: inc(currentVersion, increment),
         value: inc(currentVersion, increment),
       })).concat([
@@ -40,10 +40,10 @@ async function createNewVersion() {
       ]),
     },
     {
-      type: prev => (prev === 'custom' ? 'text' : null),
+      type: (prev) => (prev === 'custom' ? 'text' : null),
       name: 'version',
       message: 'Version',
-      validate: input => {
+      validate: (input) => {
         if (!isValidInput(input)) {
           return 'Please specify a valid semver, for example, `1.2.3`. See http://semver.org.'
         }
@@ -62,11 +62,11 @@ async function createNewVersion() {
 }
 
 function writePkg(content) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     fs.writeFile(
       path.resolve(__dirname, '../package.json'),
       JSON.stringify(content, null, 2) + '\n',
-      err => {
+      (err) => {
         if (err) {
           throw new Error(err.message)
         }
@@ -77,22 +77,11 @@ function writePkg(content) {
 }
 
 function writeVersion(version) {
-  return new Promise(resolve => {
-    fs.writeFile(path.resolve(__dirname, '../static/version'), version, err => {
-      if (err) {
-        throw new Error(err.message)
-      }
-      resolve()
-    })
-  })
-}
-
-function createDirectoryTree(version) {
-  return new Promise(resolve => {
-    fs.mkdir(
-      path.resolve(__dirname, '../reports', `v${version}`),
-      { recursive: true },
-      err => {
+  return new Promise((resolve) => {
+    fs.writeFile(
+      path.resolve(__dirname, '../static/version'),
+      version,
+      (err) => {
         if (err) {
           throw new Error(err.message)
         }
@@ -102,7 +91,22 @@ function createDirectoryTree(version) {
   })
 }
 
-createNewVersion().then(version => {
+function createDirectoryTree(version) {
+  return new Promise((resolve) => {
+    fs.mkdir(
+      path.resolve(__dirname, '../reports', `v${version}`),
+      { recursive: true },
+      (err) => {
+        if (err) {
+          throw new Error(err.message)
+        }
+        resolve()
+      }
+    )
+  })
+}
+
+createNewVersion().then((version) => {
   pkg.version = version
 
   writePkg(pkg).then(() => {
