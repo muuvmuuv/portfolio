@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { graphql } from 'gatsby'
 
-import { isDev } from '../environment'
 import Link from '../components/Link'
 import SEO from '../components/SEO'
 import Backdrop from '../components/Backdrop'
@@ -22,12 +21,6 @@ const Page = ({
       crumbs: breadcrumb.crumbs,
     })
   })
-
-  if (isDev) {
-    console.group(pageName)
-    console.log(Img01)
-    console.groupEnd()
-  }
 
   return (
     <>

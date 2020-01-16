@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ['react-app', 'plugin:jsx-a11y/recommended'],
+  extends: [
+    'react-app',
+    'plugin:jsx-a11y/recommended',
+    'plugin:mdx/recommended',
+  ],
   globals: {
     __PATH_PREFIX__: true,
   },

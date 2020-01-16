@@ -14,11 +14,6 @@ const Navigation = () => {
     navDispatch(!navState.open)
   }
 
-  // const exitAnimation = (exit, node) => {
-  //   console.log('EXITEXITEXITEXITEXITEXIT')
-  //   setSate(s => ({ ...s, navOpen: false }))
-  // }
-
   return (
     <div id="navigation" className={navState.open ? 'open' : ''}>
       <button

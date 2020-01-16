@@ -27,6 +27,8 @@
 - [x] remove "build brotli from source" with a already finished build
 - [x] always use latest NGINX image
 - [x] test prod build locally with SSL and brotli compression
+- [ ] setup scss linter
+- [ ] setup smacss to apply css sort order
 - [ ] fix issue with node env version in prod build
 - [ ] fix issue with header on prod build
 - [ ] new image for start: me while coding

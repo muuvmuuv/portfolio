@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 
-import { isDev } from '../environment'
 import SEO from '../components/SEO'
 import { History } from '../store'
 
@@ -16,12 +15,6 @@ const Page = ({ pageContext: { breadcrumb } }) => {
       crumbs: breadcrumb.crumbs,
     })
   })
-
-  if (isDev) {
-    console.group(pageName)
-    console.log(breadcrumb)
-    console.groupEnd()
-  }
 
   return (
     <>

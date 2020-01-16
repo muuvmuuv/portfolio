@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet-async'
 
-import { isDev } from '../environment'
 import SEO from '../components/SEO'
 import Portfolio from '../components/Portfolio'
 import { History } from '../store'
@@ -41,13 +40,6 @@ const Page = ({ pageContext: { breadcrumb }, data: { projects } }) => {
 
     return diffEnded - diffStarted
   })
-
-  if (isDev) {
-    console.group(pageName)
-    console.log(items)
-    console.log(breadcrumb)
-    console.groupEnd()
-  }
 
   return (
     <>

@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { graphql } from 'gatsby'
 
-import { isDev } from '../environment'
 import { History } from '../store'
 import Article from '../layouts/Article'
 import SEO from '../components/SEO'
@@ -24,13 +23,6 @@ const Single = ({
       crumbs: breadcrumb.crumbs,
     })
   })
-
-  if (isDev) {
-    console.group('WritingsSingle')
-    console.log(frontmatter)
-    console.log(breadcrumb)
-    console.groupEnd()
-  }
 
   const attr = {}
 

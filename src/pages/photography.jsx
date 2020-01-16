@@ -1,8 +1,6 @@
 import React, { useEffect, useContext } from 'react'
-import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet-async'
 
-import { isDev } from '../environment'
 import SEO from '../components/SEO'
 import { History } from '../store'
 
@@ -17,13 +15,6 @@ const Page = ({ pageContext: { breadcrumb } }) => {
       crumbs: breadcrumb.crumbs,
     })
   })
-
-  if (isDev) {
-    console.group(pageName)
-    // console.log(items)
-    console.log(breadcrumb)
-    console.groupEnd()
-  }
 
   return (
     <>

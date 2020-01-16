@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet-async'
 
-import { isDev } from '../environment'
 import Link from '../components/Link'
 import SEO from '../components/SEO'
 import { History } from '../store'
@@ -24,13 +23,6 @@ const Page = ({
       crumbs: breadcrumb.crumbs,
     })
   })
-
-  if (isDev) {
-    console.group(pageName)
-    console.log(edges)
-    console.log(breadcrumb)
-    console.groupEnd()
-  }
 
   return (
     <>
