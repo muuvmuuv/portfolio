@@ -10,6 +10,11 @@ ended: null
 
 status: wip
 website: https://marvin.digital/
+role:
+  - design
+  - development
+  - ux
+  - ui
 team:
   - name: Marvin Heilemann
     link: https://github.com/muuvmuuv/portfolio

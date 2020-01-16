@@ -4,7 +4,7 @@ const Member = ({ item }) => {
   return item.link ? (
     <a
       href={item.link}
-      title={item.name}
+      title={`Link to ${item.name} website: ${item.link}`}
       target="_blank"
       rel="noopener noreferrer"
       className="link"

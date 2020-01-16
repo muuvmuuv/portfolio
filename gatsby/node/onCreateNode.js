@@ -7,6 +7,10 @@ module.exports = async ({ node, getNode, actions }) => {
   if (node.internal.type === 'MarkdownRemark') {
     const nodeFrontmatterDefault = {
       published: true,
+      status: 'wip',
+      website: '',
+      role: [],
+      team: [],
     }
 
     node.frontmatter = Object.assign(
@@ -14,6 +18,8 @@ module.exports = async ({ node, getNode, actions }) => {
       nodeFrontmatterDefault,
       node.frontmatter
     )
+
+    console.log(node.frontmatter)
 
     const fileNode = getNode(node.parent)
     const source = fileNode.sourceInstanceName

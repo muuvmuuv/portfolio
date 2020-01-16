@@ -4,7 +4,7 @@ subtitle: Giving ADDITIVE a new face and modern interface
 image: additive-preview.jpg
 thumb: additive-preview.jpg
 
-started: null
+started: 2018-07-11
 ended: 2019-01-10
 
 status: finished

@@ -36,6 +36,7 @@ const HeroProjects = ({ item }) => (
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link"
+                title={`Link to website: ${item.website}`}
               >
                 {item.website}
               </a>
@@ -46,6 +47,15 @@ const HeroProjects = ({ item }) => (
           <li>
             <span className="pre">Team:</span>{' '}
             <Members list={item.team}></Members>
+          </li>
+          <li>
+            <span className="pre">Role:</span>{' '}
+            {item.role.map((r, i) => (
+              <span>
+                {r}
+                {i < item.role.length - 1 && ', '}
+              </span>
+            ))}
           </li>
         </ul>
       </div>

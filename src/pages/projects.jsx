@@ -6,11 +6,9 @@ import { isDev } from '../environment'
 import SEO from '../components/SEO'
 import Portfolio from '../components/Portfolio'
 import { History } from '../store'
+import dayjs from 'dayjs'
 
-const Page = ({
-  pageContext: { breadcrumb },
-  data: { withDates, withoutStartDate, withoutEndDate },
-}) => {
+const Page = ({ pageContext: { breadcrumb }, data: { projects } }) => {
   const pageName = 'Projects'
   const historyDispatch = useContext(History.Dispatch)
 
@@ -22,17 +20,26 @@ const Page = ({
     })
   })
 
-  // weird sort function, but works
-  const idList = new Set(withoutStartDate.edges.map((x) => x.node.id))
-  const items = [
-    ...withDates.edges,
-    ...withoutStartDate.edges,
-    ...withoutEndDate.edges.filter((d) => !idList.has(d.node.id)),
-  ].sort((starting, ending) => {
-    return (
-      new Date(ending.node.frontmatter.ended) -
-      new Date(starting.node.frontmatter.ended)
-    )
+  const items = projects.edges.sort((nodeA, nodeB) => {
+    const AF = nodeA.node.frontmatter
+    const BF = nodeB.node.frontmatter
+
+    const future = dayjs().add(10, 'y')
+    const present = dayjs().add(-10, 'y')
+    const AEnded = AF.ended ? dayjs(AF.ended) : future
+    const BEnded = BF.ended ? dayjs(BF.ended) : future
+    const diffEnded = BEnded.diff(AEnded)
+    const AStarted = AF.started ? dayjs(AF.started) : present
+    const BStarted = BF.started ? dayjs(BF.started) : present
+    const diffStarted = AStarted.diff(BStarted)
+
+    if (!BF.started && !BF.ended) {
+      return -1
+    } else if (!AF.started && !AF.ended) {
+      return 1
+    }
+
+    return diffEnded - diffStarted
   })
 
   if (isDev) {
@@ -65,70 +72,35 @@ const Page = ({
 
 // NOTE: this query could be simplified (https://github.com/gatsbyjs/gatsby/issues/17953)
 export const pageQuery = graphql`
-  fragment ProjectsNodes on MarkdownRemark {
-    frontmatter {
-      title
-      subtitle
-      image {
-        childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
+  query ProjectsQuery {
+    projects: allMarkdownRemark(
+      filter: { fields: { source: { eq: "projects" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            subtitle
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            thumb {
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            started
+            ended
           }
-        }
-      }
-      thumb {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+          fields {
+            slug
           }
-        }
-      }
-    }
-    fields {
-      slug
-    }
-  }
-
-  query DevelopmentQuery {
-    withDates: allMarkdownRemark(
-      filter: {
-        fields: { source: { eq: "projects" } }
-        frontmatter: { started: { ne: null }, ended: { ne: null } }
-      }
-      sort: {
-        fields: [frontmatter___ended, frontmatter___started]
-        order: DESC
-      }
-    ) {
-      edges {
-        node {
-          ...ProjectsNodes
-        }
-      }
-    }
-    withoutStartDate: allMarkdownRemark(
-      filter: {
-        fields: { source: { eq: "projects" } }
-        frontmatter: { started: { eq: null } }
-      }
-      sort: { fields: frontmatter___ended, order: DESC }
-    ) {
-      edges {
-        node {
-          ...ProjectsNodes
-        }
-      }
-    }
-    withoutEndDate: allMarkdownRemark(
-      filter: {
-        fields: { source: { eq: "projects" } }
-        frontmatter: { ended: { eq: null } }
-      }
-      sort: { fields: frontmatter___started, order: DESC }
-    ) {
-      edges {
-        node {
-          ...ProjectsNodes
         }
       }
     }

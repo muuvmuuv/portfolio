@@ -101,6 +101,7 @@ export const pageQuery = graphql`
           name
           link
         }
+        role
         website
         keywords
         categories
