@@ -3,18 +3,16 @@ import Img from 'gatsby-image'
 
 import Link from './Link'
 
-const Portfolio = ({
-  item: {
-    frontmatter: { article },
-    fields: { meta },
-  },
-}) => (
+const Portfolio = ({ item: { frontmatter, fields } }) => (
   <div className="portfolio">
-    <Img fluid={article.image.childImageSharp.fluid} alt={article.title} />
+    <Img
+      fluid={frontmatter.image.childImageSharp.fluid}
+      alt={frontmatter.title}
+    />
     <div className="info">
-      <h2>{article.title}</h2>
-      <h3>{article.subtitle}</h3>
-      <Link to={meta.slug} className="btn btn-primary">
+      <h2>{frontmatter.title}</h2>
+      <h3>{frontmatter.subtitle}</h3>
+      <Link to={fields.slug} className="btn btn-primary">
         Show more
       </Link>
     </div>

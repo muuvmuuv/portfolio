@@ -91,11 +91,9 @@ article {
     margin-bottom: var(--content-margin);
   }
 
-  // h2 {
-  //   &:not(:first-of-type) {
-  //     padding-top: var(--spacing-xs); // margin does not work here
-  //   }
-  // }
+  p {
+    text-align: justify;
+  }
 
   h1 {
     font-size: var(--text-xxl);

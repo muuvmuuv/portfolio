@@ -27,6 +27,7 @@
 - [x] remove "build brotli from source" with a already finished build
 - [x] always use latest NGINX image
 - [x] test prod build locally with SSL and brotli compression
+- [x] weird lighter background underneath the footer (backdrop-filter issue)
 - [ ] setup scss linter
 - [ ] setup smacss to apply css sort order
 - [ ] fix issue with node env version in prod build
@@ -43,6 +44,7 @@
 - [x] analyze via bundlephobia
 - [x] add github bots to auto update dependencies
 - [x] add lighthouse from M8FINDER project
+- [x] Make text justified
 - [ ] add scroll to top
 - [ ] ~~use CSS blend modes (overlay)~~
 - [ ] add League of Legends API to show profile and stats
@@ -58,7 +60,7 @@
   - [ ] More text
   - [ ] Update images
 - [ ] Upload some photos (best off's)
-- [ ] setup SimpleAnalytics
+- [ ] Setup SimpleAnalytics or something similar
 - [ ] check pages with Firefox Axe
 - [ ] check all pages with screen reader
 - [ ] check all pages with reduced motion

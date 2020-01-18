@@ -7,8 +7,15 @@
 .portfolio {
   display: grid;
   margin-bottom: var(--spacing-xxl);
-  grid-template-areas: 'image info';
+  grid-template-areas:
+    'image image'
+    'info info';
   grid-template-columns: 1fr 300px;
+
+  @include breakpoint-up(md) {
+    grid-template-areas: 'image info';
+    grid-template-columns: 1fr 300px;
+  }
 
   .info {
     grid-area: info;
