@@ -6,7 +6,7 @@ export const useFooterLinks = () => {
       query FooterLinks {
         site {
           siteMetadata {
-            footerLinks {
+            footer {
               name
               link
             }
@@ -16,5 +16,5 @@ export const useFooterLinks = () => {
     `
   )
 
-  return results.site.siteMetadata.footerLinks
+  return results.site.siteMetadata.footer
 }

@@ -1,29 +1,41 @@
-import React, { useEffect, useContext } from 'react'
-import { Helmet } from 'react-helmet-async'
+import React from 'react'
 
-import SEO from '../components/SEO'
-import { History } from '../store'
+import { HistoryConsumer } from '../store/history'
+import Head from '../components/Head'
 
-const Page = ({ pageContext: { breadcrumb } }) => {
-  const pageName = 'Error'
-  const historyDispatch = useContext(History.Dispatch)
+class Page extends React.Component {
+  state = {
+    pageName: 'Error',
+  }
 
-  useEffect(() => {
-    historyDispatch({
+  componentDidMount() {
+    const { breadcrumb } = this.props.pageContext
+
+    this.props.history.update({
       location: breadcrumb.location,
-      crumbLabel: pageName,
+      crumbLabel: this.state.pageName,
       crumbs: breadcrumb.crumbs,
     })
-  })
+  }
 
-  return (
-    <>
-      <SEO title={pageName} />
-      <Helmet bodyAttributes={{ page: pageName.toLowerCase() }} />
+  render() {
+    return (
+      <>
+        <Head
+          pageName={this.state.pageName}
+          bodyClasses="header-fixed header-click-through"
+        />
 
-      <h1>ERROR</h1>
-    </>
-  )
+        <div className="container container--small">
+          <h1>ERROR</h1>
+        </div>
+      </>
+    )
+  }
 }
 
-export default Page
+export default React.forwardRef((props, ref) => (
+  <HistoryConsumer>
+    {(history) => <Page {...props} ref={ref} history={history} />}
+  </HistoryConsumer>
+))

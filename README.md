@@ -5,13 +5,13 @@
 
 - [Start](#start)
 - [Deploy](#deploy)
+- [Build](#build)
 - [Docker](#docker)
   - [Interactive shell session](#interactive-shell-session)
     - [Image](#image)
     - [Container](#container)
     - [Logs](#logs)
     - [Performance (top)](#performance-top)
-- [Issues](#issues)
 
 ## Start
 
@@ -22,6 +22,15 @@ for development.
 
 Since I use [now](https://zeit.co/muuvmuuv/portfolio) for my website, it is
 deployed there and fully automated.
+
+## Build
+
+```shell
+npm run build
+```
+
+To test the build run either `npm run serve` for a simple HTTP server to test if
+everything is working or `make up` to start a live development NGINX web-server.
 
 ## Docker
 
@@ -50,10 +59,5 @@ docker logs -f marvin-nginx
 ```shell
 docker-compose top nginx
 ```
-
-## Issues
-
-Issues are referenced with `// BUG: #<NUMBER>` and can be seen in
-[ISSUES.md](./ISSUES.md).
 
 > Copyright © Marvin Heilemann

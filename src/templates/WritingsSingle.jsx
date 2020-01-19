@@ -1,60 +1,68 @@
-import React, { useContext, useEffect } from 'react'
-import { Helmet } from 'react-helmet-async'
+import React from 'react'
 import { graphql } from 'gatsby'
 
-import { History } from '../store'
+import { HistoryConsumer } from '../store/history'
 import Article from '../layouts/Article'
-import SEO from '../components/SEO'
+import Head from '../components/Head'
 import HeroWritings from '../components/HeroWritings'
 
-const Single = ({
-  pageContext: { breadcrumb },
-  data: {
-    markdownRemark: { frontmatter, html, excerpt, tableOfContents },
-  },
-}) => {
-  const historyDispatch = useContext(History.Dispatch)
-  console.log(tableOfContents)
-
-  useEffect(() => {
-    historyDispatch({
-      location: breadcrumb.location,
-      crumbLabel: frontmatter.title,
-      crumbs: breadcrumb.crumbs,
-    })
-  })
-
-  const attr = {}
-
-  if (frontmatter.keywords && frontmatter.keywords.length > 0) {
-    attr.keywords = frontmatter.keywords
+class Page extends React.Component {
+  state = {
+    pageName: 'Writings',
   }
 
-  return (
-    <>
-      <Helmet
-        bodyAttributes={{ page: 'writings', class: 'single header-fixed' }}
-      />
-      <SEO
-        title={frontmatter.title}
-        description={frontmatter.description || excerpt}
-        {...attr}
-      />
+  componentDidMount() {
+    const { breadcrumb } = this.props.pageContext
 
-      <HeroWritings
-        title={frontmatter.title}
-        img={frontmatter.header}
-        time={frontmatter.created}
-        lang={frontmatter.language}
-        keywords={frontmatter.keywords}
-      />
+    this.props.history.update({
+      location: breadcrumb.location,
+      crumbLabel: this.props.data.markdownRemark.frontmatter.title,
+      crumbs: breadcrumb.crumbs,
+    })
+  }
 
-      <Article html={html} toc={tableOfContents} />
-    </>
-  )
+  render() {
+    const {
+      markdownRemark: { frontmatter, html, tableOfContents },
+    } = this.props.data
+
+    console.log(tableOfContents)
+
+    const attr = {}
+
+    if (frontmatter.keywords && frontmatter.keywords.length > 0) {
+      attr.keywords = frontmatter.keywords
+    }
+
+    return (
+      <>
+        <Head
+          pageTitle={frontmatter.title}
+          pageName={this.state.pageName}
+          bodyClasses="single header-fixed"
+        />
+
+        <HeroWritings
+          title={frontmatter.title}
+          img={frontmatter.header}
+          time={frontmatter.created}
+          lang={frontmatter.language}
+          keywords={frontmatter.keywords}
+        />
+
+        <Article html={html} toc={tableOfContents} />
+      </>
+    )
+  }
 }
 
-export const pageQuery = graphql`
+export default React.forwardRef((props, ref) => (
+  <HistoryConsumer>
+    {(history) => <Page {...props} ref={ref} history={history} />}
+  </HistoryConsumer>
+))
+
+export const query = graphql`
   query($slug: String!) {
     markdownRemark(
       fields: { slug: { eq: $slug }, source: { eq: "writings" } }
@@ -87,5 +95,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-export default Single

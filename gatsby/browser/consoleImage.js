@@ -1,6 +1,3 @@
-/**
- * Print a image to the console.
- */
 module.exports = (src, scale = 100) => {
   const img = new Image()
 

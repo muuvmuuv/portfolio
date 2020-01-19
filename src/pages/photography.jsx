@@ -1,38 +1,37 @@
-import React, { useEffect, useContext } from 'react'
-import { Helmet } from 'react-helmet-async'
+import React from 'react'
 
-import SEO from '../components/SEO'
-import { History } from '../store'
+import { HistoryConsumer } from '../store/history'
+import Head from '../components/Head'
 
-const Page = ({ pageContext: { breadcrumb } }) => {
-  const pageName = 'Photography'
-  const historyDispatch = useContext(History.Dispatch)
+class Page extends React.Component {
+  state = {
+    pageName: 'Photography',
+  }
 
-  useEffect(() => {
-    historyDispatch({
+  componentDidMount() {
+    const { breadcrumb } = this.props.pageContext
+
+    this.props.history.update({
       location: breadcrumb.location,
-      crumbLabel: pageName,
+      crumbLabel: this.state.pageName,
       crumbs: breadcrumb.crumbs,
     })
-  })
+  }
+  render() {
+    return (
+      <>
+        <Head pageName={this.state.pageName} bodyClasses="home" />
 
-  return (
-    <>
-      <SEO title={pageName} />
-      <Helmet
-        bodyAttributes={{
-          page: pageName.toLowerCase(),
-          class: 'home',
-        }}
-      />
+        <h1 className="headline">{this.state.pageName}</h1>
 
-      <h1 className="headline">{pageName}</h1>
-
-      <div className="gallery">content will come soon</div>
-    </>
-  )
+        <div className="gallery">content will come soon</div>
+      </>
+    )
+  }
 }
 
-// export const pageQuery = graphql``
-
-export default Page
+export default React.forwardRef((props, ref) => (
+  <HistoryConsumer>
+    {(history) => <Page {...props} ref={ref} history={history} />}
+  </HistoryConsumer>
+))

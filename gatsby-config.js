@@ -4,64 +4,26 @@
  * @see https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+/* eslint-disable import/first */
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const path = require('path')
 const { yellow, blue } = require('kleur')
-const { getPkgVersion, siteMetadata } = require('./gatsby/utils')
+const { versionMajorMinor, getVersion } = require('./gatsby/utils')
 const { activeEnv, isDev } = require('./gatsby/environment')
+const commonRemark = require('./gatsby/config/commonRemark')
+const siteMetadata = require('./metadata')
 
-console.log(`Environment: ${yellow(activeEnv)}\n`)
-console.log(`Version: ${blue(siteMetadata.version)}\n`)
-process.env.GATSBY_APP_VERSION = siteMetadata.version
-
-// https://www.gatsbyjs.org/docs/mdx/plugins/
-const commonRemarkPlugins = [
-  {
-    resolve: 'gatsby-remark-images',
-    options: {
-      maxWidth: 1600,
-      backgroundColor: 'transparent',
-      linkImagesToOriginal: true,
-      quality: 75,
-      withWebp: true,
-      showCaptions: true,
-    },
-  },
-  {
-    resolve: 'gatsby-remark-emoji',
-    options: {
-      emojiConversion: 'shortnameToUnicode',
-    },
-  },
-  {
-    resolve: `gatsby-remark-prismjs`,
-    options: {
-      noInlineHighlight: true,
-      prompt: {
-        user: 'root',
-        host: 'localhost',
-        global: false,
-      },
-      // BUG: https://github.com/gatsbyjs/gatsby/issues/17997
-      // BUG: https://github.com/gatsbyjs/gatsby/issues/20642
-      // plugins: [
-      //   require.resolve(
-      //     'prismjs/plugins/show-invisibles/prism-show-invisibles'
-      //   ),
-      // ],
-    },
-  },
-]
+console.log(`Environment: ${yellow(activeEnv)}`)
+console.log(`Version: ${blue(getVersion())}\n`)
 
 module.exports = {
   siteMetadata,
   plugins: [
     `gatsby-plugin-preact`, // file size saving 🍾
     `gatsby-plugin-layout`,
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-react-helmet-async`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
@@ -71,7 +33,6 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
-    'gatsby-plugin-purgecss',
     'gatsby-transformer-json',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -124,7 +85,7 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve('./src/templates/PageSingle.jsx'),
         },
-        gatsbyRemarkPlugins: [...commonRemarkPlugins],
+        gatsbyRemarkPlugins: [...commonRemark],
       },
     },
     {
@@ -139,7 +100,7 @@ module.exports = {
         pedantic: true,
         gfm: true,
         plugins: [
-          ...commonRemarkPlugins,
+          ...commonRemark,
           {
             resolve: 'gatsby-remark-external-links',
             options: {
@@ -214,9 +175,9 @@ module.exports = {
       options: {
         team: [
           {
-            Developer: `Marvin Heilemann`,
-            GitHub: `muuvmuuv`,
-            Twitter: `@muuvmuuv`,
+            Developer: 'Marvin Heilemann',
+            GitHub: 'muuvmuuv',
+            Twitter: '@muuvmuuv',
           },
         ],
         thanks: [`Gatsby`, `Node`],
@@ -238,7 +199,7 @@ module.exports = {
           },
           {
             userAgent: '*',
-            disallow: ['/me.gif', '/version.txt'],
+            disallow: ['/me.gif'],
           },
         ],
       },
@@ -250,16 +211,20 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-react-axe',
+      options: {
+        // https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
+        axeOptions: {},
+      },
+    },
+    {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
         analyzerMode: 'static',
         production: true,
         disable: isDev,
         openAnalyzer: true,
-        reportFilename: path.resolve(
-          __dirname,
-          `reports/v${getPkgVersion()}/treemap.html`
-        ),
+        reportFilename: `${__dirname}/reports/v${versionMajorMinor()}/treemap.html`,
       },
     },
   ],

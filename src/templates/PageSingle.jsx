@@ -1,46 +1,48 @@
-import React, { useEffect, useContext } from 'react'
-import { Helmet } from 'react-helmet-async'
+import React from 'react'
 
-import { History } from '../store'
+import { HistoryConsumer } from '../store/history'
+import Head from '../components/Head'
 import Article from '../layouts/Article'
-import SEO from '../components/SEO'
 import HeroPage from '../components/HeroPage'
 
-/**
- * Wrapper for MDX pages.
- */
-const Page = ({
-  children,
-  pageContext: {
-    breadcrumb,
-    frontmatter: { title, subtitle },
-  },
-}) => {
-  const historyDispatch = useContext(History.Dispatch)
+class Page extends React.Component {
+  state = {
+    pageName: 'Page',
+  }
 
-  useEffect(() => {
-    historyDispatch({
+  componentDidMount() {
+    const { breadcrumb } = this.props.pageContext
+
+    this.props.history.update({
       location: breadcrumb.location,
-      crumbLabel: title,
+      crumbLabel: this.props.pageContext.frontmatter.title,
       crumbs: breadcrumb.crumbs,
     })
-  })
+  }
 
-  return (
-    <>
-      <SEO title={title} />
-      <Helmet
-        bodyAttributes={{
-          page: title.toLowerCase(),
-          class: `page header-fixed hero-small`,
-        }}
-      />
+  render() {
+    const {
+      frontmatter: { title, subtitle },
+    } = this.props.pageContext
 
-      <HeroPage title={title} subtitle={subtitle} />
+    return (
+      <>
+        <Head
+          pageTitle={title}
+          pageName={this.state.pageName}
+          bodyClasses="page header-fixed hero-small"
+        />
 
-      <Article>{children}</Article>
-    </>
-  )
+        <HeroPage title={title} subtitle={subtitle} />
+
+        <Article>{this.props.children}</Article>
+      </>
+    )
+  }
 }
 
-export default Page
+export default React.forwardRef((props, ref) => (
+  <HistoryConsumer>
+    {(history) => <Page {...props} ref={ref} history={history} />}
+  </HistoryConsumer>
+))

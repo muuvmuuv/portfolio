@@ -6,9 +6,10 @@ export const useSocialLinks = () => {
       query SocialLinks {
         site {
           siteMetadata {
-            socialLinks {
+            social {
               name
               icon
+              user
               link
             }
           }
@@ -17,5 +18,5 @@ export const useSocialLinks = () => {
     `
   )
 
-  return results.site.siteMetadata.socialLinks
+  return results.site.siteMetadata.social
 }

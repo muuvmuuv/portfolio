@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import Storage from '../storage'
 import {
   prefersDarkAppearance,
@@ -11,9 +11,10 @@ export const Mode = {
   HC: 'hc',
   AUTO: 'auto',
 }
+
 export const modes = [Mode.DARK, Mode.LIGHT, Mode.AUTO]
 
-const contextScheme = {
+const defaultState = {
   mode: '', // different modes
   theme: '', // actual theme for CSS
   scheme: '', // preferred color scheme
@@ -21,11 +22,10 @@ const contextScheme = {
   toggle: () => {}, // toggle the mode and theme
 }
 
-// Context
-const State = React.createContext(contextScheme)
+const ThemeContext = createContext(defaultState)
+const ThemeConsumer = ThemeContext.Consumer
 
-// Provider
-class Provider extends React.Component {
+class ThemeProvider extends React.Component {
   // https://www.gatsbyjs.org/blog/2019-01-31-using-react-context-api-with-gatsby/#creating-the-context-file-in-a-new-gatsby-project
 
   state = {
@@ -127,17 +127,13 @@ class Provider extends React.Component {
     const { mode, theme } = this.state
 
     return (
-      <State.Provider
+      <ThemeContext.Provider
         value={{ mode, theme, setTheme: this.setTheme, toggle: this.toggle }}
       >
         {children}
-      </State.Provider>
+      </ThemeContext.Provider>
     )
   }
 }
 
-// Export
-export const Theme = {
-  State,
-  Provider,
-}
+export { ThemeProvider, ThemeConsumer, ThemeContext }

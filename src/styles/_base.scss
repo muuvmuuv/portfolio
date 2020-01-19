@@ -40,6 +40,11 @@ body {
   }
 }
 
+/* Remove GatsbyJS announcer */
+#gatsby-announcer {
+  position: fixed !important;
+}
+
 pre,
 code {
   white-space: pre-wrap;

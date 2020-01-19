@@ -18,8 +18,7 @@ class Header extends React.PureComponent {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
-  // TODO: test this with SSR
-  handleScroll = (event) => {
+  handleScroll = () => {
     const isFixed = document.body.classList.contains('header-fixed')
     if (!isFixed) return
 

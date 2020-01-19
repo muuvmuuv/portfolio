@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /me.gif
-Disallow: /static/
-Disallow: /showcase/

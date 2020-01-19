@@ -15,6 +15,7 @@
 - [x] add custom slug to all pages
 - [x] test `postcss-easing-gradients` with Scss loaded in `/src`
 - [ ] add md table of contents
+- [x] ~~add schema generator~~
 - [x] new start page: https://labs.semplice.com/s5-vertical-grid
 - [x] test purgecss with classes from Markdown files
 - [ ] add NOW deployment
@@ -30,7 +31,7 @@
 - [x] weird lighter background underneath the footer (backdrop-filter issue)
 - [ ] setup scss linter
 - [ ] setup smacss to apply css sort order
-- [ ] fix issue with node env version in prod build
+- [x] fix issue with node env version in prod build
 - [ ] fix issue with header on prod build
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
@@ -44,9 +45,16 @@
 - [x] analyze via bundlephobia
 - [x] add github bots to auto update dependencies
 - [x] add lighthouse from M8FINDER project
+- [ ] update lighthouse audit
+  - [ ] save HTML
+  - [ ] save JSON
+  - [ ] save Screenshot for mobile and desktop
+  - [ ] open only desktop
+  - [ ] script to open mobile
+  - [ ] open summary view by default
 - [x] Make text justified
 - [ ] add scroll to top
-- [ ] ~~use CSS blend modes (overlay)~~
+- [x] ~~use CSS blend modes (overlay)~~
 - [ ] add League of Legends API to show profile and stats
   - https://developer.riotgames.com/apis
 - [x] add classes to tags https://github.com/gatsbyjs/gatsby/issues/17824
@@ -66,8 +74,8 @@
 - [ ] check all pages with reduced motion
 - [ ] check all pages with reduced transparency
 - [ ] PWA: add service worker for offline usage
-- [ ] ~~add tests?!~~
-- [ ] ~~move from bash script to [Nim][2]~~
+- [x] ~~add tests?!~~
+- [x] ~~move from bash script to [Nim][2]~~
 - [ ] (auto) check markdown for ["Vary sentence length"][3]
 - [ ] (auto) check markdown for [Readability][4]
 - [ ] (auto) generate [rich snippets][5]

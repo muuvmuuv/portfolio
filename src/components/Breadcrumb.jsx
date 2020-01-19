@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { Breadcrumb as BreadcrumbPlugin } from 'gatsby-plugin-breadcrumb'
 
-import { History } from '../store'
+import { HistoryContext } from '../store/history'
 
 const Breadcrumb = () => {
-  const { location, crumbLabel, crumbs } = useContext(History.State)
+  const { location, crumbLabel, crumbs } = useContext(HistoryContext)
 
   return (
     <BreadcrumbPlugin

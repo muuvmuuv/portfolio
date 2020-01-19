@@ -1,34 +1,31 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
 
 const defaultState = {
   location: '',
   crumbLabel: '',
   crumbs: [],
+  update: () => {},
 }
 
-// Context
-const State = React.createContext()
-const Dispatch = React.createContext()
+const HistoryContext = createContext(defaultState)
+const HistoryConsumer = HistoryContext.Consumer
 
-// Reducer
-const reducer = (state, newState) => {
-  return { ...state, ...newState }
-}
+function HistoryProvider({ children }) {
+  const [state, setState] = useState({
+    crumbs: [],
+  })
 
-// Provider
-const Provider = ({ children }) => {
-  const [state, dispatch] = React.useReducer(reducer, defaultState)
+  const update = (newState) => {
+    console.log(newState)
+
+    setState(newState)
+  }
 
   return (
-    <State.Provider value={state}>
-      <Dispatch.Provider value={dispatch}>{children}</Dispatch.Provider>
-    </State.Provider>
+    <HistoryContext.Provider value={{ ...state, update }}>
+      {children}
+    </HistoryContext.Provider>
   )
 }
 
-// Export
-export const History = {
-  State,
-  Dispatch,
-  Provider,
-}
+export { HistoryProvider, HistoryConsumer, HistoryContext }

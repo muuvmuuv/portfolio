@@ -1,65 +1,68 @@
-import React, { useContext, useEffect } from 'react'
-import { Helmet } from 'react-helmet-async'
+import React from 'react'
 import { graphql } from 'gatsby'
 
-import { History } from '../store'
+import { HistoryConsumer } from '../store/history'
 import Article from '../layouts/Article'
-import SEO from '../components/SEO'
+import Head from '../components/Head'
 import HeroProjects from '../components/HeroProjects'
 
-const Single = ({
-  pageContext: { breadcrumb },
-  data: {
-    markdownRemark: { frontmatter, html, excerpt },
-  },
-  location,
-}) => {
-  const historyDispatch = useContext(History.Dispatch)
+class Page extends React.Component {
+  state = {
+    pageName: 'Projects',
+  }
 
-  useEffect(() => {
-    historyDispatch({
+  componentDidMount() {
+    const { breadcrumb } = this.props.pageContext
+
+    this.props.history.update({
       location: breadcrumb.location,
-      crumbLabel: frontmatter.title,
+      crumbLabel: this.props.data.markdownRemark.frontmatter.title,
       crumbs: breadcrumb.crumbs,
     })
-  })
-
-  const attr = {}
-
-  const homeUrl = location.origin
-  if (frontmatter.thumb.facebook.resize.src) {
-    attr.ogImage = `${homeUrl}${frontmatter.thumb.facebook.resize.src}`
-  }
-  if (frontmatter.thumb.twitter.resize.src) {
-    attr.twitterCard = `${homeUrl}${frontmatter.thumb.twitter.resize.src}`
   }
 
-  if (frontmatter.keywords && frontmatter.keywords.length > 0) {
-    attr.keywords = frontmatter.keywords
+  render() {
+    const {
+      markdownRemark: { frontmatter, html },
+    } = this.props.data
+
+    const attr = {}
+
+    const homeUrl = this.props.location.origin
+    if (frontmatter.thumb.facebook.resize.src) {
+      attr.ogImage = `${homeUrl}${frontmatter.thumb.facebook.resize.src}`
+    }
+    if (frontmatter.thumb.twitter.resize.src) {
+      attr.twitterCard = `${homeUrl}${frontmatter.thumb.twitter.resize.src}`
+    }
+
+    if (frontmatter.keywords && frontmatter.keywords.length > 0) {
+      attr.keywords = frontmatter.keywords
+    }
+
+    return (
+      <>
+        <Head
+          pageTitle={frontmatter.title}
+          pageName={this.state.pageName}
+          bodyClasses="single header-fixed"
+        />
+
+        <HeroProjects item={frontmatter} />
+
+        <Article html={html} />
+      </>
+    )
   }
-
-  return (
-    <>
-      <SEO
-        title={frontmatter.title}
-        description={frontmatter.subtitle || excerpt}
-        {...attr}
-      />
-      <Helmet
-        bodyAttributes={{
-          page: 'projects',
-          class: 'single header-fixed',
-        }}
-      />
-
-      <HeroProjects item={frontmatter} />
-
-      <Article html={html} />
-    </>
-  )
 }
 
-export const pageQuery = graphql`
+export default React.forwardRef((props, ref) => (
+  <HistoryConsumer>
+    {(history) => <Page {...props} ref={ref} history={history} />}
+  </HistoryConsumer>
+))
+
+export const query = graphql`
   query($slug: String!) {
     markdownRemark(
       fields: { slug: { eq: $slug }, source: { eq: "projects" } }
@@ -107,5 +110,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-export default Single

@@ -1,58 +1,64 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
-import { Helmet } from 'react-helmet-async'
 
+import { HistoryConsumer } from '../store/history'
+import Head from '../components/Head'
 import Link from '../components/Link'
-import SEO from '../components/SEO'
-import { History } from '../store'
 import Time from '../components/Time'
 
-const Page = ({
-  pageContext: { breadcrumb },
-  data: {
-    allMarkdownRemark: { edges },
-  },
-}) => {
-  const pageName = 'Writings'
-  const historyDispatch = useContext(History.Dispatch)
+class Page extends React.Component {
+  state = {
+    pageName: 'Writings',
+  }
 
-  useEffect(() => {
-    historyDispatch({
+  componentDidMount() {
+    const { breadcrumb } = this.props.pageContext
+
+    this.props.history.update({
       location: breadcrumb.location,
-      crumbLabel: pageName,
+      crumbLabel: this.state.pageName,
       crumbs: breadcrumb.crumbs,
     })
-  })
+  }
 
-  return (
-    <>
-      <SEO title={pageName} />
-      <Helmet
-        bodyAttributes={{ page: pageName.toLowerCase(), class: 'home' }}
-      />
+  render() {
+    const {
+      allMarkdownRemark: { edges },
+    } = this.props.data
 
-      <h1 className="headline">{pageName}</h1>
+    return (
+      <>
+        <Head pageName={this.state.pageName} bodyClasses="home" />
 
-      <div className="container container--medium">
-        <div className="list">
-          {edges.map(({ node: { frontmatter, fields, excerpt } }, index) => (
-            <div className="item" key={index}>
-              <Link to={fields.slug}>
-                <header>
-                  <h2>{frontmatter.title}</h2>
-                  <Time date={frontmatter.created} />
-                </header>
-                <p>{excerpt}</p>
-              </Link>
-            </div>
-          ))}
+        <h1 className="headline">{this.state.pageName}</h1>
+
+        <div className="container container--medium">
+          <div className="list">
+            {edges.map(({ node: { frontmatter, fields, excerpt } }, index) => (
+              <div className="item" key={index}>
+                <Link to={fields.slug}>
+                  <header>
+                    <h2>{frontmatter.title}</h2>
+                    <Time date={frontmatter.created} />
+                  </header>
+                  <p>{excerpt}</p>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </>
-  )
+      </>
+    )
+  }
 }
 
-export const pageQuery = graphql`
+export default React.forwardRef((props, ref) => (
+  <HistoryConsumer>
+    {(history) => <Page {...props} ref={ref} history={history} />}
+  </HistoryConsumer>
+))
+
+export const query = graphql`
   query WritingsQuery {
     allMarkdownRemark(
       filter: { fields: { source: { eq: "writings" } } }
@@ -77,5 +83,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-export default Page

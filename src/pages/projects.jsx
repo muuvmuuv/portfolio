@@ -1,69 +1,76 @@
-import React, { useEffect, useContext } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
-import { Helmet } from 'react-helmet-async'
 
-import SEO from '../components/SEO'
+import { HistoryConsumer } from '../store/history'
+import Head from '../components/Head'
 import Portfolio from '../components/Portfolio'
-import { History } from '../store'
 import dayjs from 'dayjs'
 
-const Page = ({ pageContext: { breadcrumb }, data: { projects } }) => {
-  const pageName = 'Projects'
-  const historyDispatch = useContext(History.Dispatch)
+class Page extends React.Component {
+  state = {
+    pageName: 'Projects',
+  }
 
-  useEffect(() => {
-    historyDispatch({
+  componentDidMount() {
+    const { breadcrumb } = this.props.pageContext
+
+    this.props.history.update({
       location: breadcrumb.location,
-      crumbLabel: pageName,
+      crumbLabel: this.state.pageName,
       crumbs: breadcrumb.crumbs,
     })
-  })
+  }
 
-  const items = projects.edges.sort((nodeA, nodeB) => {
-    const AF = nodeA.node.frontmatter
-    const BF = nodeB.node.frontmatter
+  render() {
+    const {
+      data: { projects },
+    } = this.props
 
-    const future = dayjs().add(10, 'y')
-    const present = dayjs().add(-10, 'y')
-    const AEnded = AF.ended ? dayjs(AF.ended) : future
-    const BEnded = BF.ended ? dayjs(BF.ended) : future
-    const diffEnded = BEnded.diff(AEnded)
-    const AStarted = AF.started ? dayjs(AF.started) : present
-    const BStarted = BF.started ? dayjs(BF.started) : present
-    const diffStarted = AStarted.diff(BStarted)
+    const items = projects.edges.sort((nodeA, nodeB) => {
+      const AF = nodeA.node.frontmatter
+      const BF = nodeB.node.frontmatter
 
-    if (!BF.started && !BF.ended) {
-      return -1
-    } else if (!AF.started && !AF.ended) {
-      return 1
-    }
+      const future = dayjs().add(10, 'y')
+      const present = dayjs().add(-10, 'y')
+      const AEnded = AF.ended ? dayjs(AF.ended) : future
+      const BEnded = BF.ended ? dayjs(BF.ended) : future
+      const diffEnded = BEnded.diff(AEnded)
+      const AStarted = AF.started ? dayjs(AF.started) : present
+      const BStarted = BF.started ? dayjs(BF.started) : present
+      const diffStarted = AStarted.diff(BStarted)
 
-    return diffEnded - diffStarted
-  })
+      if (!BF.started && !BF.ended) {
+        return -1
+      } else if (!AF.started && !AF.ended) {
+        return 1
+      }
 
-  return (
-    <>
-      <SEO title={pageName} />
-      <Helmet
-        bodyAttributes={{
-          page: pageName.toLowerCase(),
-          class: 'home',
-        }}
-      />
+      return diffEnded - diffStarted
+    })
 
-      <h1 className="headline">{pageName}</h1>
+    return (
+      <>
+        <Head pageName={this.state.pageName} bodyClasses="home" />
 
-      <div className="container gallery">
-        {items.map((item, index) => (
-          <Portfolio item={item.node} key={index}></Portfolio>
-        ))}
-      </div>
-    </>
-  )
+        <h1 className="headline">{this.state.pageName}</h1>
+
+        <div className="container gallery">
+          {items.map((item, index) => (
+            <Portfolio item={item.node} key={index}></Portfolio>
+          ))}
+        </div>
+      </>
+    )
+  }
 }
 
-// NOTE: this query could be simplified (https://github.com/gatsbyjs/gatsby/issues/17953)
-export const pageQuery = graphql`
+export default React.forwardRef((props, ref) => (
+  <HistoryConsumer>
+    {(history) => <Page {...props} ref={ref} history={history} />}
+  </HistoryConsumer>
+))
+
+export const query = graphql`
   query ProjectsQuery {
     projects: allMarkdownRemark(
       filter: { fields: { source: { eq: "projects" } } }
@@ -98,5 +105,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-export default Page

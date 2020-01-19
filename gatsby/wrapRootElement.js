@@ -1,4 +1,10 @@
 const React = require('react')
-const { Store } = require('../src/store')
 
-module.exports = ({ element }) => <Store>{element}</Store>
+const { ThemeProvider } = require('../src/store/theme')
+const { HistoryProvider } = require('../src/store/history')
+
+module.exports = ({ element }) => (
+  <ThemeProvider>
+    <HistoryProvider>{element}</HistoryProvider>
+  </ThemeProvider>
+)

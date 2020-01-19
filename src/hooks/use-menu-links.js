@@ -6,7 +6,7 @@ export const useMenuLinks = () => {
       query MenuLinks {
         site {
           siteMetadata {
-            menuLinks {
+            menu {
               name
               link
               external
@@ -17,5 +17,5 @@ export const useMenuLinks = () => {
     `
   )
 
-  return results.site.siteMetadata.menuLinks
+  return results.site.siteMetadata.menu
 }

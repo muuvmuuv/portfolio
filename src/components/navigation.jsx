@@ -1,21 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useState } from 'react'
 
-import { Nav } from '../store'
 import { useMenuLinks } from '../hooks/use-menu-links'
 import Link from './Link'
 import Icon from './Icon'
 
 const Navigation = () => {
+  const [open, setOpen] = useState(false)
+
   const menuLinks = useMenuLinks()
-  const navState = useContext(Nav.State)
-  const navDispatch = useContext(Nav.Dispatch)
 
   const toggleNav = () => {
-    navDispatch(!navState.open)
+    setOpen(!open)
   }
 
   return (
-    <div id="navigation" className={navState.open ? 'open' : ''}>
+    <div id="navigation" className={open ? 'open' : ''}>
       <button
         className="trigger"
         onClick={toggleNav}

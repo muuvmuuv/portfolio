@@ -1,15 +1,13 @@
 import React from 'react'
 import dayjs from 'dayjs'
 
-import Logo from '../components/Logo'
-import { useSiteData } from '../hooks/use-site-data'
 import { useFooterLinks } from '../hooks/use-footer-links'
 import { useSocialLinks } from '../hooks/use-social-links'
+import Logo from '../components/Logo'
 import Link from '../components/Link'
 import Icon from '../components/Icon'
 
 const Footer = () => {
-  const siteData = useSiteData()
   const footerLinks = useFooterLinks()
   const socialLinks = useSocialLinks()
 
@@ -41,7 +39,8 @@ const Footer = () => {
         ))}
       </ul>
       <div className="copyright">
-        {thisYear} &copy; Marvin Heilemann <span>•</span> v{siteData.version}
+        {thisYear} &copy; Marvin Heilemann <span>•</span> v
+        {process.env.GATSBY_APP_VERSION}
       </div>
     </footer>
   )

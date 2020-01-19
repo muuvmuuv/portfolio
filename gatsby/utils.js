@@ -1,5 +1,3 @@
-const pkg = require('../package.json')
-
 /**
  * Slugify a string.
  */
@@ -24,30 +22,25 @@ module.exports.slugify = (text, separator) => {
 }
 
 /**
- * Return current version, with major and patches set
- * to zero for a easier way of handling reports.
- *
- * (optional) remove dots
- *
- * @param {boolean} dots Remove dots from version
+ * Return the app major and minor without patch version.
  */
-module.exports.getPkgVersion = (dots = true) => {
-  let parsed = pkg.version.replace(/\.(?:.(?!\.))+$/, '.0')
-  if (!dots) {
-    parsed = parsed.replace(/\./g, '')
-  }
-  return parsed
+module.exports.getVersion = () => {
+  const version = require('../package.json').version
+  return version
 }
 
 /**
- * Build meta data object
+ * Return the app major and minor without patch version.
  */
-module.exports.siteMetadata = {
-  ...require('../metadata'),
-  ...{
-    siteUrl: process.env.SITE_URL,
-    version: pkg.version,
-  },
+module.exports.versionMajorMinor = () => {
+  let version = this.getVersion()
+  const major = require('semver/functions/major')(version)
+  const minor = require('semver/functions/minor')(version)
+  if (!major || !minor) {
+    throw new Error('Major and minor could not be parsed!')
+  }
+  version = `${major}.${minor}`
+  return version
 }
 
 /**
