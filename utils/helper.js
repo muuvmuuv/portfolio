@@ -22,25 +22,6 @@ module.exports.slugify = (text, separator) => {
 }
 
 /**
- * Return the app version.
- *
- * @param {boolean} version select which version to return
- * @param {boolean} noDots remove the dots
- */
-module.exports.getVersion = (
-  version = ['major', 'minor', 'patch'],
-  includeDots = true
-) => {
-  const pkgVersion = require('../package.json').version
-
-  if (includeDots) return pkgVersion
-
-  return version
-    .map((v) => require(`semver/functions/${v}`)(pkgVersion))
-    .join('')
-}
-
-/**
  * Remove trainling slash from URI.
  */
 module.exports.removeTrailingSlash = (path) => {

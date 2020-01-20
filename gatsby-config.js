@@ -10,8 +10,8 @@ require('dotenv').config({
 })
 
 const { yellow, blue } = require('kleur')
-const { getVersion } = require('./gatsby/utils')
-const { activeEnv, isDev } = require('./gatsby/environment')
+const { getVersion, transformVersion } = require('./utils/version')
+const { activeEnv, isDev } = require('./utils/environment')
 const commonRemark = require('./gatsby/config/commonRemark')
 const siteMetadata = require('./metadata')
 
@@ -21,13 +21,13 @@ console.log(`Version: ${blue(getVersion())}\n`)
 module.exports = {
   siteMetadata,
   plugins: [
-    `gatsby-plugin-preact`, // file size saving 🍾
+    `gatsby-plugin-preact`,
     `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet-async`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: process.env.SITE_URL,
+        siteUrl: siteMetadata.siteUrl,
         stripQueryString: true,
       },
     },
@@ -225,11 +225,11 @@ module.exports = {
         analyzerMode: 'static',
         production: true,
         disable: isDev,
-        openAnalyzer: true,
-        reportFilename: `${__dirname}/reports/v${getVersion(
-          ['major', 'minor'],
-          false
-        )}/treemap.html`,
+        openAnalyzer: false,
+        reportFilename: `${__dirname}/reports/v${transformVersion(
+          getVersion(),
+          ['major', 'minor']
+        )}.0/treemap.html`,
       },
     },
   ],

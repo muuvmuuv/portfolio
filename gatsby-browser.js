@@ -4,7 +4,7 @@
  * @see https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-const { isProd, isDev } = require('./gatsby/environment')
+const { isProd, isDev } = require('./utils/environment')
 const { getLocale, getLanguage } = require('./src/utils/locale')
 
 // const wrapPageElement = require('./gatsby/wrapPageElement')

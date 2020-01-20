@@ -30,6 +30,9 @@
 - [x] always use latest NGINX image
 - [x] test prod build locally with SSL and brotli compression
 - [x] weird lighter background underneath the footer (backdrop-filter issue)
+- [ ] setup siteUrl as env var to pass to build process so lighthouse will get
+      the correct canonical url
+- [ ] use gatsby images everywhere (homepage for file savings)
 - [ ] setup scss linter
 - [ ] setup smacss to apply css sort order
 - [x] fix issue with node env version in prod build

@@ -16,8 +16,6 @@ function HistoryProvider({ children }) {
   })
 
   const update = (newState) => {
-    console.log(newState)
-
     setState(newState)
   }
 
