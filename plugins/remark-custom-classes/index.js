@@ -32,7 +32,7 @@ const remarkPluginOptions = {
 
 function getTypeByAlias(alias) {
   return Object.keys(typesAliasses).find(
-    type => typesAliasses[type].indexOf(alias) > -1
+    (type) => typesAliasses[type].indexOf(alias) > -1
   )
 }
 
@@ -60,7 +60,7 @@ module.exports = ({ markdownAST }, pluginOptions) => {
      */
     if (rootClasses) {
       const typeNames = Object.keys(rootClasses)
-      typeNames.forEach(name => {
+      typeNames.forEach((name) => {
         if (node.type === name) {
           node = {
             type: 'div',
@@ -84,22 +84,22 @@ module.exports = ({ markdownAST }, pluginOptions) => {
    */
   if (tagClasses) {
     const tags = Object.keys(tagClasses)
-    tags.forEach(name => {
+    tags.forEach((name) => {
       const tagType = getTypeByAlias(name) /** @return {string} e.g. heading */
 
       switch (tagType) {
         case 'heading':
           const depth = Number(name[1]) // get depth from tag name `h1`[1]
-          const isHDepth = node =>
+          const isHDepth = (node) =>
             node.type === 'heading' && node.depth === depth
-          visit(markdownAST, isHDepth, node => {
+          visit(markdownAST, isHDepth, (node) => {
             if (!node.data) node.data = {}
             node.data.hProperties = { className: tagClasses[name] }
           })
           break
 
         default:
-          visit(markdownAST, tagType, node => {
+          visit(markdownAST, tagType, (node) => {
             if (!node.data) node.data = {}
             node.data.hProperties = { className: tagClasses[name] }
           })
@@ -115,13 +115,13 @@ module.exports = ({ markdownAST }, pluginOptions) => {
    */
   if (remarkClasses) {
     const plgNames = Object.keys(remarkClasses)
-    plgNames.forEach(name => {
+    plgNames.forEach((name) => {
       if (Object.keys(remarkPluginOptions).indexOf(name) > -1) {
         const { type, value } = remarkPluginOptions[name]
 
         switch (type) {
           case 'html':
-            visit(markdownAST, 'html', node => {
+            visit(markdownAST, 'html', (node) => {
               if (node.value.includes(value)) {
                 node.value = `<div class="${remarkClasses[name]}">${node.value}</div>`
               }

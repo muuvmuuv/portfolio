@@ -34,9 +34,9 @@ newcert:
 # Setup
 
 create-env:
-	if test -f .env.production; \
-	then echo Production environment file already exist, exiting...; exit 0; \
-	else cp .env.development .env.production; echo Created production environment file; \
+	if test -f .env.build; \
+	then echo Environment file already exist, exiting...; exit 0; \
+	else cp .env.tmpl .env.build; echo Created environment file; \
 	fi
 
 create-dirs:

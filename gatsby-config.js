@@ -6,11 +6,11 @@
 
 /* eslint-disable import/first */
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env.build`,
 })
 
 const { yellow, blue } = require('kleur')
-const { versionMajorMinor, getVersion } = require('./gatsby/utils')
+const { getVersion } = require('./gatsby/utils')
 const { activeEnv, isDev } = require('./gatsby/environment')
 const commonRemark = require('./gatsby/config/commonRemark')
 const siteMetadata = require('./metadata')
@@ -210,13 +210,15 @@ module.exports = {
         removeVersionOnly: true,
       },
     },
-    {
-      resolve: 'gatsby-plugin-react-axe',
-      options: {
-        // https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
-        axeOptions: {},
-      },
-    },
+    // BUG: https://github.com/angeloashmore/gatsby-plugin-react-axe/issues/6
+    // {
+    //   resolve: 'gatsby-plugin-react-axe',
+    //   options: {
+    //     showInProduction: false,
+    //     // https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
+    //     axeOptions: {},
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
@@ -224,7 +226,10 @@ module.exports = {
         production: true,
         disable: isDev,
         openAnalyzer: true,
-        reportFilename: `${__dirname}/reports/v${versionMajorMinor()}/treemap.html`,
+        reportFilename: `${__dirname}/reports/v${getVersion(
+          ['major', 'minor'],
+          false
+        )}/treemap.html`,
       },
     },
   ],

@@ -3,6 +3,8 @@ module.exports = {
   siteTitleShort: 'M/D',
   siteAuthor: `Marvin Heilemann`,
   siteDescription: `Projects Marvin Heilemann has been working on now and in the past.`,
+  siteUrl: 'https://marvin.digital',
+  siteLanguage: 'en',
   siteKeywords: [
     'muuvmuuv',
     'portfolio',
@@ -11,8 +13,6 @@ module.exports = {
     'writings',
     'photography',
   ],
-  siteUrl: process.env.SITE_URL,
-  siteLanguage: 'en',
   menu: [
     {
       name: 'About',

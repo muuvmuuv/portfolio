@@ -23,6 +23,7 @@
     - [ ] Test
   - [ ] Everything pushed to master -> marvin.digital
   - [ ] Everything pushed to development -> dev.marvin.digital
+- [ ] Setup GitHub workflow to deploy with notification and version alias
 - [x] replace React with [Preact][1] (check if it works when finished)
 - [x] add version to GraphQL data not as file...
 - [x] remove "build brotli from source" with a already finished build

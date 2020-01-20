@@ -22,25 +22,22 @@ module.exports.slugify = (text, separator) => {
 }
 
 /**
- * Return the app major and minor without patch version.
+ * Return the app version.
+ *
+ * @param {boolean} version select which version to return
+ * @param {boolean} noDots remove the dots
  */
-module.exports.getVersion = () => {
-  const version = require('../package.json').version
-  return version
-}
+module.exports.getVersion = (
+  version = ['major', 'minor', 'patch'],
+  includeDots = true
+) => {
+  const pkgVersion = require('../package.json').version
 
-/**
- * Return the app major and minor without patch version.
- */
-module.exports.versionMajorMinor = () => {
-  let version = this.getVersion()
-  const major = require('semver/functions/major')(version)
-  const minor = require('semver/functions/minor')(version)
-  if (!major || !minor) {
-    throw new Error('Major and minor could not be parsed!')
-  }
-  version = `${major}.${minor}`
+  if (includeDots) return pkgVersion
+
   return version
+    .map((v) => require(`semver/functions/${v}`)(pkgVersion))
+    .join('')
 }
 
 /**
