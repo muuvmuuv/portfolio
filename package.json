@@ -30,7 +30,7 @@
     "−−−−−−−−−−−−−−−−−−−  LINT/TEST  −−−−−−−−−−−−−−−−−−−−–": "",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "lint": "run-s lint:*",
-    "lint:js": "eslint .",
+    "lint:js": "eslint ./src ./utils ./gatsby ./scripts ./plugins",
     "lint:scss": "stylelint ./src/styles",
     "−−−−−−−−−−−−−−−−−  SCRIPTS/TOOLS  −−−−−−−−−−−−−−−−–−−": "",
     "version": "node ./scripts/version.js",
