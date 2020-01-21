@@ -6,11 +6,11 @@
 
 .portfolio {
   display: grid;
-  margin-bottom: var(--spacing-xxl);
   grid-template-areas:
     'image image'
     'info info';
   grid-template-columns: 1fr 300px;
+  margin-bottom: var(--spacing-xxl);
 
   @include breakpoint-up(md) {
     grid-template-areas: 'image info';
@@ -23,16 +23,16 @@
     margin-left: var(--spacing-md);
 
     h2 {
-      font-family: var(--font-serif);
-      font-weight: var(--font-bold);
-      font-size: var(--text-xl);
       margin-bottom: var(--spacing-sm);
       color: var(--text-color-highlight);
+      font-family: var(--font-serif);
+      font-size: var(--text-xl);
+      font-weight: var(--font-bold);
     }
 
     h3 {
-      color: var(--text-color-richer);
       margin-bottom: var(--spacing-sm);
+      color: var(--text-color-richer);
     }
   }
 

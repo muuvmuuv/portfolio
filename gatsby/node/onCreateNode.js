@@ -1,5 +1,6 @@
 const { createFilePath } = require('gatsby-source-filesystem')
-const { slugify } = require('../utils')
+
+const { slugify } = require('../../utils/helper')
 
 module.exports = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions

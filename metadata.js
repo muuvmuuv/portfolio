@@ -11,7 +11,7 @@ module.exports = {
     'writings',
     'photography',
   ],
-  siteUrl: process.env.SITE_URL,
+  siteUrl: process.env.SITE_URL || 'https://marvin.digital',
   siteLanguage: 'en',
   menu: [
     {
@@ -93,7 +93,7 @@ module.exports = {
       name: 'League of Legends',
       icon: 'lol',
       user: 'muuvmuuv',
-      link: 'https://lolprofile.net/de/summoner/euw/muuvmuuv',
+      link: 'https://blitz.gg/lol/profile/euw1/muuvmuuv',
     },
   ],
 }

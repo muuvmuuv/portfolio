@@ -3,9 +3,9 @@ const path = require('path')
 const { green, cyan } = require('kleur')
 const { inc, lte, valid } = require('semver')
 const prompts = require('prompts')
-const pkg = require('../package.json')
+const { getVersion, transformVersion } = require('../utils/version')
 
-const currentVersion = pkg.version
+const currentVersion = getVersion()
 const SEMVER_INCREMENTS = [
   'patch',
   'minor',
@@ -58,14 +58,17 @@ async function createNewVersion() {
   const { version } = await prompts(questions)
   console.log(`\nWill bump from ${cyan(currentVersion)} to ${cyan(version)}\n`)
 
-  return Promise.resolve(version)
+  return version
 }
 
-function writePkg(content) {
+function writePkg(version) {
   return new Promise((resolve) => {
+    const pkg = require('../package.json')
+    pkg.version = version
+
     fs.writeFile(
       path.resolve(__dirname, '../package.json'),
-      JSON.stringify(content, null, 2) + '\n',
+      JSON.stringify(pkg, null, 2) + '\n',
       (err) => {
         if (err) {
           throw new Error(err.message)
@@ -78,8 +81,10 @@ function writePkg(content) {
 
 function createDirectoryTree(version) {
   return new Promise((resolve) => {
+    const dirName = transformVersion(version, ['major', 'minor'])
+
     fs.mkdir(
-      path.resolve(__dirname, '../reports', `v${version}`),
+      path.resolve(__dirname, '../reports', `v${dirName}.0`),
       { recursive: true },
       (err) => {
         if (err) {
@@ -92,9 +97,7 @@ function createDirectoryTree(version) {
 }
 
 createNewVersion().then((version) => {
-  pkg.version = version
-
-  writePkg(pkg).then(() => {
+  writePkg(version).then(() => {
     console.log(green('Saved version to package.json!'))
   })
   createDirectoryTree(version).then(() => {

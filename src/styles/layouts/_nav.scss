@@ -22,16 +22,16 @@
 
     @include breakpoint-down(xs) {
       display: none;
-      z-index: 21;
       position: fixed;
+      z-index: 21;
       top: 0;
       left: 0;
     }
   }
 
   nav {
-    font-size: var(--text-sm);
     font-family: var(--font-mono);
+    font-size: var(--text-sm);
     font-weight: var(--font-bold);
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -44,8 +44,8 @@
       margin-left: var(--spacing-lg);
 
       @include breakpoint-down(xs) {
-        padding: var(--spacing-xs) 0;
         margin-bottom: var(--spacing-xxs);
+        padding: var(--spacing-xs) 0;
       }
     }
   }
@@ -54,20 +54,15 @@
 
   .trigger {
     position: relative;
+    z-index: 22;
     width: 40px;
     height: 40px;
-    cursor: pointer;
     border: 0;
     background: transparent;
-    z-index: 22;
+    cursor: pointer;
 
     @include breakpoint-up(sm) {
       display: none;
-    }
-
-    .hli::before,
-    .hli::after {
-      background-color: var(--color-light);
     }
 
     .hl {
@@ -86,14 +81,16 @@
       height: 2px;
       will-change: transform;
 
-      &::before,
-      &::after {
+      &::after,
+      &::before {
         content: '';
         display: block;
         position: absolute;
         top: 0;
         width: 28px;
         height: 2px;
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
         background-color: var(--color-light);
       }
 
@@ -142,12 +139,6 @@
     .lh,
     .hli {
       transition-duration: 0.6s;
-      transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-    }
-
-    .hli::before,
-    .hli::after {
-      transition-property: transform;
       transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
     }
 

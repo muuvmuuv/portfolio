@@ -20,8 +20,12 @@ for development.
 
 ## Deploy
 
-Since I use [now](https://zeit.co/muuvmuuv/portfolio) for my website, it is
-deployed there and fully automated.
+I'm using [now](https://zeit.co/muuvmuuv/portfolio) to deploy my site.
+
+```shell
+npm run deploy
+npm run deploy-prod
+```
 
 ## Build
 
@@ -29,8 +33,9 @@ deployed there and fully automated.
 npm run build
 ```
 
-To test the build run either `npm run serve` for a simple HTTP server to test if
-everything is working or `make up` to start a live development NGINX web-server.
+To test the website locally you can run either `npm run serve` to start a local
+dev server by [Zeit Now](https://zeit.co/docs/now-cli#commands/dev) or build the
+website and run `make up` to start a local NGINX docker container.
 
 ## Docker
 

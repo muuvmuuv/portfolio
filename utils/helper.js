@@ -22,28 +22,6 @@ module.exports.slugify = (text, separator) => {
 }
 
 /**
- * Return the app major and minor without patch version.
- */
-module.exports.getVersion = () => {
-  const version = require('../package.json').version
-  return version
-}
-
-/**
- * Return the app major and minor without patch version.
- */
-module.exports.versionMajorMinor = () => {
-  let version = this.getVersion()
-  const major = require('semver/functions/major')(version)
-  const minor = require('semver/functions/minor')(version)
-  if (!major || !minor) {
-    throw new Error('Major and minor could not be parsed!')
-  }
-  version = `${major}.${minor}`
-  return version
-}
-
-/**
  * Remove trainling slash from URI.
  */
 module.exports.removeTrailingSlash = (path) => {

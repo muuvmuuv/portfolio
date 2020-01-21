@@ -1,4 +1,9 @@
 {
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
   "todo-tree.filtering.excludeGlobs": [
     "**/*.md",
   ],

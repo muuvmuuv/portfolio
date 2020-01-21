@@ -35,12 +35,12 @@
     display: grid;
     grid-template-areas: 'title' 'info';
     grid-template-columns: 1fr;
-    column-gap: var(--spacing-md);
-    row-gap: var(--spacing-lg);
     align-items: center;
     justify-content: space-between;
     padding-top: 120px;
     padding-bottom: var(--spacing-lg);
+    column-gap: var(--spacing-md);
+    row-gap: var(--spacing-lg);
 
     @include breakpoint-up(sm) {
       padding-top: 150px;
@@ -67,23 +67,23 @@
     margin-bottom: var(--spacing-sm);
 
     h1 {
+      margin-bottom: var(--spacing-md);
       font-family: var(--font-serif);
       font-size: var(--text-xxl);
-      margin-bottom: var(--spacing-md);
     }
 
     h2 {
-      font-family: var(--font-mono);
       color: var(--text-color-richer);
+      font-family: var(--font-mono);
     }
   }
 
   .post-info {
-    grid-area: info;
     position: relative;
+    grid-area: info;
     padding: var(--spacing-md) var(--spacing-lg);
-    font-size: var(--text-sm);
     font-family: var(--font-mono);
+    font-size: var(--text-sm);
     user-select: none;
 
     &::before,

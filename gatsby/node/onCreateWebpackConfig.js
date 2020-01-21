@@ -1,4 +1,4 @@
-const { getVersion } = require('../utils')
+const { getVersion } = require('../../utils/version')
 
 module.exports = ({ actions, plugins }) => {
   const { setWebpackConfig } = actions

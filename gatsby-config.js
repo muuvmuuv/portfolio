@@ -6,28 +6,30 @@
 
 /* eslint-disable import/first */
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env.build`,
 })
 
-const { yellow, blue } = require('kleur')
-const { versionMajorMinor, getVersion } = require('./gatsby/utils')
-const { activeEnv, isDev } = require('./gatsby/environment')
+const { yellow, blue, bold } = require('kleur')
+const { getVersion, transformVersion } = require('./utils/version')
+const { activeEnv, isAudit } = require('./utils/environment')
 const commonRemark = require('./gatsby/config/commonRemark')
 const siteMetadata = require('./metadata')
 
+console.log(bold(siteMetadata.siteTitle))
+console.log(`Version: ${blue(getVersion())}`)
 console.log(`Environment: ${yellow(activeEnv)}`)
-console.log(`Version: ${blue(getVersion())}\n`)
+console.log(`Auditing: ${yellow(isAudit)}\n`)
 
 module.exports = {
   siteMetadata,
   plugins: [
-    `gatsby-plugin-preact`, // file size saving 🍾
+    `gatsby-plugin-preact`,
     `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet-async`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: process.env.SITE_URL,
+        siteUrl: siteMetadata.siteUrl,
         stripQueryString: true,
       },
     },
@@ -171,6 +173,20 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [
+          `/about/`,
+          `/imprint/`,
+          `/credits/`,
+          `/changelog/`,
+          `/projects/*`,
+          `/photography/*`,
+          `/writings/*`,
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-humans-txt`,
       options: {
         team: [
@@ -210,21 +226,19 @@ module.exports = {
         removeVersionOnly: true,
       },
     },
-    {
-      resolve: 'gatsby-plugin-react-axe',
-      options: {
-        // https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
-        axeOptions: {},
-      },
-    },
+    // BUG: https://github.com/angeloashmore/gatsby-plugin-react-axe/issues/6
+    // isDev && 'gatsby-plugin-react-axe',
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
         analyzerMode: 'static',
         production: true,
-        disable: isDev,
-        openAnalyzer: true,
-        reportFilename: `${__dirname}/reports/v${versionMajorMinor()}/treemap.html`,
+        disable: !isAudit, // only run when doing production builds to perform audits
+        openAnalyzer: false,
+        reportFilename: `${__dirname}/reports/v${transformVersion(
+          getVersion(),
+          ['major', 'minor']
+        )}.0/treemap.html`,
       },
     },
   ],

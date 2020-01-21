@@ -1,6 +1,7 @@
 const path = require('path')
 const { bgYellow } = require('kleur')
-const { removeTrailingSlash } = require('../utils')
+
+const { removeTrailingSlash } = require('../../utils/helper')
 
 module.exports = async ({ graphql, actions }) => {
   const { createPage } = actions

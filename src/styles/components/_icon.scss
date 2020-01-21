@@ -3,8 +3,8 @@
   width: var(--icon-size);
   height: var(--icon-size);
   background-color: transparent;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: contain;
 
   --icon-size: 0px; // default is set in react component
@@ -18,9 +18,9 @@
   }
 
   &.icon-text {
-    vertical-align: middle;
     width: auto;
     height: auto;
+    vertical-align: middle;
   }
 
   svg {

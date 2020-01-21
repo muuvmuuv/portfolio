@@ -1,8 +1,3 @@
-const consoleImage = require('./consoleImage')
-
-/**
- * Print some cool stuff to the console.
- */
 module.exports = () => {
   const colorPrimary = '#00e2a1'
   const colorDark = '#1f242e'
@@ -54,6 +49,4 @@ https://github.com/muuvmuuv/portfolio 🔒
     styleBold,
     styleShared
   )
-
-  consoleImage(`${window.location.origin}/me.gif`, 50)
 }

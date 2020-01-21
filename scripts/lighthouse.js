@@ -1,270 +1,236 @@
 const fs = require('fs')
 const path = require('path')
-const prettier = require('prettier')
 const { dim, green } = require('kleur')
 const taskz = require('taskz')
 const chromeLauncher = require('chrome-launcher')
 const lighthouse = require('lighthouse')
-const { getPkgVersion } = require('../gatsby/utils')
+const { getVersion, transformVersion } = require('../utils/version')
 
-const pkgVersion = getPkgVersion()
-const BASE = path.resolve(__dirname, '..')
-const REPORTS = path.resolve(BASE, 'reports')
-const DEST = path.resolve(REPORTS, `v${pkgVersion}`)
+const testSite = 'https://marvin.lcl'
 
-;({
-  init() {
-    this.homeUrl = 'https://marvin.lcl/'
+const rootPath = path.resolve(__dirname, '..')
+const version = transformVersion(getVersion(), ['major', 'minor'])
+const destDir = path.resolve(rootPath, 'reports', `v${version}.0`)
+let browserInstance = undefined
 
-    this.options = {
-      chromeFlags: ['--headless'],
-      output: 'html',
-      logLevel: 'silent', // info | verbose | silent
-    }
+// https://github.com/GoogleChrome/lighthouse/blob/master/docs/readme.md#using-programmatically
+// https://github.com/GoogleChrome/lighthouse/blob/master/docs/configuration.md
 
-    this.config = {
-      extends: 'lighthouse:default',
-      settings: {
-        onlyCategories: [
-          'performance',
-          'accessibility',
-          'best-practices',
-          'seo',
-        ],
-        skipAudits: [
-          // 'byte-efficiency/uses-long-cache-ttl',
-          // 'byte-efficiency/uses-webp-images',
-          // 'byte-efficiency/render-blocking-resources',
-          // 'byte-efficiency/unused-css-rules',
-        ],
-      },
-    }
+let options = {
+  chromeFlags: ['--headless'],
+  output: 'html',
+  logLevel: 'silent', // info | verbose | silent
+}
 
-    // Catch the unhandled
-    process.on('SIGINT', () => {
-      console.log('\n' + dim('Caught interrupt signal!'))
-      this.destroy('unhandled catch called')
-    })
-
-    process.on('exit', () => {
-      this.destroy('exit called')
-    })
-
-    // GoGoGo
-    this.run()
+let lighthouseConfig = {
+  extends: 'lighthouse:default',
+  settings: {
+    onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
+    skipAudits: ['seo/canonical'],
   },
+}
 
-  /**
-   * If chrome is available kill it.
-   */
-  destroy(reason) {
-    if (this.chrome) {
-      console.log('Trying to kill Chrome because ' + reason)
-      this.chrome.kill()
-      this.chrome = null
+/**
+ * Launch browser.
+ */
+function launchBrowser() {
+  return new Promise((resolve) => {
+    if (browserInstance) {
+      return resolve('Browser already running.')
     }
-  },
-
-  /**
-   * Launch chrome.
-   */
-  async launchChrome() {
-    if (this.chrome) {
-      return Promise.resolve('Chrome already running.')
-    }
-    let chrome
     try {
-      chrome = await chromeLauncher.launch({
-        chromeFlags: this.options.chromeFlags,
-      })
+      chromeLauncher
+        .launch({
+          chromeFlags: options.chromeFlags,
+        })
+        .then((chrome) => {
+          browserInstance = chrome
+          options.port = chrome.port
+          resolve('Started browser successfully!')
+        })
     } catch (error) {
-      this.destroy('chrome launcher failed')
+      killBrowser('chrome launcher failed')
       throw new Error(error)
     }
-    this.options.port = chrome.port
-    this.chrome = chrome
-    return Promise.resolve()
-  },
+  })
+}
 
-  /**
-   * Run lighthouse.
-   *
-   * @param {string} device Device which lighthouse should emulate
-   */
-  async runLighthouse(ctx, device) {
-    return new Promise((resolve) => {
-      this.options.emulatedFormFactor = device
-      lighthouse(this.homeUrl, this.options, this.config)
-        .then((results) => {
-          ctx[device] = {} // initial set
-          ctx[device].results = results
-          resolve()
-        })
-        .catch((error) => {
-          this.destroy('lighthouse failed')
-          throw new Error(error)
-        })
-    })
-  },
+/**
+ * Kill the browser instance.
+ */
+function killBrowser() {
+  return new Promise((resolve) => {
+    if (browserInstance) {
+      browserInstance.kill().then(() => {
+        browserInstance = undefined
+        resolve('Success!')
+      })
+    } else {
+      resolve('Not running!')
+    }
+  })
+}
 
-  /**
-   * Beautify report with prettier.
-   */
-  beautifyData(string, parser) {
-    return new Promise((resolve) => {
-      const rgxComments = /(<!--|\/\*)[\s\S]*?(-->|\*\/)/g
-      string = string.replace(rgxComments, '') // remove all comments
-      prettier
-        .resolveConfig(BASE, {
-          editorconfig: true,
-          useCache: true,
-        })
-        .then((opts) => {
-          opts.parser = parser
-          const result = prettier.format(string, opts)
-          resolve(result)
-        })
-    })
-  },
+/**
+ * Run lighthouse.
+ *
+ * @param {any} ctx taskz context
+ * @param {string} device Device which lighthouse should emulate
+ */
+function runLighthouse(ctx, device) {
+  return new Promise((resolve) => {
+    ctx[device] = {} // initial set
+    options.emulatedFormFactor = device
 
-  /**
-   * Saving report as HTML.
-   */
-  async saveReport(ctx, device) {
-    let report = ctx[device].results.report
+    lighthouse(testSite, options, lighthouseConfig)
+      .then((results) => {
+        ctx[device].results = results
+        resolve()
+      })
+      .catch((error) => {
+        killBrowser()
+        throw new Error(error)
+      })
+  })
+}
+
+/**
+ * Saving report as HTML.
+ */
+function saveReport(ctx, device) {
+  return new Promise((resolve) => {
+    const report = ctx[device].results.report
 
     if (!report) {
       return Promise.reject('No report!')
     }
 
-    report = await this.beautifyData(report, 'html')
+    const filePath = path.resolve(destDir, `lhr.${device}.html`)
 
-    return new Promise((resolve) => {
-      const fileName = `lhr.${device}.html`
-      const filePath = path.resolve(DEST, fileName)
-      fs.writeFile(filePath, report, 'utf-8', (err) => {
-        if (err) {
-          throw new Error(err.message)
-        }
-        resolve()
-      })
+    fs.writeFile(filePath, report, 'utf-8', (err) => {
+      if (err) {
+        throw new Error(err.message)
+      }
+      resolve()
     })
-  },
+  })
+}
 
-  /**
-   * Saving report as JSON.
-   */
-  async saveLhr(ctx, device) {
-    let lhr = ctx[device].results.lhr
+/**
+ * Saving report as JSON.
+ */
+function saveLhr(ctx, device) {
+  return new Promise((resolve) => {
+    const lhr = ctx[device].results.lhr
 
     if (!lhr) {
       return Promise.reject('No lighthouse results!')
     }
 
-    lhr = await this.beautifyData(JSON.stringify(lhr), 'json')
+    const filePath = path.resolve(destDir, `lhr.${device}.json`)
 
-    return new Promise((resolve) => {
-      const fileName = `lhr.${device}.json`
-      const filePath = path.resolve(DEST, fileName)
-      fs.writeFile(filePath, lhr, 'utf-8', (err) => {
-        if (err) {
-          throw new Error(err.message)
-        }
-        resolve()
-      })
+    fs.writeFile(filePath, JSON.stringify(lhr), 'utf-8', (err) => {
+      if (err) {
+        throw new Error(err.message)
+      }
+      resolve()
     })
-  },
+  })
+}
 
-  /**
-   * Saving report screenshots.
-   */
-  async saveScreenshot(ctx, device) {
-    let lhr = ctx[device].results.lhr
+/**
+ * Saving report screenshots.
+ */
+function saveScreenshot(ctx, device) {
+  return new Promise((resolve) => {
+    const lhr = ctx[device].results.lhr
 
     if (!lhr) {
       return Promise.reject('No lighthouse results!')
     }
 
-    return new Promise((resolve) => {
-      const fileName = `lhr.${device}.jpeg`
-      const filePath = path.resolve(DEST, fileName)
+    const filePath = path.resolve(destDir, `lhr.${device}.jpeg`)
 
-      let imageData = lhr.audits['final-screenshot'].details.data
-      imageData = imageData.replace(/^data:.*;base64,/, '')
+    let imageData = lhr.audits['final-screenshot'].details.data
+    imageData = imageData.replace(/^data:.*;base64,/, '')
 
-      fs.writeFile(filePath, imageData, 'base64', (err) => {
-        if (err) {
-          throw new Error(err.message)
-        }
-        resolve()
-      })
+    fs.writeFile(filePath, imageData, 'base64', (err) => {
+      if (err) {
+        throw new Error(err.message)
+      }
+      resolve()
     })
-  },
+  })
+}
 
-  /**
-   * GoGoGo
-   */
-  async run() {
-    const devices = ['mobile', 'desktop']
-    devices.forEach((device) => {
-      devices[device] = taskz([
-        {
-          text: 'Running lighthouse...',
-          stopOnError: true,
-          task: (ctx) => this.runLighthouse(ctx, device),
-        },
-        {
-          text: 'Saving results...',
-          tasks: taskz(
-            [
-              {
-                text: 'Saving report to html...',
-                task: (ctx) => this.saveReport(ctx, device),
-              },
-              {
-                text: 'Saving lhr to JSON...',
-                task: (ctx) => this.saveLhr(ctx, device),
-              },
-              {
-                text: 'Saving screenshots...',
-                task: (ctx) => this.saveScreenshot(ctx, device),
-              },
-            ],
-            { parallel: true }
-          ),
-        },
-      ])
-    })
-
-    const tasks = taskz([
+function startReporter() {
+  let devices = ['mobile', 'desktop']
+  devices.forEach((device) => {
+    devices[device] = taskz([
       {
-        text: 'Launching chrome...',
+        text: 'Running lighthouse...',
         stopOnError: true,
-        task: () => this.launchChrome(),
+        task: (ctx) => runLighthouse(ctx, device),
       },
       {
-        text: 'Running reporter...',
+        text: 'Saving results...',
         tasks: taskz(
           [
             {
-              text: 'Creating report for mobile...',
-              tasks: devices.mobile,
+              text: 'Saving report to html...',
+              task: (ctx) => saveReport(ctx, device),
             },
             {
-              text: 'Creating report for desktop...',
-              tasks: devices.desktop,
+              text: 'Saving lhr to JSON...',
+              task: (ctx) => saveLhr(ctx, device),
+            },
+            {
+              text: 'Saving screenshots...',
+              task: (ctx) => saveScreenshot(ctx, device),
             },
           ],
-          { parallel: false }
+          { parallel: true }
         ),
       },
-      {
-        text: 'Killing chrome...',
-        task: () => this.destroy('all tasks ended'),
-      },
     ])
+  })
 
-    await tasks.run()
+  const tasks = taskz([
+    {
+      text: 'Launching chrome...',
+      stopOnError: true,
+      task: () => launchBrowser(),
+    },
+    {
+      text: 'Running reporters...',
+      tasks: taskz(
+        [
+          {
+            text: 'Creating report for mobile...',
+            tasks: devices.mobile,
+          },
+          {
+            text: 'Creating report for desktop...',
+            tasks: devices.desktop,
+          },
+        ],
+        { parallel: false }
+      ),
+    },
+    {
+      text: 'Killing chrome...',
+      task: () => killBrowser(),
+    },
+  ])
+
+  tasks.run().then(() => {
     console.log(green('\nFinished!'))
-  },
-}.init())
+  })
+}
+
+process.on('SIGINT', () => {
+  console.log('\n' + dim('Caught interrupt signal!'))
+  killBrowser()
+})
+
+startReporter()
