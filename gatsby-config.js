@@ -9,14 +9,16 @@ require('dotenv').config({
   path: `.env.build`,
 })
 
-const { yellow, blue } = require('kleur')
+const { yellow, blue, bold } = require('kleur')
 const { getVersion, transformVersion } = require('./utils/version')
-const { activeEnv, isDev } = require('./utils/environment')
+const { activeEnv, isAudit } = require('./utils/environment')
 const commonRemark = require('./gatsby/config/commonRemark')
 const siteMetadata = require('./metadata')
 
+console.log(bold(siteMetadata.siteTitle))
+console.log(`Version: ${blue(getVersion())}`)
 console.log(`Environment: ${yellow(activeEnv)}`)
-console.log(`Version: ${blue(getVersion())}\n`)
+console.log(`Auditing: ${yellow(isAudit)}\n`)
 
 module.exports = {
   siteMetadata,
@@ -171,6 +173,20 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [
+          `/about/`,
+          `/imprint/`,
+          `/credits/`,
+          `/changelog/`,
+          `/projects/*`,
+          `/photography/*`,
+          `/writings/*`,
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-humans-txt`,
       options: {
         team: [
@@ -211,20 +227,13 @@ module.exports = {
       },
     },
     // BUG: https://github.com/angeloashmore/gatsby-plugin-react-axe/issues/6
-    // {
-    //   resolve: 'gatsby-plugin-react-axe',
-    //   options: {
-    //     showInProduction: false,
-    //     // https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
-    //     axeOptions: {},
-    //   },
-    // },
+    // isDev && 'gatsby-plugin-react-axe',
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
         analyzerMode: 'static',
         production: true,
-        disable: isDev,
+        disable: !isAudit, // only run when doing production builds to perform audits
         openAnalyzer: false,
         reportFilename: `${__dirname}/reports/v${transformVersion(
           getVersion(),

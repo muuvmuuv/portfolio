@@ -1,17 +1,17 @@
 #header {
-  will-change: padding position background;
-  position: relative;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  padding: var(--spacing-lg) var(--container-padding-x);
   display: grid;
+  position: relative;
+  z-index: 10;
+  top: 0;
   grid-template-areas: 'logo breadcrumb nav theme';
   grid-template-columns: auto auto 1fr;
   align-items: center;
+  width: 100%;
+  padding: var(--spacing-lg) var(--container-padding-x);
   column-gap: var(--spacing-md);
   transition: var(--transition-fast);
   user-select: none;
+  will-change: padding position background;
 
   &.sticky {
     position: sticky;
@@ -50,18 +50,18 @@
   &::before {
     content: '';
     position: absolute;
+    z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
     height: 200%;
-    pointer-events: none;
-    user-select: none;
-    z-index: -1;
     background-image: linear-gradient(
       to bottom,
       var(--color-dark-60),
       transparent
     );
+    pointer-events: none;
+    user-select: none;
   }
 }
 

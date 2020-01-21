@@ -3,5 +3,6 @@ const activeEnv =
 
 const isDev = activeEnv === 'development'
 const isProd = activeEnv === 'production'
+const isAudit = process.env.AUDIT || false
 
-module.exports = { activeEnv, isDev, isProd }
+module.exports = { activeEnv, isDev, isProd, isAudit }

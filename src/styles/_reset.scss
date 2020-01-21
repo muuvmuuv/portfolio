@@ -5,8 +5,8 @@
 }
 
 hr {
-  border: 0;
   margin: 0;
+  border: 0;
 }
 
 textarea {
@@ -44,9 +44,9 @@ h3,
 h4,
 h5,
 h6 {
+  margin-top: 0;
   font-size: inherit;
   font-weight: inherit;
-  margin-top: 0;
 }
 
 a {
@@ -60,8 +60,8 @@ optgroup,
 select,
 textarea {
   padding: 0;
-  line-height: inherit;
   color: inherit;
+  line-height: inherit;
 }
 
 pre,
@@ -86,19 +86,19 @@ img,
 video {
   max-width: 100%;
   height: auto;
-  object-fit: cover;
-  user-select: none;
   pointer-events: none;
+  user-select: none;
+  object-fit: cover;
 }
 
 figure {
-  user-select: none;
   margin: 0;
+  user-select: none;
 }
 
 ul,
 ol {
-  list-style: none;
   margin: 0;
   padding-left: 0;
+  list-style: none;
 }

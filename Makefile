@@ -20,10 +20,10 @@ start:
 logs:
 	docker logs marvin-nginx
 
-restart: restart-nginx
-	# docker-compose restart marvin-xxxx
+restart:
+	docker-compose restart nginx
 
-restart-nginx:
+reload-nginx:
 	docker exec marvin-nginx /usr/share/nginx-reload.sh
 
 newcert:

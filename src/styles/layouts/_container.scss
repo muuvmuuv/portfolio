@@ -1,10 +1,10 @@
 .container {
   width: 100%;
   max-width: auto;
-  padding-right: var(--container-padding-x);
-  padding-left: var(--container-padding-x);
   margin-right: auto;
   margin-left: auto;
+  padding-right: var(--container-padding-x);
+  padding-left: var(--container-padding-x);
 
   @each $breakpoint, $max-width in $container-max-widths {
     @include breakpoint-up($breakpoint) {

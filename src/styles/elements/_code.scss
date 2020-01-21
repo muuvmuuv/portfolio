@@ -1,11 +1,11 @@
 p code {
-  background: var(--color-09);
-  font-size: var(--text-sm);
   margin: 0 2px;
   padding: 2px 7px;
-  border-radius: var(--border-radius-sm);
   border: 1px solid var(--color-dark);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-09);
   color: var(--color-05);
+  font-size: var(--text-sm);
 }
 
 .gatsby-highlight {
@@ -15,16 +15,16 @@ p code {
 code[class*='language-'],
 pre[class*='language-'] {
   position: relative;
-  tab-size: 2;
-  hyphens: none;
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: normal;
+  margin: 0;
+  color: #efd563;
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  color: #efd563;
   line-height: 1.6;
-  margin: 0;
+  word-wrap: normal;
+  white-space: pre;
+  white-space: pre-wrap;
+  hyphens: none;
+  tab-size: 2;
 }
 
 pre > code[class*='language-'] {
@@ -33,25 +33,22 @@ pre > code[class*='language-'] {
 
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {
-  background: var(--color-dark);
-}
-
-pre[class*='language-'],
-:not(pre) > code[class*='language-'] {
   display: grid;
-  grid-template-columns: auto 1fr;
   grid-template-areas: 'side code';
+  grid-template-columns: auto 1fr;
+  background: var(--color-dark);
 }
 
 pre[class*='language-'] {
   position: relative;
-}
-pre[class*='language-'] code {
-  white-space: pre;
-  display: block;
-  grid-area: code;
-  border: 1px solid var(--color-08);
-  padding: var(--spacing-sm);
+
+  code {
+    display: block;
+    grid-area: code;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-08);
+    white-space: pre;
+  }
 }
 
 // ++++++++++ code hightlight +++++++++++
@@ -64,12 +61,12 @@ pre[class*='language-'] code {
   &::before {
     content: '';
     position: absolute;
-    background-color: #{rgba(lighten($color-dark, 20%), 0.2)};
-    border-left: 1px solid var(--color-primary);
-    height: 100%;
-    width: calc(100% + 26px);
-    margin-left: -13px;
     z-index: -1;
+    width: calc(100% + 26px);
+    height: 100%;
+    margin-left: -13px;
+    border-left: 1px solid var(--color-primary);
+    background-color: #{rgba(lighten($color-dark, 20%), 0.2)};
     pointer-events: none;
     user-select: none;
   }
@@ -92,48 +89,48 @@ pre[class*='language-'].line-numbers > code {
 }
 
 .line-numbers .line-numbers-rows {
+  top: 0;
   grid-area: side;
+  height: 100%;
+  padding: var(--spacing-sm) 0;
   border: 1px solid var(--color-08);
   border-right: 0;
   pointer-events: none;
-  top: 0;
   user-select: none;
-  height: 100%;
-  padding: var(--spacing-sm) 0;
 }
 
 .line-numbers-rows > span {
-  pointer-events: none;
   display: block;
   counter-increment: linenumber;
+  pointer-events: none;
 }
 
 .line-numbers-rows > span:before {
   content: counter(linenumber);
-  color: var(--color-07);
   display: block;
   padding: 0 var(--spacing-sm);
+  color: var(--color-07);
   text-align: right;
 }
 
 // ++++++++++ command line prompt +++++++++++
 
 .command-line-prompt {
-  border-right: 1px solid var(--color-08);
   display: block;
+  margin-right: 1em;
   float: left;
+  border-right: 1px solid var(--color-08);
   font-size: 100%;
   letter-spacing: -1px;
-  margin-right: 1em;
   pointer-events: none;
   user-select: none;
 }
 
 .command-line-prompt > span:before {
-  color: var(--color-06);
   content: ' ';
   display: block;
   padding-right: 0.8em;
+  color: var(--color-06);
 }
 
 .command-line-prompt > span[data-user]:before {

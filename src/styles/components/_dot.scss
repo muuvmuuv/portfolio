@@ -2,17 +2,17 @@
   --dot-width: 0.7em;
 
   display: inline-block;
-  border-radius: var(--border-radius-full);
   width: var(--dot-width);
   height: var(--dot-width);
+  border-radius: var(--border-radius-full);
+  opacity: 0.8;
   background: var(--color-01);
   box-shadow: 0 0 6px 0px var(--color-01);
   vertical-align: middle;
-  opacity: 0.8;
 
   &--animated {
-    position: relative;
     display: inline-flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     opacity: 1;
@@ -25,8 +25,8 @@
       position: absolute;
       width: calc(var(--dot-width) * var(--dot-scale));
       height: calc(var(--dot-width) * var(--dot-scale));
-      border-radius: var(--border-radius-full);
       animation: pulse 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+      border-radius: var(--border-radius-full);
     }
   }
 

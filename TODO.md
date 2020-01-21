@@ -14,7 +14,6 @@
 - [x] replace package.json with version.txt to reduce size
 - [x] add custom slug to all pages
 - [x] test `postcss-easing-gradients` with Scss loaded in `/src`
-- [ ] add md table of contents
 - [x] ~~add schema generator~~
 - [x] new start page: https://labs.semplice.com/s5-vertical-grid
 - [x] test purgecss with classes from Markdown files
@@ -30,16 +29,18 @@
 - [x] always use latest NGINX image
 - [x] test prod build locally with SSL and brotli compression
 - [x] weird lighter background underneath the footer (backdrop-filter issue)
-- [ ] setup siteUrl as env var to pass to build process so lighthouse will get
+- [x] setup siteUrl as env var to pass to build process so lighthouse will get
       the correct canonical url
-- [ ] use gatsby images everywhere (homepage for file savings)
-- [ ] setup scss linter
-- [ ] setup smacss to apply css sort order
+- [x] remove bundle analyzer from prod builds in NOW
+- [x] setup scss linter
+- [x] setup smacss to apply css sort order
 - [x] fix issue with node env version in prod build
+- [ ] use gatsby images everywhere (homepage for file savings)
 - [ ] fix issue with header on prod build
+- [ ] MDX pages are not using remark images plugin
+- [ ] add md table of contents
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
-- [ ] MDX pages are not using remark images plugin
 - [x] put scss theme stuff in own mixin for compat.
 - [x] Add footer with: version, social-media, imprint, changelog, copyright
       notice
@@ -49,12 +50,12 @@
 - [x] analyze via bundlephobia
 - [x] add github bots to auto update dependencies
 - [x] add lighthouse from M8FINDER project
-- [ ] update lighthouse audit
-  - [ ] save HTML
-  - [ ] save JSON
-  - [ ] save Screenshot for mobile and desktop
-  - [ ] open only desktop
-  - [ ] script to open mobile
+- [x] update lighthouse audit
+  - [x] save HTML
+  - [x] save JSON
+  - [x] save Screenshot for mobile and desktop
+  - [x] open only desktop
+  - [x] script to open mobile
   - [ ] open summary view by default
 - [x] Make text justified
 - [ ] add scroll to top
@@ -73,11 +74,11 @@
   - [ ] Update images
 - [ ] Upload some photos (best off's)
 - [ ] Setup SimpleAnalytics or something similar
-- [ ] check pages with Firefox Axe
+- [x] check pages with Firefox Axe
 - [ ] check all pages with screen reader
 - [ ] check all pages with reduced motion
 - [ ] check all pages with reduced transparency
-- [ ] PWA: add service worker for offline usage
+- [x] PWA: add service worker for offline usage (`gatsby-plugin-offline`)
 - [x] ~~add tests?!~~
 - [x] ~~move from bash script to [Nim][2]~~
 - [ ] (auto) check markdown for ["Vary sentence length"][3]

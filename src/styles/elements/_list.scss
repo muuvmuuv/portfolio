@@ -31,15 +31,15 @@ article {
     > li:not(.task-list-item) {
       &::before {
         content: '▁';
-        left: 0;
-        top: 6px;
-        width: 13px;
-        height: 13px;
-        font-size: var(--text-xs);
         display: flex;
+        top: 6px;
+        left: 0;
         align-items: center;
         justify-content: center;
+        width: 13px;
+        height: 13px;
         opacity: 0.6;
+        font-size: var(--text-xs);
       }
     }
   }
@@ -52,15 +52,15 @@ article {
 
       &::before {
         content: counter(counter) '.';
-        left: 0;
-        top: 7px;
-        width: 13px;
-        height: 13px;
-        font-size: var(--text-sm);
         display: flex;
+        top: 7px;
+        left: 0;
         align-items: center;
         justify-content: center;
+        width: 13px;
+        height: 13px;
         opacity: 0.6;
+        font-size: var(--text-sm);
       }
     }
   }

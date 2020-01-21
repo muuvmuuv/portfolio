@@ -9,9 +9,9 @@
   letter-spacing: 1px;
 
   .breadcrumb__link {
-    opacity: 0.8;
-    transition: opacity var(--transition-fast);
     margin-right: var(--spacing-xs);
+    transition: opacity var(--transition-fast);
+    opacity: 0.8;
 
     &:hover {
       opacity: 1;
@@ -19,7 +19,7 @@
   }
 
   .breadcrumb__separator {
-    opacity: 0.8;
     margin-right: var(--spacing-xs);
+    opacity: 0.8;
   }
 }

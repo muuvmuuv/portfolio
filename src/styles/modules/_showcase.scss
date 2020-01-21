@@ -4,8 +4,8 @@
     '.'
     '.'
     '.';
-  user-select: none;
   height: 100vh;
+  user-select: none;
 
   @include breakpoint-up(lg) {
     grid-template-areas: '. . .';
@@ -23,12 +23,12 @@
 
   .item {
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
-    transition: all ease-in-out 220ms;
-    position: relative;
-    cursor: pointer;
     overflow: hidden;
+    transition: all ease-in-out 220ms;
+    cursor: pointer;
     // TODO: reduced motion
 
     @include breakpoint-up(lg) {
@@ -70,8 +70,8 @@
     }
 
     .content {
-      text-align: center;
       transition: all 200ms ease-in-out;
+      text-align: center;
 
       @include breakpoint-up(lg) {
         transform: translateY(-70px);
@@ -79,14 +79,14 @@
       }
 
       h2 {
-        font-size: var(--text-xxl);
         font-family: var(--font-serif);
+        font-size: var(--text-xxl);
         font-weight: var(--font-bold);
       }
 
       h3 {
-        font-size: var(--text-md);
         margin-top: var(--spacing-sm);
+        font-size: var(--text-md);
       }
     }
   }

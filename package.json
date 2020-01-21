@@ -1,6 +1,6 @@
 {
   "name": "marvin-digital",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "private": true,
   "description": "Portfolio of and by Marvin Heilemann (@muuvmuuv)",
   "repository": {
@@ -11,7 +11,7 @@
   "scripts": {
     "start": "npm run develop",
     "develop": "gatsby develop",
-    "build": "gatsby build",
+    "build": "cross-env SITE_URL=\"https://marvin.lcl\" gatsby build",
     "rebuild": "run-s clean build",
     "clean": "gatsby clean",
     "serve": "now dev --listen 59235",
@@ -20,7 +20,8 @@
     "deploy-prod": "run-s lint rebuild test now-deploy-prod",
     "now-deploy-prod": "now --local-config now.json --prod",
     "−−−−−−−−−−−−−−−−  AUDITS/ANALYTICS  −−−−−−−−−−−−−−−−–": "",
-    "audit": "run-s rebuild lighthouse audit-open",
+    "audit": "cross-env AUDIT=true run-s rebuild audit-server lighthouse audit-open",
+    "audit-server": "make restart",
     "audit-open": "run-p audit:*",
     "audit:report-mobile": "node ./scripts/open-report.js lhr.mobile.html",
     "audit:report-desktop": "node ./scripts/open-report.js lhr.desktop.html",
@@ -28,7 +29,9 @@
     "lighthouse": "node ./scripts/lighthouse.js",
     "−−−−−−−−−−−−−−−−−−−  LINT/TEST  −−−−−−−−−−−−−−−−−−−−–": "",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "lint": "eslint .",
+    "lint": "run-s lint:*",
+    "lint:js": "eslint .",
+    "lint:scss": "stylelint ./src/styles",
     "−−−−−−−−−−−−−−−−−  SCRIPTS/TOOLS  −−−−−−−−−−−−−−−−–−−": "",
     "version": "node ./scripts/version.js",
     "pretty": "pretty-quick"
@@ -48,6 +51,7 @@
     "gatsby-plugin-manifest": "^2.2.37",
     "gatsby-plugin-mdx": "^1.0.67",
     "gatsby-plugin-module-resolver": "^1.0.3",
+    "gatsby-plugin-offline": "^3.0.32",
     "gatsby-plugin-postcss": "^2.1.19",
     "gatsby-plugin-preact": "^3.1.25",
     "gatsby-plugin-react-axe": "^0.3.0",
@@ -86,6 +90,7 @@
   },
   "devDependencies": {
     "chrome-launcher": "^0.12.0",
+    "cross-env": "^6.0.3",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-config-react-app": "^5.1.0",
@@ -100,6 +105,12 @@
     "pretty-quick": "^2.0.1",
     "prompts": "^2.3.0",
     "semver": "^7.1.1",
+    "stylelint": "^13.0.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-property-sort-order-smacss": "^5.2.0",
+    "stylelint-config-recommended-scss": "^4.1.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.13.0",
     "taskz": "^1.3.0"
   }
 }

@@ -8,7 +8,7 @@ module.exports.getVersion = () => {
 }
 
 /**
- * Transform a version.
+ * Transform a version into its parts.
  *
  * @param {string} version a valid semver version
  * @param {string[]} parts select which parts to return

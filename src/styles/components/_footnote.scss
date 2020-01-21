@@ -1,15 +1,15 @@
 article {
   sup {
     display: inline-block;
-    font-size: var(--text-sm);
     margin-left: 4px;
+    font-size: var(--text-sm);
 
     a {
-      font-family: var(--font-mono);
-      text-decoration: none;
       display: block;
       margin: 0;
+      font-family: var(--font-mono);
       line-height: 1;
+      text-decoration: none;
     }
   }
 }
