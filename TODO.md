@@ -17,11 +17,11 @@
 - [x] ~~add schema generator~~
 - [x] new start page: https://labs.semplice.com/s5-vertical-grid
 - [x] test purgecss with classes from Markdown files
-- [ ] add NOW deployment
-  - [ ] Setup Nameserver
-    - [ ] Test
-  - [ ] Everything pushed to master -> marvin.digital
-  - [ ] Everything pushed to development -> dev.marvin.digital
+- [x] add NOW deployment
+  - [x] Setup Nameserver
+    - [x] Test
+  - [x] Everything pushed to master -> marvin.digital
+  - [x] Everything pushed to development -> dev.marvin.digital
 - [ ] Setup GitHub workflow to deploy with notification and version alias
 - [x] replace React with [Preact][1] (check if it works when finished)
 - [x] add version to GraphQL data not as file...
@@ -38,6 +38,8 @@
 - [ ] use gatsby images everywhere (homepage for file savings)
 - [ ] fix issue with header on prod build
 - [ ] MDX pages are not using remark images plugin
+- [ ] add scroll to top
+- [ ] check description, keywords and title on all pages
 - [ ] add md table of contents
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
@@ -58,7 +60,6 @@
   - [x] script to open mobile
   - [ ] open summary view by default
 - [x] Make text justified
-- [ ] add scroll to top
 - [x] ~~use CSS blend modes (overlay)~~
 - [ ] add League of Legends API to show profile and stats
   - https://developer.riotgames.com/apis
@@ -78,6 +79,7 @@
 - [ ] check all pages with screen reader
 - [ ] check all pages with reduced motion
 - [ ] check all pages with reduced transparency
+- [ ] remove source maps in production builds
 - [x] PWA: add service worker for offline usage (`gatsby-plugin-offline`)
 - [x] ~~add tests?!~~
 - [x] ~~move from bash script to [Nim][2]~~

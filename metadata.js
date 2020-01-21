@@ -2,8 +2,10 @@ module.exports = {
   siteTitle: `Marvin/Digital`,
   siteTitleShort: 'M/D',
   siteAuthor: `Marvin Heilemann`,
-  siteDescription: `Projects Marvin Heilemann has been working on now and in the past.`,
+  siteDescription: `Me, Myself and I – Projects, Photography, Writings and even more about Marvin Heilemann (also named muuvmuuv)`,
   siteKeywords: [
+    'marvin',
+    'heilemann',
     'muuvmuuv',
     'portfolio',
     'webdesign',

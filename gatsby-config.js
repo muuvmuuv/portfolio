@@ -163,18 +163,19 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'M/D',
-        short_name: 'M/D',
-        start_url: '/',
-        background_color: '#1f242e',
-        theme_color: '#00e2a1',
-        display: 'browser',
+        name: siteMetadata.siteTitle,
+        short_name: siteMetadata.siteTitleShort,
+        start_url: '/?source=pwa',
+        background_color: '#1f242e', // must equal `--background-color` in `./src/styles/themes/_<theme>.scss`
+        theme_color: '#fafcff', // how the UI should be tinted
+        display: 'standalone',
         icon: './static/favicon.svg',
       },
     },
     {
       resolve: `gatsby-plugin-offline`,
       options: {
+        appendScript: require.resolve(`./src/sw.js`),
         precachePages: [
           `/about/`,
           `/imprint/`,
