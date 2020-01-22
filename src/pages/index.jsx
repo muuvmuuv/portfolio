@@ -20,9 +20,8 @@ class Page extends React.Component {
       crumbs: breadcrumb.crumbs,
     })
   }
-
   render() {
-    const { Img01, Img02, Img04 } = this.props.data
+    const { Img01, Img02, Img03 } = this.props.data
 
     return (
       <>
@@ -49,7 +48,7 @@ class Page extends React.Component {
             </div>
           </Link>
           <Link className="item" to="/writings" key="writings">
-            <Backdrop img={Img04.childImageSharp.fluid}></Backdrop>
+            <Backdrop img={Img03.childImageSharp.fluid}></Backdrop>
             <div className="content">
               <h2>Writings</h2>
               <h3>.....</h3>
@@ -70,25 +69,13 @@ export default React.forwardRef((props, ref) => (
 export const query = graphql`
   query ShowcaseImages {
     Img01: file(name: { eq: "01" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      ...FluidResponsiveSetMedium
     }
     Img02: file(name: { eq: "02" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      ...FluidResponsiveSetMedium
     }
-    Img04: file(name: { eq: "04" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
+    Img03: file(name: { eq: "03" }) {
+      ...FluidResponsiveSetMedium
     }
   }
 `

@@ -1,7 +1,12 @@
 /**
  * Slugify a string.
+ *
+ * @param {string} text to slugify
+ * @param {string} separator a separator if needed
+ *
+ * @returns {string}
  */
-module.exports.slugify = (text, separator) => {
+module.exports.stringSlugify = (text, separator) => {
   text = text
     .toString()
     .toLowerCase()
@@ -23,7 +28,22 @@ module.exports.slugify = (text, separator) => {
 
 /**
  * Remove trainling slash from URI.
+ *
+ * @param {string} path the URI
+ *
+ * @returns {string}
  */
 module.exports.removeTrailingSlash = (path) => {
   return path === `/` ? path : path.replace(/\/$/, '')
+}
+
+/**
+ * Capitalize a string.
+ *
+ * @param {string} string
+ *
+ * @returns {string} capitalized string
+ */
+module.exports.stringCapitalize = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }

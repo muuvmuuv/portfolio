@@ -2,6 +2,8 @@ import dayjs from 'dayjs'
 
 /**
  * Update current location hash.
+ *
+ * @param {string} newHash a hash value
  */
 export function updateLocationHash(newHash) {
   if (window.history.pushState) {
@@ -13,6 +15,11 @@ export function updateLocationHash(newHash) {
 
 /**
  * Returns a random date between start and end.
+ *
+ * @param {dayjs.Dayjs} start from where to start
+ * @param {dayjs.Dayjs} end to end
+ *
+ * @returns {dayjs.Dayjs} random date
  */
 export function getRandomDate(
   start = dayjs().subtract(1, 'year'),
@@ -23,6 +30,8 @@ export function getRandomDate(
 
 /**
  * Get documents real height.
+ *
+ * @returns {number} the documents real height
  */
 export function getDocumentHeight() {
   const body = document.body
@@ -42,7 +51,12 @@ export function getDocumentHeight() {
 /**
  * Returns a random number between min (inclusive) and max (exclusive)
  *
- * @see https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+ * @see https://stackoverflow.com/a/1527820/4628787
+ *
+ * @param {number} min
+ * @param {number} max
+ *
+ * @returns {number} random number
  */
 export function getRandomArbitrary(min = 0, max = 999) {
   return Math.random() * (max - min) + min
@@ -54,16 +68,28 @@ export function getRandomArbitrary(min = 0, max = 999) {
  * if min isn't an integer) and no greater than max (or the next integer
  * lower than max if max isn't an integer).
  *
- * @see https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+ * @note Using Math.round() will give you a non-uniform distribution!
+ *
+ * @see https://stackoverflow.com/a/1527820/4628787
+ *
+ * @param {number} min
+ * @param {number} max
+ *
+ * @returns {number} random number
  */
 export function getRandomInt(min = 0, max = 999) {
   min = Math.ceil(min)
   max = Math.floor(max)
+
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 /**
  * Returns empty HTML escaped spaces.
+ *
+ * @param {number} n how many times to repeat
+ *
+ * @returns {string} whitespace whitespace whitesp...
  */
 export function s(n = 1) {
   return '&nbsp;'.repeat(n)

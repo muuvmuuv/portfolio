@@ -6,9 +6,9 @@ import Language from './Language'
 import Separator from './Separator'
 import Keywords from './Keywords'
 
-const HeroWritings = ({ img, title, keywords, lang, time }) => (
+const HeroWritings = ({ title, backdrop, keywords, lang, time }) => (
   <div id="hero">
-    <Backdrop img={img.image.childImageSharp.fluid}></Backdrop>
+    <Backdrop img={backdrop} alt={title}></Backdrop>
 
     <div className="container">
       <div className="post-title">

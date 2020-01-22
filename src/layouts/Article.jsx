@@ -74,7 +74,7 @@ class Article extends React.Component {
 
   render() {
     const fallbackContent = (
-      <div className="container">
+      <div className="container text-center">
         <h3>Sorry, more info will come soon!</h3>
       </div>
     )

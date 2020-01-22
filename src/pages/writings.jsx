@@ -71,7 +71,6 @@ export const query = graphql`
         node {
           frontmatter {
             title
-            keywords
             created
           }
           fields {

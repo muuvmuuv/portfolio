@@ -1,17 +1,21 @@
 const path = require('path')
-const { bgYellow } = require('kleur')
+const { bold, dim } = require('kleur')
 
-const { removeTrailingSlash } = require('../../utils/helper')
+const { isDev } = require('../../utils/environment')
+const { removeTrailingSlash, stringCapitalize } = require('../../utils/helper')
 
 module.exports = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const result = await graphql(`
+  const {
+    data: { allMarkdownRemark },
+  } = await graphql(`
     {
       allMarkdownRemark(filter: { fields: { slug: { ne: null } } }) {
         edges {
           node {
             frontmatter {
+              title
               published
             }
             fields {
@@ -24,26 +28,17 @@ module.exports = async ({ graphql, actions }) => {
     }
   `)
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    console.log()
-    console.log(`(${node.fields.source}) Creating page...`)
-    console.log(JSON.stringify(node.fields, null, 2))
-    console.log(JSON.stringify(node.frontmatter, null, 2))
-    console.log()
-
-    if (!node.frontmatter.published) {
-      console.log(
-        bgYellow().black('This page is not published:'),
-        node.fields.slug
-      )
-      return
+  allMarkdownRemark.edges.forEach(({ node }) => {
+    if (isDev) {
+      console.log()
+      console.log(dim(`Creating page`))
+      console.log(bold(node.frontmatter.title))
+      console.log(JSON.stringify(node.fields, null, 2))
+      console.log(JSON.stringify(node.frontmatter, null, 2))
+      console.log()
     }
 
-    function capitalizeString(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1)
-    }
-
-    const templateName = capitalizeString(node.fields.source)
+    const templateName = stringCapitalize(node.fields.source)
     const slug = removeTrailingSlash(node.fields.slug)
 
     return createPage({

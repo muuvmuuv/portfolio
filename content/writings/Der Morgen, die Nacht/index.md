@@ -1,17 +1,13 @@
 ---
 title: Der Morgen, die Nacht
 description: Ein kleines süßes Gedicht
+image: image.jpg
+
 created: 2015-02-23
 modified: 2019-07-12
 
-header:
-  image: image.jpg
-  author: Luis Alfonso Orellana
-  link: https://unsplash.com/@alphonzs?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge
-  source: unsplash
-
 language: de
-keywords: [dreams]
+tags: [dreams]
 ---
 
 Ich Träume, und entdecke verborgene Liebe und Schönheit. Streife durch Wälder,

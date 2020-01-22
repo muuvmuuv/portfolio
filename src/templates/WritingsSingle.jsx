@@ -30,8 +30,8 @@ class Page extends React.Component {
 
     const attr = {}
 
-    if (frontmatter.keywords && frontmatter.keywords.length > 0) {
-      attr.keywords = frontmatter.keywords
+    if (frontmatter.tags && frontmatter.tags.length > 0) {
+      attr.keywords = frontmatter.tags
     }
 
     return (
@@ -44,10 +44,10 @@ class Page extends React.Component {
 
         <HeroWritings
           title={frontmatter.title}
-          img={frontmatter.header}
+          backdrop={frontmatter.image.childImageSharp.fluid}
           time={frontmatter.created}
           lang={frontmatter.language}
-          keywords={frontmatter.keywords}
+          keywords={frontmatter.tags}
         />
 
         <Article html={html} toc={tableOfContents} />
@@ -70,27 +70,17 @@ export const query = graphql`
       frontmatter {
         title
         description
-        created
-        header {
-          image {
-            childImageSharp {
-              fluid(maxWidth: 1600, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          author
-          link
-          source
+        image {
+          ...FluidResponsiveSet
         }
+        created
         language
-        keywords
+        tags
       }
       fields {
         slug
       }
       html
-      excerpt
       tableOfContents
     }
   }

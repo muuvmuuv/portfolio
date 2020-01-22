@@ -81,18 +81,7 @@ export const query = graphql`
             title
             subtitle
             image {
-              childImageSharp {
-                fluid(maxWidth: 1600) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            thumb {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+              ...FluidResponsiveSetSmall
             }
             started
             ended

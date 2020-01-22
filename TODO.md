@@ -35,7 +35,7 @@
 - [x] setup scss linter
 - [x] setup smacss to apply css sort order
 - [x] fix issue with node env version in prod build
-- [ ] use gatsby images everywhere (homepage for file savings)
+- [x] use gatsby images everywhere (homepage for file savings)
 - [ ] fix issue with header on prod build
 - [ ] MDX pages are not using remark images plugin
 - [ ] add scroll to top

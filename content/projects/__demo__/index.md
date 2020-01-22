@@ -1,26 +1,28 @@
 ---
-title: Demo page
+title: So what, a demo?!
 subtitle: I'm testing my page here. So this is nothing to count on.
 image: img-01.jpg
 thumb: img-02.jpg
-published: true
-
-started: 2019-09-23
-ended: null
+published: false
 
 status: wip
+started: 2019-09-23
+ended: null
 website: https://marvin.digital/
-role:
+team:
+  - name: Marvin Heilemann
+    link: https://github.com/muuvmuuv/portfolio
+roles:
   - design
   - development
   - ux
   - ui
-team:
-  - name: Marvin Heilemann
-    link: https://github.com/muuvmuuv/portfolio
 
-tags: [website, re-design]
+created: 2019-09-23
+modified: 2019-07-12
+
 categories: [website]
+tags: [website, re-design]
 ---
 
 ## Headings

@@ -11,7 +11,7 @@ require('dotenv').config({
 
 const { yellow, blue, bold } = require('kleur')
 const { getVersion, transformVersion } = require('./utils/version')
-const { activeEnv, isAudit } = require('./utils/environment')
+const { activeEnv, isAudit, isProd } = require('./utils/environment')
 const commonRemark = require('./gatsby/config/commonRemark')
 const siteMetadata = require('./metadata')
 
@@ -36,7 +36,14 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
     'gatsby-transformer-json',
-    'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        useMozJpeg: isProd,
+        stripMetadata: false,
+        defaultQuality: 85,
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-react-svg',

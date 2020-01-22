@@ -36,8 +36,8 @@ class Page extends React.Component {
       attr.twitterCard = `${homeUrl}${frontmatter.thumb.twitter.resize.src}`
     }
 
-    if (frontmatter.keywords && frontmatter.keywords.length > 0) {
-      attr.keywords = frontmatter.keywords
+    if (frontmatter.tags && frontmatter.tags.length > 0) {
+      attr.keywords = frontmatter.tags
     }
 
     return (
@@ -48,7 +48,17 @@ class Page extends React.Component {
           bodyClasses="single header-fixed"
         />
 
-        <HeroProjects item={frontmatter} />
+        <HeroProjects
+          title={frontmatter.title}
+          subtitle={frontmatter.subtitle}
+          backdrop={frontmatter.image.childImageSharp.fluid}
+          status={frontmatter.status}
+          started={frontmatter.started}
+          ended={frontmatter.ended}
+          website={frontmatter.website}
+          team={frontmatter.team}
+          roles={frontmatter.roles}
+        />
 
         <Article html={html} />
       </>
@@ -71,20 +81,16 @@ export const query = graphql`
         title
         subtitle
         image {
-          childImageSharp {
-            fluid(maxWidth: 1600) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          ...FluidResponsiveSet
         }
         thumb {
           twitter: childImageSharp {
-            resize(height: 471, width: 900, quality: 100) {
+            resize(height: 471, width: 900) {
               src
             }
           }
           facebook: childImageSharp {
-            resize(height: 900, width: 600, quality: 100) {
+            resize(height: 900, width: 600) {
               src
             }
           }
@@ -96,9 +102,8 @@ export const query = graphql`
           name
           link
         }
-        role
+        roles
         website
-        keywords
         categories
         tags
       }
@@ -106,7 +111,6 @@ export const query = graphql`
         slug
       }
       html
-      excerpt
     }
   }
 `
