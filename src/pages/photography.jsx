@@ -24,7 +24,9 @@ class Page extends React.Component {
 
         <h1 className="headline">{this.state.pageName}</h1>
 
-        <div className="gallery">content will come soon</div>
+        <div className="container container--small">
+          <h2 className="text-center">Content will come soon</h2>
+        </div>
       </>
     )
   }

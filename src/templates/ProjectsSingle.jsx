@@ -46,6 +46,8 @@ class Page extends React.Component {
           pageTitle={frontmatter.title}
           pageName={this.state.pageName}
           bodyClasses="single header-fixed"
+          siteDescription={frontmatter.subtitle}
+          siteKeywords={frontmatter.tags}
         />
 
         <HeroProjects
@@ -74,9 +76,7 @@ export default React.forwardRef((props, ref) => (
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(
-      fields: { slug: { eq: $slug }, source: { eq: "projects" } }
-    ) {
+    markdownRemark(fields: { slug: { eq: $slug }, source: { eq: "projects" } }) {
       frontmatter {
         title
         subtitle

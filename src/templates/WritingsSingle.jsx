@@ -23,7 +23,7 @@ class Page extends React.Component {
 
   render() {
     const {
-      markdownRemark: { frontmatter, html, tableOfContents },
+      markdownRemark: { frontmatter, html, excerpt, tableOfContents },
     } = this.props.data
 
     console.log(tableOfContents)
@@ -40,6 +40,8 @@ class Page extends React.Component {
           pageTitle={frontmatter.title}
           pageName={this.state.pageName}
           bodyClasses="single header-fixed"
+          siteDescription={excerpt}
+          siteKeywords={frontmatter.tags}
         />
 
         <HeroWritings
@@ -64,9 +66,7 @@ export default React.forwardRef((props, ref) => (
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(
-      fields: { slug: { eq: $slug }, source: { eq: "writings" } }
-    ) {
+    markdownRemark(fields: { slug: { eq: $slug }, source: { eq: "writings" } }) {
       frontmatter {
         title
         description
@@ -81,6 +81,7 @@ export const query = graphql`
         slug
       }
       html
+      excerpt(format: PLAIN, pruneLength: 150, truncate: true)
       tableOfContents
     }
   }

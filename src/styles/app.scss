@@ -21,8 +21,8 @@
 // Fonts
 
 @import 'fonts/inter';
-@import 'fonts/abril';
-@import 'fonts/plex';
+@import 'fonts/jetbrains-mono';
+@import 'fonts/playfair-display';
 
 // ------------------------------
 // Layouts
@@ -40,6 +40,7 @@
 // Components
 
 @import 'components/backdrop';
+@import 'components/button';
 @import 'components/dot';
 @import 'components/footnote';
 @import 'components/icon';
@@ -48,6 +49,7 @@
 @import 'components/overlay';
 @import 'components/portfolio';
 @import 'components/quote';
+@import 'components/scroll-to-top';
 @import 'components/separator';
 @import 'components/status';
 @import 'components/theme-switch';

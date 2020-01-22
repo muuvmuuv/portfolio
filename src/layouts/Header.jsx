@@ -6,30 +6,9 @@ import Navigation from '../components/Navigation'
 import ThemeSwitch from '../components/ThemeSwitch'
 
 class Header extends React.PureComponent {
-  state = {
-    sticky: false,
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  handleScroll = () => {
-    const isFixed = document.body.classList.contains('header-fixed')
-    if (!isFixed) return
-
-    this.setState({
-      sticky: window.pageYOffset > 0,
-    })
-  }
-
   render() {
     return (
-      <header id="header" className={this.state.sticky ? 'sticky' : ''}>
+      <header id="header">
         <Logo />
         <Breadcrumb />
         <Navigation />

@@ -22,30 +22,35 @@
     - [x] Test
   - [x] Everything pushed to master -> marvin.digital
   - [x] Everything pushed to development -> dev.marvin.digital
-- [ ] Setup GitHub workflow to deploy with notification and version alias
+- [x] ~~Setup GitHub workflow to deploy with notification and version alias~~
 - [x] replace React with [Preact][1] (check if it works when finished)
 - [x] add version to GraphQL data not as file...
 - [x] remove "build brotli from source" with a already finished build
 - [x] always use latest NGINX image
 - [x] test prod build locally with SSL and brotli compression
 - [x] weird lighter background underneath the footer (backdrop-filter issue)
-- [x] setup siteUrl as env var to pass to build process so lighthouse will get
-      the correct canonical url
+- [x] setup siteUrl as env var to pass to build process so lighthouse will get the correct
+      canonical url
 - [x] remove bundle analyzer from prod builds in NOW
 - [x] setup scss linter
 - [x] setup smacss to apply css sort order
 - [x] fix issue with node env version in prod build
 - [x] use gatsby images everywhere (homepage for file savings)
-- [ ] fix issue with header on prod build
+- [x] weird background colors on imprint bottom section
+- [x] fix issue with header on prod build
 - [ ] MDX pages are not using remark images plugin
-- [ ] add scroll to top
-- [ ] check description, keywords and title on all pages
+- [ ] update mobile navigation
+- [x] add scroll to top
+- [x] check description, keywords and title on all pages
 - [ ] add md table of contents
+- [ ] use [auto-changelog](https://github.com/CookPete/auto-changelog) for the changelog
+      page
+- [ ] image opening on big vertical images is broken, add max height and width + scrolling
+      with mouse move
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
 - [x] put scss theme stuff in own mixin for compat.
-- [x] Add footer with: version, social-media, imprint, changelog, copyright
-      notice
+- [x] Add footer with: version, social-media, imprint, changelog, copyright notice
 - [x] test react helmet async
 - [x] add "increase version" by script
 - [x] add bundle analyzer
@@ -65,7 +70,7 @@
   - https://developer.riotgames.com/apis
 - [x] add classes to tags https://github.com/gatsbyjs/gatsby/issues/17824
 - [ ] use Inter variable Font: https://rsms.me/inter/var-test.html
-- [ ] set font feature settings (numbers, dates, etc.):
+- [x] set font feature settings (numbers, dates, etc.):
   - https://rsms.me/inter/#features
 - [ ] Upload all writings
   - [ ] Grammatical corrections

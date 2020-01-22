@@ -1,19 +1,4 @@
 [page='writings'] {
-  &.home {
-    main {
-      padding: var(--spacing-xl) 0;
-
-      @include breakpoint-up(md) {
-        margin-top: var(--spacing-xl);
-      }
-
-      @include breakpoint-up(xl) {
-        margin-top: var(--spacing-xxl);
-        padding: var(--spacing-xxl) 0;
-      }
-    }
-  }
-
   &.single {
     #hero {
       .container {
@@ -26,7 +11,7 @@
   .list {
     .item {
       margin-bottom: var(--spacing-xl);
-      padding-bottom: var(--spacing-xs);
+      padding-bottom: var(--spacing-xl);
 
       &:not(:last-child) {
         border-bottom: 1px solid var(--divider-color);

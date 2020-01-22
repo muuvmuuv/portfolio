@@ -20,6 +20,7 @@ body {
   line-height: 1.5;
   overscroll-behavior: none;
   scroll-behavior: smooth;
+  font-feature-settings: 'calt' 1, 'liga' 1;
 
   @include reducedMotion() {
     scroll-behavior: auto;
@@ -48,4 +49,8 @@ hr {
   margin-top: var(--content-margin);
   margin-bottom: var(--content-margin);
   border-bottom: 1px solid var(--color-09);
+}
+
+time {
+  font-feature-settings: 'ss01' 1, 'zero' 1;
 }

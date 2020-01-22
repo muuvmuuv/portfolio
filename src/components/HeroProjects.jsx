@@ -28,8 +28,7 @@ const HeroProjects = ({
       <div className="post-info">
         <ul>
           <li>
-            <span className="pre">Status:</span>{' '}
-            <Status state={status}></Status>
+            <span className="pre">Status:</span> <Status state={status}></Status>
           </li>
           <li>
             <span className="pre">Runtime:</span> <Time date={started}></Time> –{' '}

@@ -17,8 +17,7 @@ const SEMVER_INCREMENTS = [
 ]
 
 const isValidVersion = (input) => Boolean(valid(input))
-const isValidInput = (input) =>
-  SEMVER_INCREMENTS.includes(input) || isValidVersion(input)
+const isValidInput = (input) => SEMVER_INCREMENTS.includes(input) || isValidVersion(input)
 const isLowerThanOrEqualTo = (version) => {
   return !isValidVersion(version) || lte(version, currentVersion)
 }

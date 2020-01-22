@@ -243,10 +243,10 @@ module.exports = {
         production: true,
         disable: !isAudit, // only run when doing production builds to perform audits
         openAnalyzer: false,
-        reportFilename: `${__dirname}/reports/v${transformVersion(
-          getVersion(),
-          ['major', 'minor']
-        )}.0/treemap.html`,
+        reportFilename: `${__dirname}/reports/v${transformVersion(getVersion(), [
+          'major',
+          'minor',
+        ])}.0/treemap.html`,
       },
     },
   ],

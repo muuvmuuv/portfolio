@@ -26,6 +26,7 @@ class Page extends React.Component {
     return (
       <>
         <Head
+          pageTitle={null}
           pageName={this.state.pageName}
           bodyClasses="header-fixed header-click-through"
         />

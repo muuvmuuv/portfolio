@@ -1,6 +1,6 @@
 {
   "name": "marvin-digital",
-  "version": "3.10.0",
+  "version": "3.11.0",
   "private": true,
   "description": "Portfolio of and by Marvin Heilemann (@muuvmuuv)",
   "repository": {
@@ -30,18 +30,17 @@
     "−−−−−−−−−−−−−−−−−−−  LINT/TEST  −−−−−−−−−−−−−−−−−−−−–": "",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "lint": "run-s lint:*",
-    "lint:js": "eslint ./src ./utils ./gatsby ./scripts ./plugins",
+    "lint:js": "eslint ./gatsby ./plugins ./scripts ./src ./utils ./*.js",
     "lint:scss": "stylelint ./src/styles",
     "−−−−−−−−−−−−−−−−−  SCRIPTS/TOOLS  −−−−−−−−−−−−−−−−–−−": "",
     "version": "node ./scripts/version.js",
     "pretty": "pretty-quick"
   },
   "dependencies": {
-    "@ibm/plex": "^4.0.2",
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
     "dayjs": "^1.8.19",
-    "gatsby": "^2.18.25",
+    "gatsby": "^2.19.1",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-breadcrumb": "^6.3.0",
     "gatsby-plugin-canonical-urls": "^2.1.19",
@@ -61,7 +60,7 @@
     "gatsby-plugin-remove-trailing-slashes": "^2.1.20",
     "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sass": "^2.1.27",
-    "gatsby-plugin-sharp": "^2.3.13",
+    "gatsby-plugin-sharp": "^2.4.0",
     "gatsby-plugin-sitemap": "^2.2.26",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-remark-check-links": "^2.1.0",

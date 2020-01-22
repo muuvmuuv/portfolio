@@ -1,6 +1,6 @@
 #header {
   display: grid;
-  position: relative;
+  position: absolute;
   z-index: 10;
   top: 0;
   grid-template-areas: 'logo breadcrumb nav theme';
@@ -11,7 +11,20 @@
   column-gap: var(--spacing-md);
   transition: var(--transition-fast);
   user-select: none;
-  will-change: padding position background;
+  will-change: padding position;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background-image: linear-gradient(to bottom, var(--color-dark-60), transparent);
+    pointer-events: none;
+    user-select: none;
+  }
 
   &.sticky {
     position: sticky;
@@ -44,26 +57,9 @@
   }
 }
 
-.header-fixed #header {
-  position: fixed;
-
-  &::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 200%;
-    background-image: linear-gradient(
-      to bottom,
-      var(--color-dark-60),
-      transparent
-    );
-    pointer-events: none;
-    user-select: none;
-  }
-}
+// .header-fixed #header {
+//   position: fixed;
+// }
 
 .header-click-through #header {
   pointer-events: none;
@@ -79,11 +75,7 @@
 @include themeLight() {
   #header {
     &::before {
-      background-image: linear-gradient(
-        to bottom,
-        var(--color-light-40),
-        transparent
-      );
+      background-image: linear-gradient(to bottom, var(--color-light-40), transparent);
     }
 
     &.sticky {

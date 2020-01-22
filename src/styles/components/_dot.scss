@@ -1,14 +1,14 @@
 .dot {
-  --dot-width: 0.7em;
-
   display: inline-block;
   width: var(--dot-width);
   height: var(--dot-width);
+  margin-top: -2px;
   border-radius: var(--border-radius-full);
   opacity: 0.8;
   background: var(--color-01);
   box-shadow: 0 0 6px 0px var(--color-01);
-  vertical-align: middle;
+
+  --dot-width: 9px;
 
   &--animated {
     display: inline-flex;
@@ -17,7 +17,7 @@
     justify-content: center;
     opacity: 1;
 
-    --dot-scale: 2.6;
+    --dot-scale: 2.3;
 
     &::before,
     &::after {

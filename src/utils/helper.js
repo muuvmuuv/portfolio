@@ -21,10 +21,7 @@ export function updateLocationHash(newHash) {
  *
  * @returns {dayjs.Dayjs} random date
  */
-export function getRandomDate(
-  start = dayjs().subtract(1, 'year'),
-  end = dayjs()
-) {
+export function getRandomDate(start = dayjs().subtract(1, 'year'), end = dayjs()) {
   return dayjs(+start + Math.random() * (end - start))
 }
 
@@ -93,4 +90,33 @@ export function getRandomInt(min = 0, max = 999) {
  */
 export function s(n = 1) {
   return '&nbsp;'.repeat(n)
+}
+
+/**
+ * Calculate the age of a person by it's birthday.
+ *
+ * @param {string} birthday iso string of persons birthday
+ *
+ * @returns {number} the age
+ */
+export function calculateAge(birthday) {
+  const now = dayjs()
+  const then = dayjs(birthday)
+
+  if (!then.isValid()) {
+    console.error(`${birthday} is not a valid iso date string`)
+    return -1
+  }
+
+  let age = now.get('year') - then.get('year')
+
+  if (now.get('month') < then.get('month') - 1) {
+    --age
+  }
+
+  if (then.get('month') - 1 === now.get('month') && now.get('day') < then.get('day')) {
+    --age
+  }
+
+  return age
 }

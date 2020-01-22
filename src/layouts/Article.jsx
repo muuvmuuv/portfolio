@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { scrollTo } from '../utils/animate'
+import { scrollToElement } from '../utils/animate'
 import { updateLocationHash, getDocumentHeight } from '../utils/helper'
 import { prefersReducedMotion } from '../utils/accessibility'
 import Lightbox from '../scripts/lightbox'
@@ -36,7 +36,7 @@ class Article extends React.Component {
     event.preventDefault()
     const target = document.getElementById(event.target.hash.substr(1))
     if (target) {
-      const offsetPosition = scrollTo(target)
+      const offsetPosition = scrollToElement(target)
 
       // highlight target element when reached
       function onScrollEvent() {

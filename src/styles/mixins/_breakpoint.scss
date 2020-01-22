@@ -6,11 +6,7 @@
   @if not $n {
     @error "breakpoint `#{$name}` not found in `#{$grid-breakpoints}`";
   }
-  @return if(
-    $n < length($breakpoint-names),
-    nth($breakpoint-names, $n + 1),
-    null
-  );
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
 }
 
 @function breakpoint-min($name) {
