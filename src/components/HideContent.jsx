@@ -1,10 +1,13 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 /* eslint-disable jsx-a11y/no-interactive-element-to-noninteractive-role */
 
 const HideContent = ({ text }) => {
-  const [state, setState] = useState(btoa(text))
+  const [state, setState] = useState(null)
+
+  useEffect(() => {
+    setState(window.btoa(text))
+  }, [text])
 
   const decryptContent = () => {
     setState(text)
