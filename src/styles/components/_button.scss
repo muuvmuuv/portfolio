@@ -1,0 +1,10 @@
+button {
+  &.reset {
+    border: 0;
+    background: transparent;
+  }
+
+  &.inline {
+    display: inline-block;
+  }
+}

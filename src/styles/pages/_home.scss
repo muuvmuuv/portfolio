@@ -1,0 +1,16 @@
+.home {
+  .headline {
+    position: absolute;
+    top: -80px;
+    left: -40px;
+    opacity: 0.05;
+    font-family: var(--font-serif);
+    font-size: 1500%;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  main {
+    padding-top: 120px;
+  }
+}

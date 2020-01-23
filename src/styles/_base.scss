@@ -14,13 +14,13 @@ html {
 }
 
 body {
-  margin: 0;
   background: var(--background-color);
   color: var(--text-color-normal);
   font-family: var(--font-sans);
   line-height: 1.5;
   overscroll-behavior: none;
   scroll-behavior: smooth;
+  font-feature-settings: 'calt' 1, 'liga' 1;
 
   @include reducedMotion() {
     scroll-behavior: auto;
@@ -45,77 +45,12 @@ body {
   position: fixed !important;
 }
 
-pre,
-code {
-  white-space: pre-wrap;
-}
-
 hr {
   margin-top: var(--content-margin);
   margin-bottom: var(--content-margin);
   border-bottom: 1px solid var(--color-09);
 }
 
-b,
-strong {
-  font-weight: var(--font-bold);
-}
-
-u {
-  text-decoration-thickness: 0.05em;
-  text-underline-offset: 0.07em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  line-height: 1.2;
-}
-
-abbr {
-  cursor: help;
-}
-
-article {
-  form,
-  table,
-  fieldset,
-  p,
-  ul,
-  ol,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-bottom: var(--content-margin);
-  }
-
-  p {
-    text-align: justify;
-  }
-
-  h1 {
-    font-size: var(--text-xxl);
-  }
-  h2 {
-    font-size: var(--text-xl);
-  }
-  h3 {
-    font-size: var(--text-lg);
-  }
-  h4 {
-    font-size: var(--text-md);
-  }
-  h5 {
-    font-size: var(--text-sm);
-  }
-  h6 {
-    font-size: var(--text-xs);
-  }
+time {
+  font-feature-settings: 'ss01' 1, 'zero' 1;
 }

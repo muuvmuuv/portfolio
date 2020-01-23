@@ -49,6 +49,10 @@ const icons = {
   xing: <XingIcon />,
   youtube: <YoutubeIcon />,
   link: '↗',
+  'arrow-top': '↑',
+  'arrow-left': '←',
+  'arrow-bottom': '↓',
+  'arrow-right': '→',
 }
 
 const Icon = ({ name, textOnly }) => {

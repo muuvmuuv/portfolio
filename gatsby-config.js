@@ -11,7 +11,7 @@ require('dotenv').config({
 
 const { yellow, blue, bold } = require('kleur')
 const { getVersion, transformVersion } = require('./utils/version')
-const { activeEnv, isAudit } = require('./utils/environment')
+const { activeEnv, isAudit, isProd } = require('./utils/environment')
 const commonRemark = require('./gatsby/config/commonRemark')
 const siteMetadata = require('./metadata')
 
@@ -36,7 +36,14 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
     'gatsby-transformer-json',
-    'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        useMozJpeg: isProd,
+        stripMetadata: false,
+        defaultQuality: 85,
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-react-svg',
@@ -163,18 +170,19 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'M/D',
-        short_name: 'M/D',
-        start_url: '/',
-        background_color: '#1f242e',
-        theme_color: '#00e2a1',
-        display: 'browser',
+        name: siteMetadata.siteTitle,
+        short_name: siteMetadata.siteTitleShort,
+        start_url: '/?source=pwa',
+        background_color: '#1f242e', // must equal `--background-color` in `./src/styles/themes/_<theme>.scss`
+        theme_color: '#fafcff', // how the UI should be tinted
+        display: 'standalone',
         icon: './static/favicon.svg',
       },
     },
     {
       resolve: `gatsby-plugin-offline`,
       options: {
+        appendScript: require.resolve(`./src/sw.js`),
         precachePages: [
           `/about/`,
           `/imprint/`,
@@ -235,10 +243,10 @@ module.exports = {
         production: true,
         disable: !isAudit, // only run when doing production builds to perform audits
         openAnalyzer: false,
-        reportFilename: `${__dirname}/reports/v${transformVersion(
-          getVersion(),
-          ['major', 'minor']
-        )}.0/treemap.html`,
+        reportFilename: `${__dirname}/reports/v${transformVersion(getVersion(), [
+          'major',
+          'minor',
+        ])}.0/treemap.html`,
       },
     },
   ],

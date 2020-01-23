@@ -2,17 +2,14 @@
 title: Das ist, eine $" tolle Demo
 description: Ein kleines süßes Gedicht
 slug: custom slug
+image: image.jpg
+published: false
+
 created: 2019-09-23
 modified: 2019-07-12
 
-header:
-  image: image.jpg
-  author: Daniil Vnoutchkov
-  link: https://unsplash.com/@daniilvnoutchkov?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge
-  source: unsplash
-
 language: en
-keywords: [dreams]
+tags: [catastrophe]
 ---
 
 ## Some heading

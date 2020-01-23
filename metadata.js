@@ -2,8 +2,10 @@ module.exports = {
   siteTitle: `Marvin/Digital`,
   siteTitleShort: 'M/D',
   siteAuthor: `Marvin Heilemann`,
-  siteDescription: `Projects Marvin Heilemann has been working on now and in the past.`,
+  siteDescription: `Me, Myself and I – Projects, Photography, Writings and even more about Marvin Heilemann (also named muuvmuuv)`,
   siteKeywords: [
+    'marvin',
+    'heilemann',
     'muuvmuuv',
     'portfolio',
     'webdesign',
@@ -21,8 +23,7 @@ module.exports = {
     {
       name: 'Setup',
       // link: '/about/setup', // NOTE: Maybe use Notion API later?
-      link:
-        'https://www.notion.so/marvins/Setup-9ad349afe68942ae807dc31c9afccd7d',
+      link: 'https://www.notion.so/marvins/Setup-9ad349afe68942ae807dc31c9afccd7d',
       external: true,
     },
     {

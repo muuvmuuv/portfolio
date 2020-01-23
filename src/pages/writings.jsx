@@ -62,16 +62,12 @@ export const query = graphql`
   query WritingsQuery {
     allMarkdownRemark(
       filter: { fields: { source: { eq: "writings" } } }
-      sort: {
-        fields: [frontmatter___created, frontmatter___modified]
-        order: DESC
-      }
+      sort: { fields: [frontmatter___created, frontmatter___modified], order: DESC }
     ) {
       edges {
         node {
           frontmatter {
             title
-            keywords
             created
           }
           fields {

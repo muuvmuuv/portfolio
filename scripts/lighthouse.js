@@ -6,6 +6,7 @@ const chromeLauncher = require('chrome-launcher')
 const lighthouse = require('lighthouse')
 const { getVersion, transformVersion } = require('../utils/version')
 
+// TODO: test a project site as well
 const testSite = 'https://marvin.lcl'
 
 const rootPath = path.resolve(__dirname, '..')

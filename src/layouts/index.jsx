@@ -5,7 +5,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { ThemeContext } from '../store/theme'
 import Header from './Header'
 import Footer from './Footer'
-
+import ScrollToTop from '../components/ScrollToTop'
 import mdxElements from '../components/MDXElements'
 
 export default ({ children }) => {
@@ -19,6 +19,7 @@ export default ({ children }) => {
         <main>{children}</main>
         <Footer></Footer>
       </MDXProvider>
+      <ScrollToTop />
     </>
   )
 }

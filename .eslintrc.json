@@ -4,5 +4,8 @@
     "plugin:mdx/recommended",
     "plugin:prettier/recommended",
     "plugin:jsx-a11y/strict"
-  ]
+  ],
+  "rules": {
+    "default-case": "off"
+  }
 }

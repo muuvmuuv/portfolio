@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "streetsidesoftware.code-spell-checker",
+    "ms-azuretools.vscode-docker",
+    "mikestead.dotenv",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "bierner.github-markdown-preview",
+    "silvenon.mdx",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "muuvmuuv.vscode-sundial"
+  ]
+}

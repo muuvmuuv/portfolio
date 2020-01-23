@@ -7,10 +7,12 @@ import { Location } from '@reach/router'
 const Head = ({
   siteTitle,
   siteDescription,
-  siteUrl,
+  siteAuthor,
   siteLanguage,
+  siteKeywords = [],
+  siteUrl,
   pageName,
-  pageTitle,
+  pageTitle = pageName,
   pageLang,
   social,
   ogImage,
@@ -47,6 +49,8 @@ const Head = ({
     >
       <meta name="language" content={language} />
       <meta name="description" content={siteDescription} />
+      <meta name="keywords" content={siteKeywords.join(', ')} />
+      <meta name="author" content={siteAuthor} />
 
       <meta name="og:type" content="website" />
       <meta name="og:title" content={pageTitle} />
@@ -71,8 +75,10 @@ const Head = ({
 Head.propTypes = {
   siteTitle: PropTypes.string,
   siteDescription: PropTypes.string,
-  siteUrl: PropTypes.string,
+  siteAuthor: PropTypes.string,
+  siteKeywords: PropTypes.arrayOf(PropTypes.string),
   siteLanguage: PropTypes.string,
+  siteUrl: PropTypes.string,
   pageName: PropTypes.string,
   pageTitle: PropTypes.string,
   pageLang: PropTypes.string,

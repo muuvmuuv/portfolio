@@ -67,14 +67,13 @@
     margin-bottom: var(--spacing-sm);
 
     h1 {
-      margin-bottom: var(--spacing-md);
+      margin-bottom: var(--spacing-sm);
       font-family: var(--font-serif);
       font-size: var(--text-xxl);
     }
 
     h2 {
       color: var(--text-color-richer);
-      font-family: var(--font-mono);
     }
   }
 
@@ -86,29 +85,7 @@
     font-size: var(--text-sm);
     user-select: none;
 
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      border-width: 1px;
-      border-style: solid;
-    }
-
-    &::before {
-      top: 0;
-      left: 0;
-      border-image: linear-gradient(135deg, var(--color-light), transparent);
-      border-image-slice: 10% 0 0 90%;
-    }
-
-    &::after {
-      right: 0;
-      bottom: 0;
-      border-image: linear-gradient(135deg, transparent, var(--color-light));
-      border-image-slice: 0 90% 10% 0;
-    }
+    @include border-left-right();
 
     .pre {
       font-weight: var(--font-bold);

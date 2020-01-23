@@ -54,7 +54,7 @@ class Page extends React.Component {
 
         <h1 className="headline">{this.state.pageName}</h1>
 
-        <div className="container gallery">
+        <div className="container">
           {items.map((item, index) => (
             <Portfolio item={item.node} key={index}></Portfolio>
           ))}
@@ -72,27 +72,14 @@ export default React.forwardRef((props, ref) => (
 
 export const query = graphql`
   query ProjectsQuery {
-    projects: allMarkdownRemark(
-      filter: { fields: { source: { eq: "projects" } } }
-    ) {
+    projects: allMarkdownRemark(filter: { fields: { source: { eq: "projects" } } }) {
       edges {
         node {
           frontmatter {
             title
             subtitle
             image {
-              childImageSharp {
-                fluid(maxWidth: 1600) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            thumb {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+              ...FluidResponsiveSetSmall
             }
             started
             ended

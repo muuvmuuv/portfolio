@@ -4,17 +4,19 @@ subtitle: Redesign of the myEF students smartphone application
 image: ef-preview.jpg
 thumb: ef-preview.jpg
 
+status: finished
 started: null
 ended: null
-
-status: finished
 website: https://my.ef.com/
 team:
   - name: Finn Dieckhoff
     link: null
 
-tags: [education, mobile]
+created: 2019-09-23
+modified: 2019-07-12
+
 categories: [app]
+tags: [education, mobile]
 ---
 
 In a three month trip to London, Marvin visit the EF school. He noticed in the
@@ -29,8 +31,8 @@ university in germany, so they both decided to make this as the project.
 The redesign is not yet taken by EF but the London office had multiple talks
 with Marvin and Finn about to send it to the HQ.
 
-For an interactive prototype visit:
-[https://invis.io/9RNG7GCYFKZ](https://invis.io/9RNG7GCYFKZ)
+For an interactive prototype:
+[Link to interactive prototype](https://invis.io/9RNG7GCYFKZ)
 
 > Note: When you visit inVision, you can just click anywhere in the smartphone
 > screen to let clickable elements appear.

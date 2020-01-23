@@ -15,9 +15,7 @@ const Lightbox = {
   margin: 0,
 
   init() {
-    this.elements = document.querySelectorAll(
-      '#article .gatsby-resp-image-link'
-    )
+    this.elements = document.querySelectorAll('#article .gatsby-resp-image-link')
 
     if (this.elements && this.elements.length > 0) {
       this.elements.forEach((el) => {
@@ -70,9 +68,7 @@ const Lightbox = {
     /**
      * Calculate X position and Y position of scaled image.
      */
-    const newX = Math.round(
-      (maxWidth - scrollbarWidth) / 2 - clientX - clientWidth / 2
-    )
+    const newX = Math.round((maxWidth - scrollbarWidth) / 2 - clientX - clientWidth / 2)
     const newY = Math.round(clientY * -1 + (maxHeight - clientHeight) / 2)
 
     /**

@@ -4,10 +4,11 @@
 // App
 
 @import 'variables';
+@import 'breakpoints';
 @import 'mixins';
+@import 'animations';
 @import 'reset';
 @import 'base';
-@import 'animations';
 
 // ------------------------------
 // Themes
@@ -20,12 +21,13 @@
 // Fonts
 
 @import 'fonts/inter';
-@import 'fonts/abril';
-@import 'fonts/plex';
+@import 'fonts/jetbrains-mono';
+@import 'fonts/playfair-display';
 
 // ------------------------------
 // Layouts
 
+@import 'layouts/article';
 @import 'layouts/breadcrumb';
 @import 'layouts/container';
 @import 'layouts/footer';
@@ -38,6 +40,7 @@
 // Components
 
 @import 'components/backdrop';
+@import 'components/button';
 @import 'components/dot';
 @import 'components/footnote';
 @import 'components/icon';
@@ -46,6 +49,7 @@
 @import 'components/overlay';
 @import 'components/portfolio';
 @import 'components/quote';
+@import 'components/scroll-to-top';
 @import 'components/separator';
 @import 'components/status';
 @import 'components/theme-switch';
@@ -74,7 +78,7 @@
 // ------------------------------
 // Pages
 
+@import 'pages/home';
 @import 'pages/index';
 @import 'pages/page';
-@import 'pages/photography';
 @import 'pages/writings';

@@ -19,9 +19,7 @@ module.exports.transformVersion = (
   parts = ['major', 'minor', 'patch'],
   includeDots = true
 ) => {
-  const versionParts = parts.map((part) =>
-    require(`semver/functions/${part}`)(version)
-  )
+  const versionParts = parts.map((part) => require(`semver/functions/${part}`)(version))
 
   if (includeDots) {
     return versionParts.join('.')

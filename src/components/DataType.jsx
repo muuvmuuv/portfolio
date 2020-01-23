@@ -15,7 +15,7 @@ const DataType = ({ type, tooltip, position = 'top' }) => {
   switch (type) {
     case 'null':
       return (
-        <span className={'mono color--orange ' + classes.join(' ')} {...attr}>
+        <span className={'text-mono color--orange ' + classes.join(' ')} {...attr}>
           null
         </span>
       )
@@ -24,7 +24,7 @@ const DataType = ({ type, tooltip, position = 'top' }) => {
       return (
         <>
           [
-          <span className={'mono color--orange ' + classes.join(' ')} {...attr}>
+          <span className={'text-mono color--orange ' + classes.join(' ')} {...attr}>
             null
           </span>
           ]
@@ -35,10 +35,7 @@ const DataType = ({ type, tooltip, position = 'top' }) => {
       return (
         <>
           {
-            <span
-              className={'mono color--orange ' + classes.join(' ')}
-              {...attr}
-            >
+            <span className={'text-mono color--orange ' + classes.join(' ')} {...attr}>
               key: null
             </span>
           }
@@ -47,34 +44,34 @@ const DataType = ({ type, tooltip, position = 'top' }) => {
 
     case 'false':
       return (
-        <span className={'mono color--red ' + classes.join(' ')} {...attr}>
+        <span className={'text-mono color--red ' + classes.join(' ')} {...attr}>
           false
         </span>
       )
 
     case 'true':
       return (
-        <span className={'mono color--green ' + classes.join(' ')} {...attr}>
+        <span className={'text-mono color--green ' + classes.join(' ')} {...attr}>
           true
         </span>
       )
 
     case 'number':
       return (
-        <span className={'mono color--blue ' + classes.join(' ')} {...attr}>
+        <span className={'text-mono color--blue ' + classes.join(' ')} {...attr}>
           number
         </span>
       )
 
     case 'string':
       return (
-        <span className={'mono color--blue ' + classes.join(' ')} {...attr}>
+        <span className={'text-mono color--blue ' + classes.join(' ')} {...attr}>
           string
         </span>
       )
 
     default:
-      return <span className="mono color--muted">Type `{type}` unknown</span>
+      return <span className="text-mono color--muted">Type `{type}` unknown</span>
   }
 }
 

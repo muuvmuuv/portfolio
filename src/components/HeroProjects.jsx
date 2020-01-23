@@ -6,39 +6,45 @@ import Status from './Status'
 import Members from './Members'
 import DataType from './DataType'
 
-const HeroProjects = ({ item }) => (
+const HeroProjects = ({
+  title,
+  subtitle,
+  backdrop,
+  status,
+  started,
+  ended,
+  website,
+  team,
+  roles,
+}) => (
   <div id="hero">
-    <Backdrop
-      img={item.image.childImageSharp.fluid}
-      alt={item.title}
-    ></Backdrop>
+    <Backdrop img={backdrop} alt={title}></Backdrop>
 
     <div className="container container--medium">
       <div className="post-title">
-        <h1>{item.title}</h1>
-        <h2>{item.subtitle}</h2>
+        <h1>{title}</h1>
+        <h2>{subtitle}</h2>
       </div>
       <div className="post-info">
         <ul>
           <li>
-            <span className="pre">Status:</span>{' '}
-            <Status state={item.status}></Status>
+            <span className="pre">Status:</span> <Status state={status}></Status>
           </li>
           <li>
-            <span className="pre">Runtime:</span>{' '}
-            <Time date={item.started}></Time> – <Time date={item.ended}></Time>
+            <span className="pre">Runtime:</span> <Time date={started}></Time> –{' '}
+            <Time date={ended}></Time>
           </li>
           <li>
             <span className="pre">Website:</span>{' '}
-            {item.website ? (
+            {website ? (
               <a
-                href={item.website}
+                href={website}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link"
-                title={`Link to website: ${item.website}`}
+                title={`Link to website: ${website}`}
               >
-                {item.website}
+                {website}
               </a>
             ) : (
               <DataType tooltip="Not set" type="null"></DataType>
@@ -46,19 +52,19 @@ const HeroProjects = ({ item }) => (
           </li>
           <li>
             <span className="pre">Team:</span>{' '}
-            {item.team.length > 0 ? (
-              <Members list={item.team}></Members>
+            {team.length > 0 ? (
+              <Members list={team}></Members>
             ) : (
               <DataType tooltip="Not set" type="array"></DataType>
             )}
           </li>
           <li>
             <span className="pre">Role:</span>{' '}
-            {item.role.length > 0 ? (
-              item.role.map((r, i) => (
+            {roles.length > 0 ? (
+              roles.map((role, i) => (
                 <span key={i}>
-                  {r}
-                  {i < item.role.length - 1 && ', '}
+                  {role}
+                  {i < roles.length - 1 && ', '}
                 </span>
               ))
             ) : (

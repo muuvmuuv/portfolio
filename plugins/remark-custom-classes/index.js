@@ -47,10 +47,7 @@ module.exports = ({ markdownAST }, pluginOptions) => {
    * classes, e.g. for paragraphs.
    */
   markdownAST.children.forEach((node, i) => {
-    if (
-      node.type === 'html' ||
-      (node.children && node.children[0].type === 'html')
-    ) {
+    if (node.type === 'html' || (node.children && node.children[0].type === 'html')) {
       // skip plugin generated and inline HTML
       return
     }
@@ -90,8 +87,7 @@ module.exports = ({ markdownAST }, pluginOptions) => {
       switch (tagType) {
         case 'heading':
           const depth = Number(name[1]) // get depth from tag name `h1`[1]
-          const isHDepth = (node) =>
-            node.type === 'heading' && node.depth === depth
+          const isHDepth = (node) => node.type === 'heading' && node.depth === depth
           visit(markdownAST, isHDepth, (node) => {
             if (!node.data) node.data = {}
             node.data.hProperties = { className: tagClasses[name] }

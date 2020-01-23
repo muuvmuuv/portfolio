@@ -1,9 +1,6 @@
 import React, { createContext } from 'react'
 import Storage from '../storage'
-import {
-  prefersDarkAppearance,
-  DETECT_COLOR_SCHEME_DARK,
-} from '../utils/accessibility'
+import { prefersDarkAppearance, DETECT_COLOR_SCHEME_DARK } from '../utils/accessibility'
 
 export const Mode = {
   DARK: 'dark',

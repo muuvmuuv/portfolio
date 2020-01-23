@@ -5,7 +5,7 @@
  *
  * @returns {number} Y position of target element
  */
-export function scrollTo(target) {
+export function scrollToElement(target) {
   const offset = 50
 
   const scrollY = window.scrollY || window.pageYOffset

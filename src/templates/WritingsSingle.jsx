@@ -23,15 +23,15 @@ class Page extends React.Component {
 
   render() {
     const {
-      markdownRemark: { frontmatter, html, tableOfContents },
+      markdownRemark: { frontmatter, html, excerpt, tableOfContents },
     } = this.props.data
 
     console.log(tableOfContents)
 
     const attr = {}
 
-    if (frontmatter.keywords && frontmatter.keywords.length > 0) {
-      attr.keywords = frontmatter.keywords
+    if (frontmatter.tags && frontmatter.tags.length > 0) {
+      attr.keywords = frontmatter.tags
     }
 
     return (
@@ -40,14 +40,16 @@ class Page extends React.Component {
           pageTitle={frontmatter.title}
           pageName={this.state.pageName}
           bodyClasses="single header-fixed"
+          siteDescription={excerpt}
+          siteKeywords={frontmatter.tags}
         />
 
         <HeroWritings
           title={frontmatter.title}
-          img={frontmatter.header}
+          backdrop={frontmatter.image.childImageSharp.fluid}
           time={frontmatter.created}
           lang={frontmatter.language}
-          keywords={frontmatter.keywords}
+          keywords={frontmatter.tags}
         />
 
         <Article html={html} toc={tableOfContents} />
@@ -64,33 +66,22 @@ export default React.forwardRef((props, ref) => (
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(
-      fields: { slug: { eq: $slug }, source: { eq: "writings" } }
-    ) {
+    markdownRemark(fields: { slug: { eq: $slug }, source: { eq: "writings" } }) {
       frontmatter {
         title
         description
-        created
-        header {
-          image {
-            childImageSharp {
-              fluid(maxWidth: 1600, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          author
-          link
-          source
+        image {
+          ...FluidResponsiveSet
         }
+        created
         language
-        keywords
+        tags
       }
       fields {
         slug
       }
       html
-      excerpt
+      excerpt(format: PLAIN, pruneLength: 150, truncate: true)
       tableOfContents
     }
   }
