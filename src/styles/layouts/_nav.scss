@@ -1,4 +1,6 @@
 #navigation {
+  display: flex;
+
   &.open {
     .wrapper {
       display: flex;
@@ -20,7 +22,7 @@
     width: 100%;
     height: 100%;
 
-    @include breakpoint-down(xs) {
+    @include breakpoint-down(sm) {
       display: none;
       position: fixed;
       z-index: 21;
@@ -38,14 +40,23 @@
 
     li {
       display: inline-block;
+
+      @include breakpoint-down(sm) {
+        display: block;
+        margin-bottom: var(--spacing-lg);
+        font-size: var(--text-xl);
+        text-align: center;
+      }
     }
 
     .nav-link {
       margin-left: var(--spacing-lg);
+      transition: color 240ms ease-in-out;
+      color: var(--text-color-richer);
 
-      @include breakpoint-down(xs) {
-        margin-bottom: var(--spacing-xxs);
-        padding: var(--spacing-xs) 0;
+      &:hover,
+      &.active {
+        color: var(--text-color-highlight);
       }
     }
   }
@@ -61,7 +72,7 @@
     background: transparent;
     cursor: pointer;
 
-    @include breakpoint-up(sm) {
+    @include breakpoint-up(md) {
       display: none;
     }
 

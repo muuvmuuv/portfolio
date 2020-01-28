@@ -6,7 +6,7 @@
 
 /* eslint-disable import/first */
 require('dotenv').config({
-  path: `.env.build`,
+  path: `.env`,
 })
 
 const { yellow, blue, bold } = require('kleur')
@@ -58,6 +58,39 @@ module.exports = {
             },
           },
         },
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GCMS',
+        fieldName: 'gcms',
+        url: 'https://api-euwest.graphcms.com/v1/ck5xls94g1wlo01fl4vg1fvlt/master',
+        headers: {
+          Authorization: `Bearer ${process.env.GRAPH_CMS_PAT}`,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-files`,
+      options: {
+        name: `package`,
+        files: [
+          `${__dirname}/CHANGELOG.md`,
+          `${__dirname}/package.json`,
+          `${__dirname}/TODO.md`,
+        ],
       },
     },
     {

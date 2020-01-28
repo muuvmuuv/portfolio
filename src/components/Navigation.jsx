@@ -1,13 +1,23 @@
 import React, { useState } from 'react'
+import { globalHistory } from '@reach/router'
 
 import { useMenuLinks } from '../hooks/use-menu-links'
 import Link from './Link'
 import Icon from './Icon'
+import { useEffect } from 'react'
 
 const Navigation = () => {
   const [open, setOpen] = useState(false)
 
   const menuLinks = useMenuLinks()
+
+  useEffect(() => {
+    return globalHistory.listen(({ action }) => {
+      if (action === 'PUSH') {
+        setOpen(false)
+      }
+    })
+  })
 
   const toggleNav = () => {
     setOpen(!open)
@@ -51,7 +61,7 @@ const Navigation = () => {
                     <Icon name="link" textOnly={true} />
                   </a>
                 ) : (
-                  <Link to={link} className="nav-link">
+                  <Link to={link} className="nav-link" activeClassName="active">
                     {name}
                   </Link>
                 )}

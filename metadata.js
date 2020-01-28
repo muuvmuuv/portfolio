@@ -49,6 +49,10 @@ module.exports = {
       link: '/changelog',
     },
     {
+      name: 'Todo',
+      link: '/todo',
+    },
+    {
       name: 'Imprint',
       link: '/imprint',
     },

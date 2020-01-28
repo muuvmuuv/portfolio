@@ -5,9 +5,10 @@ import Time from './Time'
 import Language from './Language'
 import Separator from './Separator'
 import Keywords from './Keywords'
+import TimeToRead from './TimeToRead'
 
-const HeroWritings = ({ title, backdrop, keywords, lang, time }) => (
-  <div id="hero">
+const HeroWritings = ({ title, backdrop, keywords, lang, time, ttr }) => (
+  <div id="hero" className={backdrop ? 'content-center' : 'content-center size-medium'}>
     <Backdrop img={backdrop} alt={title}></Backdrop>
 
     <div className="container">
@@ -19,6 +20,8 @@ const HeroWritings = ({ title, backdrop, keywords, lang, time }) => (
           <Time date={time} format="LL" />
           <Separator />
           <Language code={lang} />
+          <Separator />
+          <TimeToRead time={ttr} />
         </h2>
       </div>
     </div>

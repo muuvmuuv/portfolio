@@ -1,0 +1,49 @@
+extends: "./docker-compose.yml"
+
+#
+# [ services ]
+#
+services:
+  grafana:
+    image: grafana/grafana:6.4.3
+    depends_on:
+      - graphite
+    links:
+      - graphite
+    ports:
+      - "3000:3000"
+    env_file: .env.build
+    networks:
+      analytics:
+    volumes:
+      - grafana:/var/lib/grafana
+
+  graphite:
+    image: sitespeedio/graphite:1.1.5-12
+    networks:
+      analytics:
+    ports:
+      - "2003:2003"
+      - "8080:8080"
+    volumes:
+      # https://www.sitespeed.io/documentation/sitespeed.io/graphite/#graphite-for-production-important
+      - whisper:/opt/graphite/storage/whisper
+      - graphite:/opt/graphite/storage/graphite.db
+      # https://github.com/sitespeedio/docker-graphite-statsd/tree/master/conf/graphite
+      - ./docker/graphite/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf
+      - ./docker/graphite/storage-aggregation.conf:/opt/graphite/conf/storage-aggregation.conf
+      - ./docker/graphite/carbon.conf:/opt/graphite/conf/carbon.conf
+
+#
+# [ networks ]
+#
+networks:
+  analytics:
+
+#
+# [ volumes ]
+#
+volumes:
+  whisper:
+  grafana:
+  graphite:

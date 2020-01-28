@@ -39,16 +39,17 @@
 - [x] weird background colors on imprint bottom section
 - [x] fix issue with header on prod build
 - [ ] MDX pages are not using remark images plugin
-- [ ] update mobile navigation
+- [x] update mobile navigation
 - [x] add scroll to top
 - [x] check description, keywords and title on all pages
 - [ ] add md table of contents
-- [ ] use [auto-changelog](https://github.com/CookPete/auto-changelog) for the changelog
+- [x] use [auto-changelog](https://github.com/CookPete/auto-changelog) for the changelog
       page
 - [ ] image opening on big vertical images is broken, add max height and width + scrolling
       with mouse move
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
+- [x] writings no image => small hero
 - [x] put scss theme stuff in own mixin for compat.
 - [x] Add footer with: version, social-media, imprint, changelog, copyright notice
 - [x] test react helmet async
@@ -63,7 +64,7 @@
   - [x] save Screenshot for mobile and desktop
   - [x] open only desktop
   - [x] script to open mobile
-  - [ ] open summary view by default
+  - [x] ~~open summary view by default~~
 - [x] Make text justified
 - [x] ~~use CSS blend modes (overlay)~~
 - [ ] add League of Legends API to show profile and stats
@@ -72,19 +73,27 @@
 - [ ] use Inter variable Font: https://rsms.me/inter/var-test.html
 - [x] set font feature settings (numbers, dates, etc.):
   - https://rsms.me/inter/#features
-- [ ] Upload all writings
-  - [ ] Grammatical corrections
-  - [ ] Find images on Unsplash
+- [x] Upload all writings
+  - [x] Grammatical corrections
+  - [x] ~~Find images on Unsplash~~
 - [ ] Update current projects
-  - [ ] More text
-  - [ ] Update images
+  - [x] More text
+  - [x] Update images
 - [ ] Upload some photos (best off's)
 - [ ] Setup SimpleAnalytics or something similar
+- [ ] show GitHub OSS with GitHub API on a separate page
+- [ ] display `</Coding>` stuff somewhere or let it imported by browser XML export
+- [ ] upload all content to GraphCMS
 - [x] check pages with Firefox Axe
+- [ ] setup danger and make sure
+  - [ ] version is increased before commit/push
+  - [ ] no push if no audit for current version
+  - [ ] note about linting
 - [ ] check all pages with screen reader
 - [ ] check all pages with reduced motion
 - [ ] check all pages with reduced transparency
 - [ ] remove source maps in production builds
+- [ ] add new theme switch design, current does not work properly with `mix-blend-mode`
 - [x] PWA: add service worker for offline usage (`gatsby-plugin-offline`)
 - [x] ~~add tests?!~~
 - [x] ~~move from bash script to [Nim][2]~~
@@ -98,7 +107,7 @@
   - [ ] use better [color system][10]
 - [x] light theme
 - [ ] ~~Eventually new Font: [ZOOM-PRO][9]~~ (too expensive)
-- [ ] !!! use external CMS service for data instead of file based !!!
+- [ ] !!! use external CMS service for data instead of github !!!
 - [ ] open source the code 🤫 (requires above)
 
 [1]: https://www.gatsbyjs.org/packages/gatsby-plugin-preact/

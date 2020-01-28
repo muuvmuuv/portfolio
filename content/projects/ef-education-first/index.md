@@ -19,59 +19,40 @@ categories: [app]
 tags: [education, mobile]
 ---
 
-In a three month trip to London, Marvin visit the EF school. He noticed in the
-first month that many students had problems with the application in find it hard
-to understand the use of some features. After some talks with students and
-staffs he decided to redesign the hole app and thought about a better use of
-some features that are not recognised yet.
+In a three-month trip to London, I visited the school **Education First** (EF). Before I
+attended the trip I got some information material and that is where I saw that they have
+an iOS application, which I downloaded immediately. I laughed at the first launch; this
+app was really not the best looking or optimized for students. It was messy and most
+features were just hard to use.
 
-His friend Finn had to make a presentation project for an application for a
-university in germany, so they both decided to make this as the project.
+A few weeks later my trip started. The complete time I stayed at a residence provided by
+EF, so only EF students there (Yay!). I found a handful of good friends there and one of
+them was Finn. Finn is from Germany as well and was my room mate. Nice time, even nicer
+memories.
 
-The redesign is not yet taken by EF but the London office had multiple talks
-with Marvin and Finn about to send it to the HQ.
+Finn applied on two universities in Germany and one of them needed a presentation from
+him. The requirements were simple; create an invented company and a product with a
+detailed explanation + prototype or optimize an existing product. After he said the last I
+immediately thought about that ugly EF app proposed to him to recreate the app and explain
+each step. And he was thrilled because he thought the same as me about the app. So we
+started together because I got nice experience in user design and experience and are
+familiar with tools like InVision and Sketch.
 
-For an interactive prototype:
+After a few days we got our first prototype ready and also a small part of the
+presentation. We asked friends and other EF students what they think about the progress
+and idea so far. The resonance was amazing, most of the students felt the same as us, and
+we got a lot of ideas and improvement suggestions. So to not take that too long, here is
+the final product.
+
+For an interactive prototype visit:
 [Link to interactive prototype](https://invis.io/9RNG7GCYFKZ)
 
-> Note: When you visit inVision, you can just click anywhere in the smartphone
-> screen to let clickable elements appear.
+> Note: When you visit inVision, you can just click anywhere in the smartphone screen to
+> let clickable elements appear.
 
-<div class="row">
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="startscreen.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="login.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="login-filled.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="forgot-password.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="feed-loading.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="feed-new-post.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="activity-page.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="schedule-overview.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="schedule-weekly-overview.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="course-overview.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="menu.png" alt="EF – Education First">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 mb-4">
-    <img src="feed.png" alt="EF – Education First">
-  </div>
-</div>
+![startscreen.png](startscreen.png) ![login.png](login.png)
+![login-filled.png](login-filled.png) ![forgot-password.png](forgot-password.png)
+![feed-loading.png](feed-loading.png) ![feed-new-post.png](feed-new-post.png)
+![activity-page.png](activity-page.png) ![schedule-overview.png](schedule-overview.png)
+![schedule-weekly-overview.png](schedule-weekly-overview.png)
+![course-overview.png](course-overview.png) ![menu.png](menu.png) ![feed.png](feed.png)

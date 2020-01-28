@@ -1,6 +1,7 @@
 article {
   table {
-    display: flow-root;
+    // display: flow-root;
+    width: 100%;
 
     thead tr {
       border-bottom: 2px solid var(--color-09);

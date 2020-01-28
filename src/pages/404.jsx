@@ -9,12 +9,12 @@ class Page extends React.Component {
   }
 
   componentDidMount() {
-    const { breadcrumb } = this.props.pageContext
+    // const { breadcrumb } = this.props.pageContext
 
     this.props.history.update({
-      location: breadcrumb.location,
+      location: '/',
       crumbLabel: this.state.pageName,
-      crumbs: breadcrumb.crumbs,
+      crumbs: [],
     })
   }
 
@@ -26,8 +26,13 @@ class Page extends React.Component {
           bodyClasses="header-fixed header-click-through"
         />
 
-        <div className="container container--small">
-          <h1>ERROR</h1>
+        <div id="hero" className="content-center size-medium">
+          <div className="container">
+            <div className="post-title">
+              <h1>404</h1>
+              <h2>Page was not found</h2>
+            </div>
+          </div>
         </div>
       </>
     )

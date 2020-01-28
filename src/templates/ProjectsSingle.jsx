@@ -81,7 +81,19 @@ export const query = graphql`
         title
         subtitle
         image {
-          ...FluidResponsiveSet
+          childImageSharp {
+            fluid(
+              maxWidth: 2100
+              traceSVG: {
+                color: "#272c36"
+                turnPolicy: TURNPOLICY_MAJORITY
+                blackOnWhite: true
+              }
+              srcSetBreakpoints: [576, 768, 992, 1200]
+            ) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
         }
         thumb {
           twitter: childImageSharp {

@@ -1,9 +1,9 @@
 const { getVersion } = require('../../utils/version')
 
-module.exports = ({ actions, plugins }) => {
+module.exports = async ({ actions, plugins }) => {
   const { setWebpackConfig } = actions
 
-  setWebpackConfig({
+  await setWebpackConfig({
     plugins: [
       plugins.define({
         'process.env': {

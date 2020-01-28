@@ -19,7 +19,10 @@ categories: [website]
 tags: [blog, website]
 ---
 
-Isabella Gensch is the best friend of Marvin and he is working on her website as
-often as he has time to push her career as a make up artist.
+Isabella is my best friend and of part of here career to be one of the best in makeup and
+hair I decided to create her a website for her birthday when she got 19. At the moment,
+the website is going to be updated by herself because she decided to present her different
+than before. I'm proud of the design 'cause it's pretty and clean. If anyone is interested
+in the source files I may provide them, when I will find the originals somewhere.
 
-![Isabellagensch](isabella.png)
+![View of her homepage](isabella.png)

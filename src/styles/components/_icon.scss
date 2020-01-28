@@ -20,7 +20,8 @@
   &.icon-text {
     width: auto;
     height: auto;
-    vertical-align: middle;
+    line-height: 1;
+    vertical-align: text-top;
   }
 
   svg {

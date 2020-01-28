@@ -10,13 +10,16 @@
 
   @include breakpoint-up(md) {
     grid-template-areas: 'image info';
-    grid-template-columns: 1fr 300px;
   }
 
   .info {
     grid-area: info;
-    margin-top: var(--spacing-xl);
-    margin-left: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+
+    @include breakpoint-up(md) {
+      margin-top: var(--spacing-xl);
+      margin-left: var(--spacing-md);
+    }
 
     h2 {
       margin-bottom: var(--spacing-sm);
@@ -32,8 +35,25 @@
     }
   }
 
-  .gatsby-image-wrapper {
+  .image {
     grid-area: image;
+  }
+
+  .gatsby-image-wrapper {
+    width: 100%;
+    max-height: 200px;
     border: 1px solid var(--border-color-light);
+
+    @include breakpoint-up(xs) {
+      max-height: 250px;
+    }
+
+    @include breakpoint-up(md) {
+      max-height: 350px;
+    }
+
+    @include breakpoint-up(xl) {
+      max-height: 500px;
+    }
   }
 }

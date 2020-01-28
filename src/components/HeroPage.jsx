@@ -1,7 +1,7 @@
 import React from 'react'
 
 const HeroPage = ({ title, subtitle }) => (
-  <div id="hero">
+  <div id="hero" className="size-small">
     <div className="container">
       <div className="post-title">
         <h1>{title}</h1>
