@@ -58,7 +58,7 @@ const Navigation = () => {
                     className="nav-link"
                   >
                     {name}
-                    <Icon name="link" textOnly={true} />
+                    <Icon name="arrow-top-right" />
                   </a>
                 ) : (
                   <Link to={link} className="nav-link" activeClassName="active">

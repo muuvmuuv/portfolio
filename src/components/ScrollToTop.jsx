@@ -45,7 +45,7 @@ export default class ScrollToTop extends React.Component {
         tabIndex="0"
         role="button"
       >
-        <Icon name="arrow-top" textOnly={true} />
+        <Icon name="arrow-top" />
       </div>
     )
   }

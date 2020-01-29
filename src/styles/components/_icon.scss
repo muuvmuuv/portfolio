@@ -2,13 +2,9 @@
   display: inline-block;
   width: var(--icon-size);
   height: var(--icon-size);
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 
-  --icon-size: 0px; // default is set in react component
-  --icon-color-light: var(--color-light);
+  --icon-size: 0.7em; // default is set in react component
+  --icon-color-light: currentColor;
   --icon-color-dark: var(--icon-color-light);
 
   &:hover {
@@ -21,7 +17,7 @@
     width: auto;
     height: auto;
     line-height: 1;
-    vertical-align: text-top;
+    vertical-align: middle;
   }
 
   svg {

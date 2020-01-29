@@ -49,6 +49,8 @@
       with mouse move
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
+- [ ] skip this messy shit with elements wrapped in container tags
+- [ ] create page transitions: https://github.com/react-spring/react-spring/issues/894
 - [x] writings no image => small hero
 - [x] put scss theme stuff in own mixin for compat.
 - [x] Add footer with: version, social-media, imprint, changelog, copyright notice
@@ -93,7 +95,7 @@
 - [ ] check all pages with reduced motion
 - [ ] check all pages with reduced transparency
 - [ ] remove source maps in production builds
-- [ ] add new theme switch design, current does not work properly with `mix-blend-mode`
+- [x] add new theme switch design, current does not work properly with `mix-blend-mode`
 - [x] PWA: add service worker for offline usage (`gatsby-plugin-offline`)
 - [x] ~~add tests?!~~
 - [x] ~~move from bash script to [Nim][2]~~

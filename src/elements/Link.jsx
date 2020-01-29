@@ -18,7 +18,7 @@ const Link = ({ href, children }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer nofollow">
       {children}
-      <Icon name="link" textOnly={true} />
+      <Icon name="arrow-top-right" />
     </a>
   )
 }

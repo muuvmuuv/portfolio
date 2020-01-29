@@ -1,8 +1,8 @@
 ---
 title: MIP
 subtitle: The interall employee web interface called MIP
-image: preview.jpg
-thumb: preview.jpg
+image: performance.jpg
+thumb: home.jpg
 
 status: finished
 started: 2019-02-12
@@ -19,3 +19,6 @@ about events for example.
 
 I have re-created the complete website in Wordpress and also added an API for the
 performance dashboard.
+
+![Shows the home page](home.jpg) ![Shows the performance page](performance.jpg)
+![Shows the blog page](blog.jpg) ![Shows a single blog post](single.jpg)

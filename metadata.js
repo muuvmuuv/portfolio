@@ -96,7 +96,7 @@ module.exports = {
     },
     {
       name: 'League of Legends',
-      icon: 'lol',
+      icon: 'league-of-legends',
       user: 'muuvmuuv',
       link: 'https://blitz.gg/lol/profile/euw1/muuvmuuv',
     },
