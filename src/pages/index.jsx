@@ -20,6 +20,7 @@ class Page extends React.Component {
       crumbs: breadcrumb.crumbs,
     })
   }
+
   render() {
     const { Img01, Img02, Img03 } = this.props.data
 
@@ -28,7 +29,7 @@ class Page extends React.Component {
         <Head
           pageTitle={null}
           pageName={this.state.pageName}
-          bodyClasses="header-fixed header-click-through"
+          bodyClasses="header-float header-click-through"
         />
 
         <h1 hidden>Marvin Heilemann</h1>
@@ -68,15 +69,30 @@ export default React.forwardRef((props, ref) => (
 ))
 
 export const query = graphql`
+  fragment FluidResponsiveFrag on File {
+    childImageSharp {
+      fluid(
+        maxWidth: 1200
+        traceSVG: {
+          color: "#272c36"
+          turnPolicy: TURNPOLICY_MAJORITY
+          blackOnWhite: true
+        }
+        srcSetBreakpoints: [576, 768, 992]
+      ) {
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+      }
+    }
+  }
   query ShowcaseImages {
     Img01: file(name: { eq: "01" }) {
-      ...FluidResponsiveSetMedium
+      ...FluidResponsiveFrag
     }
     Img02: file(name: { eq: "02" }) {
-      ...FluidResponsiveSetMedium
+      ...FluidResponsiveFrag
     }
     Img03: file(name: { eq: "03" }) {
-      ...FluidResponsiveSetMedium
+      ...FluidResponsiveFrag
     }
   }
 `

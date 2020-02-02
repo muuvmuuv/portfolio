@@ -1,12 +1,6 @@
 import React from 'react'
 
-import { ContainerSmall } from '../components/Container'
-
-const Table = (props) => (
-  <ContainerSmall>
-    <table {...props} />
-  </ContainerSmall>
-)
+const Table = (props) => <table {...props} />
 
 const TableRow = (props) => <tr {...props} />
 

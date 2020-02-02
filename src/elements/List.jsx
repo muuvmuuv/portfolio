@@ -1,18 +1,8 @@
 import React from 'react'
 
-import { ContainerSmall } from '../components/Container'
+const UnorderedList = (props) => <ul {...props} />
 
-const UnorderedList = (props) => (
-  <ContainerSmall>
-    <ul {...props} />
-  </ContainerSmall>
-)
-
-const OrderedList = (props) => (
-  <ContainerSmall>
-    <ol {...props} />
-  </ContainerSmall>
-)
+const OrderedList = (props) => <ol {...props} />
 
 const ListElement = (props) => <li {...props} />
 

@@ -1,153 +1,28 @@
 #theme-switch {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   overflow: hidden;
-  border: none;
+  transition: background 200ms ease-in-out;
+  border: 0;
   border-radius: 50%;
-  background: var(--switch-color-dark);
-  box-shadow: 0 1px 1px #{rgba($color-dark, 0.26)}, 0 3px 2px #{rgba($color-dark, 0.12)};
-  text-align: center;
+  background: var(--background-color-light);
   cursor: pointer;
 
-  --switch-color-light: #fff;
-  --switch-color-dark: #000;
+  &:hover {
+    opacity: 0.8;
+  }
 
-  &::before,
-  &::after {
-    content: '';
+  svg {
     position: absolute;
-    border-radius: 50%;
-  }
-
-  &::before {
-    top: 8px;
-    left: 8px;
-    width: 24px;
-    height: 24px;
-    transition: transform 500ms ease-out;
-    border: 2px solid var(--switch-color-light);
-    // TODO: as soon as linear-gradients support custom properties, replace the scss vars here
-    background-image: linear-gradient(
-      to right,
-      var(--switch-color-light) 50%,
-      var(--switch-color-dark) 50.01%
-    );
-  }
-
-  &::after {
-    top: 15px;
-    left: 15px;
-    width: 10px;
-    height: 10px;
-    background: var(--switch-color-light);
-
-    // BUG: chrome has issues with `mix-blend-mode`
-    mix-blend-mode: difference;
-  }
-
-  &.animating {
-    &[mode='dark'],
-    &[mode='light'] {
-      &::after {
-        animation: scaleInner 500ms ease forwards;
-      }
-    }
-
-    &[mode='auto'] {
-      &::before {
-        animation: moveBefore 300ms ease forwards;
-      }
-      &::after {
-        animation: moveAfter 300ms ease forwards;
-      }
-    }
-  }
-
-  &[mode='dark'] {
-    background: var(--switch-color-light);
-
-    &::before {
-      transform: rotate(180deg);
-      border: 2px solid var(--switch-color-dark);
-    }
-  }
-
-  &[mode='auto'] {
-    background: var(--switch-color-light);
-
-    &::before {
-      top: 12px;
-      left: 12px;
-      width: 21px;
-      height: 21px;
-      border-color: var(--switch-color-dark);
-      background: var(--switch-color-dark);
-    }
-
-    &::after {
-      content: 'A';
-      top: 7px;
-      left: 7px;
-      width: 22px;
-      height: 22px;
-      color: var(--switch-color-dark);
-      font-family: var(--font-sans);
-      font-size: 10px;
-      font-weight: var(--font-bold);
-      line-height: 27px;
-      text-indent: 5px;
-    }
-
-    // don't use `@include themeLight()` because this differs
-    &[theme='light'] {
-      background: var(--switch-color-dark);
-
-      &::before {
-        border-color: var(--switch-color-light);
-        background: var(--switch-color-light);
-      }
-    }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: var(--spacing-xs);
   }
 }
 
-@keyframes scaleInner {
-  50% {
-    transform: scale(1.8);
-  }
-}
-
-@keyframes moveBefore {
-  0% {
-    top: 15px;
-    left: 15px;
-  }
-  65% {
-    top: 9px;
-    left: 9px;
-  }
-  100% {
-    top: 12px;
-    left: 12px;
-  }
-}
-
-@keyframes moveAfter {
-  0% {
-    top: 3px;
-    left: 3px;
-    color: transparent;
-  }
-  40% {
-    color: transparent;
-  }
-  65% {
-    top: 9px;
-    left: 9px;
-  }
-  100% {
-    top: 7px;
-    left: 7px;
-    color: var(--switch-color-dark);
-  }
+.header-float #theme-switch {
+  background: var(--theme-switch-color-floated);
 }

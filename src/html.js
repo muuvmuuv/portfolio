@@ -27,7 +27,7 @@ export default function HTML(props) {
         {props.preBodyComponents}
         {/*TODO: Show beautiful message here*/}
         <noscript key="noscript" id="gatsby-noscript">
-          I mean... we have {thisYear}, please enable your JavaScript!
+          I mean... we have {thisYear}, please enable JavaScript!
         </noscript>
         <div
           key={`body`}

@@ -5,13 +5,6 @@
   .backdrop {
     &::after {
       background: transparent;
-      // BUG: #1
-      background-image: linear-gradient(
-        to top,
-        #1e252d,
-        cubic-bezier(0.66, 0, 0.41, 0.42),
-        transparent
-      );
       background-image: linear-gradient(
         0deg,
         rgba(30, 37, 45, 1),
@@ -28,6 +21,36 @@
         rgba(30, 37, 45, 0.14152) 86.9%,
         rgba(30, 37, 45, 0)
       );
+    }
+  }
+
+  &.size-small {
+    .container {
+      padding-top: 100px;
+      padding-bottom: var(--spacing-md);
+
+      @include breakpoint-up(sm) {
+        padding-top: 150px;
+      }
+
+      @include breakpoint-up(xl) {
+        padding-bottom: var(--spacing-md);
+      }
+    }
+  }
+
+  &.size-medium {
+    .container {
+      @include breakpoint-up(sm) {
+        padding-top: 170px;
+      }
+    }
+  }
+
+  &.content-center {
+    .container {
+      display: block;
+      text-align: center;
     }
   }
 
@@ -90,21 +113,6 @@
     .pre {
       font-weight: var(--font-bold);
       text-transform: uppercase;
-    }
-  }
-}
-
-.hero-small #hero {
-  .container {
-    padding-top: 100px;
-    padding-bottom: var(--spacing-md);
-
-    @include breakpoint-up(sm) {
-      padding-top: 120px;
-    }
-
-    @include breakpoint-up(xl) {
-      padding-bottom: var(--spacing-md);
     }
   }
 }

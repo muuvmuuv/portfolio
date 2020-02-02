@@ -1,12 +1,22 @@
 import React from 'react'
+import Code from '../components/Code'
 
-import { ContainerSmall } from '../components/Container'
+const PreformattedCode = (props) => {
+  const normalizeLanguage = (lang) => {
+    const lower = lang.toLowerCase()
+    return lower.replace('language-', '')
+  }
 
-const PreformattedCode = (props) => (
-  <ContainerSmall>
-    <pre {...props} />
-  </ContainerSmall>
-)
+  const {
+    children: {
+      props: { children, className },
+    },
+  } = props
+
+  const languageName = normalizeLanguage(className)
+
+  return <Code language={languageName}>{children}</Code>
+}
 
 const InlineCode = (props) => <code {...props} />
 

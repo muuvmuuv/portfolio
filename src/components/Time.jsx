@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 
 import DataType from './DataType'
 
-const Time = ({ date, format = 'L' }) => {
+const Time = ({ date, format = 'L', ...props }) => {
   if (!date) {
     return <DataType tooltip="Not set" type="null"></DataType>
   }
@@ -16,7 +16,11 @@ const Time = ({ date, format = 'L' }) => {
   const niceDate = parsedDate.format(format)
   const dateTime = parsedDate.format()
 
-  return <time dateTime={dateTime}>{niceDate}</time>
+  return (
+    <time dateTime={dateTime} {...props}>
+      {niceDate}
+    </time>
+  )
 }
 
 export default Time

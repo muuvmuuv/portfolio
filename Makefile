@@ -1,3 +1,7 @@
+include .env.build
+
+timestamp := $(shell date +%Y%m%d)
+
 up:
 	docker-compose up -d
 	printf "\n\e[1mServer is running at: \e[4mhttps://marvin.lcl/\e[0m\n"
@@ -16,9 +20,6 @@ stop:
 
 start:
 	docker-compose start
-
-logs:
-	docker logs marvin-nginx
 
 restart:
 	docker-compose restart nginx
@@ -40,7 +41,7 @@ create-env:
 	fi
 
 create-dirs:
-	mkdir -p reports
+	mkdir -p reports/latest
 	mkdir -p docker/nginx/certs
 
 setup: create-env create-dirs

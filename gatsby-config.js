@@ -35,7 +35,7 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
-    'gatsby-transformer-json',
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -58,6 +58,35 @@ module.exports = {
             },
           },
         },
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GCMS',
+        fieldName: 'gcms',
+        url: 'https://api-euwest.graphcms.com/v1/ck5xls94g1wlo01fl4vg1fvlt/master',
+        headers: {
+          Authorization: `Bearer ${process.env.GRAPH_CMS_PAT}`,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-files`,
+      options: {
+        name: `package`,
+        files: [`${__dirname}/CHANGELOG.md`, `${__dirname}/TODO.md`],
       },
     },
     {
@@ -117,28 +146,10 @@ module.exports = {
               rel: 'nofollow',
             },
           },
-          `remark-checkbox-spanner`,
-          {
-            // TODO: try to replace this in the future with MDX custom components/shortcodes
-            resolve: `remark-custom-classes`,
-            options: {
-              root: {
-                image: 'container',
-                heading: 'container container--small',
-                blockquote: 'container container--small',
-                thematicBreak: 'container container--small',
-                list: 'container container--small',
-                table: 'container container--small',
-                footnoteDefinition: 'container container--small',
-                paragraph: 'container container--small',
-              },
-              remark: {
-                images: 'container',
-                prismjs: 'container container--small',
-              },
-            },
-          },
           'gatsby-remark-check-links',
+          `remark-checkbox-spanner`,
+          // TODO: remove plugin `remark-custom-classes`
+          // `remark-prismjs`,
         ],
       },
     },
@@ -183,15 +194,7 @@ module.exports = {
       resolve: `gatsby-plugin-offline`,
       options: {
         appendScript: require.resolve(`./src/sw.js`),
-        precachePages: [
-          `/about/`,
-          `/imprint/`,
-          `/credits/`,
-          `/changelog/`,
-          `/projects/*`,
-          `/photography/*`,
-          `/writings/*`,
-        ],
+        precachePages: [`/about/`, `/imprint/`, `/credits/`, `/changelog/`],
       },
     },
     {

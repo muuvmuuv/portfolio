@@ -18,22 +18,4 @@ module.exports = [
       emojiConversion: 'shortnameToUnicode',
     },
   },
-  {
-    resolve: `gatsby-remark-prismjs`,
-    options: {
-      noInlineHighlight: true,
-      prompt: {
-        user: 'root',
-        host: 'localhost',
-        global: false,
-      },
-      // BUG: https://github.com/gatsbyjs/gatsby/issues/17997
-      // BUG: https://github.com/gatsbyjs/gatsby/issues/20642
-      // plugins: [
-      //   require.resolve(
-      //     'prismjs/plugins/show-invisibles/prism-show-invisibles'
-      //   ),
-      // ],
-    },
-  },
 ]

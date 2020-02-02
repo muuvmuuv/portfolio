@@ -4,8 +4,9 @@
  * @see https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const onCreateWebpackConfig = require('./gatsby/node/onCreateWebpackConfig')
-const onCreateNode = require('./gatsby/node/onCreateNode')
-const createPages = require('./gatsby/node/createPages')
-
-module.exports = { onCreateWebpackConfig, onCreateNode, createPages }
+module.exports.onCreateWebpackConfig = require('./gatsby/node/onCreateWebpackConfig')
+module.exports.onCreateNode = require('./gatsby/node/onCreateNode')
+module.exports.createPages = require('./gatsby/node/createPages')
+module.exports.sourceNodes = require('./gatsby/node/sourceNodes')
+// module.exports.createResolvers = require('./gatsby/node/createResolvers')
+// module.exports.createSchemaCustomization = require('./gatsby/node/createSchemaCustomization')

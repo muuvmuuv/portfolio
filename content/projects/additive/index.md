@@ -1,7 +1,7 @@
 ---
 title: ADDITIVE
 subtitle: Giving ADDITIVE a new face and modern interface
-image: additive-preview.jpg
+image: additive-03.png
 thumb: additive-preview.jpg
 
 status: finished
@@ -10,14 +10,17 @@ ended: 2019-01-10
 website: https://www.additive-net.de/
 team:
   - name: Sonja Emmel
-    link: null
+    link: https://www.xing.com/profile/Sonja_Emmel/cv
 
 categories: [website]
 tags: [business, website]
 ---
 
-The redesign and restructure of the ADDITIVE Website and some other internal
-projects like the shop is part of my work here.
+At ADDITIVE my first job was to completely redesign the homepage and try to essable a
+style guide. Sonja Emmel helped me a few times with the content and Joomla related parts
+but overall it is a product by me. Sadly, after some time the founder wanted to make major
+changes, that is the reason why the layout does not look that good as it was at the
+beginning, but that's how it goes sometimes.
 
-![ADDITIVE](additive-01.png) ![ADDITIVE](additive-02.png)
-![ADDITIVE](additive-03.png) ![ADDITIVE](additive-04.png)
+![ADDITIVE](additive-01.png) ![ADDITIVE](additive-02.png) ![ADDITIVE](additive-03.png)
+![ADDITIVE](additive-04.png)

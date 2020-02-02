@@ -5,15 +5,15 @@ version: "3.7"
 #
 services:
   nginx:
-    image: marvin:nginx
     build:
       context: ./docker/nginx
       args:
-        - version=1.17.4
-    container_name: marvin-nginx
+        - version=1.17.8
     ports:
       - "80:80"
       - "443:443"
+    networks:
+      frontend:
     volumes:
       - type: bind
         consistency: cached
@@ -24,9 +24,15 @@ services:
       - type: bind
         source: ./docker/nginx/certs/
         target: /etc/nginx/ssl/
-      # - type: bind
-      #   source: ./docker/nginx/components/
-      #   target: /etc/nginx/components/
-      # - type: bind
-      #   source: ./docker/nginx/conf.d/
-      #   target: /etc/nginx/conf.d/
+      - type: bind
+        source: ./docker/nginx/components/
+        target: /etc/nginx/components/
+      - type: bind
+        source: ./docker/nginx/conf.d/
+        target: /etc/nginx/conf.d/
+
+#
+# [ networks ]
+#
+networks:
+  frontend:

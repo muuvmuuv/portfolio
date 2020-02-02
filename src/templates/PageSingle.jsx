@@ -30,7 +30,7 @@ class Page extends React.Component {
         <Head
           pageTitle={title}
           pageName={this.state.pageName}
-          bodyClasses="page header-fixed hero-small"
+          bodyClasses="page header-float hero-small"
         />
 
         <HeroPage title={title} subtitle={subtitle} />

@@ -1,44 +1,18 @@
 import React from 'react'
 
-import { ContainerSmall } from '../components/Container'
-
 /* eslint-disable jsx-a11y/heading-has-content */
 
-const Headline1 = (props) => (
-  <ContainerSmall>
-    <h1 {...props} />
-  </ContainerSmall>
-)
+const Headline1 = (props) => <h1 {...props} />
 
-const Headline2 = (props) => (
-  <ContainerSmall>
-    <h2 {...props} />
-  </ContainerSmall>
-)
+const Headline2 = (props) => <h2 {...props} />
 
-const Headline3 = (props) => (
-  <ContainerSmall>
-    <h3 {...props} />
-  </ContainerSmall>
-)
+const Headline3 = (props) => <h3 {...props} />
 
-const Headline4 = (props) => (
-  <ContainerSmall>
-    <h4 {...props} />
-  </ContainerSmall>
-)
+const Headline4 = (props) => <h4 {...props} />
 
-const Headline5 = (props) => (
-  <ContainerSmall>
-    <h5 {...props} />
-  </ContainerSmall>
-)
+const Headline5 = (props) => <h5 {...props} />
 
-const Headline6 = (props) => (
-  <ContainerSmall>
-    <h6 {...props} />
-  </ContainerSmall>
-)
+const Headline6 = (props) => <h6 {...props} />
 
 /* eslint-enable */
 

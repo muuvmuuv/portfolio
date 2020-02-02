@@ -1,19 +1,27 @@
 @include themeLight() {
   &:root {
-    --background-color: var(--color-01);
+    --background-color-normal: var(--color-01); // white is too light
+    --background-color-light: var(--color-03);
+    --background-color-medium: var(--color-06);
+    --background-color-dark: var(--color-03);
 
     --text-color-normal: var(--color-dark);
-    --text-color-light: var(--color-02);
-    --text-color-richer: var(--color-05);
-    --text-color-dark: var(--color-07);
+    --text-color-light: var(--color-08);
+    --text-color-medium: var(--color-05);
+    --text-color-dark: var(--color-02);
     --text-color-highlight: var(--color-primary-dark);
 
     --border-color-normal: var(--color-dark);
     --border-color-light: var(--color-02);
-    --border-color-dark: var(--color-07);
 
     --divider-color: var(--color-02);
 
     --scroll-to-top-color: var(--color-08);
+
+    --nav-color-normal: var(--text-color-medium);
+    --nav-color-floated: var(--text-color-normal);
+
+    --theme-switch-color-normal: var(--text-color-medium);
+    --theme-switch-color-floated: var(--color-dark-80);
   }
 }

@@ -7,6 +7,7 @@ article {
     ul {
       margin-top: var(--spacing-xs);
       margin-bottom: 0;
+      margin-left: var(--spacing-md);
     }
 
     p {
@@ -15,7 +16,7 @@ article {
 
     li {
       position: relative;
-      padding-left: 23px;
+      padding-left: 22px;
 
       &:not(:last-child) {
         margin-bottom: var(--spacing-xs);

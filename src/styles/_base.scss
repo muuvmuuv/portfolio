@@ -1,10 +1,10 @@
 ::-moz-selection {
-  background-color: var(--c);
-  color: #fff;
+  background-color: var(--color-primary-light);
+  color: var(--color-dark);
 }
 
 ::selection {
-  background-color: #{rgba($color-primary, 0.8)};
+  background-color: var(--color-primary-light);
   color: var(--color-dark);
 }
 
@@ -14,7 +14,8 @@ html {
 }
 
 body {
-  background: var(--background-color);
+  overflow-x: hidden;
+  background: var(--background-color-normal);
   color: var(--text-color-normal);
   font-family: var(--font-sans);
   line-height: 1.5;
@@ -48,7 +49,7 @@ body {
 hr {
   margin-top: var(--content-margin);
   margin-bottom: var(--content-margin);
-  border-bottom: 1px solid var(--color-09);
+  border-bottom: 1px solid var(--border-color-normal);
 }
 
 time {

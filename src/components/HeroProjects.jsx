@@ -17,13 +17,13 @@ const HeroProjects = ({
   team,
   roles,
 }) => (
-  <div id="hero">
+  <header id="hero">
     <Backdrop img={backdrop} alt={title}></Backdrop>
 
     <div className="container container--medium">
       <div className="post-title">
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
+        <h1 itemProp="headline">{title}</h1>
+        <h2 itemProp="alternativeHeadline">{subtitle}</h2>
       </div>
       <div className="post-info">
         <ul>
@@ -31,7 +31,8 @@ const HeroProjects = ({
             <span className="pre">Status:</span> <Status state={status}></Status>
           </li>
           <li>
-            <span className="pre">Runtime:</span> <Time date={started}></Time> –{' '}
+            <span className="pre">Runtime:</span>{' '}
+            <Time date={started} itemProp="datePublished"></Time> –{' '}
             <Time date={ended}></Time>
           </li>
           <li>
@@ -74,7 +75,7 @@ const HeroProjects = ({
         </ul>
       </div>
     </div>
-  </div>
+  </header>
 )
 
 export default HeroProjects

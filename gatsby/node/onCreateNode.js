@@ -11,6 +11,13 @@ module.exports = async ({ node, getNode, actions }) => {
     const fileNode = getNode(node.parent)
     const source = fileNode.sourceInstanceName
 
+    if (isDev) {
+      console.log()
+      console.log(dim('Creating node'))
+      console.log(bold(fileNode.relativePath))
+      console.log(fileNode)
+    }
+
     let frontmatterDefault = {
       published: true,
       categories: [],
@@ -27,6 +34,8 @@ module.exports = async ({ node, getNode, actions }) => {
           roles: [],
         }
         break
+      case 'package':
+        return
     }
 
     node.frontmatter = { ...frontmatterDefault, ...node.frontmatter }
@@ -36,12 +45,7 @@ module.exports = async ({ node, getNode, actions }) => {
     }
 
     if (isDev) {
-      console.log()
-      console.log(dim('Creating node'))
-      console.log(bold(node.frontmatter.title))
-      console.log(fileNode)
       console.log(node.frontmatter)
-      console.log()
     }
 
     let slug = node.frontmatter.slug

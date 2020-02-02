@@ -19,6 +19,9 @@ categories: [website]
 tags: [parallax, scroll-experience, animated]
 ---
 
-**eyeCall** has been a project for a customer at **pooliestudios** in Cologne.
+**eyeCall** has been a project for a customer at **pooliestudios** in Cologne. Sadly the
+creators of this good idea has been changed and all of what I have done isn't really
+adopted. Please… just experience the screenshot and save your time by clicking on the
+website.
 
-![You see here...](eyecall-preview.png)
+![You see here, the magic of scrollitelling (telling a story while scrolling)](eyecall-preview.png)

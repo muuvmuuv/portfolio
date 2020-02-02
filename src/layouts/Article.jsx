@@ -79,15 +79,26 @@ class Article extends React.Component {
       </div>
     )
 
+    const props = {
+      id: 'article',
+      className: 'container container--small',
+      itemScope: '',
+      itemType: 'https://schema.org/Article',
+      itemRef: 'hero',
+    }
+
+    let children = this.props.children || false
+    let html = this.props.html || fallbackContent
+
     return (
       <>
-        {this.props.children ? (
-          <article id="article">{this.props.children}</article>
+        {children ? (
+          <article {...props}>{children}</article>
         ) : (
           <article
-            id="article"
+            {...props}
             dangerouslySetInnerHTML={{
-              __html: this.props.html || fallbackContent,
+              __html: html,
             }}
           />
         )}

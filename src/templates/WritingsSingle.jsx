@@ -23,7 +23,7 @@ class Page extends React.Component {
 
   render() {
     const {
-      markdownRemark: { frontmatter, html, excerpt, tableOfContents },
+      markdownRemark: { frontmatter, html, excerpt, tableOfContents, timeToRead },
     } = this.props.data
 
     console.log(tableOfContents)
@@ -34,22 +34,25 @@ class Page extends React.Component {
       attr.keywords = frontmatter.tags
     }
 
+    const image = frontmatter?.image?.childImageSharp?.fluid || null
+
     return (
       <>
         <Head
           pageTitle={frontmatter.title}
           pageName={this.state.pageName}
-          bodyClasses="single header-fixed"
+          bodyClasses="single header-float"
           siteDescription={excerpt}
           siteKeywords={frontmatter.tags}
         />
 
         <HeroWritings
           title={frontmatter.title}
-          backdrop={frontmatter.image.childImageSharp.fluid}
+          backdrop={image}
           time={frontmatter.created}
           lang={frontmatter.language}
           keywords={frontmatter.tags}
+          ttr={timeToRead}
         />
 
         <Article html={html} toc={tableOfContents} />
@@ -71,7 +74,19 @@ export const query = graphql`
         title
         description
         image {
-          ...FluidResponsiveSet
+          childImageSharp {
+            fluid(
+              maxWidth: 2100
+              traceSVG: {
+                color: "#272c36"
+                turnPolicy: TURNPOLICY_MAJORITY
+                blackOnWhite: true
+              }
+              srcSetBreakpoints: [576, 768, 992, 1200]
+            ) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
         }
         created
         language
@@ -83,6 +98,7 @@ export const query = graphql`
       html
       excerpt(format: PLAIN, pruneLength: 150, truncate: true)
       tableOfContents
+      timeToRead
     }
   }
 `
