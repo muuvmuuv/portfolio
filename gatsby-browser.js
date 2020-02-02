@@ -4,7 +4,7 @@
  * @see https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-const { isProd, isDev } = require('./utils/environment')
+const { isDev } = require('./utils/environment')
 const { getLocale, getLanguage } = require('./src/utils/locale')
 
 const printCorporateMessage = require('./gatsby/browser/corporateMessage')
