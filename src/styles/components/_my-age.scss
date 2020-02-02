@@ -1,0 +1,8 @@
+.my-age {
+  &::after {
+    width: 210px;
+    height: auto;
+    text-align: left;
+    white-space: normal !important;
+  }
+}

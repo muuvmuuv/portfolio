@@ -8,3 +8,21 @@ button {
     display: inline-block;
   }
 }
+
+.btn {
+  display: inline-block;
+  position: relative;
+  padding: 10px 18px;
+  transition: color 200ms ease-in-out;
+  color: var(--text-color-normal);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  @include border-left-right();
+
+  &:hover {
+    color: var(--text-color-richer);
+  }
+}

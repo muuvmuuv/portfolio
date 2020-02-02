@@ -22,7 +22,7 @@
     }
 
     h2 {
-      margin-bottom: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
       color: var(--text-color-highlight);
       font-family: var(--font-serif);
       font-size: var(--text-xl);
@@ -30,8 +30,9 @@
     }
 
     h3 {
-      margin-bottom: var(--spacing-sm);
+      margin-bottom: var(--spacing-lg);
       color: var(--text-color-richer);
+      line-height: 1.4;
     }
   }
 
