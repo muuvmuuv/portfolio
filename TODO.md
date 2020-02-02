@@ -110,8 +110,7 @@
   - [ ] use better [color system][10]
 - [x] light theme
 - [ ] ~~Eventually new Font: [ZOOM-PRO][9]~~ (too expensive)
-- [ ] !!! use external CMS service for data instead of github !!!
-- [ ] open source the code 🤫 (requires above)
+- [x] open source the code 🤫 (requires above)
 
 [1]: https://www.gatsbyjs.org/packages/gatsby-plugin-preact/
 [2]: https://nim-lang.org/docs/tut1.html

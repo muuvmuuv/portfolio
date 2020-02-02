@@ -25,9 +25,7 @@ module.exports.onClientEntry = () => {
 }
 
 module.exports.onInitialClientRender = () => {
-  if (isProd) {
-    printCorporateMessage()
-  }
+  printCorporateMessage()
 }
 
 // exports.onRouteUpdate = ({ location }) => {
