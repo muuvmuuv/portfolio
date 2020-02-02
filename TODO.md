@@ -82,6 +82,9 @@
 - [x] Update current projects
   - [x] More text
   - [x] Update images
+- [ ] update transitions to use global custom props
+- [ ] include reduced motion and transparency everywhere
+- [ ] update theme colors with better naming for 4 different states
 - [ ] Upload some photos (best off's)
 - [ ] Setup SimpleAnalytics or something similar
 - [ ] show GitHub OSS with GitHub API on a separate page

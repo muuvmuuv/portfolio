@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { Location } from '@reach/router'
+import { stringSlugify } from '../utils/helper'
 
 const Head = ({
   siteTitle,
@@ -40,7 +41,7 @@ const Head = ({
         lang: language,
       }}
       bodyAttributes={{
-        page: pageName.toLowerCase(),
+        page: stringSlugify(pageName),
         class: bodyClasses,
       }}
       title={pageTitle}
