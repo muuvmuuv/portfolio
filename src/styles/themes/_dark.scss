@@ -1,18 +1,27 @@
 @include themeDark() {
   &:root {
-    --background-color: var(--color-dark);
+    --background-color-normal: var(--color-dark);
+    --background-color-light: var(--color-07);
+    --background-color-medium: var(--color-04);
+    --background-color-dark: var(--color-02);
 
     --text-color-normal: var(--color-light);
     --text-color-light: var(--color-03);
-    --text-color-richer: var(--color-05);
-    --text-color-dark: var(--color-07);
+    --text-color-medium: var(--color-05);
+    --text-color-dark: var(--color-08);
     --text-color-highlight: var(--color-primary);
 
-    --border-color-normal: var(--color-07);
+    --border-color-normal: var(--color-08);
     --border-color-light: var(--color-09);
 
     --divider-color: var(--color-09);
 
     --scroll-to-top-color: var(--color-04);
+
+    --nav-color-normal: var(--text-color-medium);
+    --nav-color-floated: var(--text-color-normal);
+
+    --theme-switch-color-normal: var(--text-color-medium);
+    --theme-switch-color-floated: var(--color-light-80);
   }
 }

@@ -16,7 +16,11 @@
   .logo {
     --logo-size: 80px;
     margin-bottom: var(--spacing-lg);
-    opacity: 0.05;
+    opacity: 0.4;
+
+    svg {
+      --logo-color: var(--background-color-dark);
+    }
   }
 
   .list {
@@ -29,27 +33,45 @@
 
     a {
       padding: var(--spacing-xs);
-      transition: opacity 260ms ease-in-out;
-
-      &:hover {
-        opacity: 0.8;
-      }
     }
   }
 
   .social a {
-    opacity: 0.5;
+    transition: opacity 220ms ease-in-out;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .links a,
+  .copyright {
+    color: var(--text-color-dark);
   }
 
   .links a {
-    opacity: 0.2;
+    transition: color 220ms ease-in-out;
+
+    &:hover {
+      color: var(--text-color-highlight);
+    }
   }
 
   .icon {
     --icon-size: 20px;
   }
+}
 
-  .copyright {
-    opacity: 0.2;
+@include themeLight() {
+  #footer {
+    .links a,
+    .copyright {
+      color: var(--text-color-richer);
+
+      &:hover {
+        color: var(--text-color-dark);
+      }
+    }
   }
 }

@@ -1,18 +1,18 @@
 const fs = require('fs')
+const path = require('path')
 const { createFileNode } = require('gatsby-source-filesystem/create-file-node')
 
-exports.sourceNodes = ({ actions, reporter, createNodeId }, pluginOptions) => {
+module.exports.sourceNodes = async (
+  { actions, reporter, createNodeId },
+  pluginOptions
+) => {
   const { createNode } = actions
 
-  const createAndProcessNode = (path) => {
-    const fileNodePromise = createFileNode(path, createNodeId, pluginOptions).then(
-      (fileNode) => {
-        fileNode.internal.type = 'SingleFile'
-        createNode(fileNode)
-        return null
-      }
-    )
-    return fileNodePromise
+  const createAndProcessNode = async (filepath) => {
+    pluginOptions.path = path.dirname(filepath)
+    const fileNode = await createFileNode(filepath, createNodeId, pluginOptions)
+    fileNode.internal.type = 'SingleFile'
+    createNode(fileNode)
   }
 
   if (!pluginOptions.files) {

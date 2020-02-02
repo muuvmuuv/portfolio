@@ -20,7 +20,6 @@ const HideContent = ({ text }) => {
       onClick={decryptContent}
       aria-label="Click to reveal"
       data-position="top"
-      role="log"
       style={{
         cursor: 'default',
         userSelect: 'all',

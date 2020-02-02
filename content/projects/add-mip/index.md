@@ -21,4 +21,4 @@ I have re-created the complete website in Wordpress and also added an API for th
 performance dashboard.
 
 ![Shows the home page](home.jpg) ![Shows the performance page](performance.jpg)
-![Shows the blog page](blog.jpg) ![Shows a single blog post](single.jpg)
+![Shows the blog page](blog.jpg) ![Shows a single blog post](single.png)

@@ -29,7 +29,7 @@ class Page extends React.Component {
         <Head
           pageTitle={null}
           pageName={this.state.pageName}
-          bodyClasses="header-fixed header-click-through"
+          bodyClasses="header-float header-click-through"
         />
 
         <h1 hidden>Marvin Heilemann</h1>

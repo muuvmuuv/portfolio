@@ -42,14 +42,15 @@
 - [x] update mobile navigation
 - [x] add scroll to top
 - [x] check description, keywords and title on all pages
-- [ ] add md table of contents
+- [ ] add md table of contents (for whatever reason, this is not working...)
 - [x] use [auto-changelog](https://github.com/CookPete/auto-changelog) for the changelog
       page
 - [ ] image opening on big vertical images is broken, add max height and width + scrolling
       with mouse move
+  - [ ] optimize image container to be bigger than the rest of the content (-margin?)
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
-- [ ] skip this messy shit with elements wrapped in container tags
+- [x] skip this messy shit with elements wrapped in container tags
 - [ ] create page transitions: https://github.com/react-spring/react-spring/issues/894
 - [x] writings no image => small hero
 - [x] put scss theme stuff in own mixin for compat.
@@ -78,23 +79,23 @@
 - [x] Upload all writings
   - [x] Grammatical corrections
   - [x] ~~Find images on Unsplash~~
-- [ ] Update current projects
+- [x] Update current projects
   - [x] More text
   - [x] Update images
 - [ ] Upload some photos (best off's)
 - [ ] Setup SimpleAnalytics or something similar
 - [ ] show GitHub OSS with GitHub API on a separate page
 - [ ] display `</Coding>` stuff somewhere or let it imported by browser XML export
-- [ ] upload all content to GraphCMS
+- [ ] upload all content to GraphCMS (?)
 - [x] check pages with Firefox Axe
 - [ ] setup danger and make sure
   - [ ] version is increased before commit/push
   - [ ] no push if no audit for current version
-  - [ ] note about linting
+  - [ ] note about linting or run linter before commit
 - [ ] check all pages with screen reader
 - [ ] check all pages with reduced motion
 - [ ] check all pages with reduced transparency
-- [ ] remove source maps in production builds
+- [x] remove source maps in production builds (not possible but ok)
 - [x] add new theme switch design, current does not work properly with `mix-blend-mode`
 - [x] PWA: add service worker for offline usage (`gatsby-plugin-offline`)
 - [x] ~~add tests?!~~

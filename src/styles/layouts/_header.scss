@@ -1,6 +1,6 @@
 #header {
   display: grid;
-  position: absolute;
+  position: relative;
   z-index: 10;
   top: 0;
   grid-template-areas: 'logo breadcrumb nav theme';
@@ -40,6 +40,10 @@
     grid-area: theme;
     margin-left: var(--spacing-xs);
   }
+}
+
+.header-float #header {
+  position: absolute;
 }
 
 .header-click-through #header {

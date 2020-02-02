@@ -1,11 +1,5 @@
 import React from 'react'
 
-import { ContainerSmall } from '../components/Container'
-
-const Paragraph = (props) => (
-  <ContainerSmall>
-    <p {...props} />
-  </ContainerSmall>
-)
+const Paragraph = (props) => <p {...props} />
 
 export { Paragraph }

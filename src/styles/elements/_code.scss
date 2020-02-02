@@ -1,3 +1,5 @@
+/* inline code */
+
 p code {
   margin: 0 2px;
   padding: 2px 7px;
@@ -8,220 +10,88 @@ p code {
   font-size: var(--text-sm);
 }
 
-.gatsby-highlight {
-  margin-bottom: var(--content-margin);
-}
+/* highlight code block */
 
-code[class*='language-'],
-pre[class*='language-'] {
+.prism-code {
+  display: grid;
   position: relative;
-  margin: 0;
-  color: #efd563;
+  grid-template-areas: 'numbers code';
+  grid-template-columns: auto 1fr;
+  margin-bottom: var(--content-margin);
+  background: var(--color-10);
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   line-height: 1.6;
   word-wrap: normal;
   white-space: pre;
-  white-space: pre-wrap;
-  hyphens: none;
-  tab-size: 2;
-}
-
-pre > code[class*='language-'] {
-  font-size: 1em;
-}
-
-pre[class*='language-'],
-:not(pre) > code[class*='language-'] {
-  display: grid;
-  grid-template-areas: 'side code';
-  grid-template-columns: auto 1fr;
-  background: var(--color-dark);
-}
-
-pre[class*='language-'] {
-  position: relative;
 
   code {
-    display: block;
     grid-area: code;
     padding: var(--spacing-sm);
     border: 1px solid var(--color-08);
-    white-space: pre;
   }
-}
 
-// ++++++++++ code hightlight +++++++++++
+  .highlight-line,
+  .line-numbers {
+    position: relative;
+    z-index: 0;
+  }
 
-.gatsby-highlight-code-line {
-  display: block;
-  position: relative;
-  z-index: 0;
+  .highlight-line {
+    display: block;
 
-  &::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    width: calc(100% + 26px);
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: calc(100% + 24px);
+      height: 100%;
+      margin-left: -12px;
+      background: var(--color-09);
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  .line-numbers {
+    grid-area: numbers;
+    width: 30px;
     height: 100%;
-    margin-left: -13px;
-    border-left: 1px solid var(--color-primary);
-    background-color: #{rgba(lighten($color-dark, 20%), 0.2)};
+    padding: var(--spacing-sm) 0;
+    border: 1px solid var(--color-08);
+    border-right: 0;
+    color: var(--color-07);
+    text-align: center;
     pointer-events: none;
     user-select: none;
+
+    .highlight-line::before {
+      width: calc(100% + 1px);
+      border-left: 1px solid var(--color-primary);
+    }
   }
-}
 
-.line-numbers .gatsby-highlight-code-line::before {
-  width: calc(100% + 64px);
-  margin-left: -52px;
-}
+  .action-bar {
+    display: flex;
+    position: absolute;
+    right: 1px;
+    align-items: center;
+    background: var(--color-09);
+    user-select: none;
 
-// ++++++++++ line numbers +++++++++++
+    button,
+    .label {
+      padding: 4px 8px;
+      border: 1px solid var(--color-08);
+      border-right: 0;
+    }
 
-pre[class*='language-'].line-numbers {
-  counter-reset: linenumber;
-}
+    button {
+      background: transparent;
 
-pre[class*='language-'].line-numbers > code {
-  position: relative;
-  white-space: inherit;
-}
-
-.line-numbers .line-numbers-rows {
-  top: 0;
-  grid-area: side;
-  height: 100%;
-  padding: var(--spacing-sm) 0;
-  border: 1px solid var(--color-08);
-  border-right: 0;
-  pointer-events: none;
-  user-select: none;
-}
-
-.line-numbers-rows > span {
-  display: block;
-  counter-increment: linenumber;
-  pointer-events: none;
-}
-
-.line-numbers-rows > span:before {
-  content: counter(linenumber);
-  display: block;
-  padding: 0 var(--spacing-sm);
-  color: var(--color-07);
-  text-align: right;
-}
-
-// ++++++++++ command line prompt +++++++++++
-
-.command-line-prompt {
-  display: block;
-  margin-right: 1em;
-  float: left;
-  border-right: 1px solid var(--color-08);
-  font-size: 100%;
-  letter-spacing: -1px;
-  pointer-events: none;
-  user-select: none;
-}
-
-.command-line-prompt > span:before {
-  content: ' ';
-  display: block;
-  padding-right: 0.8em;
-  color: var(--color-06);
-}
-
-.command-line-prompt > span[data-user]:before {
-  content: '[' attr(data-user) '@' attr(data-host) '] $';
-}
-
-.command-line-prompt > span[data-user='root']:before {
-  content: '[' attr(data-user) '@' attr(data-host) '] #';
-}
-
-.command-line-prompt > span[data-prompt]:before {
-  content: attr(data-prompt);
-}
-
-// ++++++++++ tokenization +++++++++++
-
-.token.namespace {
-  opacity: 0.7;
-}
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #6f705e;
-}
-.token.operator,
-.token.boolean,
-.token.number {
-  color: var(--color-05);
-}
-.token.function {
-  color: #1ab3da;
-}
-.token.attr-name,
-.token.string,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: #78d888;
-}
-.token.selector,
-.token.inserted {
-  color: #a6e22d;
-}
-.token.atrule,
-.token.attr-value,
-.token.keyword,
-.token.important,
-.token.deleted {
-  color: #ff3b83;
-}
-.token.regex,
-.token.statement {
-  color: #76d9e6;
-}
-.token.placeholder,
-.token.variable {
-  color: var(--color-05);
-}
-.token.important,
-.token.statement,
-.token.bold {
-  font-weight: var(--font-bold);
-}
-.token.punctuation {
-  color: var(--color-05);
-}
-.token.entity {
-  cursor: help;
-}
-.token.italic {
-  font-style: italic;
-}
-
-code.language-markup {
-  color: #f9f9f9;
-}
-code.language-markup .token.tag {
-  color: #ef3b7d;
-}
-code.language-markup .token.attr-name {
-  color: #a6e22d;
-}
-code.language-markup .token.attr-value {
-  color: #e6d06c;
-}
-code.language-markup .token.style,
-code.language-markup .token.script {
-  color: #76d9e6;
-}
-code.language-markup .token.script .token.keyword {
-  color: #76d9e6;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
 }

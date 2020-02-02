@@ -1,4 +1,4 @@
-include .env
+include .env.build
 
 timestamp := $(shell date +%Y%m%d)
 
@@ -35,9 +35,9 @@ newcert:
 # Setup
 
 create-env:
-	if test -f .env; \
+	if test -f .env.build; \
 	then echo Environment file already exist, exiting...; exit 0; \
-	else cp .env.tmpl .env; echo Created environment file; \
+	else cp .env.tmpl .env.build; echo Created environment file; \
 	fi
 
 create-dirs:

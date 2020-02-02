@@ -1,14 +1,4 @@
-$font-path: '/fonts' !default;
-$font-display: swap !default;
-
-$color-primary: #00e2a1;
-$color-dark: #1f242e;
-$color-light: #ffffff;
-
 :root {
-  --container-padding-x: var(--spacing-lg);
-  --content-margin: var(--spacing-xl);
-
   --font-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji';
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Roboto, Arial,
@@ -44,21 +34,21 @@ $color-light: #ffffff;
   --spacing-xl: 2rem;
   --spacing-xxl: 3rem;
 
-  --color-primary: #{$color-primary};
-  --color-primary-light: #{lighten($color-primary, 30%)};
-  --color-primary-dark: #{darken($color-primary, 10%)};
+  --color-primary: hsl(160, 100%, 42%);
+  --color-primary-light: hsl(160, 100%, 46%);
+  --color-primary-dark: hsl(160, 100%, 36%);
 
   --color-light: #ffffff;
-  --color-light-80: #{rgba(#ffffff, 0.8)};
-  --color-light-60: #{rgba(#ffffff, 0.6)};
-  --color-light-40: #{rgba(#ffffff, 0.4)};
-  --color-light-20: #{rgba(#ffffff, 0.2)};
+  --color-light-80: rgba(255, 255, 255, 0.8);
+  --color-light-60: rgba(255, 255, 255, 0.6);
+  --color-light-40: rgba(255, 255, 255, 0.4);
+  --color-light-20: rgba(255, 255, 255, 0.2);
 
-  --color-dark: #{$color-dark};
-  --color-dark-80: #{rgba($color-dark, 0.8)};
-  --color-dark-60: #{rgba($color-dark, 0.6)};
-  --color-dark-40: #{rgba($color-dark, 0.4)};
-  --color-dark-20: #{rgba($color-dark, 0.2)};
+  --color-dark: rgb(31, 36, 46);
+  --color-dark-80: rgba(31, 36, 46, 0.8);
+  --color-dark-60: rgba(31, 36, 46, 0.6);
+  --color-dark-40: rgba(31, 36, 46, 0.4);
+  --color-dark-20: rgba(31, 36, 46, 0.2);
 
   --color-10: #262b36;
   --color-09: #313845;
@@ -71,31 +61,37 @@ $color-light: #ffffff;
   --color-02: #f3f5fa;
   --color-01: #fafcff;
 
-  --color-orange: #ffbf00;
-  --color-orange-20: #{rgba(#ffbf00, 0.2)};
-  --color-red: #ff0000;
-  --color-red-20: #{rgba(#ff0000, 0.2)};
-  --color-blue: #31cdff;
-  --color-blue-20: #{rgba(#31cdff, 0.2)};
-  --color-green: #38fc73;
-  --color-green-20: #{rgba(#38fc73, 0.2)};
+  --color-orange: rgb(255, 191, 0);
+  --color-orange-20: rgba(255, 191, 0, 0.2);
+  --color-red: rgb(255, 0, 0);
+  --color-red-20: rgba(255, 0, 0, 0.2);
+  --color-blue: rgb(49, 205, 255);
+  --color-blue-20: rgba(49, 205, 255, 0.2);
+  --color-green: rgb(56, 252, 115);
+  --color-green-20: rgba(56, 252, 115, 0.2);
 
+  // TODO: use transition variables again
   --transition-fast: 0.2s cubic-bezier(0.57, 0.39, 0.39, 0.57);
   --transition-slow: 0.4s cubic-bezier(0.57, 0.39, 0.39, 0.57);
 
+  // TODO: use border radius variables
   --border-radius-sm: 0.2rem;
   --border-radius: 0.3rem;
   --border-radius-lg: 0.5rem;
   --border-radius-full: 100%;
   --border-radius-pill: 9999px;
 
+  // TODO: use shadow variables again
   // https://tobiasahlin.com/blog/layered-smooth-box-shadows/
-  --shadow-md: 0 1px 1px #{rgba($color-dark, 0.15)}, 0 2px 2px #{rgba($color-dark, 0.15)},
-    0 4px 4px #{rgba($color-dark, 0.15)}, 0 8px 8px #{rgba($color-dark, 0.15)};
-  --shadow-lg: 0 1px 1px #{rgba($color-dark, 0.11)}, 0 2px 2px #{rgba($color-dark, 0.11)},
-    0 4px 4px #{rgba($color-dark, 0.11)}, 0 8px 8px #{rgba($color-dark, 0.11)},
-    0 16px 16px #{rgba($color-dark, 0.11)}, 0 32px 32px #{rgba($color-dark, 0.11)};
-  --shadow-xl: 0 1px 2px #{rgba($color-dark, 0.07)}, 0 2px 4px #{rgba($color-dark, 0.07)},
-    0 4px 8px #{rgba($color-dark, 0.07)}, 0 8px 16px #{rgba($color-dark, 0.07)},
-    0 16px 32px #{rgba($color-dark, 0.07)}, 0 32px 64px #{rgba($color-dark, 0.07)};
+  --shadow-md: 0 1px 1px rgba(31, 36, 46, 0.15), 0 2px 2px rgba(31, 36, 46, 0.15),
+    0 4px 4px rgba(31, 36, 46, 0.15), 0 8px 8px rgba(31, 36, 46, 0.15);
+  --shadow-lg: 0 1px 1px rgba(31, 36, 46, 0.11), 0 2px 2px rgba(31, 36, 46, 0.11),
+    0 4px 4px rgba(31, 36, 46, 0.11), 0 8px 8px rgba(31, 36, 46, 0.11),
+    0 16px 16px rgba(31, 36, 46, 0.11), 0 32px 32px rgba(31, 36, 46, 0.11);
+  --shadow-xl: 0 1px 2px rgba(31, 36, 46, 0.07), 0 2px 4px rgba(31, 36, 46, 0.07),
+    0 4px 8px rgba(31, 36, 46, 0.07), 0 8px 16px rgba(31, 36, 46, 0.07),
+    0 16px 32px rgba(31, 36, 46, 0.07), 0 32px 64px rgba(31, 36, 46, 0.07);
+
+  --container-padding-x: var(--spacing-lg);
+  --content-margin: var(--spacing-xl);
 }

@@ -45,7 +45,7 @@ class Page extends React.Component {
         <Head
           pageTitle={frontmatter.title}
           pageName={this.state.pageName}
-          bodyClasses="single header-fixed"
+          bodyClasses="single header-float"
           siteDescription={frontmatter.subtitle}
           siteKeywords={frontmatter.tags}
         />

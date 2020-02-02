@@ -3,7 +3,7 @@
   width: var(--icon-size);
   height: var(--icon-size);
 
-  --icon-size: 0.7em; // default is set in react component
+  --icon-size: 0.7em;
   --icon-color-light: currentColor;
   --icon-color-dark: var(--icon-color-light);
 
@@ -45,7 +45,7 @@
   &[name='discord'] {
     --icon-color-light: #718cda;
   }
-  &[name='lol'] {
+  &[name='league-of-legends'] {
     --icon-color-light: #947341;
   }
 }

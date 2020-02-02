@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import moment from 'moment'
 
 /**
  * Update current location hash.
@@ -93,30 +94,28 @@ export function s(n = 1) {
 }
 
 /**
- * Calculate the age of a person by it's birthday.
+ * Get elapsed time of a date.
  *
- * @param {string} birthday iso string of persons birthday
+ * @param {string} start iso date string
+ * @param {string} end iso date string
  *
- * @returns {number} the age
+ * @returns {object} object containing all time relevant information
  */
-export function calculateAge(birthday) {
-  const now = dayjs()
-  const then = dayjs(birthday)
+export function getElapsedTime(start, end = new Date()) {
+  // TODO: replace with https://github.com/iamkun/dayjs/issues/564
+  start = new moment(start)
+  end = new moment(end)
 
-  if (!then.isValid()) {
-    console.error(`${birthday} is not a valid iso date string`)
-    return -1
+  const duration = moment.duration(end.diff(start))
+
+  const out = {
+    years: duration.years(),
+    months: duration.months(),
+    days: duration.days(),
+    hours: duration.hours(),
+    minutes: duration.minutes(),
+    seconds: duration.seconds(),
   }
 
-  let age = now.get('year') - then.get('year')
-
-  if (now.get('month') < then.get('month') - 1) {
-    --age
-  }
-
-  if (then.get('month') - 1 === now.get('month') && now.get('day') < then.get('day')) {
-    --age
-  }
-
-  return age
+  return out
 }

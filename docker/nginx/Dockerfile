@@ -8,7 +8,7 @@ ARG modules_dir="/usr/lib/nginx/modules"
 # Install brotli from source
 # ----------------------------
 
-FROM debian:latest AS builder
+FROM debian:10.2 AS builder
 
 ARG version
 ARG build_dir

@@ -51,8 +51,8 @@
 
     .nav-link {
       margin-left: var(--spacing-lg);
-      transition: color 240ms ease-in-out;
-      color: var(--text-color-richer);
+      transition: color 240ms ease-in-out, opacity 240ms ease-in-out;
+      color: var(--text-color-medium);
 
       &:hover,
       &.active {
@@ -265,6 +265,19 @@
       .hli3::after {
         transition-duration: 0s;
       }
+    }
+  }
+}
+
+.header-float #navigation {
+  .nav-link {
+    opacity: 0.7;
+    color: var(--text-color-normal);
+
+    &:hover,
+    &.active {
+      opacity: 1;
+      color: var(--text-color-normal);
     }
   }
 }

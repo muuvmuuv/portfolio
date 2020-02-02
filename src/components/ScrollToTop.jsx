@@ -39,6 +39,7 @@ export default class ScrollToTop extends React.Component {
   render() {
     return (
       <div
+        aria-label="Scroll back to top"
         className={`scroll-to-top ${this.state.visible ? 'show' : 'hide'}`}
         onKeyPress={this.scrollToTop}
         onClick={this.scrollToTop}

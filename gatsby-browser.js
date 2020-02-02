@@ -7,15 +7,13 @@
 const { isProd, isDev } = require('./utils/environment')
 const { getLocale, getLanguage } = require('./src/utils/locale')
 
-// const wrapPageElement = require('./gatsby/wrapPageElement')
-const wrapRootElement = require('./gatsby/wrapRootElement')
 const printCorporateMessage = require('./gatsby/browser/corporateMessage')
 const setDefaultTime = require('./gatsby/browser/defaultTime')
 
 require('./src/styles/app.scss')
 
-// module.exports.wrapPageElement = wrapPageElement
-module.exports.wrapRootElement = wrapRootElement
+// module.exports.wrapPageElement = require('./gatsby/wrapPageElement')
+module.exports.wrapRootElement = require('./gatsby/wrapRootElement')
 
 module.exports.onClientEntry = () => {
   setDefaultTime()

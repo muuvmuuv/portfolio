@@ -6,13 +6,13 @@ const Language = ({ code }) => {
   switch (code) {
     case 'de':
       return (
-        <span className="lang" aria-label="German" role="img">
+        <span className="lang" aria-label="German" role="img" inLanguage="de-DE">
           🇩🇪
         </span>
       )
     case 'en':
       return (
-        <span className="lang" aria-label="English" role="img">
+        <span className="lang" aria-label="English" role="img" inLanguage="en-GB">
           🇬🇧
         </span>
       )

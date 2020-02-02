@@ -4,19 +4,32 @@ import normalizeUrl from 'normalize-url'
 import Icon from '../components/Icon'
 
 const Link = ({ href, children }) => {
-  href = normalizeUrl(href, {
-    normalizeProtocol: true,
-    stripAuthentication: true,
-    forceHttps: true,
-    stripHash: false,
-    stripProtocol: false,
-    stripWWW: false,
-    removeTrailingSlash: true,
-    removeDirectoryIndex: true,
-  })
+  const isInternal = href[0] === '/'
 
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer nofollow">
+  if (!isInternal) {
+    href = normalizeUrl(href, {
+      normalizeProtocol: true,
+      stripAuthentication: true,
+      forceHttps: true,
+      stripHash: false,
+      stripProtocol: false,
+      stripWWW: false,
+      removeTrailingSlash: true,
+      removeDirectoryIndex: true,
+    })
+  }
+
+  return isInternal ? (
+    <a href={href} title={`Open link to ${href}`}>
+      {children}
+    </a>
+  ) : (
+    <a
+      href={href}
+      title={`Open link to ${href}`}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+    >
       {children}
       <Icon name="arrow-top-right" />
     </a>

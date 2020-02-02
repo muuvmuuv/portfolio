@@ -5,7 +5,7 @@ const { isProd, isDev } = require('../../utils/environment')
 const { stringSlugify } = require('../../utils/helper')
 
 module.exports = async ({ node, getNode, actions }) => {
-  const { createNodeField, createNode } = actions
+  const { createNodeField } = actions
 
   if (node.internal.type === 'MarkdownRemark') {
     const fileNode = getNode(node.parent)
