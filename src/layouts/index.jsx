@@ -16,7 +16,9 @@ export default ({ children }) => {
       <Helmet htmlAttributes={{ theme }} />
       <Header></Header>
       <MDXProvider components={mdxElements}>
-        <main role="main">{children}</main>
+        <main role="main" id="main">
+          {children}
+        </main>
       </MDXProvider>
       <Footer></Footer>
       <ScrollToTop />

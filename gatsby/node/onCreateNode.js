@@ -1,4 +1,4 @@
-const { bold, dim } = require('kleur')
+const { red, bold, dim } = require('kleur')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const { isProd, isDev } = require('../../utils/environment')
@@ -8,10 +8,6 @@ module.exports = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if ([`MarkdownRemark`, `Mdx`].includes(node.internal.type)) {
-    if (node.frontmatter.published === false && isProd) {
-      return // skip this unpublished stuff only in production
-    }
-
     const fileNode = getNode(node.parent)
     const source = fileNode.sourceInstanceName
 
@@ -21,6 +17,11 @@ module.exports = async ({ node, getNode, actions }) => {
       console.log(bold(fileNode.relativePath))
       console.log(node.frontmatter)
       console.log(fileNode)
+    }
+
+    if (node.frontmatter.published === false && isProd) {
+      console.log(red('SKIPPING'))
+      return // skip this unpublished stuff only in production
     }
 
     let slug = node.frontmatter.slug || undefined

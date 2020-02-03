@@ -65,4 +65,18 @@ article {
       }
     }
   }
+
+  .task-list-item {
+    .custom-checkbox {
+      top: 5px;
+      --checkbox-size: 14px;
+
+      &::after {
+        top: 2px;
+        left: 1px;
+        width: 10px;
+        height: 6px;
+      }
+    }
+  }
 }

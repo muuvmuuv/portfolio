@@ -3,24 +3,26 @@ import React from 'react'
 import normalizeUrl from 'normalize-url'
 import Icon from '../components/Icon'
 
-const Link = ({ href, children }) => {
+const Link = (props) => {
+  const { href, children, ...restProps } = props
+
   const isAnchor = href[0] === '#'
   const isInternal = href[0] === '/'
 
   if (isAnchor) {
     return (
-      <a href={href} title={`Anchor to ${href}`}>
+      <a href={href} title={`Anchor to ${href}`} {...restProps}>
         {children}
       </a>
     )
   } else if (isInternal) {
     return (
-      <a href={href} title={`Open link to ${href}`}>
+      <a href={href} title={`Open link to ${href}`} {...restProps}>
         {children}
       </a>
     )
   } else {
-    href = normalizeUrl(href, {
+    const normalizedHref = normalizeUrl(href, {
       normalizeProtocol: true,
       stripAuthentication: true,
       forceHttps: true,
@@ -33,10 +35,11 @@ const Link = ({ href, children }) => {
 
     return (
       <a
-        href={href}
+        href={normalizedHref}
         title={`Open link to ${href}`}
         target="_blank"
         rel="noopener noreferrer nofollow"
+        {...restProps}
       >
         {children}
         <Icon name="arrow-top-right" />

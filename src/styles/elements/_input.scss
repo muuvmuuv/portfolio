@@ -1,46 +1,27 @@
-:root {
-  --checkbox-size: var(--spacing-lg);
-}
+input[type='checkbox'] {
+  display: none;
 
-[type='checkbox'] {
-  position: absolute;
-  z-index: 1;
-  width: var(--checkbox-size);
-  height: var(--checkbox-size);
-  margin: 0;
-  border: 0;
-  cursor: pointer;
-  appearance: none;
-
-  & + span {
+  + .custom-checkbox {
     display: block;
-    position: relative;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    transition: var(--transition-fast);
+    border: 1px solid var(--color-08);
+    background: var(--color-background);
+    cursor: pointer;
+    user-select: none;
 
-    &::before,
-    &::after {
-      position: absolute;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    &::before {
-      content: '';
-      display: inline-block;
-      top: 4px;
-      left: 0;
-      width: 16px;
-      height: 16px;
-      margin-right: var(--spacing-sm);
-      transition: var(--transition-fast);
-      border: 1px solid var(--color-08);
-      background: var(--color-background);
-    }
+    --checkbox-size: 24px;
 
     &::after {
       content: '';
       display: none;
-      top: 8px;
-      left: 3px;
+      position: absolute;
+      top: 3px;
+      left: 2px;
       width: 10px;
       height: 6px;
       transform: rotate(-45deg);
@@ -49,11 +30,9 @@
     }
   }
 
-  &:checked + span {
-    &::before {
-      border-color: var(--color-primary);
-      background: var(--color-primary);
-    }
+  &:checked + .custom-checkbox {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
 
     &::after {
       display: block;
@@ -63,30 +42,14 @@
   &:disabled {
     cursor: not-allowed;
 
-    + span {
-      &::before,
-      &::after {
-        cursor: not-allowed;
-      }
-
-      &::before {
-        border-color: var(--color-09);
-      }
+    + .custom-checkbox {
+      border-color: var(--color-09);
+      cursor: not-allowed;
     }
 
-    &:checked + span {
-      &::before {
-        border-color: var(--color-09);
-        background: var(--color-09);
-      }
+    &:checked + .custom-checkbox {
+      border-color: var(--color-09);
+      background: var(--color-09);
     }
-  }
-}
-
-.task-list-item {
-  padding-left: 0;
-
-  span {
-    padding-left: 25px;
   }
 }
