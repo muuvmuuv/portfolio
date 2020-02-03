@@ -15,7 +15,7 @@
     "−−−−−−−−−−−−−−−−  AUDITS/ANALYTICS  −−−−−−−−−−−−−−−−–": "",
     "audit": "cross-env SITE_URL=\"https://marvin.lcl\" AUDIT=true run-s rebuild audit-server lighthouse audit-open",
     "audit-server": "make restart",
-    "audit-open": "run-p audit:*",
+    "audit-open": "run-p audit-open:*",
     "audit-open:mobile": "node ./scripts/open-report.js lhr.mobile.html",
     "audit-open:desktop": "node ./scripts/open-report.js lhr.desktop.html",
     "audit-open:treemap": "node ./scripts/open-report.js treemap.html",
