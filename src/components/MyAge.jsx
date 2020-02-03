@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import { getElapsedTime } from '../utils/helper'
 
 const MyAge = () => {
-  const dob = dayjs('1996-06-13 18:32:13')
+  const dob = dayjs('1996-06-13 10:20:00')
   const dobI18N = dob.format('LLLL')
   const dobISO = dob.format('YYYY-MM-DD')
   const age = getElapsedTime(dobISO).years

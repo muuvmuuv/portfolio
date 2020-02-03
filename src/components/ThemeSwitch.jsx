@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { animated, useTransition, config } from '@react-spring/web'
 
-import { ThemeContext, modes, Mode } from '../store/theme'
+import { ThemeContext, modes, Mode } from '../provider/theme'
 import { Light, Dark, AutoLight, AutoDark } from './ThemeIcons'
 
 const ThemeSwitch = () => {

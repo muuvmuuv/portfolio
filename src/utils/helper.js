@@ -47,6 +47,29 @@ export function getDocumentHeight() {
 }
 
 /**
+ * Scroll to a HTML element by target.
+ *
+ * @param {HTMLElement} target HTML element to scroll to
+ *
+ * @returns {number} Y position of target element
+ */
+export function scrollToElement(target) {
+  const offset = 50
+
+  const scrollY = window.scrollY || window.pageYOffset
+  const headerHeight = document.getElementById('header').offsetHeight
+  const elementPosition = target.getBoundingClientRect().top + scrollY
+  const offsetPosition = Math.round(elementPosition - headerHeight - offset)
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth',
+  })
+
+  return offsetPosition
+}
+
+/**
  * Returns a random number between min (inclusive) and max (exclusive)
  *
  * @see https://stackoverflow.com/a/1527820/4628787
@@ -146,4 +169,15 @@ export function stringSlugify(text, separator) {
   }
 
   return text
+}
+
+/**
+ * Capitalize first letter of a string.
+ *
+ * @param {string} string string to capitalize first letter
+ *
+ * @returns {string} the string
+ */
+export function capitalizeString(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }

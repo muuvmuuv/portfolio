@@ -1,10 +1,13 @@
 const React = require('react')
 
-const { ThemeProvider } = require('../src/store/theme')
-const { HistoryProvider } = require('../src/store/history')
+const { ThemeProvider } = require('../src/provider/theme')
+const { HistoryProvider } = require('../src/provider/history')
+const { ToastProvider } = require('../src/provider/toast')
 
 module.exports = ({ element }) => (
   <ThemeProvider>
-    <HistoryProvider>{element}</HistoryProvider>
+    <HistoryProvider>
+      <ToastProvider>{element}</ToastProvider>
+    </HistoryProvider>
   </ThemeProvider>
 )

@@ -12,11 +12,13 @@ const Navigation = () => {
   const menuLinks = useMenuLinks()
 
   useEffect(() => {
-    return globalHistory.listen(({ action }) => {
+    const unsubscribe = globalHistory.listen(({ action }) => {
       if (action === 'PUSH') {
         setOpen(false)
       }
     })
+
+    return () => unsubscribe()
   })
 
   const toggleNav = () => {

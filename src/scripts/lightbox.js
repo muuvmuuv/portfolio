@@ -10,6 +10,7 @@
 
 import VanillaClickOutside from 'vanilla-click-outside'
 
+// TODO: this can now be a component
 const Lightbox = {
   isZoomed: false,
   margin: 0,
