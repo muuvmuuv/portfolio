@@ -3,11 +3,14 @@ $font-slug: 'PlayfairDisplay';
 $font-path: '../fonts/#{$font-slug}';
 $font-display: fallback;
 
+// https://github.com/clauseggers/Playfair-Display
+
 @font-face {
   font-family: $font-name;
   font-style: normal;
   font-weight: 400;
   font-display: $font-display;
   src: local($font-name), local($font-slug),
-    url('#{$font-path}/#{$font-slug}.ttf') format('ttf');
+    url('#{$font-path}/#{$font-slug}-Regular.woff2') format('woff2'),
+    url('#{$font-path}/#{$font-slug}-Regular.woff') format('woff');
 }

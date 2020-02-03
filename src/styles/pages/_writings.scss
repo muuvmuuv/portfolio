@@ -27,10 +27,10 @@
 
     h2 {
       font-family: var(--font-serif);
-      font-size: var(--text-lg);
+      font-size: var(--text-xl);
 
       @include breakpoint-up(lg) {
-        font-size: var(--text-xl);
+        font-size: var(--text-xxl);
       }
     }
 

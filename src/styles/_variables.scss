@@ -3,9 +3,9 @@
     'Noto Color Emoji';
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Roboto, Arial,
     'Segoe UI', 'Noto Sans', sans-serif, var(--font-emoji);
-  --font-serif: 'Playfair Display', -webkit-pictograph, serif, var(--font-emoji);
-  --font-mono: 'JetBrains Mono', 'mononoki', Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace, var(--font-emoji);
+  --font-serif: 'Playfair Display', serif, var(--font-emoji);
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', 'mononoki', Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace, var(--font-emoji);
 
   --font-extra-light: 100;
   --font-light: 200;

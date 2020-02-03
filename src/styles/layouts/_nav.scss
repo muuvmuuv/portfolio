@@ -32,7 +32,6 @@
   }
 
   nav {
-    font-family: var(--font-mono);
     font-size: var(--text-sm);
     font-weight: var(--font-bold);
     letter-spacing: 1px;
@@ -68,6 +67,7 @@
     z-index: 22;
     width: 40px;
     height: 40px;
+    margin: -6px; // remove flickering
     border: 0;
     background: transparent;
     cursor: pointer;
