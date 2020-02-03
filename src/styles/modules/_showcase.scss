@@ -42,7 +42,7 @@
     &:hover {
       .backdrop {
         &::after {
-          opacity: 0;
+          opacity: 0.1;
         }
 
         .img {
@@ -65,11 +65,7 @@
 
       &::after {
         transition: opacity var(--transition-fast);
-        opacity: 0.3;
-
-        @include breakpoint-up(lg) {
-          opacity: 0;
-        }
+        opacity: 0.4;
       }
     }
 
