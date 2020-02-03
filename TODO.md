@@ -8,8 +8,8 @@
 - [x] use Gatsby Link component
 - [x] put null/false/true into own component
 - [x] this fonts must be loaded in order
-  - Sync: Abril Fatface
-  - Sync: IBM Plex Mono
+  - ~~Sync: Abril Fatface~~
+  - ~~Sync: IBM Plex Mono~~
   - Async: Inter
 - [x] replace package.json with version.txt to reduce size
 - [x] add custom slug to all pages
@@ -42,16 +42,20 @@
 - [x] update mobile navigation
 - [x] add scroll to top
 - [x] check description, keywords and title on all pages
-- [ ] add md table of contents (for whatever reason, this is not working...)
+- [ ] add md table of contents (~~for whatever reason, this is not working...~~ thanks
+      MDX)
 - [x] use [auto-changelog](https://github.com/CookPete/auto-changelog) for the changelog
       page
 - [ ] image opening on big vertical images is broken, add max height and width + scrolling
       with mouse move
   - [ ] optimize image container to be bigger than the rest of the content (-margin?)
+  - [ ] add buttons download and full screen view
 - [ ] new image for start: me while coding
 - [ ] new image for start: me while writing
 - [x] skip this messy shit with elements wrapped in container tags
 - [ ] create page transitions: https://github.com/react-spring/react-spring/issues/894
+- [x] replace markdown remark with mdx
+  - [ ] add checkbox spanner to mdx
 - [x] writings no image => small hero
 - [x] put scss theme stuff in own mixin for compat.
 - [x] Add footer with: version, social-media, imprint, changelog, copyright notice
@@ -109,11 +113,12 @@
 - [ ] use [Scheme customizations][6] to map post meta e.g. for authors
 - [ ] use [Guess.js][7] <- this is just awesome, if it works with Gatsby
 - [ ] use new iPad and Apple Pencil to make ["Marvin/Design"-Logo][8]
+  - [x] current logo is ok!
   - [ ] new color profile
   - [ ] use better [color system][10]
 - [x] light theme
 - [ ] ~~Eventually new Font: [ZOOM-PRO][9]~~ (too expensive)
-- [x] open source the code 🤫 (requires above)
+- [x] open source the code 🤫
 
 [1]: https://www.gatsbyjs.org/packages/gatsby-plugin-preact/
 [2]: https://nim-lang.org/docs/tut1.html
@@ -122,7 +127,6 @@
 [5]: https://www.gatsbyjs.org/docs/seo/
 [6]: https://www.gatsbyjs.org/docs/schema-customization/#foreign-key-fields
 [7]: https://github.com/guess-js/guess/issues/233#issuecomment-537542342
-[8]:
-  https://cdn.dribbble.com/uploads/2566/original/3b90b34984de0d727ac99e2fc28afda8.png?1569966332
+[8]: https://cdn.dribbble.com/uploads/2566/original/3b90b34984de0d727ac99e2fc28afda8.png
 [9]: https://thedesignersfoundry.com/zoom-pro
 [10]: https://stripe.com/de/blog/accessible-color-systems

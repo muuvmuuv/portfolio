@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { HistoryConsumer } from '../store/history'
+import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
 import Link from '../components/Link'
 import Time from '../components/Time'
@@ -23,7 +23,7 @@ class Page extends React.Component {
 
   render() {
     const {
-      allMarkdownRemark: { edges },
+      allMdx: { edges },
     } = this.props.data
 
     return (
@@ -60,7 +60,7 @@ export default React.forwardRef((props, ref) => (
 
 export const query = graphql`
   query WritingsQuery {
-    allMarkdownRemark(
+    allMdx(
       filter: { fields: { source: { eq: "writings" } } }
       sort: { fields: [frontmatter___created, frontmatter___modified], order: DESC }
     ) {

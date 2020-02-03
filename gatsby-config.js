@@ -12,7 +12,6 @@ require('dotenv').config({
 const { yellow, blue, bold } = require('kleur')
 const { getVersion, transformVersion } = require('./utils/version')
 const { activeEnv, isAudit, isProd } = require('./utils/environment')
-const commonRemark = require('./gatsby/config/commonRemark')
 const siteMetadata = require('./metadata')
 
 console.log(bold(siteMetadata.siteTitle))
@@ -24,7 +23,7 @@ module.exports = {
   siteMetadata,
   plugins: [
     `gatsby-plugin-preact`,
-    `gatsby-plugin-layout`,
+    // `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet-async`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
@@ -120,36 +119,30 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.mdx`, `.md`],
         defaultLayouts: {
           default: require.resolve('./src/templates/PageSingle.jsx'),
         },
-        gatsbyRemarkPlugins: [...commonRemark],
-      },
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        excerpt_separator: `<!-- EXCERPT -->`,
-        tableOfContents: {
-          maxDepth: 3,
-        },
-        commonmark: true,
-        footnotes: true,
-        pedantic: true,
-        gfm: true,
-        plugins: [
-          ...commonRemark,
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-check-links',
           {
-            resolve: 'gatsby-remark-external-links',
+            resolve: 'gatsby-remark-images',
             options: {
-              target: '_blank',
-              rel: 'nofollow',
+              maxWidth: 1200,
+              backgroundColor: 'transparent',
+              linkImagesToOriginal: true,
+              quality: 75,
+              withWebp: true,
+              showCaptions: true,
             },
           },
-          'gatsby-remark-check-links',
-          `remark-checkbox-spanner`,
-          // TODO: remove plugin `remark-custom-classes`
-          // `remark-prismjs`,
+          {
+            resolve: 'gatsby-remark-emoji',
+            options: {
+              emojiConversion: 'shortnameToUnicode',
+            },
+          },
         ],
       },
     },
@@ -176,25 +169,6 @@ module.exports = {
             crumbLabel: 'Writings',
           },
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: siteMetadata.siteTitle,
-        short_name: siteMetadata.siteTitleShort,
-        start_url: '/?source=pwa',
-        background_color: '#1f242e', // must equal `--background-color` in `./src/styles/themes/_<theme>.scss`
-        theme_color: '#fafcff', // how the UI should be tinted
-        display: 'standalone',
-        icon: './static/favicon.svg',
-      },
-    },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        appendScript: require.resolve(`./src/sw.js`),
-        precachePages: [`/about/`, `/imprint/`, `/credits/`, `/changelog/`],
       },
     },
     {
@@ -232,6 +206,18 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: siteMetadata.siteTitle,
+        short_name: siteMetadata.siteTitleShort,
+        start_url: '/?source=pwa',
+        background_color: '#1f242e', // must equal `--background-color` in `./src/styles/themes/_<theme>.scss`
+        theme_color: '#fafcff', // how the UI should be tinted
+        display: 'standalone',
+        icon: './static/favicon.svg',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-remove-generator',
       options: {
         removeVersionOnly: true,
@@ -250,6 +236,24 @@ module.exports = {
           'major',
           'minor',
         ])}.0/treemap.html`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        appendScript: require.resolve(`./src/sw.js`),
+        precachePages: [
+          `/about/`,
+          `/imprint/`,
+          `/credits/`,
+          `/changelog/`,
+          '/projects/',
+          '/projects/*',
+          '/photography/',
+          '/photography/*',
+          '/writings/',
+          '/writings/*',
+        ],
       },
     },
   ],

@@ -1,17 +1,18 @@
+const fs = require('fs')
 const path = require('path')
 const { bold, dim } = require('kleur')
 
 const { isDev } = require('../../utils/environment')
 const { removeTrailingSlash, stringCapitalize } = require('../../utils/helper')
 
-module.exports = async ({ graphql, actions }) => {
+module.exports = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   const {
-    data: { allMarkdownRemark },
+    data: { allMdx },
   } = await graphql(`
     {
-      allMarkdownRemark(filter: { fields: { slug: { ne: null } } }) {
+      allMdx(filter: { fields: { slug: { ne: null } } }) {
         edges {
           node {
             frontmatter {
@@ -28,7 +29,7 @@ module.exports = async ({ graphql, actions }) => {
     }
   `)
 
-  allMarkdownRemark.edges.forEach(({ node }) => {
+  allMdx.edges.forEach(({ node }) => {
     if (isDev) {
       console.log()
       console.log(dim(`Creating page`))
@@ -39,7 +40,13 @@ module.exports = async ({ graphql, actions }) => {
     }
 
     const templateName = stringCapitalize(node.fields.source)
+    const templatePath = path.resolve(`./src/templates/${templateName}Single.jsx`)
     const slug = removeTrailingSlash(node.fields.slug)
+
+    if (!fs.existsSync(templatePath)) {
+      reporter.info(`No template exist for: ${templateName}`)
+      return
+    }
 
     return createPage({
       path: slug,

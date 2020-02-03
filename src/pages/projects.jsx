@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { HistoryConsumer } from '../store/history'
+import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
 import Portfolio from '../components/Portfolio'
 import dayjs from 'dayjs'
@@ -23,10 +23,10 @@ class Page extends React.Component {
 
   render() {
     const {
-      data: { projects },
+      data: { allMdx },
     } = this.props
 
-    const items = projects.edges.sort((nodeA, nodeB) => {
+    const items = allMdx.edges.sort((nodeA, nodeB) => {
       const AF = nodeA.node.frontmatter
       const BF = nodeB.node.frontmatter
 
@@ -72,7 +72,7 @@ export default React.forwardRef((props, ref) => (
 
 export const query = graphql`
   query ProjectsQuery {
-    projects: allMarkdownRemark(filter: { fields: { source: { eq: "projects" } } }) {
+    allMdx(filter: { fields: { source: { eq: "projects" } } }) {
       edges {
         node {
           frontmatter {

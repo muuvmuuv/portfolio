@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { HistoryConsumer } from '../store/history'
+import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
 import Link from '../components/Link'
 import Backdrop from '../components/Backdrop'
