@@ -1,3 +1,15 @@
+input {
+  &.inline {
+    display: inline-block;
+  }
+
+  &.reset {
+    width: auto;
+    border: 0;
+    background: transparent;
+  }
+}
+
 .form-control {
   display: flex;
   position: relative;
