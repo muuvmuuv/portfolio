@@ -1,6 +1,10 @@
 import React, { createContext } from 'react'
 import Storage from '../storage'
-import { prefersDarkAppearance, DETECT_COLOR_SCHEME_DARK } from '../utils/accessibility'
+import {
+  prefersDarkAppearance,
+  DETECT_COLOR_SCHEME_DARK,
+  isSafari,
+} from '../utils/accessibility'
 
 export const Mode = {
   DARK: 'dark',
@@ -64,7 +68,13 @@ class ThemeProvider extends React.Component {
 
   enableAutoSwitch = () => {
     const mqlColorScheme = window.matchMedia(DETECT_COLOR_SCHEME_DARK)
-    mqlColorScheme.addEventListener('change', this.listenOn)
+
+    if (isSafari()) {
+      // BUG: deprecated use here because Safari and IE does not support this ATM
+      mqlColorScheme.addListener(this.listenOn)
+    } else {
+      mqlColorScheme.addEventListener('change', this.listenOn)
+    }
 
     this.setState({
       mqlColorScheme,
@@ -73,7 +83,13 @@ class ThemeProvider extends React.Component {
 
   disableAutoSwitch = () => {
     if (this.state.mqlColorScheme) {
-      this.state.mqlColorScheme.removeEventListener('change', this.listenOn)
+      if (isSafari()) {
+        // BUG: deprecated use here because Safari and IE does not support this ATM
+        this.state.mqlColorScheme.removeListener(this.listenOn)
+      } else {
+        this.state.mqlColorScheme.removeEventListener('change', this.listenOn)
+      }
+
       this.setState({ pcsListener: null })
     }
   }
