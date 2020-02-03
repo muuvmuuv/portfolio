@@ -2,7 +2,6 @@ import React, { createElement } from 'react'
 
 const icons = {}
 
-// TODO: check if this does not increase the overall bundlesize
 function importAll(resolve) {
   resolve.keys().forEach((file) => {
     const ext = /(?:\.([^.]+))?$/.exec(file)

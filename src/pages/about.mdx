@@ -3,8 +3,10 @@ title: 'About Me'
 ---
 
 import { Link } from '../elements/Link.jsx'
+import Img from 'gatsby-image'
 import MyAge from '../components/MyAge.jsx'
 import { getElapsedTime } from '../utils/helper'
+
 export const quitedSmoking = getElapsedTime('2017-02-16')
 
 ## Hey!
@@ -16,6 +18,8 @@ export const quitedSmoking = getElapsedTime('2017-02-16')
     Germany near Frankfurt am Main
   </Link>.
 </p>
+
+<img src="/me.gif" className="bd-img me-gif" alt="Me as a GIF" />
 
 ### I am...
 

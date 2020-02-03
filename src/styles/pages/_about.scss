@@ -1,0 +1,30 @@
+[page='about-me'] {
+  #article {
+    position: relative;
+  }
+
+  .bd-img {
+    position: absolute;
+    z-index: -1;
+  }
+
+  .me-gif {
+    top: -40px;
+    right: -20px;
+    width: 270px;
+    opacity: 0.2;
+
+    @include breakpoint-down(sm) {
+      display: none;
+    }
+
+    @include breakpoint-up(lg) {
+      top: 40px;
+      right: -120px;
+    }
+
+    @include reducedMotion() {
+      display: none;
+    }
+  }
+}

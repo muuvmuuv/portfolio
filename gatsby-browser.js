@@ -4,13 +4,13 @@
  * @see https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-const { isProd, isDev } = require('./utils/environment')
+const { isDev } = require('./utils/environment')
 const { getLocale, getLanguage } = require('./src/utils/locale')
 
 const printCorporateMessage = require('./gatsby/browser/corporateMessage')
 const setDefaultTime = require('./gatsby/browser/defaultTime')
 
-require('./src/styles/app.scss')
+require('./src/styles/app.scss') // main styling
 
 // module.exports.wrapPageElement = require('./gatsby/wrapPageElement')
 module.exports.wrapRootElement = require('./gatsby/wrapRootElement')
@@ -25,12 +25,10 @@ module.exports.onClientEntry = () => {
 }
 
 module.exports.onInitialClientRender = () => {
-  if (isProd) {
-    printCorporateMessage()
-  }
+  printCorporateMessage()
 }
 
-// exports.onRouteUpdate = ({ location }) => {
-//   const path = location.pathname + location.search + location.hash
-//   console.info('Track pageview of:', path)
-// }
+module.exports.onServiceWorkerUpdateReady = () => {
+  console.info('NEW VERSION AVAILABLE')
+  // window.location.reload()
+}

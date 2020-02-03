@@ -39,13 +39,17 @@
 // ------------------------------
 // Components
 
+@import 'components/anchor';
 @import 'components/backdrop';
 @import 'components/button';
 @import 'components/dot';
 @import 'components/footnote';
 @import 'components/icon';
 @import 'components/language';
+@import 'components/lightbox';
 @import 'components/logo';
+@import 'components/my-age';
+@import 'components/no-script';
 @import 'components/overlay';
 @import 'components/portfolio';
 @import 'components/quote';
@@ -53,6 +57,7 @@
 @import 'components/separator';
 @import 'components/status';
 @import 'components/theme-switch';
+@import 'components/toast';
 @import 'components/tooltip';
 
 // ------------------------------
@@ -78,6 +83,7 @@
 // ------------------------------
 // Pages
 
+@import 'pages/about';
 @import 'pages/error';
 @import 'pages/home';
 @import 'pages/index';

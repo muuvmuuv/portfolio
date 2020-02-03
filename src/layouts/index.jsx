@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { MDXProvider } from '@mdx-js/react'
 
-import { ThemeContext } from '../store/theme'
+import { ThemeContext } from '../provider/theme'
 import Header from './Header'
 import Footer from './Footer'
 import ScrollToTop from '../components/ScrollToTop'
@@ -16,7 +16,9 @@ export default ({ children }) => {
       <Helmet htmlAttributes={{ theme }} />
       <Header></Header>
       <MDXProvider components={mdxElements}>
-        <main role="main">{children}</main>
+        <main role="main" id="main">
+          {children}
+        </main>
       </MDXProvider>
       <Footer></Footer>
       <ScrollToTop />

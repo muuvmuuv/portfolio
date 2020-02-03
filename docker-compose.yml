@@ -19,8 +19,6 @@ services:
         consistency: cached
         source: ./public
         target: /var/www
-        volume:
-          nocopy: true
       - type: bind
         source: ./docker/nginx/certs/
         target: /etc/nginx/ssl/

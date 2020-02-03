@@ -47,6 +47,29 @@ export function getDocumentHeight() {
 }
 
 /**
+ * Scroll to a HTML element by target.
+ *
+ * @param {HTMLElement} target HTML element to scroll to
+ *
+ * @returns {number} Y position of target element
+ */
+export function scrollToElement(target) {
+  const offset = 50
+
+  const scrollY = window.scrollY || window.pageYOffset
+  const headerHeight = document.getElementById('header').offsetHeight
+  const elementPosition = target.getBoundingClientRect().top + scrollY
+  const offsetPosition = Math.round(elementPosition - headerHeight - offset)
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth',
+  })
+
+  return offsetPosition
+}
+
+/**
  * Returns a random number between min (inclusive) and max (exclusive)
  *
  * @see https://stackoverflow.com/a/1527820/4628787
@@ -118,4 +141,43 @@ export function getElapsedTime(start, end = new Date()) {
   }
 
   return out
+}
+
+/**
+ * Slugify a string.
+ *
+ * @param {string} text to slugify
+ * @param {string} separator a separator if needed
+ *
+ * @returns {string}
+ */
+export function stringSlugify(text, separator) {
+  text = text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[·/_,:;']/g, '-') // Replace unwanted characters with -
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/&/g, '-and-') // Replace & with 'and'
+    .replace(/[^\w-]+/g, '') // Remove all non-word chars
+    .replace(/-+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, '') // Trim - from end of text
+
+  if (separator && separator !== '-') {
+    text = text.replace(/-/g, separator)
+  }
+
+  return text
+}
+
+/**
+ * Capitalize first letter of a string.
+ *
+ * @param {string} string string to capitalize first letter
+ *
+ * @returns {string} the string
+ */
+export function capitalizeString(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }

@@ -1,4 +1,4 @@
-const { bold, dim } = require('kleur')
+const { red, bold, dim } = require('kleur')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const { isProd, isDev } = require('../../utils/environment')
@@ -7,52 +7,55 @@ const { stringSlugify } = require('../../utils/helper')
 module.exports = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === 'MarkdownRemark') {
+  if ([`MarkdownRemark`, `Mdx`].includes(node.internal.type)) {
     const fileNode = getNode(node.parent)
     const source = fileNode.sourceInstanceName
 
     if (isDev) {
       console.log()
-      console.log(dim('Creating node'))
+      console.log(dim(`Creating ${source} node`))
       console.log(bold(fileNode.relativePath))
+      console.log(node.frontmatter)
       console.log(fileNode)
     }
 
-    let frontmatterDefault = {
+    if (node.frontmatter.published === false && isProd) {
+      console.log(red('SKIPPING'))
+      return // skip this unpublished stuff only in production
+    }
+
+    let slug = node.frontmatter.slug || undefined
+    if (!slug) {
+      slug = createFilePath({ node, getNode })
+    }
+    slug = stringSlugify(slug)
+
+    let defaults = {
       published: true,
-      categories: [],
-      tags: [],
     }
 
     switch (source) {
       case 'projects':
-        frontmatterDefault = {
-          ...frontmatterDefault,
+        defaults = {
+          ...defaults,
+          categories: [],
+          tags: [],
           status: 'wip',
           website: '',
           team: [],
           roles: [],
         }
+        node.frontmatter = { ...defaults, ...node.frontmatter }
         break
-      case 'package':
-        return
+      case 'writings':
+        defaults = {
+          ...defaults,
+          categories: [],
+          tags: [],
+        }
+        node.frontmatter = { ...defaults, ...node.frontmatter }
+        break
     }
-
-    node.frontmatter = { ...frontmatterDefault, ...node.frontmatter }
-
-    if (node.frontmatter.published === false && isProd) {
-      return // skip this unpublished trash only in production
-    }
-
-    if (isDev) {
-      console.log(node.frontmatter)
-    }
-
-    let slug = node.frontmatter.slug
-    if (!slug) {
-      slug = createFilePath({ node, getNode })
-    }
-    slug = stringSlugify(slug)
 
     createNodeField({
       node,

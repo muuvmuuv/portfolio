@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { HistoryConsumer } from '../store/history'
+import { HistoryConsumer } from '../provider/history'
 import Article from '../layouts/Article'
 import Head from '../components/Head'
 import HeroProjects from '../components/HeroProjects'
@@ -16,14 +16,18 @@ class Page extends React.Component {
 
     this.props.history.update({
       location: breadcrumb.location,
-      crumbLabel: this.props.data.markdownRemark.frontmatter.title,
+      crumbLabel: this.props.data.mdx.frontmatter.title,
       crumbs: breadcrumb.crumbs,
     })
   }
 
   render() {
     const {
-      markdownRemark: { frontmatter, html },
+      mdx: {
+        body,
+        fields: { slug },
+        frontmatter,
+      },
     } = this.props.data
 
     const attr = {}
@@ -62,7 +66,7 @@ class Page extends React.Component {
           roles={frontmatter.roles}
         />
 
-        <Article html={html} />
+        <Article slug={slug} mdx={body} />
       </>
     )
   }
@@ -76,22 +80,18 @@ export default React.forwardRef((props, ref) => (
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug }, source: { eq: "projects" } }) {
+    mdx(fields: { slug: { eq: $slug }, source: { eq: "projects" } }) {
+      body
+      fields {
+        slug
+      }
       frontmatter {
         title
         subtitle
         image {
           childImageSharp {
-            fluid(
-              maxWidth: 2100
-              traceSVG: {
-                color: "#272c36"
-                turnPolicy: TURNPOLICY_MAJORITY
-                blackOnWhite: true
-              }
-              srcSetBreakpoints: [576, 768, 992, 1200]
-            ) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            fluid(maxWidth: 2100, srcSetBreakpoints: [576, 768, 992, 1200]) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -119,10 +119,6 @@ export const query = graphql`
         categories
         tags
       }
-      fields {
-        slug
-      }
-      html
     }
   }
 `

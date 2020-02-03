@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { HistoryConsumer } from '../store/history'
+import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
 import Article from '../layouts/Article'
 import HeroPage from '../components/HeroPage'
@@ -13,9 +13,11 @@ class Page extends React.Component {
   componentDidMount() {
     const { breadcrumb } = this.props.pageContext
 
+    this.setState({ pageName: this.props.pageContext.frontmatter.title })
+
     this.props.history.update({
       location: breadcrumb.location,
-      crumbLabel: this.props.pageContext.frontmatter.title,
+      crumbLabel: this.state.pageName,
       crumbs: breadcrumb.crumbs,
     })
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { HistoryConsumer } from '../store/history'
+import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
 import Article from '../layouts/Article'
 import HeroPage from '../components/HeroPage'
@@ -23,8 +23,13 @@ class Page extends React.Component {
 
   render() {
     const {
-      data: { singleFile },
-    } = this.props
+      singleFile: {
+        childMdx: {
+          fields: { slug },
+          body,
+        },
+      },
+    } = this.props.data
 
     return (
       <>
@@ -32,7 +37,7 @@ class Page extends React.Component {
 
         <HeroPage title={this.state.pageName} />
 
-        <Article html={singleFile.childMarkdownRemark.html}></Article>
+        <Article slug={slug} mdx={body}></Article>
       </>
     )
   }
@@ -47,8 +52,11 @@ export default React.forwardRef((props, ref) => (
 export const query = graphql`
   query ChangelogQuery {
     singleFile(name: { eq: "CHANGELOG" }) {
-      childMarkdownRemark {
-        html
+      childMdx {
+        fields {
+          slug
+        }
+        body
       }
     }
   }

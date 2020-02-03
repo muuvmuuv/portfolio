@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { HistoryConsumer } from '../store/history'
+import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
 
 class Page extends React.Component {

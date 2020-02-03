@@ -13,8 +13,8 @@ export const packageJson = () => {
       return obj
     }, {})
   return {
-    dependencies: arrayToObject(pkg.allDependencies),
-    devDependencies: arrayToObject(pkg.allDevDependencies),
+    dependencies: arrayToObject(pkg.dependencies),
+    devDependencies: arrayToObject(pkg.devDependencies),
   }
 }
 
@@ -23,6 +23,8 @@ export const packageJson = () => {
 - [RSMS](https://twitter.com/rsms) for the awesome font [Inter](https://rsms.me/inter/)
 - JetBrains for [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 - [Deepl](https://www.deepl.com/translator) for their awesome free translater
+- [Microtip](https://github.com/ghosh/microtip/blob/master/microtip.css) for the awesome
+  CSS only tooltip
 
 ## Packages used
 

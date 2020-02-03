@@ -1,18 +1,17 @@
 import React from 'react'
 
-import { scrollToElement } from '../utils/animate'
+import { scrollToElement } from '../utils/helper'
 import { updateLocationHash, getDocumentHeight } from '../utils/helper'
 import { prefersReducedMotion } from '../utils/accessibility'
-import Lightbox from '../scripts/lightbox'
+import { isDev } from '../../utils/environment'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 class Article extends React.Component {
   scrollElements = []
 
   componentDidMount() {
-    Lightbox.init()
-
-    // TODO: put article blocks into separate components
     if (!prefersReducedMotion()) {
+      // TODO: can this be a component?
       this.scrollElements = document.querySelectorAll(
         '.footnote-backref, .footnote-ref, .toc a'
       )
@@ -23,8 +22,6 @@ class Article extends React.Component {
   }
 
   componentWillUnmount() {
-    Lightbox.destroy()
-
     if (this.scrollElements.length > 0) {
       this.scrollElements.forEach((ref) => {
         ref.removeEventListener('click', this.handleClick)
@@ -73,12 +70,6 @@ class Article extends React.Component {
   }
 
   render() {
-    const fallbackContent = (
-      <div className="container text-center">
-        <h3>Sorry, more info will come soon!</h3>
-      </div>
-    )
-
     const props = {
       id: 'article',
       className: 'container container--small',
@@ -87,29 +78,30 @@ class Article extends React.Component {
       itemRef: 'hero',
     }
 
-    let children = this.props.children || false
-    let html = this.props.html || fallbackContent
+    if (isDev && this.props.toc) {
+      console.log(this.props.toc)
+    }
+    const toc = ''
+    // const toc = this.props.toc && (
+    //   <div
+    //     role="navigation"
+    //     className="toc"
+    //     dangerouslySetInnerHTML={{ __html: this.props.toc }}
+    //   />
+    // )
 
     return (
-      <>
-        {children ? (
-          <article {...props}>{children}</article>
+      <article {...props}>
+        <header>{toc}</header>
+
+        {this.props.mdx ? (
+          <MDXRenderer slug={this.props.slug}>{this.props.mdx}</MDXRenderer>
         ) : (
-          <article
-            {...props}
-            dangerouslySetInnerHTML={{
-              __html: html,
-            }}
-          />
+          this.props.children
         )}
-        {this.props.toc && (
-          <div
-            role="navigation"
-            className="toc"
-            dangerouslySetInnerHTML={{ __html: this.props.toc }}
-          />
-        )}
-      </>
+
+        <footer>{/* EMPTY */}</footer>
+      </article>
     )
   }
 }

@@ -9,13 +9,16 @@ const PreformattedCode = (props) => {
 
   const {
     children: {
-      props: { children, className },
+      props: { children: content, className: languageClass },
     },
   } = props
 
-  const languageName = normalizeLanguage(className)
+  let languageName = 'text'
+  if (languageClass) {
+    languageName = normalizeLanguage(languageClass)
+  }
 
-  return <Code language={languageName}>{children}</Code>
+  return <Code language={languageName}>{content}</Code>
 }
 
 const InlineCode = (props) => <code {...props} />

@@ -1,6 +1,6 @@
 module.exports = () => {
-  const colorPrimary = '#00e2a1'
-  const colorDark = '#1f242e'
+  const colorPrimary = '#00D68F'
+  const colorDark = '#1F242E'
 
   const styleShared = `
     font-family: 'Inter', sans-serif;
@@ -39,11 +39,11 @@ module.exports = () => {
   )
   console.log(
     `%c
-Welcome fellow %cdeveloper%c!  🎉
+Welcome fellow %cdeveloper%c! 🍹
 I'm happy to see you here. If you want to have
 look on my code and the architecture, my
 portfolio is available on GitHub:
-https://github.com/muuvmuuv/portfolio 🔒
+https://github.com/muuvmuuv/portfolio 🔓
     `,
     styleShared,
     styleBold,

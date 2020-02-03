@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react'
+import Highlight, { defaultProps } from 'prism-react-renderer'
 import copy from 'copy-text-to-clipboard'
+
 import { normalize } from '../utils/normalize'
 import { lightTheme, darkTheme } from './CodeThemes'
-import Highlight, { defaultProps } from 'prism-react-renderer'
-import { ThemeContext, Mode } from '../store/theme'
+import { ThemeContext, Mode } from '../provider/theme'
 
 const highlightStart = (line) => {
   return line.some((token) => token.content.includes('highlight-start'))
