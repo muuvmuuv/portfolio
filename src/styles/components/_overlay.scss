@@ -1,15 +1,21 @@
-.overlay {
+#overlay {
+  display: none;
   position: fixed;
   z-index: 20;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  transition: var(--transition-fast);
   background: var(--color-dark-80);
-  // backdrop-filter: blur(4px);
+  user-select: none;
+  will-change: opacity;
+
+  @include reducedMotion() {
+    transition-duration: 0ms;
+  }
 
   @include reducedTransparency() {
     background: var(--color-dark);
-    // backdrop-filter: none;
   }
 }

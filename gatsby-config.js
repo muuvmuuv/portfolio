@@ -153,6 +153,8 @@ module.exports = {
             },
           },
         ],
+        // BUG: https://github.com/gatsbyjs/gatsby/issues/15486
+        plugins: [`gatsby-remark-images`],
       },
     },
     `gatsby-plugin-remove-trailing-slashes`,

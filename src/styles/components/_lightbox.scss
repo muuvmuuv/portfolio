@@ -1,0 +1,19 @@
+.lightbox {
+  .gatsby-resp-image-link {
+    &.open {
+      position: absolute;
+      // TODO: make z-index SASS variables
+      z-index: 21; // one higher than overlay
+    }
+  }
+
+  .gatsby-resp-image-link,
+  .gatsby-resp-image-image {
+    will-change: transform;
+    transition: var(--transition-fast);
+
+    @include reducedMotion() {
+      transition-duration: 0ms;
+    }
+  }
+}

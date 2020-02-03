@@ -4,9 +4,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "todo-tree.filtering.excludeGlobs": [
-    "**/*.md",
-  ],
   "cSpell.words": [
     "dayjs",
     "dribbble",

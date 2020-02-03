@@ -14,7 +14,7 @@ import { Table, TableRow, TableCell } from '../elements/Table'
 import { PreformattedCode, InlineCode } from '../elements/Code'
 import { Emphasized, Strong, Delete } from '../elements/Text'
 import { Link } from '../elements/Link'
-import { Image } from '../elements/Image'
+import { Image, Figure } from '../elements/Image'
 
 import Quote from './Quote'
 
@@ -43,6 +43,7 @@ export default {
   hr: Hairline,
   a: Link,
   img: Image,
+  figure: Figure,
 
   // Custom Shortcodes
   Quote,

@@ -42,8 +42,9 @@
 - [x] update mobile navigation
 - [x] add scroll to top
 - [x] check description, keywords and title on all pages
-- [ ] add md table of contents (~~for whatever reason, this is not working...~~ thanks
+- [x] add md table of contents (~~for whatever reason, this is not working...~~ thanks
       MDX)
+  - [ ] style it 😄
 - [x] use [auto-changelog](https://github.com/CookPete/auto-changelog) for the changelog
       page
 - [ ] image opening on big vertical images is broken, add max height and width + scrolling
@@ -55,7 +56,7 @@
 - [x] skip this messy shit with elements wrapped in container tags
 - [ ] create page transitions: https://github.com/react-spring/react-spring/issues/894
 - [x] replace markdown remark with mdx
-  - [ ] add checkbox spanner to mdx
+  - [x] add checkbox spanner to mdx
 - [x] writings no image => small hero
 - [x] put scss theme stuff in own mixin for compat.
 - [x] Add footer with: version, social-media, imprint, changelog, copyright notice
@@ -86,15 +87,20 @@
 - [x] Update current projects
   - [x] More text
   - [x] Update images
-- [ ] update transitions to use global custom props
+- [ ] use `useScrollPosition` hook for user scrolling:
+      https://dev.to/n8tb1t/tracking-scroll-position-with-react-hooks-3bbj
+- [ ] update css transitions to use global custom props
 - [ ] include reduced motion and transparency everywhere
 - [ ] update theme colors with better naming for 4 different states
 - [ ] Upload some photos (best off's)
 - [ ] Setup SimpleAnalytics or something similar
+  - [ ] Setup [Guess.js](https://github.com/guess-js/guess/) with `reportProvider`
+    - https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-guess-js/src/gatsby-node.js
+    - https://www.gatsbyjs.org/packages/gatsby-plugin-guess-js/?=guess
 - [ ] show GitHub OSS with GitHub API on a separate page
 - [ ] display `</Coding>` stuff somewhere or let it imported by browser XML export
-- [ ] upload all content to GraphCMS (?)
-- [x] check pages with Firefox Axe
+- [ ] upload all content to GraphCMS (...hmm, IDK?!)
+- [ ] check pages with Axe
 - [ ] setup danger and make sure
   - [ ] version is increased before commit/push
   - [ ] no push if no audit for current version
@@ -111,7 +117,6 @@
 - [ ] (auto) check markdown for [Readability][4]
 - [ ] (auto) generate [rich snippets][5]
 - [ ] use [Scheme customizations][6] to map post meta e.g. for authors
-- [ ] use [Guess.js][7] <- this is just awesome, if it works with Gatsby
 - [ ] use new iPad and Apple Pencil to make ["Marvin/Design"-Logo][8]
   - [x] current logo is ok!
   - [ ] new color profile
@@ -126,7 +131,6 @@
 [4]: https://wooorm.com/readability/
 [5]: https://www.gatsbyjs.org/docs/seo/
 [6]: https://www.gatsbyjs.org/docs/schema-customization/#foreign-key-fields
-[7]: https://github.com/guess-js/guess/issues/233#issuecomment-537542342
 [8]: https://cdn.dribbble.com/uploads/2566/original/3b90b34984de0d727ac99e2fc28afda8.png
 [9]: https://thedesignersfoundry.com/zoom-pro
 [10]: https://stripe.com/de/blog/accessible-color-systems

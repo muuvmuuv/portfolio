@@ -3,9 +3,9 @@ import { useContext } from 'react'
 import { ToastContext } from '../provider/toast'
 
 function useToast() {
-  const { add, remove } = useContext(ToastContext)
+  const { add, remove, toasts } = useContext(ToastContext)
 
-  return { add, remove }
+  return { add, remove, toasts }
 }
 
 export default useToast

@@ -4,15 +4,12 @@ import { scrollToElement } from '../utils/helper'
 import { updateLocationHash, getDocumentHeight } from '../utils/helper'
 import { prefersReducedMotion } from '../utils/accessibility'
 import { isDev } from '../../utils/environment'
-import Lightbox from '../scripts/lightbox'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 class Article extends React.Component {
   scrollElements = []
 
   componentDidMount() {
-    Lightbox.init()
-
     if (!prefersReducedMotion()) {
       // TODO: can this be a component?
       this.scrollElements = document.querySelectorAll(
@@ -25,8 +22,6 @@ class Article extends React.Component {
   }
 
   componentWillUnmount() {
-    Lightbox.destroy()
-
     if (this.scrollElements.length > 0) {
       this.scrollElements.forEach((ref) => {
         ref.removeEventListener('click', this.handleClick)

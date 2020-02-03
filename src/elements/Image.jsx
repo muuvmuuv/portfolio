@@ -1,9 +1,11 @@
 import React from 'react'
 
-/* eslint-disable jsx-a11y/alt-text */
+import Lightbox from '../components/Lightbox'
 
+/* eslint-disable jsx-a11y/alt-text */
 const Image = (props) => <img {...props} />
 
-/* eslint-enable */
+// since `gatsby-remark-images` uses figures, this is the right way
+const Figure = (props) => <Lightbox {...props} />
 
-export { Image }
+export { Image, Figure }
