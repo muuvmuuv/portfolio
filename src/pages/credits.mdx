@@ -13,8 +13,8 @@ export const packageJson = () => {
       return obj
     }, {})
   return {
-    dependencies: arrayToObject(pkg.allDependencies),
-    devDependencies: arrayToObject(pkg.allDevDependencies),
+    dependencies: arrayToObject(pkg.dependencies),
+    devDependencies: arrayToObject(pkg.devDependencies),
   }
 }
 

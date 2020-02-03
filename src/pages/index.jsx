@@ -71,16 +71,8 @@ export default React.forwardRef((props, ref) => (
 export const query = graphql`
   fragment FluidResponsiveFrag on File {
     childImageSharp {
-      fluid(
-        maxWidth: 1200
-        traceSVG: {
-          color: "#272c36"
-          turnPolicy: TURNPOLICY_MAJORITY
-          blackOnWhite: true
-        }
-        srcSetBreakpoints: [576, 768, 992]
-      ) {
-        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+      fluid(maxWidth: 1200, srcSetBreakpoints: [576, 768, 992]) {
+        ...GatsbyImageSharpFluid_withWebp
       }
     }
   }

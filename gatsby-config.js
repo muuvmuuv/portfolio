@@ -23,7 +23,7 @@ module.exports = {
   siteMetadata,
   plugins: [
     `gatsby-plugin-preact`,
-    // `gatsby-plugin-layout`,
+    `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet-async`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
@@ -127,6 +127,7 @@ module.exports = {
           'gatsby-remark-autolink-headers',
           'gatsby-remark-check-links',
           {
+            // BUG: https://github.com/gatsbyjs/gatsby/issues/16239
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1200,
@@ -134,9 +135,11 @@ module.exports = {
               linkImagesToOriginal: true,
               quality: 75,
               withWebp: true,
+              disableBgImage: true,
               showCaptions: true,
             },
           },
+          `gatsby-remark-copy-linked-files`,
           {
             resolve: 'gatsby-remark-emoji',
             options: {

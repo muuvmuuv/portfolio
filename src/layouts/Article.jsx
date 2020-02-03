@@ -3,6 +3,7 @@ import React from 'react'
 import { scrollToElement } from '../utils/helper'
 import { updateLocationHash, getDocumentHeight } from '../utils/helper'
 import { prefersReducedMotion } from '../utils/accessibility'
+import { isDev } from '../../utils/environment'
 import Lightbox from '../scripts/lightbox'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
@@ -82,19 +83,21 @@ class Article extends React.Component {
       itemRef: 'hero',
     }
 
-    const Toc = this.props.toc && (
-      <div
-        role="navigation"
-        className="toc"
-        dangerouslySetInnerHTML={{ __html: this.props.toc }}
-      />
-    )
+    if (isDev && this.props.toc) {
+      console.log(this.props.toc)
+    }
+    const toc = ''
+    // const toc = this.props.toc && (
+    //   <div
+    //     role="navigation"
+    //     className="toc"
+    //     dangerouslySetInnerHTML={{ __html: this.props.toc }}
+    //   />
+    // )
 
     return (
       <article {...props}>
-        <header>
-          <Toc />
-        </header>
+        <header>{toc}</header>
 
         {this.props.mdx ? (
           <MDXRenderer slug={this.props.slug}>{this.props.mdx}</MDXRenderer>

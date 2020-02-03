@@ -33,8 +33,6 @@ class Page extends React.Component {
       },
     } = this.props.data
 
-    console.log(tableOfContents)
-
     const attr = {}
 
     if (frontmatter.tags && frontmatter.tags.length > 0) {
@@ -94,16 +92,8 @@ export const query = graphql`
         description
         image {
           childImageSharp {
-            fluid(
-              maxWidth: 2100
-              traceSVG: {
-                color: "#272c36"
-                turnPolicy: TURNPOLICY_MAJORITY
-                blackOnWhite: true
-              }
-              srcSetBreakpoints: [576, 768, 992, 1200]
-            ) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            fluid(maxWidth: 2100, srcSetBreakpoints: [576, 768, 992, 1200]) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

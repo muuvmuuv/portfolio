@@ -80,16 +80,8 @@ export const query = graphql`
             subtitle
             image {
               childImageSharp {
-                fluid(
-                  maxWidth: 992
-                  traceSVG: {
-                    color: "#272c36"
-                    turnPolicy: TURNPOLICY_MAJORITY
-                    blackOnWhite: true
-                  }
-                  srcSetBreakpoints: [576, 768]
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                fluid(maxWidth: 992, srcSetBreakpoints: [576, 768]) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

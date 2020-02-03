@@ -20,7 +20,7 @@ import Quote from './Quote'
 
 export default {
   // Override build in elements
-  p: Paragraph,
+  // p: Paragraph,
   h1: Headline1,
   h2: Headline2,
   h3: Headline3,
@@ -42,7 +42,7 @@ export default {
   delete: Delete,
   hr: Hairline,
   a: Link,
-  img: Image,
+  // img: Image,
 
   // Custom Shortcodes
   Quote,
