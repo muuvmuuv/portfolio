@@ -4,23 +4,26 @@ const HideContent = ({ text }) => {
   const [content, setContent] = useState(null)
 
   useEffect(() => {
-    setContent(window.btoa(text))
+    let encoded = window.btoa(text)
+    encoded = encoded.split('').map((v, i) => (i % 6 === 0 ? `${v}-` : v))
+    setContent(encoded)
   }, [text])
 
   const decryptContent = () => {
     setContent(text)
   }
 
+  /* eslint-disable jsx-a11y/no-static-element-interactions */
   return (
-    <button
-      className="hidden-content tooltip inline reset"
+    <span
+      className="hidden-content tooltip"
       onKeyPress={decryptContent}
       onClick={decryptContent}
       aria-label="Click to reveal"
       data-position="top"
     >
       {content}
-    </button>
+    </span>
   )
 }
 
