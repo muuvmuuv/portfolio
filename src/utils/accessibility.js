@@ -31,3 +31,11 @@ export const DETECT_HIGH_CONTRAST = '(-ms-high-contrast: active)'
 export function prefersHighContrast() {
   return window.matchMedia(DETECT_HIGH_CONTRAST).matches
 }
+
+/**
+ * Browser is Safari.
+ */
+export function isSafari() {
+  const UA = navigator.userAgent.toLowerCase()
+  return UA.indexOf('safari') !== -1
+}

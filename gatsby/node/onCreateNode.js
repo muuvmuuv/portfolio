@@ -20,7 +20,9 @@ module.exports = async ({ node, getNode, actions }) => {
     }
 
     if (node.frontmatter.published === false && isProd) {
-      console.log(red('SKIPPING'))
+      if (isDev) {
+        console.log(red('SKIPPING'))
+      }
       return // skip this unpublished stuff only in production
     }
 

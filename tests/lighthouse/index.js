@@ -9,7 +9,7 @@ const { getVersion, transformVersion } = require('../../utils/version')
 // TODO: test a project site as well
 const testSite = 'https://marvin.lcl'
 
-const rootPath = path.resolve(__dirname, '..')
+const rootPath = path.resolve(__dirname, '..', '..')
 const version = transformVersion(getVersion(), ['major', 'minor'])
 const destDir = path.resolve(rootPath, 'reports', `v${version}.0`)
 let browserInstance = undefined

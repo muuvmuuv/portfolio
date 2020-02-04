@@ -39,6 +39,8 @@
 - [x] weird background colors on imprint bottom section
 - [x] fix issue with header on prod build
 - [ ] MDX pages are not using remark images plugin
+- [ ] search for new font:
+  - https://typetype.org/fonts/moons/
 - [x] update mobile navigation
 - [x] add scroll to top
 - [x] check description, keywords and title on all pages
