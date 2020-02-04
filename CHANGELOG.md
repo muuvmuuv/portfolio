@@ -1,3 +1,10 @@
+# [4.6.0](https://github.com/muuvmuuv/portfolio/compare/v3.14.0...v4.6.0) (2020-02-04)
+
+
+### New
+
+* added release-it ([678e1d8](https://github.com/muuvmuuv/portfolio/commit/678e1d814f7fb346929dee6f15561f64b7bcc755))
+
 # [4.5.0](https://github.com/muuvmuuv/portfolio/compare/v3.14.0...v4.5.0) (2020-02-04)
 
 - Added overlay HOC and new lightbox component
