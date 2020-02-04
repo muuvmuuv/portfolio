@@ -99,13 +99,37 @@ sure to create one on the development branch first and test/lint the code.
 
 ## Release
 
-Commit naming is described here:
-https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-eslint
+To release a new version type:
+
+```shell
+npm run release
+```
+
+Make sure to commit your changes first and write a good commit message as described here:
+https://www.conventionalcommits.org/
 
 ```
-Tag: Short description (fixes #1234)
+<type>[optional scope]: <description>
 
-Longer description here if necessary
+[optional body]
+
+[optional footer(s)]
+```
+
+Example tags:
+
+- `fix` - for a bug fix
+- `update` - either for a backwards-compatible enhancement or for a simple change
+- `new` - implemented a new feature
+- `upgrade` - for a dependency upgrade
+- `chore` - for refactoring, adding tests, etc. (anything that isn't user-facing)
+
+Example commit message with a breaking change (major version increase):
+
+```
+feat: allow provided config object to extend other configs
+
+BREAKING CHANGE: `extends` key in config file is now used for extending other config files
 ```
 
 ## Docker commands

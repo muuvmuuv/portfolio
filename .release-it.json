@@ -22,8 +22,26 @@
   "plugins": {
     "./scripts/bump-version.js": {},
     "@release-it/conventional-changelog": {
-      "preset": "eslint",
-      "infile": "CHANGELOG.md"
+      "preset": "conventionalcommits",
+      "infile": "CHANGELOG.md",
+      "types": [
+        {
+          "type": "fix",
+          "section": "Bug Fixes"
+        },
+        {
+          "type": "update",
+          "section": "Updates"
+        },
+        {
+          "type": "new",
+          "section": "New Features"
+        },
+        {
+          "type": "chore",
+          "hidden": true
+        }
+      ]
     }
   }
 }
