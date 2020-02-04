@@ -29,8 +29,7 @@
     "lint:js": "eslint ./gatsby ./plugins ./scripts ./src ./tests ./utils ./*.js",
     "lint:scss": "stylelint ./src/styles",
     "−−−−−−−−−−−−−−−−−  SCRIPTS/TOOLS  −−−−−−−−−−−−−−−−–−−": "",
-    "changelog": "auto-changelog --package --commit-limit false",
-    "version": "node ./scripts/version.js",
+    "release": "env-cmd -f ./.env.build release-it --disable-metrics",
     "pretty": "pretty-quick"
   },
   "dependencies": {
@@ -85,9 +84,10 @@
     "vanilla-click-outside": "^2.0.0"
   },
   "devDependencies": {
-    "auto-changelog": "^1.16.2",
+    "@release-it/conventional-changelog": "^1.1.0",
     "chrome-launcher": "^0.12.0",
     "cross-env": "^7.0.0",
+    "env-cmd": "^10.0.1",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-react-app": "^5.2.0",
@@ -99,7 +99,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
-    "prompts": "^2.3.0",
+    "release-it": "^12.4.3",
     "semver": "^7.1.2",
     "stylelint": "^13.0.0",
     "stylelint-config-prettier": "^8.0.1",

@@ -13,8 +13,7 @@ A beautiful Portfolio page made by me for me based on the awesome static site ge
 - [Auditing](#auditing)
 - [Linting](#linting)
 - [Deployment](#deployment)
-  - [Automatically](#automatically)
-  - [Manually](#manually)
+- [Release](#release)
 - [Docker commands](#docker-commands)
   - [Logs](#logs)
   - [Performance](#performance)
@@ -91,8 +90,6 @@ npm run lint
 
 I'm using [Now by Zeit](https://zeit.co/home) to deploy my site.
 
-### Automatically
-
 Pushing to the development branch will automatically create a new sub-domain and a build.
 So it's easy to view the changes in the production environment before pushing it to
 master.
@@ -100,11 +97,15 @@ master.
 Pushing to master will create a build and directly upload it to the main domain. Please be
 sure to create one on the development branch first and test/lint the code.
 
-### Manually
+## Release
 
-```shell
-npm run deploy
-npm run deploy-prod
+Commit naming is described here:
+https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-eslint
+
+```
+Tag: Short description (fixes #1234)
+
+Longer description here if necessary
 ```
 
 ## Docker commands
