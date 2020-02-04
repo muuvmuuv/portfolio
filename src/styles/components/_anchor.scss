@@ -1,11 +1,22 @@
+// NOTE: copied some code from here, because it is not added to head: https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-autolink-headers/src/gatsby-ssr.js
+
 $size: 15px;
 
 .anchor-link {
+  display: block;
   position: absolute;
   top: 50%;
-  left: -40px;
+  right: negative(var(--spacing-md));
   padding: var(--spacing-md);
   transform: translateY(-50%);
+
+  @include breakpoint-up(md) {
+    left: -40px;
+
+    svg {
+      visibility: hidden;
+    }
+  }
 
   svg {
     width: $size;
@@ -14,26 +25,18 @@ $size: 15px;
   }
 }
 
-// NOTE: copied from here, because it is not added to head: https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-autolink-headers/src/gatsby-ssr.js
-h1 .anchor-link svg,
-h2 .anchor-link svg,
-h3 .anchor-link svg,
-h4 .anchor-link svg,
-h5 .anchor-link svg,
-h6 .anchor-link svg {
-  visibility: hidden;
-}
-h1:hover .anchor-link svg,
-h2:hover .anchor-link svg,
-h3:hover .anchor-link svg,
-h4:hover .anchor-link svg,
-h5:hover .anchor-link svg,
-h6:hover .anchor-link svg,
-h1 .anchor-link:focus svg,
-h2 .anchor-link:focus svg,
-h3 .anchor-link:focus svg,
-h4 .anchor-link:focus svg,
-h5 .anchor-link:focus svg,
-h6 .anchor-link:focus svg {
-  visibility: visible;
+article {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding-right: var(--spacing-lg);
+
+    &:hover .anchor-link svg,
+    .anchor-link:focus svg {
+      visibility: visible;
+    }
+  }
 }
