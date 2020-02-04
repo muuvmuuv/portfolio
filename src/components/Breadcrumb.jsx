@@ -7,12 +7,14 @@ const Breadcrumb = () => {
   const { location, crumbLabel, crumbs } = useContext(HistoryContext)
 
   return (
-    <BreadcrumbPlugin
-      crumbs={crumbs}
-      crumbSeparator="/"
-      crumbLabel={crumbLabel}
-      disableLinks={['/', location]}
-    />
+    <div id="breadcrumb">
+      <BreadcrumbPlugin
+        crumbs={crumbs}
+        crumbSeparator="/"
+        crumbLabel={crumbLabel}
+        disableLinks={['/', location]}
+      />
+    </div>
   )
 }
 

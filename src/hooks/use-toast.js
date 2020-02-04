@@ -8,4 +8,4 @@ function useToast() {
   return { add, remove, toasts }
 }
 
-export default useToast
+export { useToast }

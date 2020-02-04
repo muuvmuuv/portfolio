@@ -3,15 +3,20 @@
   position: relative;
   z-index: 10;
   top: 0;
-  grid-template-areas: 'logo breadcrumb nav theme';
-  grid-template-columns: auto auto 1fr;
+  grid-template-areas: 'logo breadcrumb nav';
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   width: 100%;
   padding: var(--spacing-lg) var(--container-padding-x);
   column-gap: var(--spacing-md);
   transition: var(--transition-fast);
   user-select: none;
-  will-change: padding position;
+  will-change: padding, position;
+
+  @include breakpoint-up(md) {
+    grid-template-areas: 'logo breadcrumb nav theme';
+    grid-template-columns: auto 1fr auto auto;
+  }
 
   &.sticky {
     position: sticky;
@@ -39,6 +44,12 @@
   #theme-switch {
     grid-area: theme;
     margin-left: var(--spacing-xs);
+  }
+
+  > #theme-switch {
+    @include breakpoint-down(sm) {
+      display: none;
+    }
   }
 }
 

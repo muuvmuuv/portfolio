@@ -1,25 +1,36 @@
-.breadcrumb:first-of-type .breadcrumb__link__disabled,
-.breadcrumb__title {
-  display: none;
-}
+#breadcrumb {
+  overflow: hidden;
 
-.breadcrumb {
-  display: inline-block;
-  font-size: var(--text-sm);
-  letter-spacing: 1px;
-
-  .breadcrumb__link {
-    margin-right: var(--spacing-xs);
-    transition: opacity var(--transition-fast);
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
-    }
+  // TODO: remove div: https://github.com/sbardian/gatsby-plugin-breadcrumb/issues/56
+  > div {
+    overflow: hidden;
+    text-overflow: ellipsis; // does not work here...
+    white-space: nowrap;
   }
 
-  .breadcrumb__separator {
-    margin-right: var(--spacing-xs);
-    opacity: 0.8;
+  .breadcrumb:first-of-type .breadcrumb__link__disabled,
+  .breadcrumb__title {
+    display: none;
+  }
+
+  .breadcrumb {
+    display: inline;
+    font-size: var(--text-sm);
+    letter-spacing: 1px;
+
+    .breadcrumb__link {
+      margin-right: var(--spacing-xs);
+      transition: opacity var(--transition-fast);
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .breadcrumb__separator {
+      margin-right: var(--spacing-xs);
+      opacity: 0.8;
+    }
   }
 }
