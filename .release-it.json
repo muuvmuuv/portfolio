@@ -23,25 +23,7 @@
     "./scripts/bump-version.js": {},
     "@release-it/conventional-changelog": {
       "preset": "conventionalcommits",
-      "infile": "CHANGELOG.md",
-      "types": [
-        {
-          "type": "fix",
-          "section": "Bug Fixes"
-        },
-        {
-          "type": "update",
-          "section": "Updates"
-        },
-        {
-          "type": "new",
-          "section": "New Features"
-        },
-        {
-          "type": "chore",
-          "hidden": true
-        }
-      ]
+      "infile": "CHANGELOG.md"
     }
   }
 }

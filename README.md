@@ -10,22 +10,17 @@ A beautiful Portfolio page made by me for me based on the awesome static site ge
 - [Building](#building)
   - [NGINX](#nginx)
   - [Now by Zeit](#now-by-zeit)
-- [Auditing](#auditing)
+- [Testing](#testing)
 - [Linting](#linting)
 - [Deployment](#deployment)
 - [Release](#release)
-- [Docker commands](#docker-commands)
-  - [Logs](#logs)
-  - [Performance](#performance)
-  - [Interactive shell session](#interactive-shell-session)
-    - [Image](#image)
-    - [Container](#container)
+- [Package Manager](#package-manager)
 
 ## Development
 
 Developing this project is easy, simply run this in your shell:
 
-```shell
+```
 npm start
 ```
 
@@ -36,22 +31,24 @@ at: `http://localhost:8000`
 
 ## Building
 
-Depending on what you want to build, there a different processes.
+Depending on what should be builded, there a different processes.
 
 ### NGINX
 
 A production like build [NGINX docker container](https://hub.docker.com/_/nginx). This
-will also be used for auditing the website so make sure you have
-[docker installed](https://docs.docker.com/install/) on your computer.
+will be used for testing/auditing the website.
 
-```shell
+> Docker must be installed: [install docker desktop](https://docs.docker.com/install/)
+
+```
 npm run build
 make up
 ```
 
 The website is now accessible on: `https://marvin.lcl`
 
-> You must set `.lcl` to your hosts file to point to `127.0.0.1`
+> You must set `.lcl` to your hosts file to point to `127.0.0.1`. Read more about it here:
+> https://passingcuriosity.com/2013/dnsmasq-dev-osx/
 
 ### Now by Zeit
 
@@ -59,56 +56,59 @@ The website is now accessible on: `https://marvin.lcl`
 [production like server](https://zeit.co/docs/now-cli#commands/dev) to test things locally
 before pushing it in the cloud.
 
-```shell
+```
 npm run serve
 ```
 
 The website is now accessible on: `http://localhost:59235`
 
-## Auditing
+## Testing
 
-To audit our site and see if it matches accessibility, SEO and performance requirements,
-we use [Axe](https://www.deque.com/axe/) and
-[Lighthouse](https://github.com/GoogleChrome/lighthouse/). Axe is more specific than
+To test the sites performance and do some audits I use [Axe](https://www.deque.com/axe/)
+and [Lighthouse](https://github.com/GoogleChrome/lighthouse/). Axe is more specific than
 Lighthouse but Lighthouse provides a good overview.
 
-```shell
+[TODO] update testing section
+
+```
 npm run audit
 ```
 
 ## Linting
 
-For linting I use [Stylelint](https://stylelint.io/), [ESLint](https://eslint.org/) and
-[Prettier](https://prettier.io/) (as the formatter). There are also official VS Code
-plugins for those, please install them before contributing. To run the linter, run this:
+For linting I use the below packages. There are also official VS Code plugins for those.
+To run the linter, run this:
 
-```shell
+```
 npm run lint
 ```
+
+- [Stylelint](https://stylelint.io/)
+- [ESLint](https://eslint.org/)
+- [Commitlint](https://commitlint.js.org/)
+- [Prettier](https://prettier.io/) (as the formatter)
 
 ## Deployment
 
 I'm using [Now by Zeit](https://zeit.co/home) to deploy my site.
 
-Pushing to the development branch will automatically create a new sub-domain and a build.
-So it's easy to view the changes in the production environment before pushing it to
-master.
+Pushing to the development branch will automatically create a new build. So it's easy to
+view the changes in the production environment before pushing it to the master branch.
 
-Pushing to master will create a build and directly upload it to the main domain. Please be
-sure to create one on the development branch first and test/lint the code.
+Pushing/Merging to the master branch will create or alias a build to the main domain.
 
 ## Release
 
 To release a new version type:
 
-```shell
+```
 npm run release
 ```
 
 Make sure to commit your changes first and write a good commit message as described here:
 https://www.conventionalcommits.org/
 
-```
+```yml
 <type>[optional scope]: <description>
 
 [optional body]
@@ -116,48 +116,22 @@ https://www.conventionalcommits.org/
 [optional footer(s)]
 ```
 
-Example tags:
-
-- `fix` - for a bug fix
-- `update` - either for a backwards-compatible enhancement or for a simple change
-- `new` - implemented a new feature
-- `upgrade` - for a dependency upgrade
-- `chore` - for refactoring, adding tests, etc. (anything that isn't user-facing)
-
 Example commit message with a breaking change (major version increase):
 
-```
+```yml
 feat: allow provided config object to extend other configs
 
 BREAKING CHANGE: `extends` key in config file is now used for extending other config files
 ```
 
-## Docker commands
+## Package Manager
 
-### Logs
+I really like npm and used it a long time but thought I should try out Yarn or
+[pnpm](https://pnpm.js.org/) now. So for this project I will use
+[pnpm](https://pnpm.js.org/) which seems the most promissing and because I don't really
+understand what is going on with Yarn 2. Maybe I'll try it in another project someday.
 
-```shell
-docker logs -f marvin-nginx
-```
-
-### Performance
-
-```shell
-docker-compose top nginx
-```
-
-### Interactive shell session
-
-#### Image
-
-```shell
-docker run -it --entrypoint bash nginx
-```
-
-#### Container
-
-```shell
-docker exec -i -t marvin-nginx bash
-```
+To use pnpm with this project, think about all npm command but just call `pnpm` and not
+`npm` :).
 
 > Copyright © Marvin Heilemann
