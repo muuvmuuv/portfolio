@@ -75,7 +75,7 @@
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "normalize-url": "^4.5.0",
-    "preact": "^10.2.1",
+    "preact": "^10.3.0",
     "prism-react-renderer": "^1.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
