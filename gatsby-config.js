@@ -33,8 +33,24 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    `gatsby-plugin-postcss`,
-    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require('autoprefixer'),
+          require('cssnano')({
+            preset: [
+              'default',
+              {
+                discardComments: {
+                  removeAll: true,
+                },
+              },
+            ],
+          }),
+        ],
+      },
+    }`gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {

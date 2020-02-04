@@ -2,7 +2,9 @@ dependencies:
   '@mdx-js/mdx': 1.5.5
   '@mdx-js/react': 1.5.5_react@16.12.0
   '@react-spring/web': 9.0.0-beta.34_react-dom@16.12.0+react@16.12.0
+  autoprefixer: 9.7.4
   copy-text-to-clipboard: 2.1.1
+  cssnano: 4.1.10
   dayjs: 1.8.20
   dot-prop: 5.2.0
   gatsby: 2.19.12_d7bda3fccfec5130535f072cbb5f70e7
@@ -18170,9 +18172,11 @@ specifiers:
   '@mdx-js/react': ^1.5.5
   '@react-spring/web': ^9.0.0-beta.34
   '@release-it/conventional-changelog': ^1.1.0
+  autoprefixer: ^9.7.4
   chrome-launcher: ^0.12.0
   copy-text-to-clipboard: ^2.1.1
   cross-env: ^7.0.0
+  cssnano: ^4.1.10
   dayjs: ^1.8.19
   dot-prop: ^5.2.0
   env-cmd: ^10.0.1
