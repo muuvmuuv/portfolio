@@ -22,6 +22,7 @@ console.log(`Auditing: ${yellow(isAudit)}\n`)
 module.exports = {
   siteMetadata,
   plugins: [
+    `gatsby-plugin-pnpm`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet-async`,

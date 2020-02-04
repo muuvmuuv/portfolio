@@ -53,6 +53,7 @@
     "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-mdx": "^1.0.70",
     "gatsby-plugin-offline": "^3.0.34",
+    "gatsby-plugin-pnpm": "^1.0.0",
     "gatsby-plugin-postcss": "^2.1.20",
     "gatsby-plugin-preact": "^3.1.26",
     "gatsby-plugin-react-axe": "^0.3.0",
