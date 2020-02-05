@@ -1,27 +1,3 @@
-## [5.0.0](https://github.com/muuvmuuv/portfolio/compare/v4.6.0...v5.0.0) (2020-02-04)
-
-
-### ⚠ BREAKING CHANGES
-
-* replaced npm with pnpm
-
-### Features
-
-* added lefthook and commitlint ([9d58e8e](https://github.com/muuvmuuv/portfolio/commit/9d58e8eeef10f126ca3a3c10246766dc55a1499f))
-* update postcss plugin ([73de27e](https://github.com/muuvmuuv/portfolio/commit/73de27e3d843bad7d2f54bd3a2409df2c819c789))
-* use new release it preset ([7f279e0](https://github.com/muuvmuuv/portfolio/commit/7f279e0e832a974a705d4925ca4a8f775d3fc214))
-
-
-### Bug Fixes
-
-* missing comma in gatsby config ([55fc614](https://github.com/muuvmuuv/portfolio/commit/55fc61441dc0b554ac8e101d29d9a7d0b663e6b2))
-* pnpm stuff ([2a896fd](https://github.com/muuvmuuv/portfolio/commit/2a896fdbdb5f1705bc519bfc60ae496ea3ac80ad))
-
-
-### Build System
-
-* replaced npm with pnpm ([87b98da](https://github.com/muuvmuuv/portfolio/commit/87b98da14f4df077cafaed8bf6b2dae0ab9efeec))
-
 ### [4.5.0](https://github.com/muuvmuuv/portfolio/compare/v3.14.0...v4.5.0) (2020-02-04)
 
 
