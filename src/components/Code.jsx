@@ -87,7 +87,7 @@ const Code = ({ children, language }) => {
               <button className="copy-code" onClick={copyCode} onKeyPress={copyCode}>
                 {copyState}
               </button>
-              <div className="label">{language.toUpperCase()}</div>
+              <div className="code-lang">{language.toUpperCase()}</div>
             </div>
           </pre>
         )

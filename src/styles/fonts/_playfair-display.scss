@@ -1,6 +1,7 @@
 $font-name: 'Playfair Display';
 $font-slug: 'PlayfairDisplay';
 $font-path: '../fonts/#{$font-slug}';
+$font-version: '1.202';
 $font-display: fallback;
 
 // https://github.com/clauseggers/Playfair-Display
@@ -10,7 +11,7 @@ $font-display: fallback;
   font-style: normal;
   font-weight: 400;
   font-display: $font-display;
-  src: local($font-name), local($font-slug),
-    url('#{$font-path}/#{$font-slug}-Regular.woff2') format('woff2'),
-    url('#{$font-path}/#{$font-slug}-Regular.woff') format('woff');
+  src: local($font-name), local($font-slug), local('#{$font-slug}-Regular'),
+    url('#{$font-path}/#{$font-slug}-Regular.woff2?v=#{$font-version}') format('woff2'),
+    url('#{$font-path}/#{$font-slug}-Regular.woff?v=#{$font-version}') format('woff');
 }

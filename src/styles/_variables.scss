@@ -7,6 +7,13 @@
   --font-mono: 'JetBrains Mono', 'IBM Plex Mono', 'mononoki', Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace, var(--font-emoji);
 
+  @supports (font-variation-settings: normal) {
+    // Enable variable font for supported browsers
+    --font-sans: 'Inter var experimental', -apple-system, BlinkMacSystemFont,
+      'Helvetica Neue', Roboto, Arial, 'Segoe UI', 'Noto Sans', sans-serif,
+      var(--font-emoji);
+  }
+
   --font-extra-light: 100;
   --font-light: 200;
   --font-book: 300;
