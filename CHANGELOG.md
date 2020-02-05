@@ -24,6 +24,7 @@
 
 ### [4.5.0](https://github.com/muuvmuuv/portfolio/compare/v3.14.0...v4.5.0) (2020-02-04)
 
+
 * Added overlay HOC and new lightbox component ([f0864ad](https://github.com/muuvmuuv/portfolio/commit/f0864ad))
 * Blockquote responsive update ([7d2f6ac](https://github.com/muuvmuuv/portfolio/commit/7d2f6ac))
 * Bujmp version ([bceef08](https://github.com/muuvmuuv/portfolio/commit/bceef08))
@@ -56,6 +57,7 @@
 
 ### [3.14.0](https://github.com/muuvmuuv/portfolio/compare/v3.11.0...v3.14.0) (2020-02-02)
 
+
 * Fix "window is not defined" in component ([e7389a7](https://github.com/muuvmuuv/portfolio/commit/e7389a7))
 * Huuge update ([c134958](https://github.com/muuvmuuv/portfolio/commit/c134958))
 * Recreated all icons to have a strict size ([47668be](https://github.com/muuvmuuv/portfolio/commit/47668be))
@@ -63,15 +65,18 @@
 
 ### [3.11.0](https://github.com/muuvmuuv/portfolio/compare/v3.8.2...v3.11.0) (2020-01-22)
 
+
 * Changed fonts ([cf0e876](https://github.com/muuvmuuv/portfolio/commit/cf0e876))
 * Removed demo pages from prod builds ([cef903b](https://github.com/muuvmuuv/portfolio/commit/cef903b))
 * Updated favicon and logo ([000a69a](https://github.com/muuvmuuv/portfolio/commit/000a69a))
 
 #### [3.8.2](https://github.com/muuvmuuv/portfolio/compare/v3.8.1...v3.8.2) (2020-01-21)
 
+
 * Update README ([f6f01f6](https://github.com/muuvmuuv/portfolio/commit/f6f01f6))
 
 #### 3.8.1 (2020-01-21)
+
 
 * Add about page ([e4fdc15](https://github.com/muuvmuuv/portfolio/commit/e4fdc15))
 * Add breadcrumb ([855b553](https://github.com/muuvmuuv/portfolio/commit/855b553))
