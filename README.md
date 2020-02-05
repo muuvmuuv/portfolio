@@ -1,5 +1,5 @@
 <h1 align="left">
-  <img align="right" src="./static/me.gif" width="100">
+  <img align="right" src="./static/me.gif" width="100" />
   <b>Marvin Heilemann</b>
 </h1>
 
