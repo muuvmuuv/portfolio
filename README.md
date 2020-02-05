@@ -109,12 +109,24 @@ Make sure to commit your changes first and write a good commit message as descri
 https://www.conventionalcommits.org/
 
 ```yml
-<type>[optional scope]: <description>
+<type>: <description>
 
 [optional body]
 
-[optional footer(s)]
+[optional footer]
 ```
+
+Types:
+
+- `feat`: One new feature
+- `fix`: One bug fix
+- `chore`: For updated or added dependencies or a new release
+- `docs`: Update README or other informational stuf
+- `style`: Code style changes (white-space, formatting, missing semi-colons, etc)
+
+Scopes:
+
+I don't need scopes.
 
 Example commit message with a breaking change (major version increase):
 
