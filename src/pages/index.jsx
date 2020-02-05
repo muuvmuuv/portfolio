@@ -16,7 +16,6 @@ class Page extends React.Component {
 
     this.props.history.update({
       location: breadcrumb.location,
-      crumbLabel: this.state.pageName,
       crumbs: breadcrumb.crumbs,
     })
   }
