@@ -1,3 +1,37 @@
+## [5.0.0](https://github.com/muuvmuuv/portfolio/compare/v4.6.0...v5.0.0) (2020-02-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* replaced npm with pnpm
+
+### Features
+
+* add a11y emoji plugin ([51a9999](https://github.com/muuvmuuv/portfolio/commit/51a9999e837b621b795aea8b7d3ccc36c1d3fe40))
+* add support for inter variable font ([e757c71](https://github.com/muuvmuuv/portfolio/commit/e757c718cc54acccfbe5adb7a23cad2a633fe6f7)), closes [#27](https://github.com/muuvmuuv/portfolio/issues/27)
+* added lefthook and commitlint ([9d58e8e](https://github.com/muuvmuuv/portfolio/commit/9d58e8eeef10f126ca3a3c10246766dc55a1499f))
+* rebuild the breadcrumb component ([c3c446d](https://github.com/muuvmuuv/portfolio/commit/c3c446de789deb2c034b4c71aabc2a7b9e24e075))
+* update postcss plugin ([73de27e](https://github.com/muuvmuuv/portfolio/commit/73de27e3d843bad7d2f54bd3a2409df2c819c789))
+* updated todo page (now issues) ([afaeb88](https://github.com/muuvmuuv/portfolio/commit/afaeb882e1d4d332864fab2fc10f202d329496e9)), closes [#12](https://github.com/muuvmuuv/portfolio/issues/12) [#14](https://github.com/muuvmuuv/portfolio/issues/14)
+* use new release it preset ([7f279e0](https://github.com/muuvmuuv/portfolio/commit/7f279e0e832a974a705d4925ca4a8f775d3fc214))
+
+
+### Bug Fixes
+
+* missing comma in gatsby config ([55fc614](https://github.com/muuvmuuv/portfolio/commit/55fc61441dc0b554ac8e101d29d9a7d0b663e6b2))
+* pnpm plugin now resolve all node modules ([cb9ce7a](https://github.com/muuvmuuv/portfolio/commit/cb9ce7ad07cae623d8e976fc6e4ab4ef29cb7cf9)), closes [#40](https://github.com/muuvmuuv/portfolio/issues/40)
+* pnpm stuff ([2a896fd](https://github.com/muuvmuuv/portfolio/commit/2a896fdbdb5f1705bc519bfc60ae496ea3ac80ad))
+
+
+### Reverts
+
+* version and changelog changes ([d383a11](https://github.com/muuvmuuv/portfolio/commit/d383a11bc77c8c0c0fb9e68fc280e28f177c9096))
+
+
+### Build System
+
+* replaced npm with pnpm ([87b98da](https://github.com/muuvmuuv/portfolio/commit/87b98da14f4df077cafaed8bf6b2dae0ab9efeec))
+
 ### [4.5.0](https://github.com/muuvmuuv/portfolio/compare/v3.14.0...v4.5.0) (2020-02-04)
 
 
