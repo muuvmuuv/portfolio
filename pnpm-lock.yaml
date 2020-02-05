@@ -33,7 +33,6 @@ dependencies:
   gatsby-remark-autolink-headers: 2.1.24_gatsby@2.19.12
   gatsby-remark-check-links: 2.1.0
   gatsby-remark-copy-linked-files: 2.1.37_gatsby@2.19.12
-  gatsby-remark-emoji: 0.0.3
   gatsby-remark-images: 3.1.44_f22baf67783ef7daa58f09e040bfded6
   gatsby-source-filesystem: 2.1.48_gatsby@2.19.12
   gatsby-source-graphql: 2.1.33_gatsby@2.19.12
@@ -49,6 +48,7 @@ dependencies:
   react: 16.12.0
   react-dom: 16.12.0_react@16.12.0
   react-helmet-async: 1.0.4_react-dom@16.12.0+react@16.12.0
+  rehype-accessible-emojis: 0.3.2
   titleize: 2.1.0
   unique-string: 2.0.0
   vanilla-click-outside: 2.0.0
@@ -6448,10 +6448,6 @@ packages:
   /emoji-regex/8.0.0:
     resolution:
       integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
-  /emojione/3.1.7:
-    dev: false
-    resolution:
-      integrity: sha1-LTxyXGlvF5yd3jrLZVxiHulCmx4=
   /emojis-list/2.1.0:
     dev: false
     engines:
@@ -8238,13 +8234,6 @@ packages:
       gatsby: ^2.0.0
     resolution:
       integrity: sha512-ZDmItZzATXnUlU5jywcFs3ujIpE47DxrisFnolR7RdLo9pMRIqWvt/HFnBGPEaMng8S8+VuvM9SZtCNZMmnRYg==
-  /gatsby-remark-emoji/0.0.3:
-    dependencies:
-      bluebird: 3.7.2
-      emojione: 3.1.7
-    dev: false
-    resolution:
-      integrity: sha512-j4G3DeTop68MIR+lZ3lB+jsYV4FwmoE/Rpz5Z5lir1nQmf1DPAVeMzuTvLidKDvWBWSuJnwBV3Wzx9NeXnznSQ==
   /gatsby-remark-images/3.1.44_f22baf67783ef7daa58f09e040bfded6:
     dependencies:
       '@babel/runtime': 7.8.4
@@ -8534,6 +8523,10 @@ packages:
       node: '>= 4.0.0'
     resolution:
       integrity: sha512-BRdNm8hbWzFzWHERTrejLqwHDfS4GibPoq5wjTPIoJHoBtKGPg3xAFfxmM+9ztbXelxcf2hwQcaz1PtmFeue8g==
+  /gemoji/4.2.1:
+    dev: false
+    resolution:
+      integrity: sha512-V9lUpRSn+KQGavZx8Pk+6mxG3kaz21ae2kTCXuT36KaRPNgYU8eHtj/RcUCNFVvmwppsYYz3nnNS9lmcP5kTsg==
   /generate-robotstxt/7.1.0:
     dependencies:
       cosmiconfig: 5.2.1
@@ -9312,6 +9305,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-YXFjoRS7ES7PEoLx6uihtSfKTO1s3z/tzGiV5cVpsUiihduogFXubNRCzTIW3yOOGO1nws9CxPq4MbwD39Uo+w==
+  /hast-util-is-element/1.0.3:
+    dev: false
+    resolution:
+      integrity: sha512-C62CVn7jbjp89yOhhy7vrkSaB7Vk906Gtcw/Ihd+Iufnq+2pwOZjdPmpzpKLWJXPJBMDX3wXg4FqmdOayPcewA==
   /hast-util-parse-selector/2.2.3:
     dev: false
     resolution:
@@ -14611,6 +14608,15 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-E9ghzUtoLwDekPT0DYCp+c4h+bvuUpe6rRHCTYn6eGoqj1LgKXxT6I0Il4WbjhQkOghzi/V+y03bPKvbllL93Q==
+  /rehype-accessible-emojis/0.3.2:
+    dependencies:
+      emoji-regex: 8.0.0
+      gemoji: 4.2.1
+      hast-util-is-element: 1.0.3
+      unist-util-flatmap: 1.0.0
+    dev: false
+    resolution:
+      integrity: sha512-kChZo+EZsuFQYHUPu6kOZFjDrG7UtQdGxkrCvHBVo9ariKPL6S68QdPVxLxwcAtZSRZIXZhDuTJHgIM8KW24Qw==
   /release-it/12.4.3:
     dependencies:
       '@iarna/toml': 2.2.3
@@ -16990,6 +16996,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-lWgIc3rrTMTlK1Y0hEuL+k+ApzFk78h+lsaa2gHf63Gp5Ww+mt11huDniuaoq1H+XMK2lIIjjPkncxXcDp3QDw==
+  /unist-util-flatmap/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-IG32jcKJlhARCYT2LsYPJWdoXYkzz3ESAdl1aa2hn9Auh+cgUmU6wgkII4yCc/1GgeWibRdELdCZh/p3QKQ1dQ==
   /unist-util-generated/1.1.5:
     dev: false
     resolution:
@@ -18228,7 +18238,6 @@ specifiers:
   gatsby-remark-autolink-headers: ^2.1.24
   gatsby-remark-check-links: ^2.1.0
   gatsby-remark-copy-linked-files: ^2.1.37
-  gatsby-remark-emoji: 0.0.3
   gatsby-remark-images: ^3.1.44
   gatsby-source-filesystem: ^2.1.48
   gatsby-source-graphql: ^2.1.33
@@ -18249,6 +18258,7 @@ specifiers:
   react: ^16.12.0
   react-dom: ^16.12.0
   react-helmet-async: ^1.0.4
+  rehype-accessible-emojis: ^0.3.2
   release-it: ^12.4.3
   semver: ^7.1.2
   stylelint: ^13.0.0
