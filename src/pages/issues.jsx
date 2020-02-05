@@ -5,10 +5,11 @@ import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
 import Article from '../layouts/Article'
 import HeroPage from '../components/HeroPage'
+import Issue from '../components/Issue'
 
 class Page extends React.Component {
   state = {
-    pageName: 'Whats next?',
+    pageName: 'Issues issues tissues',
   }
 
   componentDidMount() {
@@ -23,12 +24,7 @@ class Page extends React.Component {
 
   render() {
     const {
-      singleFile: {
-        childMdx: {
-          fields: { slug },
-          body,
-        },
-      },
+      allLeasot: { edges: leasotData },
     } = this.props.data
 
     return (
@@ -37,7 +33,14 @@ class Page extends React.Component {
 
         <HeroPage title={this.state.pageName} />
 
-        <Article slug={slug} mdx={body}></Article>
+        <Article>
+          <h4 className="text-center">
+            More issues will come soon. Waiting for an tissue.
+          </h4>
+          {leasotData.map(({ node: { todo } }, index) => {
+            return <Issue key={index} data={todo} />
+          })}
+        </Article>
       </>
     )
   }
@@ -51,12 +54,20 @@ export default React.forwardRef((props, ref) => (
 
 export const query = graphql`
   query TodoQuery {
-    singleFile(name: { eq: "TODO" }) {
-      childMdx {
-        fields {
-          slug
+    allLeasot(sort: { fields: todo___modifiedTime, order: ASC }) {
+      edges {
+        node {
+          todo {
+            tag
+            ref
+            modifiedTime
+            line
+            value
+            file {
+              relativePath
+            }
+          }
         }
-        body
       }
     }
   }

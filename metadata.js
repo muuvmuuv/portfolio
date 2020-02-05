@@ -49,12 +49,16 @@ module.exports = {
       link: '/changelog',
     },
     {
-      name: 'Todo',
-      link: '/todo',
+      name: 'Issues',
+      link: '/issues',
     },
     {
       name: 'Imprint',
       link: '/imprint',
+    },
+    {
+      name: 'Privacy',
+      link: '/privacy',
     },
   ],
   social: [
