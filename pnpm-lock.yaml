@@ -17,7 +17,7 @@ dependencies:
   gatsby-plugin-manifest: 2.2.41_gatsby@2.19.12
   gatsby-plugin-mdx: 1.0.70_ffce02a63d096546d6f80e70969ab8df
   gatsby-plugin-offline: 3.0.34_gatsby@2.19.12
-  gatsby-plugin-pnpm: 1.0.0_gatsby@2.19.12
+  gatsby-plugin-pnpm: 1.1.0_gatsby@2.19.12
   gatsby-plugin-postcss: 2.1.20_gatsby@2.19.12
   gatsby-plugin-preact: 3.1.26_gatsby@2.19.12+preact@10.3.0
   gatsby-plugin-react-axe: 0.3.0_gatsby@2.19.12
@@ -37,6 +37,7 @@ dependencies:
   gatsby-source-filesystem: 2.1.48_gatsby@2.19.12
   gatsby-source-graphql: 2.1.33_gatsby@2.19.12
   gatsby-transformer-json: 2.2.26_gatsby@2.19.12
+  gatsby-transformer-leasot: 1.1.1
   gatsby-transformer-sharp: 2.3.14_f22baf67783ef7daa58f09e040bfded6
   lodash: 4.17.15
   moment: 2.24.0
@@ -3527,6 +3528,12 @@ packages:
     optional: true
     resolution:
       integrity: sha512-Hdw8qdNiqdJ8LqT0iK0sVzkFbzg6fhnQqqfWhBDxcHZvU75+B+ayzTy8x+k5Ix0Y92XOhOUlx74ps+bA6BeYMQ==
+  /autolinker/3.11.1:
+    dependencies:
+      tslib: 1.10.0
+    dev: false
+    resolution:
+      integrity: sha512-6sAmetStorjXvwmV8MBxI5DGICHKD1B5EjdkIrq34X6YBDN6jj54EUHnoHgNqmNCclcf8c409zuVMNy449u80g==
   /autoprefixer/9.7.4:
     dependencies:
       browserslist: 4.8.6
@@ -4966,6 +4973,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==
+  /commander/4.1.1:
+    dev: false
+    engines:
+      node: '>= 6'
+    resolution:
+      integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
   /common-tags/1.8.0:
     dev: false
     engines:
@@ -5267,7 +5280,7 @@ packages:
       compare-func: 1.3.2
       conventional-commits-filter: 2.0.2
       dateformat: 3.0.3
-      handlebars: 4.7.2
+      handlebars: 4.7.3
       json-stringify-safe: 5.0.1
       lodash: 4.17.15
       meow: 5.0.0
@@ -6545,6 +6558,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-3vwyJJkMfspzuzRGGlbPncJHYdA=
+  /eol/0.9.1:
+    dev: false
+    resolution:
+      integrity: sha512-Ds/TEoZjwggRoz/Q2O7SE3i4Jm66mqTDfmdHdq/7DKVk3bro9Q8h6WdXKdPqFLMoqxrDK5SVRzHVPOS6uuGtrg==
   /errno/0.1.7:
     dependencies:
       prr: 1.0.1
@@ -8017,14 +8034,14 @@ packages:
       gatsby: ^2.0.0
     resolution:
       integrity: sha512-jwY8LTOOobrKUr1ph+/IHAHDuzjSrXsAu2YBqZg7wc/J6gre0YAgOU2yAxY34CadE34jieISO3FDIyHMii3vPg==
-  /gatsby-plugin-pnpm/1.0.0_gatsby@2.19.12:
+  /gatsby-plugin-pnpm/1.1.0_gatsby@2.19.12:
     dependencies:
       gatsby: 2.19.12_d7bda3fccfec5130535f072cbb5f70e7
     dev: false
     peerDependencies:
       gatsby: ~2.x.x
     resolution:
-      integrity: sha512-eysYfvQTi5SDc17l3PVEYIuy75ksE71vNQBjcuqhrkIPh77bzYVJ5KspcYyIhxb2U6r+eu4NnZYQWT4Wp7gluQ==
+      integrity: sha512-awb9XfEhOUNaBtwaEFdZUezU3q7OolKppd3aSnwiXq1X+HDdcmDVWuSI0rlE+WNkdmhRQcOWO1I3jIpd2GTXTA==
   /gatsby-plugin-postcss/2.1.20_gatsby@2.19.12:
     dependencies:
       '@babel/runtime': 7.8.4
@@ -8336,6 +8353,19 @@ packages:
       gatsby: ^2.0.15
     resolution:
       integrity: sha512-JpjeL44AbUxA7gnTxVWd+F6IgGIKE8stFywg1ZLn7bbSHKpKUatN6UXw7PSZDac+9aSaDTEAqWFhOX/z3BqE3Q==
+  /gatsby-transformer-leasot/1.1.1:
+    dependencies:
+      '@babel/core': 7.8.4
+      '@mdx-js/mdx': 1.5.5
+      autolinker: 3.11.1
+      he: 1.2.0
+      leasot: 10.0.0
+      lodash: 4.17.15
+      remark-truncate-links: 1.0.3
+      unist-util-visit: 2.0.1
+    dev: false
+    resolution:
+      integrity: sha512-clegmJ7/eInWGNxWgAV/i2L3lbFdqP9C0oru41fryM+c9ihEMpyxfrGgYiP9pkO6Ap3KxTH/Ruks2ej8YtGgCg==
   /gatsby-transformer-sharp/2.3.14_f22baf67783ef7daa58f09e040bfded6:
     dependencies:
       '@babel/runtime': 7.8.4
@@ -8485,7 +8515,7 @@ packages:
       v8-compile-cache: 1.1.2
       webpack: 4.41.5_webpack@4.41.5
       webpack-dev-middleware: 3.7.2_webpack@4.41.5
-      webpack-dev-server: 3.10.2_webpack@4.41.5
+      webpack-dev-server: 3.10.3_webpack@4.41.5
       webpack-hot-middleware: 2.25.0
       webpack-merge: 4.2.2
       webpack-stats-plugin: 0.3.1
@@ -8597,7 +8627,6 @@ packages:
     resolution:
       integrity: sha512-jp4tHawyV7+fkkSKyvjuLZswblUtz+SQKzSWnBbii16BuZksJlU1wuBYXY75r+duh/llF1ur6oNwi+2ZzjKZ7g==
   /get-stdin/7.0.0:
-    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -8863,7 +8892,6 @@ packages:
       ignore: 5.1.4
       merge2: 1.3.0
       slash: 3.0.0
-    dev: true
     engines:
       node: '>=10'
     resolution:
@@ -9129,7 +9157,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-d4sze1JNC454Wdo2fkuyzCr6aHcbL6PGGuFAz0Li/NcOm1tCHGnWDRmJP85dh9IhQErTc2svWFEX5xHIOo//kQ==
-  /handlebars/4.7.2:
+  /handlebars/4.7.3:
     dependencies:
       neo-async: 2.6.1
       optimist: 0.6.1
@@ -9141,7 +9169,7 @@ packages:
     optionalDependencies:
       uglify-js: 3.7.7
     resolution:
-      integrity: sha512-4PwqDL2laXtTWZghzzCtunQUTLbo31pcCJrd/B/9JP8XbhVzpS5ZXuKqlOzsd1rtcaLo4KqAn8nl8mkknS4MHw==
+      integrity: sha512-SRGwSYuNfx8DwHD/6InAPzD6RgeruWLT+B8e8a7gGs8FWgHzlExpTFMEq2IA6QpAfOClpKHy6+8IqTjeBCu6Kg==
   /har-schema/2.0.0:
     engines:
       node: '>=4'
@@ -9345,6 +9373,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-xHo1Hkcqd0LlWNuDL3/BxwhgAGp3d7uEvCMgCTrBY+zsOooPPH+8KAvW8PCgl+GB8H3H44nfSaF0A4BQ+4xlYg==
+  /he/1.2.0:
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
   /header-case/1.0.1:
     dependencies:
       no-case: 2.3.2
@@ -10756,6 +10789,12 @@ packages:
   /json-stringify-safe/5.0.1:
     resolution:
       integrity: sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
+  /json2xml/0.1.3:
+    dev: false
+    engines:
+      node: '>= 0.6.0'
+    resolution:
+      integrity: sha1-mufCIL7dfGamaOJvesGC9nBOyiE=
   /json3/3.3.3:
     dev: false
     resolution:
@@ -10924,6 +10963,25 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-avPEb8P8EGnwXKClwsNUgryVjllcRqtMYa49NTsbQagYuT1DcXnl1915oxWjoyGrXR6zH/Y0Zc96xWsPcoDKeA==
+  /leasot/10.0.0:
+    dependencies:
+      async: 3.1.1
+      chalk: 3.0.0
+      commander: 4.1.1
+      eol: 0.9.1
+      get-stdin: 7.0.0
+      globby: 11.0.0
+      json2xml: 0.1.3
+      lodash: 4.17.15
+      log-symbols: 3.0.0
+      strip-ansi: 6.0.0
+      text-table: 0.2.0
+    dev: false
+    engines:
+      node: '>=10'
+    hasBin: true
+    resolution:
+      integrity: sha512-w4vULXrTjOzProLNYqpsxqgpCdkxMhzOG3ODpUW3QA9nWUApMI4/ec3WRmM7y1UCdMfYFUbTodNprCHqRsTJxw==
   /leven/3.1.0:
     engines:
       node: '>=6'
@@ -11231,7 +11289,6 @@ packages:
   /log-symbols/3.0.0:
     dependencies:
       chalk: 2.4.2
-    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -14752,6 +14809,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-qck+8NeA1D0utk1ttKcWAoHRrJxERYQzkHDyn+pF5Z4whX1ug98uCNPPSeFgLSaNERRxnD6oxIug6DzZQth6Pg==
+  /remark-truncate-links/1.0.3:
+    dependencies:
+      autolinker: 3.11.1
+      mdast-util-to-string: 1.0.7
+      unist-util-visit: 2.0.1
+    dev: false
+    resolution:
+      integrity: sha512-NAuuzrk873yqdAQlU6k4vuJkON+dO7yxynuPfHXyjSm1jz+pbgUSifeuAjHDuK5gBy+gHyApvrcL1xE7lTb+Ow==
   /remark/10.0.1:
     dependencies:
       remark-parse: 6.0.3
@@ -17466,7 +17531,7 @@ packages:
       webpack: ^4.0.0
     resolution:
       integrity: sha512-1xC42LxbYoqLNAhV6YzTYacicgMZQTqRd27Sim9wn5hJrX3I5nxYy1SxSd4+gjUFsz1dQFj+yEe6zEVmSkeJjw==
-  /webpack-dev-server/3.10.2_webpack@4.41.5:
+  /webpack-dev-server/3.10.3_webpack@4.41.5:
     dependencies:
       ansi-html: 0.0.7
       bonjour: 3.5.0
@@ -17513,7 +17578,7 @@ packages:
       webpack-cli:
         optional: true
     resolution:
-      integrity: sha512-pxZKPYb+n77UN8u9YxXT4IaIrGcNtijh/mi8TXbErHmczw0DtPnMTTjHj+eNjkqLOaAZM/qD7V59j/qJsEiaZA==
+      integrity: sha512-e4nWev8YzEVNdOMcNzNeCN947sWJNd43E5XvsJzbAL08kGc2frm1tQ32hTJslRS+H65LCb/AaUCYU7fjHCpDeQ==
   /webpack-hot-middleware/2.25.0:
     dependencies:
       ansi-html: 0.0.7
@@ -18203,7 +18268,7 @@ specifiers:
   copy-text-to-clipboard: ^2.1.1
   cross-env: ^7.0.0
   cssnano: ^4.1.10
-  dayjs: ^1.8.19
+  dayjs: ^1.8.20
   dot-prop: ^5.2.0
   env-cmd: ^10.0.1
   eslint: ^6.8.0
@@ -18222,7 +18287,7 @@ specifiers:
   gatsby-plugin-manifest: ^2.2.41
   gatsby-plugin-mdx: ^1.0.70
   gatsby-plugin-offline: ^3.0.34
-  gatsby-plugin-pnpm: ^1.0.0
+  gatsby-plugin-pnpm: ^1.1.0
   gatsby-plugin-postcss: ^2.1.20
   gatsby-plugin-preact: ^3.1.26
   gatsby-plugin-react-axe: ^0.3.0
@@ -18242,6 +18307,7 @@ specifiers:
   gatsby-source-filesystem: ^2.1.48
   gatsby-source-graphql: ^2.1.33
   gatsby-transformer-json: ^2.2.26
+  gatsby-transformer-leasot: ^1.1.1
   gatsby-transformer-sharp: ^2.3.14
   kleur: ^3.0.3
   lighthouse: ^5.6.0
