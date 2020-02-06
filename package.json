@@ -30,7 +30,6 @@
     "lint:scss": "stylelint ./src/styles",
     "lint:commit": "commitlint --from HEAD~1",
     "−-−−−−−−−−−−−−−−−–−----−  TOOLS  −−−−−−----−−−−−−−−−−–−−": "",
-    "postinstall": "lefthook install",
     "release": "env-cmd -f ./.env.build release-it --disable-metrics",
     "pretty": "pretty-quick"
   },
