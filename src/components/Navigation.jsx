@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { globalHistory } from '@reach/router'
 
 import { useMenuLinks } from '../hooks/use-menu-links'
+import { useOverlay } from '../hooks/use-overlay'
 import Link from './Link'
 import Icon from './Icon'
-import { useEffect } from 'react'
+import ThemeSwitch from './ThemeSwitch'
 
 const Navigation = () => {
   const [open, setOpen] = useState(false)
+  const { hide, show } = useOverlay()
 
   const menuLinks = useMenuLinks()
 
@@ -15,6 +17,7 @@ const Navigation = () => {
     const unsubscribe = globalHistory.listen(({ action }) => {
       if (action === 'PUSH') {
         setOpen(false)
+        hide()
       }
     })
 
@@ -23,6 +26,11 @@ const Navigation = () => {
 
   const toggleNav = () => {
     setOpen(!open)
+    if (!open) {
+      show()
+    } else {
+      hide()
+    }
   }
 
   return (
@@ -46,32 +54,30 @@ const Navigation = () => {
           <div className="hli hci2"></div>
         </div>
       </button>
-      <div className="overlay"></div>
-      <div className="wrapper">
-        <nav>
-          <ul>
-            {menuLinks.map(({ name, link, external }, index) => (
-              <li key={index}>
-                {external ? (
-                  <a
-                    href={link}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="nav-link"
-                  >
-                    {name}
-                    <Icon name="arrow-top-right" />
-                  </a>
-                ) : (
-                  <Link to={link} className="nav-link" activeClassName="active">
-                    {name}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+      <nav>
+        <ul>
+          {menuLinks.map(({ name, link, external }, index) => (
+            <li key={index}>
+              {external ? (
+                <a
+                  href={link}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="nav-link"
+                >
+                  {name}
+                  <Icon name="arrow-top-right" />
+                </a>
+              ) : (
+                <Link to={link} className="nav-link" activeClassName="active">
+                  {name}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <ThemeSwitch />
     </div>
   )
 }

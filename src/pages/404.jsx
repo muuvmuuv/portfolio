@@ -21,10 +21,7 @@ class Page extends React.Component {
   render() {
     return (
       <>
-        <Head
-          pageName={this.state.pageName}
-          bodyClasses="header-fixed header-click-through"
-        />
+        <Head pageName={this.state.pageName} bodyClasses="header-float" />
 
         <div id="hero" className="content-center size-medium">
           <div className="container">

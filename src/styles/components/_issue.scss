@@ -1,0 +1,61 @@
+.issue {
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+
+  &:not(:first-of-type) {
+    border-bottom: 1px solid var(--divider-color);
+  }
+
+  &__header {
+    display: grid;
+    grid-template-areas:
+      'label label ref time'
+      'sep link link link';
+    grid-template-columns: auto auto auto 1fr;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+    column-gap: var(--spacing-xxs);
+    user-select: none;
+    font-feature-settings: 'case' 1;
+
+    @include breakpoint-up(md) {
+      grid-template-areas: 'label ref sep link time';
+      grid-template-columns: auto auto auto 1fr;
+    }
+  }
+
+  &__label {
+    grid-area: label;
+  }
+
+  &__ref {
+    grid-area: ref;
+    margin-top: 1px;
+    color: var(--text-color-medium);
+    font-size: var(--text-sm);
+  }
+
+  &__separator {
+    grid-area: sep;
+    color: var(--text-color-medium);
+    cursor: default;
+  }
+
+  &__link {
+    grid-area: link;
+  }
+
+  &__modified {
+    grid-area: time;
+
+    @include breakpoint-up(md) {
+      justify-self: end;
+    }
+  }
+
+  // we need to reset these because we are in an <Article />
+  &__body p {
+    margin-bottom: 0;
+    text-align: left;
+  }
+}

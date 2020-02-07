@@ -92,7 +92,7 @@ class Article extends React.Component {
 
     return (
       <article {...props}>
-        <header>{toc}</header>
+        {toc && <header>{toc}</header>}
 
         {this.props.mdx ? (
           <MDXRenderer slug={this.props.slug}>{this.props.mdx}</MDXRenderer>
@@ -100,7 +100,7 @@ class Article extends React.Component {
           this.props.children
         )}
 
-        <footer>{/* EMPTY */}</footer>
+        {/* <footer>EMPTY</footer> */}
       </article>
     )
   }

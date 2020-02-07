@@ -8,4 +8,4 @@ function useOverlay() {
   return { show, hide }
 }
 
-export default useOverlay
+export { useOverlay }

@@ -1,4 +1,3 @@
-data
 docker/nginx/certs
 reports
 .env.*

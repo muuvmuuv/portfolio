@@ -11,6 +11,14 @@
   }
 
   main {
-    padding-top: 120px;
+    padding-top: 40px;
+
+    @include breakpoint-up(md) {
+      padding-top: 60px;
+    }
+
+    @include breakpoint-up(lg) {
+      padding-top: 120px;
+    }
   }
 }

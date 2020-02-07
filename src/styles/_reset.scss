@@ -76,6 +76,12 @@ u {
   text-underline-offset: 0.07em;
 }
 
+em,
+i {
+  font-variation-settings: 'slnt' -10; // FIX: var fix all browsers
+  font-style: oblique -10deg; // FIX: var fix safari
+}
+
 button,
 input,
 optgroup,

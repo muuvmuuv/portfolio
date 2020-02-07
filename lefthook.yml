@@ -1,0 +1,13 @@
+# Refer for explanation to following link:
+# https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
+
+pre-commit:
+  commands:
+    lint-commit:
+      run: pnpm run lint:commit
+    lint-script:
+      glob: "*.{js,ts}x?"
+      run: pnpm eslint {staged_files}
+    lint-styles:
+      glob: "*.{scss,css}"
+      run: pnpm stylelint {staged_files}

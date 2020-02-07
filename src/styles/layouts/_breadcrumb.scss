@@ -1,15 +1,9 @@
-.breadcrumb:first-of-type .breadcrumb__link__disabled,
-.breadcrumb__title {
-  display: none;
-}
-
-.breadcrumb {
-  display: inline-block;
-  font-size: var(--text-sm);
-  letter-spacing: 1px;
+#breadcrumb {
+  overflow: hidden;
+  text-overflow: ellipsis; // does not work here...
+  white-space: nowrap;
 
   .breadcrumb__link {
-    margin-right: var(--spacing-xs);
     transition: opacity var(--transition-fast);
     opacity: 0.8;
 
@@ -18,8 +12,10 @@
     }
   }
 
+  .breadcrumb__item,
   .breadcrumb__separator {
     margin-right: var(--spacing-xs);
-    opacity: 0.8;
+    font-size: var(--text-sm);
+    letter-spacing: 1px;
   }
 }
