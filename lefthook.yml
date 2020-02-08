@@ -7,7 +7,7 @@ pre-commit:
       run: pnpm run lint:commit
     lint-script:
       glob: "*.{js,ts}x?"
-      run: pnpm eslint {staged_files}
+      run: eslint {staged_files}
     lint-styles:
       glob: "*.{scss,css}"
-      run: pnpm stylelint {staged_files}
+      run: stylelint {staged_files}
