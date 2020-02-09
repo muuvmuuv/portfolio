@@ -4,7 +4,6 @@
  * @see https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-/* eslint-disable import/first */
 require('dotenv').config({
   path: `.env.build`,
 })

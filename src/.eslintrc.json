@@ -1,0 +1,56 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "import"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended",
+    "plugin:mdx/recommended",
+    "plugin:jsx-a11y/strict",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "commonjs": true,
+    "serviceworker": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".mdx"
+        ]
+      }
+    }
+  },
+  "rules": {
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          [
+            "builtin",
+            "external",
+            "internal"
+          ]
+        ]
+      }
+    ],
+    "default-case": "off"
+  }
+}

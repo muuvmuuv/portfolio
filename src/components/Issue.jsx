@@ -1,9 +1,9 @@
 import React from 'react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import { Link } from '../elements/Link'
 import Time from './Time'
 import Label from './Label'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import DataType from './DataType'
 
 const Issue = ({

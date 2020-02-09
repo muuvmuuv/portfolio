@@ -8,7 +8,7 @@ import Footer from './Footer'
 import ScrollToTop from '../components/ScrollToTop'
 import mdxElements from '../components/MDXElements'
 
-export default ({ children }) => {
+const Index = ({ children }) => {
   const { theme } = useContext(ThemeContext)
 
   return (
@@ -25,3 +25,5 @@ export default ({ children }) => {
     </>
   )
 }
+
+export default Index

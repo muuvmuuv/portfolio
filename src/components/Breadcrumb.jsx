@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
+import { Link } from 'gatsby'
 import titleize from 'titleize'
 
 import { HistoryContext } from '../provider/history'
-import { Link } from 'gatsby'
 
 const Breadcrumb = () => {
   const { location, crumbLabel, crumbs } = useContext(HistoryContext)
