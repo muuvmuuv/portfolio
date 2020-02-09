@@ -10,11 +10,13 @@ reports
 public
 
 #
-# NodeJS
+# Node
 #
 
 node_modules
 .cache
+.eslintcache
+.stylelintcache
 
 #
 # Git

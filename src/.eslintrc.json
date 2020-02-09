@@ -1,5 +1,4 @@
 {
-  "parser": "babel-eslint",
   "plugins": [
     "import"
   ],
@@ -39,6 +38,7 @@
   "rules": {
     "react/display-name": "off",
     "react/prop-types": "off",
+    "mdx/no-unescaped-entities": "off",
     "import/order": [
       "error",
       {
