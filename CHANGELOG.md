@@ -1,3 +1,20 @@
+## [5.1.0](https://github.com/muuvmuuv/portfolio/compare/v5.0.0...v5.1.0) (2020-02-09)
+
+
+### Features
+
+* set lighter colors on anchors ([86b3a74](https://github.com/muuvmuuv/portfolio/commit/86b3a749a038bc1a43048592d2d11f65d26fa662)), closes [#16](https://github.com/muuvmuuv/portfolio/issues/16)
+* update eslint configuration ([17d6727](https://github.com/muuvmuuv/portfolio/commit/17d672766fd76fc08a4cd8ba2a9b3d1b04813ce4)), closes [#42](https://github.com/muuvmuuv/portfolio/issues/42)
+* updated sup/footnote ([1527f7b](https://github.com/muuvmuuv/portfolio/commit/1527f7b0f0c72c40bec7ed1a04a3ec723635369f)), closes [#28](https://github.com/muuvmuuv/portfolio/issues/28)
+
+
+### Bug Fixes
+
+* body horrizontal scroll ([ad60de4](https://github.com/muuvmuuv/portfolio/commit/ad60de4704926f6767df739c54a27c0edf1144d1))
+* code blocks breaks weird on mobile ([6e6f60c](https://github.com/muuvmuuv/portfolio/commit/6e6f60c09107075244fe304a0d226dac2f02f6e2)), closes [#17](https://github.com/muuvmuuv/portfolio/issues/17)
+* remove lefthook postinstall ([8e5e27d](https://github.com/muuvmuuv/portfolio/commit/8e5e27dcd31168cda917e9008913a50ed5fe7ca5))
+* wrong declared lefthook runner ([bedb688](https://github.com/muuvmuuv/portfolio/commit/bedb68837ed9b0a6206c92ead6fc884037ff6983))
+
 ## [5.0.0](https://github.com/muuvmuuv/portfolio/compare/v4.6.0...v5.0.0) (2020-02-05)
 
 
