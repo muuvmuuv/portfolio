@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { globalHistory } from '@reach/router'
-import { scroller } from 'react-scroll'
 
 const Article = ({ children, mdx, slug }) => {
   const props = {
@@ -11,19 +9,6 @@ const Article = ({ children, mdx, slug }) => {
     itemType: 'https://schema.org/Article',
     itemRef: 'hero',
   }
-
-  useEffect(() => {
-    const hash = globalHistory.location.hash
-    if (hash) {
-      setTimeout(() => {
-        scroller.scrollTo(hash.substr(1), {
-          offset: -50,
-          duration: 200,
-          smooth: true,
-        })
-      }, 300)
-    }
-  })
 
   // console.log(props.toc)
   // const toc = props.toc && (
