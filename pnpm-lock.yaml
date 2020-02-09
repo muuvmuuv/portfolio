@@ -6092,7 +6092,7 @@ packages:
       is-path-cwd: 2.2.0
       is-path-inside: 3.0.2
       p-map: 3.0.0
-      rimraf: 3.0.1
+      rimraf: 3.0.2
       slash: 3.0.0
     dev: false
     engines:
@@ -15021,13 +15021,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==
-  /rimraf/3.0.1:
+  /rimraf/3.0.2:
     dependencies:
       glob: 7.1.6
     dev: false
     hasBin: true
     resolution:
-      integrity: sha512-IQ4ikL8SjBiEDZfk+DFVwqRK8md24RWMEJkdSlgNLkyyAImcjf8SWvU1qFMDOb4igBClbTQ/ugPqXcRwdFTxZw==
+      integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
   /ripemd160/2.0.2:
     dependencies:
       hash-base: 3.0.4
@@ -18229,7 +18229,7 @@ packages:
       node-emoji: 1.10.0
       object-path: 0.11.4
       read: 1.0.7
-      rimraf: 3.0.1
+      rimraf: 3.0.2
       semver: 6.3.0
       strip-ansi: 5.2.0
       strip-bom: 4.0.0
