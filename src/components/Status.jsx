@@ -1,9 +1,8 @@
 import React from 'react'
-
-import { capitalizeString } from '../utils/helper'
+import titleize from 'titleize'
 
 const Status = ({ state }) => {
-  const stateTransformed = capitalizeString(state)
+  const stateTransformed = titleize(state)
 
   switch (state) {
     case 'wip':

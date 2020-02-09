@@ -15,6 +15,8 @@ import { PreformattedCode, InlineCode } from '../elements/Code'
 import { Emphasized, Strong, Delete } from '../elements/Text'
 import { Link } from '../elements/Link'
 import { Image, Figure } from '../elements/Image'
+import { Sup } from '../elements/Sup'
+import { Div } from '../elements/Div'
 
 import Quote from './Quote'
 
@@ -44,6 +46,8 @@ export default {
   a: Link,
   img: Image,
   figure: Figure,
+  sup: Sup,
+  div: Div,
 
   // Custom Shortcodes
   Quote,
