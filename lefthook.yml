@@ -2,11 +2,17 @@
 # https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
 
 pre-commit:
+  parallel: false
   commands:
     lint-commit:
-      run: pnpm run lint:commit
-    lint-script:
-      glob: "*.{js,ts}x?"
+      run: commitlint --from HEAD~1
+    lint-scripts-source:
+      root: src/
+      glob: "*.{js,jsx,mdx}"
+      run: eslint {staged_files}
+    lint-scripts-engine:
+      exclude: src/
+      glob: "*.{js,jsx}"
       run: eslint {staged_files}
     lint-styles:
       glob: "*.{scss,css}"
