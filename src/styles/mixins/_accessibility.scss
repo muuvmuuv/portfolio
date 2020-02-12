@@ -4,10 +4,20 @@
     @content;
   }
 }
+@mixin noReducedMotion() {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-transparency
 @mixin reducedTransparency() {
   @media (prefers-reduced-transparency: reduce) {
+    @content;
+  }
+}
+@mixin noReducedTransparency() {
+  @media (prefers-reduced-transparency: no-preference) {
     @content;
   }
 }

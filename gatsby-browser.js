@@ -4,9 +4,6 @@
  * @see https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-const { isDev } = require('./utils/environment')
-const { getLocale, getLanguage } = require('./src/utils/locale')
-
 const printCorporateMessage = require('./gatsby/browser/corporateMessage')
 const setDefaultTime = require('./gatsby/browser/defaultTime')
 
@@ -17,11 +14,6 @@ module.exports.wrapRootElement = require('./gatsby/wrapRootElement')
 
 module.exports.onClientEntry = () => {
   setDefaultTime()
-
-  if (isDev) {
-    // TODO: if i18n, move it there
-    console.log('Language:', getLanguage(), getLocale())
-  }
 }
 
 module.exports.onInitialClientRender = () => {

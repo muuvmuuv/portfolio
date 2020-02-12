@@ -25,7 +25,6 @@ const Head = ({
 }) => {
   const twitter = social.find(({ icon }) => icon === 'twitter')
 
-  // TODO: improve this if i18n
   const language = pageLang || siteLanguage || 'en'
 
   // set default social-media images
