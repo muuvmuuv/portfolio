@@ -1,3 +1,26 @@
+## [5.2.0](https://github.com/muuvmuuv/portfolio/compare/v5.1.0...v5.2.0) (2020-02-12)
+
+
+### Features
+
+* add stats to footer menu ([36b919e](https://github.com/muuvmuuv/portfolio/commit/36b919e15fafc2a4816e1ed88952c08fab057d0b))
+* added simple analytics ([2237304](https://github.com/muuvmuuv/portfolio/commit/223730463f8a29af220d7eb474fb0c330d49c520))
+* allow metrics ([0a2c22f](https://github.com/muuvmuuv/portfolio/commit/0a2c22ff57c4affe17da69421003df3d20b1c173))
+* facepalm ([328c52b](https://github.com/muuvmuuv/portfolio/commit/328c52b366e87dbda2f336f37fbf916277114953))
+* fix some todos ([340af95](https://github.com/muuvmuuv/portfolio/commit/340af9566b4550aa44b8e36d95ef1e4023c1b3e2))
+* update privacy by janolow ([15df28c](https://github.com/muuvmuuv/portfolio/commit/15df28c6a0b5687014fd7c8ab1b446106d332bce))
+* update privacy policy ([a041ecc](https://github.com/muuvmuuv/portfolio/commit/a041ecc6e9dfd9bc49d5b27c8191c6b1539d5d8f))
+
+
+### Bug Fixes
+
+* commit lint issue with new release commit title ([23a09cb](https://github.com/muuvmuuv/portfolio/commit/23a09cb47c77fe19be14fbfde38db0fe6d4bdb71))
+* eslint lefthook issues and eslint issues ([bb49044](https://github.com/muuvmuuv/portfolio/commit/bb49044b1ac2f9a3b600419e54488d3806182405))
+* hidden content not clear enough on mobile devices ([9c03e13](https://github.com/muuvmuuv/portfolio/commit/9c03e137b51c2ec9d3b6d1abb24aefc169f91c7a)), closes [#18](https://github.com/muuvmuuv/portfolio/issues/18)
+* issue with anchor links overflowing headlines ([f9a9fcd](https://github.com/muuvmuuv/portfolio/commit/f9a9fcd273eca707e47ae514e2036ee3f68d64d7))
+* more eslint issues ([6422cae](https://github.com/muuvmuuv/portfolio/commit/6422caeba4b0006ee891d9df3a8bdf20cfaa9ff3))
+* now deployment fails because of cache? ([a2c47d1](https://github.com/muuvmuuv/portfolio/commit/a2c47d13ef3e52cc08d59d1b1c2ad21d1525eafc))
+
 ## [5.1.0](https://github.com/muuvmuuv/portfolio/compare/v5.0.0...v5.1.0) (2020-02-09)
 
 
