@@ -1,10 +1,21 @@
 <h1 align="left">
-  <img align="right" src="./static/me.gif" width="100" />
+  <img align="right" src="static/me.gif" width="100" />
   <b>Marvin Heilemann</b>
 </h1>
 
 A beautiful Portfolio page made by me for me based on the awesome static site generator
 [Gatsby](https://www.gatsbyjs.org/).
+
+![Lighthouse Performance](https://img.shields.io/static/v1?label=performance&message=83%&labelColor=304ffe&color=2979ff)
+![Lighthouse Accessibility](https://img.shields.io/static/v1?label=accessibility&message=99%&labelColor=304ffe&color=2979ff)
+![Lighthouse Best-Practise](https://img.shields.io/static/v1?label=best-practises&message=100%&labelColor=304ffe&color=2979ff)
+![Lighthouse SEO](https://img.shields.io/static/v1?label=seo&message=100%&labelColor=304ffe&color=2979ff)
+![Lighthouse PWA](https://img.shields.io/static/v1?label=pwa&message=100%&labelColor=304ffe&color=2979ff)
+[![Gatsby Version](https://img.shields.io/github/package-json/dependency-version/muuvmuuv/portfolio/gatsby)](https://www.gatsbyjs.org/)
+[![Websites Uptime](https://img.shields.io/uptimerobot/ratio/m784322945-86582158b8ce476f87e64860)](https://stats.uptimerobot.com/g7xpvhlxwW)
+[![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/marvin.digital)](https://observatory.mozilla.org/analyze/marvin.digital)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4ff1821236f428215929/maintainability)](https://codeclimate.com/github/muuvmuuv/portfolio/maintainability)
+[![JavaScript Grade](https://img.shields.io/lgtm/grade/javascript/g/muuvmuuv/portfolio.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/muuvmuuv/portfolio/context:javascript)
 
 - [Development](#development)
 - [Building](#building)
