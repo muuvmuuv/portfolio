@@ -34,7 +34,18 @@ const Footer = () => {
       <ul className="list links">
         {footerLinks.map(({ name, link }) => (
           <li key={name}>
-            <Link to={link}>{name}</Link>
+            {link.includes('http') ? (
+              <a
+                href={link}
+                title={name}
+                rel="noopener noreferrer nofollow"
+                target="_blank"
+              >
+                {name}
+              </a>
+            ) : (
+              <Link to={link}>{name}</Link>
+            )}
           </li>
         ))}
       </ul>

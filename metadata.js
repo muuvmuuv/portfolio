@@ -22,9 +22,7 @@ module.exports = {
     },
     {
       name: 'Setup',
-      // link: '/about/setup', // NOTE: Maybe use Notion API later?
       link: 'https://www.notion.so/marvins/Setup-9ad349afe68942ae807dc31c9afccd7d',
-      external: true,
     },
     {
       name: 'Projects',
@@ -51,6 +49,10 @@ module.exports = {
     {
       name: 'Issues',
       link: '/issues',
+    },
+    {
+      name: 'Stats',
+      link: 'https://simpleanalytics.com/marvin.digital',
     },
     {
       name: 'Imprint',
