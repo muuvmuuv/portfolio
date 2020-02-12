@@ -31,9 +31,11 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: all ease-in-out 220ms;
     cursor: pointer;
-    // TODO: reduced motion
+
+    @include noReducedMotion() {
+      transition: all ease-in-out 220ms;
+    }
 
     @include breakpoint-up(lg) {
       align-items: flex-end;
@@ -64,14 +66,20 @@
       }
 
       &::after {
-        transition: opacity var(--transition-fast);
         opacity: 0.4;
+
+        @include noReducedMotion() {
+          transition: opacity var(--transition-fast);
+        }
       }
     }
 
     .content {
-      transition: all 200ms ease-in-out;
       text-align: center;
+
+      @include noReducedMotion() {
+        transition: all 200ms ease-in-out;
+      }
 
       @include breakpoint-up(lg) {
         transform: translateY(-70px);

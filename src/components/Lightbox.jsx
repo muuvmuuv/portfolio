@@ -28,7 +28,7 @@ class Lightbox extends React.Component {
     const clientY = element.offsetTop - document.documentElement.scrollTop
     const maxWidth = document.documentElement.clientWidth
     const maxHeight = document.documentElement.clientHeight
-    const scrollbarWidth = 0 // TODO: is this needed? (test on common browser across different platforms)
+    const scrollbarWidth = 0
 
     // Get the current picture source image natural width.
     const naturalWidth = image.naturalWidth

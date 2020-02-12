@@ -1,7 +1,3 @@
-// NOTE: copied some code from here, because it is not added to head: https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-autolink-headers/src/gatsby-ssr.js
-
-$size: 15px;
-
 .anchor-link {
   display: block;
   position: absolute;
@@ -11,7 +7,8 @@ $size: 15px;
   transform: translateY(-50%);
 
   @include breakpoint-up(md) {
-    left: -40px;
+    right: auto;
+    left: -45px;
 
     svg {
       visibility: hidden;
@@ -19,8 +16,8 @@ $size: 15px;
   }
 
   svg {
-    width: $size;
-    height: $size;
+    width: 15px;
+    height: 15px;
     fill: var(--text-color-dark);
 
     @include breakpoint-up(md) {
