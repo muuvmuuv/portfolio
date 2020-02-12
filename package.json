@@ -25,7 +25,7 @@
     "test": "run-s test:*",
     "test:gatsby": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "test:sitespeed": "echo \"Test sitespeed with sitespeed.io\"",
-    "lint": "run-s lint:*",
+    "lint": "run-p lint:*",
     "lint:js-source": "eslint --cache --config src/.eslintrc.json --ext js,jsx,mdx --no-ignore src",
     "lint:js-engine": "eslint --cache --ext js,jsx .",
     "lint:scss": "stylelint --cache src/**/*.{scss,css}",
