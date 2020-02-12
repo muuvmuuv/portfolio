@@ -1,4 +1,41 @@
 .hidden-content {
-  cursor: default;
+  position: relative;
+  cursor: pointer;
   user-select: all;
+
+  &:not(.revealed)::after {
+    content: attr(aria-label);
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    top: -2px;
+    left: -2px;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border: 1px solid var(--color-09);
+    background: var(--color-dark-80);
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    @include noReducedMotion() {
+      transition: all 120ms linear;
+    }
+  }
+
+  &:hover {
+    &::after {
+      opacity: 0.8;
+    }
+  }
+}
+
+@include themeLight() {
+  .hidden-content:not(.revealed)::after {
+    border: 1px solid var(--color-03);
+    background: var(--color-light-80);
+  }
 }
