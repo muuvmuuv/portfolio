@@ -1,1 +1,7 @@
 .github
+.vscode
+assets
+docker
+reports
+scripts
+tests

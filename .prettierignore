@@ -1,7 +1,6 @@
-node_modules
-.cache
 .git
+node_modules
 public
 reports
-*.json
 CHANGELOG.md
+*.json
