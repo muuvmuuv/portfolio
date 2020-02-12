@@ -7,7 +7,8 @@
   transform: translateY(-50%);
 
   @include breakpoint-up(md) {
-    left: -40px;
+    right: auto;
+    left: -45px;
 
     svg {
       visibility: hidden;
