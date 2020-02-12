@@ -29,6 +29,7 @@ dependencies:
   gatsby-plugin-robots-txt: 1.5.0_gatsby@2.19.16
   gatsby-plugin-sass: 2.1.28_gatsby@2.19.16+node-sass@4.13.1
   gatsby-plugin-sharp: 2.4.5_gatsby@2.19.16
+  gatsby-plugin-simple-analytics: 1.0.3
   gatsby-plugin-sitemap: 2.2.27_gatsby@2.19.16
   gatsby-plugin-webpack-bundle-analyzer: 1.0.5_gatsby@2.19.16
   gatsby-remark-autolink-headers: 2.1.24_gatsby@2.19.16
@@ -8114,6 +8115,12 @@ packages:
       gatsby: '>2.0.15'
     resolution:
       integrity: sha512-O2FZcUd78aKNR7Hbommrbc5igW32U2MnenA/Oc55sklFUF+I1fu4N6zMoHfh7sVtWCqZEbQiNO310Zl8jstD5g==
+  /gatsby-plugin-simple-analytics/1.0.3:
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha512-CAKVfAlN8EbOoNThXeDwC4Neh7G8V7zTBzrdZpO0S1k60rcr0gXjI1V8QS5QJ5TYQ9yRTSjSXYhL4q3oM04jIg==
   /gatsby-plugin-sitemap/2.2.27_gatsby@2.19.16:
     dependencies:
       '@babel/runtime': 7.8.4
@@ -18242,6 +18249,7 @@ specifiers:
   gatsby-plugin-robots-txt: ^1.5.0
   gatsby-plugin-sass: ^2.1.28
   gatsby-plugin-sharp: ^2.4.5
+  gatsby-plugin-simple-analytics: ^1.0.3
   gatsby-plugin-sitemap: ^2.2.27
   gatsby-plugin-webpack-bundle-analyzer: ^1.0.5
   gatsby-remark-autolink-headers: ^2.1.24

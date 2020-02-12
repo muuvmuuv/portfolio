@@ -32,6 +32,7 @@ module.exports = {
         stripQueryString: true,
       },
     },
+    'gatsby-plugin-simple-analytics',
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-postcss`,
