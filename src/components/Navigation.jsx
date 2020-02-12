@@ -58,7 +58,7 @@ const Navigation = () => {
         <ul>
           {menuLinks.map(({ name, link }, index) => (
             <li key={index}>
-              {link.contains('http') ? (
+              {link.includes('http') ? (
                 <a
                   href={link}
                   rel="noopener noreferrer"
