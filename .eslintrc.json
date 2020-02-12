@@ -1,11 +1,22 @@
 {
   "extends": [
-    "react-app",
-    "plugin:mdx/recommended",
-    "plugin:prettier/recommended",
-    "plugin:jsx-a11y/strict"
+    "eslint:recommended",
+    "plugin:prettier/recommended"
   ],
-  "rules": {
-    "default-case": "off"
-  }
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.jsx"
+      ],
+      "extends": "./src/.eslintrc.json"
+    }
+  ]
 }

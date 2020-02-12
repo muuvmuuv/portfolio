@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import dayjs from 'dayjs'
 
 import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
 import Portfolio from '../components/Portfolio'
-import dayjs from 'dayjs'
 
 class Page extends React.Component {
   state = {

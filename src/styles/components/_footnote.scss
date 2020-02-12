@@ -17,6 +17,7 @@ article {
 .footnotes {
   @extend .container;
   @extend .container--small;
+  padding: 0;
 
   a {
     text-decoration: none;
@@ -26,7 +27,7 @@ article {
     transition: background 240ms linear;
   }
 
-  .highlight {
+  .reached {
     background: var(--color-10);
   }
 }

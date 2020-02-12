@@ -1,6 +1,6 @@
 import React from 'react'
-
 import normalizeUrl from 'normalize-url'
+
 import Icon from '../components/Icon'
 
 const Link = (props) => {
@@ -11,13 +11,13 @@ const Link = (props) => {
 
   if (isAnchor) {
     return (
-      <a href={href} title={`Anchor to ${href}`} {...restProps}>
+      <a href={href} title={`Anchor to ${href}`} {...restProps} tabIndex="0">
         {children}
       </a>
     )
   } else if (isInternal) {
     return (
-      <a href={href} title={`Open link to ${href}`} {...restProps}>
+      <a href={href} title={`Open link to ${href}`} {...restProps} tabIndex="0">
         {children}
       </a>
     )
@@ -39,6 +39,7 @@ const Link = (props) => {
         title={`Open link to ${href}`}
         target="_blank"
         rel="noopener noreferrer nofollow"
+        tabIndex="0"
         {...restProps}
       >
         {children}

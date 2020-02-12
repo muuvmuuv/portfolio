@@ -21,7 +21,11 @@ $size: 15px;
   svg {
     width: $size;
     height: $size;
-    fill: var(--text-color-light);
+    fill: var(--text-color-dark);
+
+    @include breakpoint-up(md) {
+      fill: var(--text-color-light);
+    }
   }
 }
 

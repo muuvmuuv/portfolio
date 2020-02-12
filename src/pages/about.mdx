@@ -2,24 +2,25 @@
 title: 'About Me'
 ---
 
-import { Link } from '../elements/Link.jsx'
-import Img from 'gatsby-image'
+import { Link as LinkFix } from '../elements/Link.jsx'
 import MyAge from '../components/MyAge.jsx'
 import { getElapsedTime } from '../utils/helper'
 
 export const quitedSmoking = getElapsedTime('2017-02-16')
 
+<img src="/me.gif" className="bd-img me-gif" alt="Me as a GIF" />
+
 ## Hey!
 
 <p>
-  …my name's <b><Link href="https://youtu.be/ytp_AM51RWU?t=62">Marvin</Link></b>!{' '}
-  I'm <MyAge /> and currently living in{' '}
-  <Link href="https://maps.apple.com/?address=Frankfurt%20am%20Main,%20Deutschland">
+  …my name's{' '}
+  <b>
+    <LinkFix href="https://youtu.be/ytp_AM51RWU?t=62">Marvin</LinkFix>
+  </b>
+  ! I'm <MyAge /> and currently living in <LinkFix href="https://maps.apple.com/?address=Frankfurt%20am%20Main,%20Deutschland">
     Germany near Frankfurt am Main
-  </Link>.
+  </LinkFix>.
 </p>
-
-<img src="/me.gif" className="bd-img me-gif" alt="Me as a GIF" />
 
 ### I am...
 

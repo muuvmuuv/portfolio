@@ -34,7 +34,7 @@ const renderTokens = (tokens, getLineProps, getTokenProps) => {
         className={lineHighlighted ? 'highlight-line' : ''}
       >
         {line.map((token, key) => (
-          <span {...getTokenProps({ token, key })} />
+          <span key={key} {...getTokenProps({ token, key })} />
         ))}
       </div>
     )

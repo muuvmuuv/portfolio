@@ -4,7 +4,6 @@
  * @see https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-/* eslint-disable import/first */
 require('dotenv').config({
   path: `.env.build`,
 })
@@ -33,6 +32,7 @@ module.exports = {
         stripQueryString: true,
       },
     },
+    'gatsby-plugin-simple-analytics',
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-postcss`,
