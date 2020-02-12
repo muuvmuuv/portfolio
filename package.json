@@ -31,7 +31,7 @@
     "lint:scss": "stylelint --cache ./src/**/*.{scss,css}",
     "lint:commit": "commitlint --from HEAD~1",
     "−-−−−−−−−−−−−−−−−–−----−  TOOLS  −−−−−−----−−−−−−−−−−–−−": "",
-    "release": "env-cmd -f ./.env.build release-it --disable-metrics",
+    "release": "env-cmd -f ./.env.build release-it",
     "pretty": "pretty-quick"
   },
   "dependencies": {
