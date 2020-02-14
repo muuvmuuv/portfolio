@@ -1,9 +1,12 @@
 #footer {
   display: grid;
-  justify-items: center;
   padding-top: var(--spacing-xxl);
+  padding-right: var(--container-padding-x);
   padding-bottom: 10rem;
+  padding-left: var(--container-padding-x);
+  text-align: center;
   user-select: none;
+  justify-items: center;
 
   @include breakpoint-up(sm) {
     padding-bottom: 20rem;
