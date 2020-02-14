@@ -52,7 +52,7 @@ module.exports = {
     },
     {
       name: 'Stats',
-      link: 'https://simpleanalytics.com/marvin.digital',
+      link: 'https://status.marvin.digital/',
     },
     {
       name: 'Imprint',

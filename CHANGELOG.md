@@ -1,3 +1,20 @@
+## [5.3.0](https://github.com/muuvmuuv/portfolio/compare/v5.2.0...v5.3.0) (2020-02-14)
+
+
+### Features
+
+* allow parallel lefthook execution ([db31958](https://github.com/muuvmuuv/portfolio/commit/db31958a0214635cdd9778f8f1c6b8ea9f1f7773))
+* parallel linting and format new workflow ([deee88d](https://github.com/muuvmuuv/portfolio/commit/deee88de33b2866c4860118d1c6ae3248638109d))
+* remove duplicate templates ([bd3a4bb](https://github.com/muuvmuuv/portfolio/commit/bd3a4bb6e5cdacacc88954be60f9ebff12a151ee))
+* update uptime banner ([23e1aed](https://github.com/muuvmuuv/portfolio/commit/23e1aed2feee2f6974d5900d9cb0beddaba72740))
+* uptime status url update ([79ee28a](https://github.com/muuvmuuv/portfolio/commit/79ee28a7a547385e4cd15c08e023a75fb4b10c64))
+
+
+### Bug Fixes
+
+* Cannot query field ([31ae632](https://github.com/muuvmuuv/portfolio/commit/31ae632719dea47f52f78dce14f166cb46fddff4))
+* wrong commit message in release-it ([84cbb36](https://github.com/muuvmuuv/portfolio/commit/84cbb36718866173f7a6391fc6a1bf67ee0aca8a))
+
 ## [5.2.0](https://github.com/muuvmuuv/portfolio/compare/v5.1.0...v5.2.0) (2020-02-12)
 
 
