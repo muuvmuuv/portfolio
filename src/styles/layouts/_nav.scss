@@ -50,12 +50,9 @@
     }
 
     .nav-link {
+      padding: var(--spacing-sm);
       transition: color 240ms ease-in-out, opacity 240ms ease-in-out;
       color: var(--text-color-medium);
-
-      @include breakpoint-up(md) {
-        margin-left: var(--spacing-lg);
-      }
 
       &:hover,
       &.active {

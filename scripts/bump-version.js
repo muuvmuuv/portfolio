@@ -5,8 +5,6 @@ const { transformVersion } = require('../utils/version')
 
 class BumpVersion extends Plugin {
   bump(version) {
-    console.log(version)
-
     return this.createDirectoryTree(version)
   }
 
