@@ -73,7 +73,7 @@
     "gatsby-remark-copy-linked-files": "^2.1.37",
     "gatsby-remark-images": "^3.1.44",
     "gatsby-source-filesystem": "^2.1.48",
-    "gatsby-source-graphql": "^2.1.33",
+    "gatsby-source-graphql": "2.1.29",
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-leasot": "^1.1.1",
     "gatsby-transformer-sharp": "^2.3.14",
