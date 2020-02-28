@@ -1,4 +1,4 @@
-const { red, bold, dim } = require('kleur')
+const { bold, dim } = require('kleur')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const { isProd, isDev } = require('../../utils/environment')
@@ -20,9 +20,6 @@ module.exports = async ({ node, getNode, actions }) => {
     }
 
     if (node.frontmatter.published === false && isProd) {
-      if (isDev) {
-        console.log(red('SKIPPING'))
-      }
       return // skip this unpublished stuff only in production
     }
 

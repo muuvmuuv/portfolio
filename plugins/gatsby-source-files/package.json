@@ -1,1 +1,7 @@
-{}
+{
+  "name": "gatsby-plugin-files",
+  "description": "Source files by folder once and by extensions.",
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  }
+}

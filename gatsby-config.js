@@ -101,7 +101,6 @@ module.exports = {
       },
     },
     {
-      // TODO: wait for https://github.com/gatsbyjs/gatsby/issues/21219
       resolve: `gatsby-source-files`,
       options: {
         name: `package`,
@@ -134,14 +133,6 @@ module.exports = {
       options: {
         name: `writings`,
         path: `${__dirname}/content/writings`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `leasot`,
-        // TODO: wait for https://github.com/gatsbyjs/gatsby/issues/21219
-        path: `${__dirname}/gatsby`,
       },
     },
     {
@@ -181,9 +172,18 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-files`,
+      options: {
+        name: `leasot`,
+        files: [`${__dirname}/gatsby`, `${__dirname}/src`],
+        extensions: ['js', 'jsx', 'md', 'mdx', 'scss'],
+      },
+    },
+    {
       resolve: `gatsby-transformer-leasot`,
       options: {
         sourceInstanceName: `leasot`,
+        internalType: 'SingleFile',
         customTags: [`BUG`], // additionally to: TODO, FIXME
         mode: 'mdx',
       },
