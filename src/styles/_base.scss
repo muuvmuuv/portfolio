@@ -15,31 +15,39 @@ html {
 
 body {
   position: relative;
-  overflow-x: hidden;
   background: var(--background-color-normal);
   color: var(--text-color-normal);
   font-family: var(--font-sans);
   line-height: 1.5;
   overscroll-behavior: none;
   scroll-behavior: smooth;
-  font-feature-settings: 'calt' 1, 'liga' 1;
+  font-feature-settings: "calt" 1, "liga" 1;
 
   @include reducedMotion() {
     scroll-behavior: auto;
   }
 
   &::before {
-    content: 'xs';
+    content: "xs";
     display: none;
   }
 
   @each $breakpoint, $max-width in $container-max-widths {
     @include breakpoint-up($breakpoint) {
       &::before {
-        content: '#{$breakpoint}';
+        content: "#{$breakpoint}";
       }
     }
   }
+}
+
+[no-scroll="true"] {
+  overflow: hidden;
+}
+
+#___gatsby {
+  position: relative;
+  overflow: hidden;
 }
 
 /* Remove GatsbyJS announcer */
@@ -54,5 +62,5 @@ hr {
 }
 
 time {
-  font-feature-settings: 'ss01' 1, 'zero' 1;
+  font-feature-settings: "ss01" 1, "zero" 1;
 }

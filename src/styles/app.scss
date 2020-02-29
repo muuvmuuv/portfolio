@@ -3,92 +3,91 @@
 // ------------------------------
 // App
 
-@import 'variables';
-@import 'breakpoints';
-@import 'mixins';
-@import 'animations';
-@import 'reset';
-@import 'base';
+@import "variables";
+@import "breakpoints";
+@import "mixins";
+@import "animations";
+@import "reset";
+@import "base";
 
 // ------------------------------
 // Themes
 
-@import 'themes/dark';
-@import 'themes/light';
-@import 'themes/hc';
+@import "themes/dark";
+@import "themes/light";
+@import "themes/hc";
 
 // ------------------------------
 // Fonts
 
-@import 'fonts/inter';
-@import 'fonts/jetbrains-mono';
-@import 'fonts/playfair-display';
+@import "fonts/inter";
+@import "fonts/jetbrains-mono";
+@import "fonts/playfair-display";
 
 // ------------------------------
 // Layouts
 
-@import 'layouts/article';
-@import 'layouts/breadcrumb';
-@import 'layouts/container';
-@import 'layouts/footer';
-@import 'layouts/header';
-@import 'layouts/hero';
-@import 'layouts/main';
-@import 'layouts/nav';
+@import "layouts/article";
+@import "layouts/breadcrumb";
+@import "layouts/container";
+@import "layouts/footer";
+@import "layouts/header";
+@import "layouts/hero";
+@import "layouts/nav";
 
 // ------------------------------
 // Components
 
-@import 'components/anchor';
-@import 'components/backdrop';
-@import 'components/button';
-@import 'components/dot';
-@import 'components/footnote';
-@import 'components/hidden-content';
-@import 'components/icon';
-@import 'components/issue';
-@import 'components/label';
-@import 'components/language';
-@import 'components/lightbox';
-@import 'components/logo';
-@import 'components/my-age';
-@import 'components/no-script';
-@import 'components/overlay';
-@import 'components/portfolio';
-@import 'components/quote';
-@import 'components/scroll-to-top';
-@import 'components/separator';
-@import 'components/status';
-@import 'components/theme-switch';
-@import 'components/toast';
-@import 'components/tooltip';
+@import "components/anchor";
+@import "components/backdrop";
+@import "components/button";
+@import "components/dot";
+@import "components/footnote";
+@import "components/hidden-content";
+@import "components/icon";
+@import "components/issue";
+@import "components/label";
+@import "components/language";
+@import "components/lightbox";
+@import "components/logo";
+@import "components/my-age";
+@import "components/no-script";
+@import "components/overlay";
+@import "components/portfolio";
+@import "components/quote";
+@import "components/scroll-to-top";
+@import "components/separator";
+@import "components/status";
+@import "components/theme-switch";
+@import "components/toast";
+@import "components/tooltip";
 
 // ------------------------------
 // Elements
 
-@import 'elements/blockquote';
-@import 'elements/button';
-@import 'elements/code';
-@import 'elements/figure';
-@import 'elements/form';
-@import 'elements/image';
-@import 'elements/input';
-@import 'elements/link';
-@import 'elements/list';
-@import 'elements/table';
-@import 'elements/text';
+@import "elements/blockquote";
+@import "elements/button";
+@import "elements/code";
+@import "elements/figure";
+@import "elements/form";
+@import "elements/image";
+@import "elements/input";
+@import "elements/link";
+@import "elements/list";
+@import "elements/table";
+@import "elements/text";
 
 // ------------------------------
 // Modules
 
-@import 'modules/showcase';
+@import "modules/showcase";
 
 // ------------------------------
 // Pages
 
-@import 'pages/about';
-@import 'pages/error';
-@import 'pages/home';
-@import 'pages/index';
-@import 'pages/page';
-@import 'pages/writings';
+@import "pages/about";
+@import "pages/error";
+@import "pages/home";
+@import "pages/index";
+@import "pages/page";
+@import "pages/writings";

@@ -1,13 +1,13 @@
 .portfolio {
   display: grid;
   grid-template-areas:
-    'image image'
-    'info info';
+    "image image"
+    "info info";
   grid-template-columns: 1fr 300px;
   margin-bottom: var(--spacing-xxl);
 
   @include breakpoint-up(md) {
-    grid-template-areas: 'image info';
+    grid-template-areas: "image info";
   }
 
   .info {

@@ -5,5 +5,16 @@
   "proseWrap": "always",
   "endOfLine": "lf",
   "arrowParens": "always",
-  "printWidth": 90
+  "printWidth": 90,
+  "overrides": [
+    {
+      "files": [
+        "*.css",
+        "*.scss"
+      ],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
 }

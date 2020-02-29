@@ -33,7 +33,7 @@ textarea::placeholder {
 }
 
 button,
-[role='button'] {
+[role="button"] {
   cursor: pointer;
 }
 
@@ -78,7 +78,7 @@ u {
 
 em,
 i {
-  font-variation-settings: 'slnt' -10; // FIX: var fix all browsers
+  font-variation-settings: "slnt" -10; // FIX: var fix all browsers
   font-style: oblique -10deg; // FIX: var fix safari
 }
 

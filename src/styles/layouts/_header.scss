@@ -3,7 +3,7 @@
   position: relative;
   z-index: 10;
   top: 0;
-  grid-template-areas: 'logo breadcrumb nav';
+  grid-template-areas: "logo breadcrumb nav";
   grid-template-columns: auto 1fr auto;
   align-items: center;
   width: 100%;
@@ -14,7 +14,7 @@
   will-change: padding, position;
 
   @include breakpoint-up(md) {
-    grid-template-areas: 'logo breadcrumb nav theme';
+    grid-template-areas: "logo breadcrumb nav theme";
     grid-template-columns: auto 1fr auto auto;
   }
 

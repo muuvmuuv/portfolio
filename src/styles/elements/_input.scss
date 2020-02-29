@@ -1,4 +1,4 @@
-input[type='checkbox'] {
+input[type="checkbox"] {
   display: none;
 
   + .custom-checkbox {
@@ -17,7 +17,7 @@ input[type='checkbox'] {
     --checkbox-size: 24px;
 
     &::after {
-      content: '';
+      content: "";
       display: none;
       position: absolute;
       top: 3px;

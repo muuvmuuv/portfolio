@@ -26,26 +26,26 @@
     fill: var(--icon-color-light);
   }
 
-  &[name='twitter'] {
+  &[name="twitter"] {
     --icon-color-light: #07a3f2;
   }
-  &[name='github'] {
+  &[name="github"] {
     --icon-color-light: #3d7ac0;
   }
-  &[name='instagram'] {
+  &[name="instagram"] {
     --icon-color-light: #e43e6c;
   }
-  &[name='dribbble'] {
+  &[name="dribbble"] {
     --icon-color-light: #ed5689;
   }
-  &[name='unsplash'] {
+  &[name="unsplash"] {
     --icon-color-light: #ffffff;
     --icon-color-dark: #000000;
   }
-  &[name='discord'] {
+  &[name="discord"] {
     --icon-color-light: #718cda;
   }
-  &[name='league-of-legends'] {
+  &[name="league-of-legends"] {
     --icon-color-light: #947341;
   }
 }

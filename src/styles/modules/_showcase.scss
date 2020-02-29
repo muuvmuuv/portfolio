@@ -1,16 +1,16 @@
 .showcase {
   display: grid;
   grid-template-areas:
-    '.'
-    '.'
-    '.';
+    "."
+    "."
+    ".";
   grid-template-columns: 100%;
   grid-template-rows: 1fr 1fr 1fr;
   height: 100vh;
   user-select: none;
 
   @include breakpoint-up(lg) {
-    grid-template-areas: '. . .';
+    grid-template-areas: ". . .";
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100%;
   }

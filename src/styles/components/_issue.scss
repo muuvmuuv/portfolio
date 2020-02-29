@@ -9,17 +9,17 @@
   &__header {
     display: grid;
     grid-template-areas:
-      'label label ref time'
-      'sep link link link';
+      "label label ref time"
+      "sep link link link";
     grid-template-columns: auto auto auto 1fr;
     align-items: center;
     margin-bottom: var(--spacing-xs);
     column-gap: var(--spacing-xxs);
     user-select: none;
-    font-feature-settings: 'case' 1;
+    font-feature-settings: "case" 1;
 
     @include breakpoint-up(md) {
-      grid-template-areas: 'label ref sep link time';
+      grid-template-areas: "label ref sep link time";
       grid-template-columns: auto auto auto 1fr;
     }
   }
