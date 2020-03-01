@@ -11,6 +11,11 @@ const Breadcrumb = () => {
     return <div id="breadcrumb"></div>
   }
 
+  const slugOverrides = {
+    about: 'About Me',
+    lifephases: 'Life Phases',
+  }
+
   // skip first; `arr.shift()` does not work here
   const [, ...items] = crumbs
 
@@ -22,11 +27,11 @@ const Breadcrumb = () => {
         </span>,
         location === pathname ? (
           <span key={index} className="breadcrumb__item">
-            {titleize(crumbLabel || label)}
+            {slugOverrides[label] || titleize(crumbLabel || label)}
           </span>
         ) : (
           <Link key={index} className="breadcrumb__item breadcrumb__link" to={pathname}>
-            {titleize(label)}
+            {slugOverrides[label] || titleize(label)}
           </Link>
         ),
       ])}
