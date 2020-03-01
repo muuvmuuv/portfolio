@@ -9,7 +9,10 @@ const Link = (props) => {
   const isAnchor = href[0] === '#'
   const isInternal = href[0] === '/'
 
-  const classes = `link ${className}`
+  let classes = 'link'
+  if (className) {
+    classes += ' ' + className
+  }
 
   if (isAnchor) {
     return (
