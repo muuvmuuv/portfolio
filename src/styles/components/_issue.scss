@@ -2,7 +2,7 @@
   margin-bottom: var(--spacing-sm);
   padding-bottom: var(--spacing-sm);
 
-  &:not(:first-of-type) {
+  &:not(:last-of-type) {
     border-bottom: 1px solid var(--divider-color);
   }
 
@@ -31,6 +31,7 @@
   &__ref {
     grid-area: ref;
     margin-top: 1px;
+    margin-left: 2px;
     color: var(--text-color-medium);
     font-size: var(--text-sm);
   }
