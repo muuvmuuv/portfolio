@@ -1,11 +1,9 @@
 const { getVersion } = require('../../utils/version')
-const { isProd } = require('../../utils/environment')
 
-module.exports = async ({ actions, plugins }) => {
+module.exports = ({ stage, actions, plugins }) => {
   const { setWebpackConfig } = actions
 
-  await setWebpackConfig({
-    devtool: isProd ? false : 'cheap-module-source-map',
+  setWebpackConfig({
     plugins: [
       plugins.define({
         'process.env': {
@@ -23,4 +21,14 @@ module.exports = async ({ actions, plugins }) => {
       ],
     },
   })
+
+  if (stage.startsWith('develop')) {
+    setWebpackConfig({
+      resolve: {
+        alias: {
+          'react-dom': '@hot-loader/react-dom',
+        },
+      },
+    })
+  }
 }
