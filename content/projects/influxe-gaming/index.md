@@ -11,7 +11,7 @@ website: null
 team:
   - name: Till Plüer
     link: https://www.xing.com/profile/Till_Plueer
-role:
+roles:
   - design
   - development
   - ui

@@ -8,6 +8,9 @@ status: wip
 started: null
 ended: null
 website: https://jobportal-friedrichsdorf.de/
+roles:
+  - design
+  - development
 
 categories: [website]
 tags: [jobportal, website]

@@ -5,12 +5,12 @@ image: ef-preview.jpg
 thumb: ef-preview.jpg
 
 status: finished
-started: null
-ended: null
+started: 2018-03-26
+ended: 2018-04-07
 website: https://my.ef.com/
 team:
   - name: Finn Dieckhoff
-    link: null
+    link: https://twitter.com/FinnDieckhoff
 
 created: 2019-09-23
 modified: 2019-07-12
