@@ -48,11 +48,11 @@ class Page extends React.Component {
         <Head
           pageTitle={frontmatter.title}
           pageName={this.state.pageName}
-          bodyClasses="single header-float"
+          pageDescription={excerpt}
+          pageKeywords={keywords}
           ogImage={ogImage}
           twitterCard={twitterCard}
-          siteDescription={excerpt}
-          siteKeywords={keywords}
+          bodyClasses="single header-float"
         />
 
         <HeroWritings

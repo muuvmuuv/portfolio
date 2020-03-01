@@ -15,6 +15,8 @@ const Head = ({
   siteUrl,
   pageName,
   pageTitle = pageName,
+  pageDescription,
+  pageKeywords,
   pageLang,
   social,
   ogImage,
@@ -24,6 +26,13 @@ const Head = ({
   bodyClasses,
 }) => {
   const twitter = social.find(({ icon }) => icon === 'twitter')
+
+  if (!pageDescription) {
+    pageDescription = siteDescription
+  }
+  if (!pageKeywords || pageKeywords.length === 0) {
+    pageKeywords = siteKeywords
+  }
 
   const language = pageLang || siteLanguage || 'en'
 
@@ -49,13 +58,13 @@ const Head = ({
       titleTemplate={`%s | ${siteTitle}`}
     >
       <meta name="language" content={language} />
-      <meta name="description" content={siteDescription} />
-      <meta name="keywords" content={siteKeywords.join(', ')} />
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content={pageKeywords.join(', ')} />
       <meta name="author" content={siteAuthor} />
 
       <meta name="og:type" content="website" />
       <meta name="og:title" content={pageTitle} />
-      <meta name="og:description" content={siteDescription} />
+      <meta name="og:description" content={pageDescription} />
       <meta name="og:image" content={ogImage} />
       <meta name="og:image:alt" content={pageTitle} />
       <meta property="og:site_name" content={siteTitle} />
@@ -65,7 +74,7 @@ const Head = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={`@${twitter.user}`} />
       <meta name="twitter:site" content={`@${twitter.user}`} />
-      <meta name="twitter:description" content={siteDescription} />
+      <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:image" content={twitterCard} />
       <meta name="twitter:image:alt" content={pageTitle} />
       <meta name="twitter:url" content={canonical} />
