@@ -19,6 +19,24 @@ module.exports = {
     {
       name: 'About',
       link: '/about',
+      children: [
+        {
+          name: 'Education',
+          link: '/about/education',
+        },
+        {
+          name: 'Experience',
+          link: '/about/experience',
+        },
+        {
+          name: 'Awards',
+          link: '/about/awards',
+        },
+        {
+          name: 'Bookmarks',
+          link: '/about/bookmarks',
+        },
+      ],
     },
     {
       name: 'Setup',
