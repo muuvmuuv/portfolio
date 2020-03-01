@@ -30,19 +30,15 @@ class Page extends React.Component {
       },
     } = this.props.data
 
-    const attr = {}
-
+    const keywords = frontmatter.tags
+    const backdrop = frontmatter.image?.childImageSharp.fluid || null
     const homeUrl = this.props.location.origin
-    if (frontmatter.thumb.facebook.resize.src) {
-      attr.ogImage = `${homeUrl}${frontmatter.thumb.facebook.resize.src}`
-    }
-    if (frontmatter.thumb.twitter.resize.src) {
-      attr.twitterCard = `${homeUrl}${frontmatter.thumb.twitter.resize.src}`
-    }
-
-    if (frontmatter.tags && frontmatter.tags.length > 0) {
-      attr.keywords = frontmatter.tags
-    }
+    const ogImage = frontmatter.thumb?.facebook
+      ? `${homeUrl}${frontmatter.thumb.facebook.resize.src}`
+      : null
+    const twitterCard = frontmatter.thumb?.twitter
+      ? `${homeUrl}${frontmatter.thumb.twitter.resize.src}`
+      : null
 
     return (
       <>
@@ -50,14 +46,16 @@ class Page extends React.Component {
           pageTitle={frontmatter.title}
           pageName={this.state.pageName}
           bodyClasses="single header-float"
+          ogImage={ogImage}
+          twitterCard={twitterCard}
           siteDescription={frontmatter.subtitle}
-          siteKeywords={frontmatter.tags}
+          siteKeywords={keywords}
         />
 
         <HeroProjects
           title={frontmatter.title}
           subtitle={frontmatter.subtitle}
-          backdrop={frontmatter.image.childImageSharp.fluid}
+          backdrop={backdrop}
           status={frontmatter.status}
           started={frontmatter.started}
           ended={frontmatter.ended}
