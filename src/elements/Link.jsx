@@ -4,20 +4,34 @@ import normalizeUrl from 'normalize-url'
 import Icon from '../components/Icon'
 
 const Link = (props) => {
-  const { href, children, ...restProps } = props
+  const { href, children, className, ...restProps } = props
 
   const isAnchor = href[0] === '#'
   const isInternal = href[0] === '/'
 
+  const classes = `link ${className}`
+
   if (isAnchor) {
     return (
-      <a href={href} title={`Anchor to ${href}`} {...restProps} tabIndex="0">
+      <a
+        href={href}
+        title={`Anchor to ${href}`}
+        className={classes}
+        tabIndex="0"
+        {...restProps}
+      >
         {children}
       </a>
     )
   } else if (isInternal) {
     return (
-      <a href={href} title={`Open link to ${href}`} {...restProps} tabIndex="0">
+      <a
+        href={href}
+        title={`Open link to ${href}`}
+        className={classes}
+        tabIndex="0"
+        {...restProps}
+      >
         {children}
       </a>
     )
@@ -40,6 +54,7 @@ const Link = (props) => {
         target="_blank"
         rel="noopener noreferrer nofollow"
         tabIndex="0"
+        className={classes}
         {...restProps}
       >
         {children}

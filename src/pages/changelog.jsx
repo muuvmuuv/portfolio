@@ -5,6 +5,7 @@ import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
 import Article from '../layouts/Article'
 import HeroPage from '../components/HeroPage'
+import { Link } from '../elements/Link'
 
 class Page extends React.Component {
   state = {
@@ -35,7 +36,21 @@ class Page extends React.Component {
       <>
         <Head pageName={this.state.pageName} bodyClasses="page header-float" />
 
-        <HeroPage title={this.state.pageName} />
+        <HeroPage
+          title={this.state.pageName}
+          subtitle={
+            <>
+              This displays all releases and their changes. A better view is{' '}
+              <Link
+                href="https://github.com/muuvmuuv/portfolio/releases"
+                alt="View all releases on GitHub"
+              >
+                available on GitHub
+              </Link>
+              .
+            </>
+          }
+        />
 
         <Article slug={slug} mdx={body}></Article>
       </>
