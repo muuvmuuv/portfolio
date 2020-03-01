@@ -1,4 +1,5 @@
 const { getVersion } = require('../../utils/version')
+const { activeEnv } = require('../../utils/environment')
 
 module.exports = ({ stage, actions, plugins }) => {
   const { setWebpackConfig } = actions
@@ -8,6 +9,7 @@ module.exports = ({ stage, actions, plugins }) => {
       plugins.define({
         'process.env': {
           GATSBY_APP_VERSION: JSON.stringify(getVersion()),
+          GATSBY_ACTIVE_ENV: JSON.stringify(activeEnv),
         },
       }),
     ],
