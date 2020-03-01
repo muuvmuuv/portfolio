@@ -6,18 +6,10 @@ import Time from './Time'
 import Label from './Label'
 import DataType from './DataType'
 
-const Issue = ({
-  data: {
-    tag,
-    ref,
-    modifiedTime,
-    line,
-    text,
-    value,
-    file: { relativePath },
-  },
-}) => {
-  const fileUrl = `https://github.com/muuvmuuv/portfolio/blob/master/${relativePath}`
+const Issue = ({ data: { tag, ref, modifiedTime, line, text, value, file } }) => {
+  const fileUrl = file?.relativePath
+    ? `https://github.com/muuvmuuv/portfolio/blob/master/${file.relativePath}`
+    : '#0'
 
   return (
     <div className="issue">
@@ -26,7 +18,7 @@ const Issue = ({
         <span className="issue__ref">({ref ? ref : <DataType type="null" />})</span>
         <span className="issue__separator">@</span>
         <Link className="issue__link" href={fileUrl} title={`Go to file`}>
-          {relativePath}#{line}
+          {file?.relativePath || 'unknown'}#{line}
         </Link>
         <Time className="issue__modified" date={modifiedTime} format="LLL" />
       </div>

@@ -34,9 +34,6 @@ class Page extends React.Component {
         <HeroPage title={this.state.pageName} />
 
         <Article>
-          <h4 className="text-center">
-            More issues will come soon. Waiting for an tissue.
-          </h4>
           {leasotData.map(({ node: { todo } }, index) => {
             return <Issue key={index} data={todo} />
           })}
