@@ -1,9 +1,8 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link as NativeLink } from 'gatsby'
 
 import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
-import Link from '../components/Link'
 import Backdrop from '../components/Backdrop'
 
 class Page extends React.Component {
@@ -34,27 +33,27 @@ class Page extends React.Component {
         <h1 hidden>Marvin Heilemann</h1>
 
         <div className="showcase">
-          <Link className="item" to="/projects" key="projects">
+          <NativeLink className="item" to="/projects" key="projects">
             <Backdrop img={Img01.childImageSharp.fluid}></Backdrop>
             <div className="content">
               <h2>Projects</h2>
               <h3>Basement dweller first</h3>
             </div>
-          </Link>
-          <Link className="item" to="/photography" key="photography">
+          </NativeLink>
+          <NativeLink className="item" to="/photography" key="photography">
             <Backdrop img={Img02.childImageSharp.fluid}></Backdrop>
             <div className="content">
               <h2>Photography</h2>
               <h3>All around the world</h3>
             </div>
-          </Link>
-          <Link className="item" to="/writings" key="writings">
+          </NativeLink>
+          <NativeLink className="item" to="/writings" key="writings">
             <Backdrop img={Img03.childImageSharp.fluid}></Backdrop>
             <div className="content">
               <h2>Writings</h2>
               <h3>.....</h3>
             </div>
-          </Link>
+          </NativeLink>
         </div>
       </>
     )

@@ -2,6 +2,7 @@ import React from 'react'
 
 import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
+import Hero from '../components/Hero'
 
 class Page extends React.Component {
   state = {
@@ -23,14 +24,14 @@ class Page extends React.Component {
       <>
         <Head pageName={this.state.pageName} bodyClasses="header-float" />
 
-        <div id="hero" className="content-center size-medium">
+        <Hero size="medium" centered={true}>
           <div className="container">
             <div className="post-title">
               <h1>404</h1>
               <h2>Page was not found</h2>
             </div>
           </div>
-        </div>
+        </Hero>
       </>
     )
   }

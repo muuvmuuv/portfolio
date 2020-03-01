@@ -43,7 +43,7 @@ class Page extends React.Component {
               This displays all releases and their changes. A better view is{' '}
               <Link
                 href="https://github.com/muuvmuuv/portfolio/releases"
-                alt="View all releases on GitHub"
+                title="View all releases on GitHub"
               >
                 available on GitHub
               </Link>

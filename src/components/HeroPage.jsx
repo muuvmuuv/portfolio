@@ -1,14 +1,16 @@
 import React from 'react'
 
+import Hero from './Hero'
+
 const HeroPage = ({ title, subtitle }) => (
-  <header id="hero" className="size-small">
+  <Hero size="small">
     <div className="container">
       <div className="post-title">
         <h1 itemProp="headline">{title}</h1>
         {subtitle && <h2 itemProp="alternativeHeadline">{subtitle}</h2>}
       </div>
     </div>
-  </header>
+  </Hero>
 )
 
 export default HeroPage

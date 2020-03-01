@@ -5,6 +5,8 @@ import Time from './Time'
 import Status from './Status'
 import Members from './Members'
 import DataType from './DataType'
+import { Link } from '../elements/Link'
+import Hero from './Hero'
 
 const HeroProjects = ({
   title,
@@ -17,7 +19,7 @@ const HeroProjects = ({
   team,
   roles,
 }) => (
-  <header id="hero">
+  <Hero>
     <Backdrop img={backdrop} alt={title}></Backdrop>
 
     <div className="container container--medium">
@@ -38,15 +40,7 @@ const HeroProjects = ({
           <li>
             <span className="pre">Website:</span>{' '}
             {website ? (
-              <a
-                href={website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link"
-                title={`Link to website: ${website}`}
-              >
-                {website}
-              </a>
+              <Link href={website}>{website}</Link>
             ) : (
               <DataType tooltip="Not set" type="null"></DataType>
             )}
@@ -75,7 +69,7 @@ const HeroProjects = ({
         </ul>
       </div>
     </div>
-  </header>
+  </Hero>
 )
 
 export default HeroProjects

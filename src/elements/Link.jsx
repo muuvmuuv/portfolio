@@ -1,44 +1,53 @@
 import React from 'react'
+import { Link as NativeLink } from 'gatsby'
 import normalizeUrl from 'normalize-url'
 
 import Icon from '../components/Icon'
 
-const Link = (props) => {
-  const { href, children, className, ...restProps } = props
-
-  const isAnchor = href[0] === '#'
-  const isInternal = href[0] === '/'
-
-  let classes = 'link'
-  if (className) {
-    classes += ' ' + className
+const Link = ({
+  href,
+  title,
+  children,
+  key,
+  className = '',
+  noStyling = false,
+  noIcon = false,
+  ...props
+}) => {
+  let classes = 'link ' + className
+  if (noStyling) {
+    classes = className
   }
 
-  if (isAnchor) {
+  if (href.startsWith('#')) {
+    // ANCHOR
     return (
       <a
         href={href}
-        title={`Anchor to ${href}`}
+        title={title ? title : `Anchor to ${href}`}
         className={classes}
         tabIndex="0"
-        {...restProps}
+        key={key}
       >
         {children}
       </a>
     )
-  } else if (isInternal) {
+  } else if (href.startsWith('/')) {
+    // INTERNAL
     return (
-      <a
-        href={href}
-        title={`Open link to ${href}`}
+      <NativeLink
+        to={href}
+        title={title ? title : `Open link to ${href}`}
         className={classes}
         tabIndex="0"
-        {...restProps}
+        key={key}
+        {...props}
       >
         {children}
-      </a>
+      </NativeLink>
     )
   } else {
+    // EXTERNAL
     const normalizedHref = normalizeUrl(href, {
       normalizeProtocol: true,
       stripAuthentication: true,
@@ -53,15 +62,15 @@ const Link = (props) => {
     return (
       <a
         href={normalizedHref}
-        title={`Open link to ${href}`}
+        title={title ? title : `Open link to ${href}`}
         target="_blank"
         rel="noopener noreferrer nofollow"
-        tabIndex="0"
         className={classes}
-        {...restProps}
+        tabIndex="0"
+        key={key}
       >
         {children}
-        <Icon name="arrow-top-right" />
+        {!noIcon && <Icon name="arrow-top-right" />}
       </a>
     )
   }

@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import { useFooterLinks } from '../hooks/use-footer-links'
 import { useSocialLinks } from '../hooks/use-social-links'
 import Logo from '../components/Logo'
-import Link from '../components/Link'
+import { Link } from '../elements/Link'
 import Icon from '../components/Icon'
 
 const Footer = () => {
@@ -19,33 +19,24 @@ const Footer = () => {
       <ul className="list social">
         {socialLinks.map(({ name, icon, link }) => (
           <li key={name}>
-            <a
+            <Link
               href={link}
               title={name}
               className="icon-group"
-              rel="noopener noreferrer nofollow"
-              target="_blank"
+              noStyling={true}
+              noIcon={true}
             >
               <Icon name={icon} />
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
       <ul className="list links">
         {footerLinks.map(({ name, link }) => (
           <li key={name}>
-            {link.includes('http') ? (
-              <a
-                href={link}
-                title={name}
-                rel="noopener noreferrer nofollow"
-                target="_blank"
-              >
-                {name}
-              </a>
-            ) : (
-              <Link to={link}>{name}</Link>
-            )}
+            <Link href={link} title={name} noStyling={true} noIcon={true}>
+              {name}
+            </Link>
           </li>
         ))}
       </ul>

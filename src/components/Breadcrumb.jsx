@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link } from 'gatsby'
+import { Link as NativeLink } from 'gatsby'
 import titleize from 'titleize'
 
 import { HistoryContext } from '../provider/history'
@@ -30,9 +30,13 @@ const Breadcrumb = () => {
             {slugOverrides[label] || titleize(crumbLabel || label)}
           </span>
         ) : (
-          <Link key={index} className="breadcrumb__item breadcrumb__link" to={pathname}>
+          <NativeLink
+            key={index}
+            to={pathname}
+            className="breadcrumb__item breadcrumb__link"
+          >
             {slugOverrides[label] || titleize(label)}
-          </Link>
+          </NativeLink>
         ),
       ])}
     </div>
