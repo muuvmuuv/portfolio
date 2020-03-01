@@ -11,12 +11,16 @@
     "sourceType": "module",
     "ecmaVersion": 2020
   },
+  "ignorePatterns": [
+    "public",
+    "src"
+  ],
   "overrides": [
     {
+      "extends": "./src/.eslintrc.json",
       "files": [
         "*.jsx"
-      ],
-      "extends": "./src/.eslintrc.json"
+      ]
     }
   ]
 }

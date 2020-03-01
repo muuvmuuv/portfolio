@@ -89,7 +89,6 @@
     "react-helmet-async": "^1.0.4",
     "react-scroll": "^1.7.16",
     "rehype-accessible-emojis": "^0.3.2",
-    "shallowequal": "^1.1.0",
     "titleize": "^2.1.0",
     "unique-string": "^2.0.0",
     "vanilla-click-outside": "^2.0.0"
