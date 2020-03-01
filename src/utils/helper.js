@@ -67,3 +67,19 @@ export function stringSlugify(text, separator) {
 
   return text
 }
+
+/**
+ * Turn an array to an object by key/value.
+ *
+ * @param {any[]} array
+ * @param {string} key
+ * @param {string} value
+ *
+ * @returns {object}
+ */
+export function arrayToObject(array, key, value) {
+  return array.reduce((obj, item) => {
+    obj[item[key]] = item[value]
+    return obj
+  }, {})
+}

@@ -61,8 +61,6 @@ const renderTokens = (tokens, getLineProps, getTokenProps) => {
           const props = getTokenProps({ token, key })
           const type = tokenType(token)
           if (Object.keys(parser).indexOf(type) !== -1) {
-            console.log(token)
-            console.log(props)
             return parser[type](token, key, props)
           }
           return <span key={key} {...props} />
