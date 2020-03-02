@@ -46,7 +46,6 @@ dependencies:
   moment: 2.24.0
   node-sass: 4.13.1
   normalize-url: 4.5.0
-  plyr: 3.5.10
   preact: 10.3.2
   prism-react-renderer: 1.0.2_react@16.13.0
   prop-types: 15.7.2
@@ -5449,11 +5448,6 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
-  /core-js/3.6.4:
-    dev: false
-    requiresBuild: true
-    resolution:
-      integrity: sha512-4paDGScNgZP2IXXilaffL9X7968RuvwlkK3xWtZRVqgd8SYNiVKRJvkFd1aqqEuPfN7E68ZHEp9hDj6lHj4Hyw==
   /core-util-is/1.0.2:
     resolution:
       integrity: sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
@@ -5832,10 +5826,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-mI3zP+qxke95mmE2nddsF635V+o=
-  /custom-event-polyfill/1.0.7:
-    dev: false
-    resolution:
-      integrity: sha512-TDDkd5DkaZxZFM8p+1I3yAlvM3rSr1wbrOliG4yJiwinMZN8z/iGL7BTlDkrJcYTmgUSb4ywVCc3ZaUtOtC76w==
   /cwebp-bin/5.1.0:
     dependencies:
       bin-build: 3.0.0
@@ -11125,10 +11115,6 @@ packages:
       node: '>=4.0.0'
     resolution:
       integrity: sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
-  /loadjs/4.2.0:
-    dev: false
-    resolution:
-      integrity: sha512-AgQGZisAlTPbTEzrHPb6q+NYBMD+DP9uvGSIjSUM5uG+0jG15cb8axWpxuOIqrmQjn6scaaH8JwloiP27b2KXA==
   /locate-path/2.0.0:
     dependencies:
       p-locate: 2.0.0
@@ -13239,16 +13225,6 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-/E57AYkoeQ25qkxMj5PBOVgF8Kiu/h7cYS30Z5+R7WaiCCBfLq58ZI/dSeaEKb9WVJV5n/03QwrN3IeWIFllvw==
-  /plyr/3.5.10:
-    dependencies:
-      core-js: 3.6.4
-      custom-event-polyfill: 1.0.7
-      loadjs: 4.2.0
-      rangetouch: 2.0.1
-      url-polyfill: 1.1.8
-    dev: false
-    resolution:
-      integrity: sha512-wbbSuzk3yKVOmYWQUnxG1bxikqZNkxZmL3OjS1DFVU0D2Uko1evGY72LuD9rm/HnNCNzcTuc0c6MCn7bRRpUTA==
   /pngjs/3.4.0:
     dev: false
     engines:
@@ -14121,10 +14097,6 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
-  /rangetouch/2.0.1:
-    dev: false
-    resolution:
-      integrity: sha512-sln+pNSc8NGaHoLzwNBssFSf/rSYkqeBXzX1AtJlkJiUaVSJSbRAWJk+4omsXkN+EJalzkZhWQ3th1m0FpR5xA==
   /raven/2.6.4:
     dependencies:
       cookie: 0.3.1
@@ -17322,10 +17294,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
-  /url-polyfill/1.1.8:
-    dev: false
-    resolution:
-      integrity: sha512-Ey61F4FEqhcu1vHSOMmjl0Vd/RPRLEjMj402qszD/dhMBrVfoUsnIj8KSZo2yj+eIlxJGKFdnm6ES+7UzMgZ3Q==
   /url-to-options/1.0.1:
     dev: false
     engines:
@@ -18365,7 +18333,6 @@ specifiers:
   node-sass: ^4.13.1
   normalize-url: ^4.5.0
   npm-run-all: ^4.1.5
-  plyr: ^3.5.10
   preact: ^10.3.2
   prettier: ^1.19.1
   pretty-quick: ^2.0.1

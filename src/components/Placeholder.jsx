@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Placeholder = ({ children, className = '' }) => (
-  <div className={`placeholder ${className}`}>
+const Placeholder = ({ children }) => (
+  <div className="placeholder">
     <span>{children}</span>
   </div>
 )
