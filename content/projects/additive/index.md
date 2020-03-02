@@ -5,8 +5,8 @@ image: additive-03.png
 thumb: additive-preview.jpg
 
 status: finished
-started: 2018-07-11
-ended: 2019-01-10
+started: 2018-08-01
+ended: 2019-02-27
 website: https://www.additive-net.de/
 team:
   - name: Sonja Emmel

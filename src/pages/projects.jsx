@@ -78,6 +78,8 @@ export const query = graphql`
           frontmatter {
             title
             subtitle
+            started
+            ended
             image {
               childImageSharp {
                 fluid(maxWidth: 992, srcSetBreakpoints: [576, 768]) {

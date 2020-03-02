@@ -10,6 +10,11 @@
     grid-template-areas: "image info";
   }
 
+  .timespan {
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-07);
+  }
+
   .info {
     grid-area: info;
     margin-top: var(--spacing-lg);

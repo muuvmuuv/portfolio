@@ -1,12 +1,12 @@
 ---
-title: MIP
+title: ADDITIVE MIP
 subtitle: The interall employee web interface called MIP
 image: performance.jpg
 thumb: home.jpg
 
 status: finished
-started: 2019-02-12
-ended: 2019-03-20
+started: 2018-09-17
+ended: 2019-01-14
 website: null
 
 categories: [website]

@@ -168,6 +168,10 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-remark-videos`,
+            options: require('./gatsby/config/gatsby-remark-videos'),
+          },
+          {
             // BUG: https://github.com/gatsbyjs/gatsby/issues/16239
             resolve: 'gatsby-remark-images',
             options: {
