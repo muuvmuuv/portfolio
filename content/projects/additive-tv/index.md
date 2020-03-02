@@ -40,10 +40,10 @@ Features:
 - Embedded player
 - UX first player design (with [Plyr](https://plyr.io/))
 
+https://youtu.be/KReoYFdzP5o
+
 |                                            |                                |
 | ------------------------------------------ | ------------------------------ |
 | ![Homepage](home.png)                      | ![Category page](category.png) |
 | ![Category inner page](category-inner.png) | ![Category page](player.png)   |
 | ![Open direct search](open-search.png)     |                                |
-
-![Video preview of advanced filtering](video.mp4)

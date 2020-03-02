@@ -51,9 +51,7 @@ life, but we often feel to start some kind of that again someday!
 
 If you want to see a demo, it is not possible at the moment but I'm working on it.
 
-![inFluxe-Gaming Videos](video.mp4)
-
-![inFluxe Gaming](influxe.png)
+https://youtu.be/FtzRsqhzCus
 
 ## Website screenshots
 

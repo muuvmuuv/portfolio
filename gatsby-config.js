@@ -168,10 +168,6 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-videos`,
-            options: require('./gatsby/config/gatsby-remark-videos'),
-          },
-          {
             // BUG: https://github.com/gatsbyjs/gatsby/issues/16239
             resolve: 'gatsby-remark-images',
             options: {
@@ -184,6 +180,7 @@ module.exports = {
               showCaptions: true,
             },
           },
+          `gatsby-remark-embedder`,
           'gatsby-remark-check-links',
           `gatsby-remark-copy-linked-files`,
         ],
