@@ -43,21 +43,22 @@
     grid-area: image;
   }
 
+  .placeholder,
   .gatsby-image-wrapper {
     width: 100%;
-    max-height: 200px;
+    height: 200px;
     border: 1px solid var(--border-color-light);
 
     @include breakpoint-up(xs) {
-      max-height: 250px;
+      height: 250px;
     }
 
     @include breakpoint-up(md) {
-      max-height: 350px;
+      height: 300px;
     }
 
     @include breakpoint-up(xl) {
-      max-height: 500px;
+      height: 500px;
     }
   }
 }
