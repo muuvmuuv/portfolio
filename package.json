@@ -91,8 +91,7 @@
     "react-scroll": "^1.7.16",
     "rehype-accessible-emojis": "^0.3.2",
     "titleize": "^2.1.0",
-    "unique-string": "^2.0.0",
-    "vanilla-click-outside": "^2.0.0"
+    "unique-string": "^2.0.0"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.1",

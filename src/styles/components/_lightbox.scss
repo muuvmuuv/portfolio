@@ -1,13 +1,16 @@
 .lightbox {
-  .gatsby-resp-image-link {
-    &.open {
-      position: absolute;
-      // TODO: make z-index SASS variables
-      z-index: 21; // one higher than overlay
-    }
+  user-select: none;
+
+  .resp-image-link {
+    will-change: height;
+    cursor: pointer;
   }
 
-  .gatsby-resp-image-link,
+  .resp-image-wrapper {
+    will-change: width, height, transform;
+  }
+
+  .resp-image-wrapper,
   .gatsby-resp-image-image {
     will-change: transform;
     transition: var(--transition-fast);

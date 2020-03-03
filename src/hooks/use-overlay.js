@@ -3,9 +3,11 @@ import { useContext } from 'react'
 import { OverlayContext } from '../provider/overlay'
 
 function useOverlay() {
-  const { show, hide } = useContext(OverlayContext)
+  const { show, hide, on } = useContext(OverlayContext)
 
-  return { show, hide }
+  const onClick = (fn) => on({ click: fn })
+
+  return { show, hide, onClick }
 }
 
 export { useOverlay }

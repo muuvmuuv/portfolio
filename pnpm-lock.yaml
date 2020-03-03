@@ -56,7 +56,6 @@ dependencies:
   rehype-accessible-emojis: 0.3.2
   titleize: 2.1.0
   unique-string: 2.0.0
-  vanilla-click-outside: 2.0.0
 devDependencies:
   '@arkweid/lefthook': 0.7.1
   '@commitlint/cli': 8.3.5
@@ -17397,10 +17396,6 @@ packages:
       spdx-expression-parse: 3.0.0
     resolution:
       integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==
-  /vanilla-click-outside/2.0.0:
-    dev: false
-    resolution:
-      integrity: sha512-yLn84o0gRSSWlHk7JnlCRO4YLyK556LlaZRsK5Ur87RdejbNqZ0UXtk8XCjW/y4T3BgNkubQGj+yxRwwEAWtAA==
   /vary/1.1.2:
     dev: false
     engines:
@@ -18354,4 +18349,3 @@ specifiers:
   taskz: ^1.3.0
   titleize: ^2.1.0
   unique-string: ^2.0.0
-  vanilla-click-outside: ^2.0.0

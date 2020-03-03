@@ -45,12 +45,6 @@
     grid-area: theme;
     margin-left: var(--spacing-xs);
   }
-
-  > #theme-switch {
-    @include breakpoint-down(sm) {
-      display: none;
-    }
-  }
 }
 
 .header-float #header {
