@@ -12,6 +12,7 @@
     "ecmaVersion": 2020
   },
   "ignorePatterns": [
+    "node_modules",
     "public",
     "src"
   ],
