@@ -158,6 +158,7 @@ module.exports = {
         },
         // BUG: https://github.com/gatsbyjs/gatsby/issues/15486
         plugins: [`gatsby-remark-images`],
+        remarkPlugins: [require('remark-unwrap-images')],
         rehypePlugins: [require(`rehype-accessible-emojis`).rehypeAccessibleEmojis],
         gatsbyRemarkPlugins: [
           {
@@ -183,6 +184,7 @@ module.exports = {
           `gatsby-remark-embedder`,
           'gatsby-remark-check-links',
           `gatsby-remark-copy-linked-files`,
+          // `gatsby-remark-normalize-url`,
         ],
       },
     },
