@@ -8,7 +8,7 @@ import ThemeSwitch from '../components/ThemeSwitch'
 class Header extends React.PureComponent {
   render() {
     return (
-      <header id="header">
+      <header id="header" role="banner">
         <Logo />
         <Breadcrumb />
         <Navigation />

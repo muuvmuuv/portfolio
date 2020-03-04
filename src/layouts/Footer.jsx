@@ -14,7 +14,7 @@ const Footer = () => {
   const thisYear = dayjs().get('y')
 
   return (
-    <footer id="footer">
+    <footer id="footer" role="contentinfo">
       <Logo />
       <ul className="list social">
         {socialLinks.map(({ name, icon, link }) => (
