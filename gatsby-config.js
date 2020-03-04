@@ -8,8 +8,10 @@ require('dotenv').config({
   path: `.env.build`,
 })
 
+// const path = require('path')
 const { yellow, blue, bold } = require('kleur')
-const { getVersion, transformVersion } = require('./utils/version')
+
+const { getVersion } = require('./utils/version')
 const { activeEnv, isAudit, isProd } = require('./utils/environment')
 const siteMetadata = require('./metadata')
 
@@ -89,17 +91,18 @@ module.exports = {
     //     },
     //   },
     // },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'GitHub',
-        fieldName: 'github',
-        url: 'https://api.github.com/graphql',
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
-        },
-      },
-    },
+    // Not used ATM
+    // {
+    //   resolve: 'gatsby-source-graphql',
+    //   options: {
+    //     typeName: 'GitHub',
+    //     fieldName: 'github',
+    //     url: 'https://api.github.com/graphql',
+    //     headers: {
+    //       Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-source-files`,
       options: {
@@ -267,21 +270,6 @@ module.exports = {
         removeVersionOnly: true,
       },
     },
-    // ISSUE(#35): Setup Axe
-    // isDev && 'gatsby-plugin-react-axe',
-    {
-      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
-      options: {
-        analyzerMode: 'static',
-        production: true,
-        disable: !isAudit, // only run when doing production builds to perform audits
-        openAnalyzer: false,
-        reportFilename: `${__dirname}/reports/v${transformVersion(getVersion(), [
-          'major',
-          'minor',
-        ])}.0/treemap.html`,
-      },
-    },
     {
       resolve: `gatsby-plugin-offline`,
       options: {
@@ -298,6 +286,14 @@ module.exports = {
           '/writings/',
           '/writings/*',
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-bundle-stats',
+      options: {
+        // https://github.com/relative-ci/bundle-stats/tree/master/packages/webpack-plugin
+        // outDir: path.relative(__dirname, reportsPath),
+        outDir: 'reports',
       },
     },
   ],

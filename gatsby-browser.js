@@ -6,7 +6,11 @@
 
 require('./src/styles/app.scss') // main styling
 
-const { activeEnv, isProd } = require('./utils/environment')
+const React = require('react')
+const ReactDOM = require('react-dom')
+const reactAxe = require('react-axe')
+
+const { activeEnv, isDev } = require('./utils/environment')
 const printCorporateMessage = require('./gatsby/browser/corporateMessage')
 const setDefaultTime = require('./gatsby/browser/defaultTime')
 
@@ -19,7 +23,10 @@ module.exports.onClientEntry = () => {
 }
 
 module.exports.onInitialClientRender = () => {
-  if (isProd) {
+  if (isDev) {
+    // https://github.com/dequelabs/react-axe
+    reactAxe(React, ReactDOM, 1000)
+  } else {
     printCorporateMessage()
   }
 }
