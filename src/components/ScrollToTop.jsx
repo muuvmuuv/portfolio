@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { animateScroll } from 'react-scroll'
 
 import Icon from './Icon'
-import { useScrollPosition } from '../hooks/use-scroll-position'
+import { useScroll } from '../hooks/use-window'
 
 const ScrollToTop = () => {
   const [visible, setVisibility] = useState(false)
 
-  useScrollPosition(({ currPos }) => {
-    if (currPos.y < -600) {
+  useScroll(({ top }) => {
+    if (top > 600) {
       setVisibility(true)
     } else {
       setVisibility(false)
@@ -31,7 +31,7 @@ const ScrollToTop = () => {
       tabIndex="0"
       role="button"
     >
-      <Icon name="arrow-top" />
+      <Icon name="arrow-up" />
     </div>
   )
 }
