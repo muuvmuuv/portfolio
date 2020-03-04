@@ -9,6 +9,10 @@ export const useMenuLinks = () => {
             menu {
               name
               link
+              children {
+                name
+                link
+              }
             }
           }
         }
