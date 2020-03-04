@@ -34,7 +34,7 @@ class Page extends React.Component {
     }))
     const timelineData = [
       {
-        name: 'Experience',
+        name: null,
         icon: 'briefcase',
         data: timelineSection,
       },

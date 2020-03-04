@@ -8,7 +8,7 @@ const Section = ({ name, icon, data }) => {
     <section>
       <header>
         <Icon name={icon} />
-        <h2 className="title">{name}</h2>
+        {name && <h2 className="title">{name}</h2>}
       </header>
       <div className="items">
         {data.map((props, index) => (

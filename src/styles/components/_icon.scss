@@ -2,28 +2,15 @@
   display: inline-block;
   width: var(--icon-size);
   height: var(--icon-size);
+  color: var(--icon-color-light);
 
   --icon-size: 0.7em;
   --icon-color-light: currentColor;
   --icon-color-dark: var(--icon-color-light);
 
-  &:hover {
-    svg {
-      fill: var(--icon-color-light);
-    }
-  }
-
-  &.icon-text {
-    width: auto;
-    height: auto;
-    line-height: 1;
-    vertical-align: middle;
-  }
-
   svg {
     width: 100%;
     height: 100%;
-    fill: var(--icon-color-light);
   }
 
   &[name="twitter"] {
@@ -57,9 +44,6 @@
 
 @include themeLight() {
   .icon {
-    &:hover svg,
-    svg {
-      fill: var(--icon-color-dark);
-    }
+    color: var(--icon-color-dark);
   }
 }
