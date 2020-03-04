@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link as NativeLink } from 'gatsby'
-import normalizeUrl from 'normalize-url'
 
 import Icon from '../components/Icon'
 
@@ -48,20 +47,9 @@ const Link = ({
     )
   } else {
     // EXTERNAL
-    const normalizedHref = normalizeUrl(href, {
-      normalizeProtocol: true,
-      stripAuthentication: true,
-      forceHttps: true,
-      stripHash: false,
-      stripProtocol: false,
-      stripWWW: false,
-      removeTrailingSlash: true,
-      removeDirectoryIndex: true,
-    })
-
     return (
       <a
-        href={normalizedHref}
+        href={href}
         title={title ? title : `Open link to ${href}`}
         target="_blank"
         rel="noopener noreferrer nofollow"
@@ -70,7 +58,7 @@ const Link = ({
         key={key}
       >
         {children}
-        {!noIcon && <Icon name="arrow-top-right" />}
+        {!noIcon && <Icon name="arrow-up-right" />}
       </a>
     )
   }
