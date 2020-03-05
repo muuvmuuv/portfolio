@@ -1,8 +1,8 @@
 ---
 title: ADDITIVE Gallery
 subtitle: The interall photo gallery of ADDITIVE
-image: performance.jpg
-thumb: home.jpg
+image: home.png
+thumb: home.png
 
 status: finished
 started: 2018-08-01
