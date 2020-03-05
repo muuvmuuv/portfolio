@@ -32,7 +32,7 @@ module.exports.sourceNodes = async (
 
     for await (const f of walkDirectory(dir)) {
       const fileextension = f.ext.replace('.', '')
-      if (pluginOptions.extensions.indexOf(fileextension) !== -1) {
+      if (pluginOptions.extensions.includes(fileextension)) {
         promisses.push(createAndProcessNode(path.format(f)))
       }
     }
