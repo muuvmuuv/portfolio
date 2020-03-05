@@ -1,40 +1,45 @@
-import React, { createElement } from 'react'
+import React from 'react'
 
-const icons = {}
+// https://react-icons.netlify.com/
+import { GiSpellBook, GiBriefcase } from 'react-icons/gi'
+import { IoMdClose, IoMdArrowUp } from 'react-icons/io'
+import { FiArrowUpRight } from 'react-icons/fi'
+import { FaTwitter, FaGithub, FaInstagram, FaDribbble, FaDiscord } from 'react-icons/fa'
 
-function importAll(resolve) {
-  resolve.keys().forEach((file) => {
-    const ext = /(?:\.([^.]+))?$/.exec(file)
-    const name = file
-      .replace('./', '')
-      .replace(ext[0], '')
-      .toLowerCase()
+// Icons that are not in `react-icons`
+import Unsplash from '../images/icons/unsplash.svg'
+import LeagueOfLegends from '../images/icons/league-of-legends.svg'
 
-    icons[name] = createElement(resolve(file))
-  })
+const icons = {
+  briefcase: <GiBriefcase />,
+  'spell-book': <GiSpellBook />,
+  close: <IoMdClose />,
+  'arrow-up': <IoMdArrowUp />,
+  'arrow-up-right': <FiArrowUpRight />,
+  twitter: <FaTwitter />,
+  github: <FaGithub />,
+  instagram: <FaInstagram />,
+  dribbble: <FaDribbble />,
+  discord: <FaDiscord />,
+  unsplash: <Unsplash />,
+  'league-of-legends': <LeagueOfLegends />,
 }
-importAll(require.context('../images/icons', false, /\.svg$/))
 
-const Icon = ({ name, textOnly }) => {
-  const IconElement = icons[name] || (
+const Icon = ({ name }) => {
+  const theIcon = icons[name] || (
     <span aria-hidden="true" aria-label="Icon not found">
       ⚠
     </span>
   )
 
-  let classes = 'icon'
-  if (textOnly) {
-    classes += ' icon-text'
-  }
-
   return (
     <span
-      className={classes}
-      name={name}
+      className="icon"
       aria-hidden="true"
       aria-label={`An icon which shows "${name}"`}
+      name={name}
     >
-      {IconElement}
+      {theIcon}
     </span>
   )
 }

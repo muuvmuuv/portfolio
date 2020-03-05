@@ -15,6 +15,7 @@ import { PreformattedCode, InlineCode } from '../elements/Code'
 import { Emphasized, Strong, Delete } from '../elements/Text'
 import { Link } from '../elements/Link'
 import { Image, Figure } from '../elements/Image'
+import { Video, Audio, IFrame } from '../elements/Dynamic'
 import { Sup } from '../elements/Sup'
 import { Div } from '../elements/Div'
 
@@ -46,6 +47,9 @@ export default {
   a: Link,
   img: Image,
   figure: Figure,
+  audio: Audio,
+  video: Video,
+  iframe: IFrame,
   sup: Sup,
   div: Div,
 

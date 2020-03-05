@@ -6,6 +6,7 @@ import Head from '../components/Head'
 import Article from '../layouts/Article'
 import HeroPage from '../components/HeroPage'
 import Issue from '../components/Issue'
+import { Link } from '../elements/Link'
 
 class Page extends React.Component {
   state = {
@@ -31,12 +32,23 @@ class Page extends React.Component {
       <>
         <Head pageName={this.state.pageName} bodyClasses="page header-float" />
 
-        <HeroPage title={this.state.pageName} />
+        <HeroPage
+          title={this.state.pageName}
+          subtitle={
+            <>
+              All remaining issues in the code. More can be found{' '}
+              <Link
+                href="https://github.com/muuvmuuv/portfolio/issues"
+                title="Open GitHub issues"
+              >
+                on GitHub
+              </Link>
+              .
+            </>
+          }
+        />
 
         <Article>
-          <h4 className="text-center">
-            More issues will come soon. Waiting for an tissue.
-          </h4>
           {leasotData.map(({ node: { todo } }, index) => {
             return <Issue key={index} data={todo} />
           })}

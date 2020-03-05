@@ -2,50 +2,37 @@
   display: inline-block;
   width: var(--icon-size);
   height: var(--icon-size);
+  color: var(--icon-color-light);
 
   --icon-size: 0.7em;
   --icon-color-light: currentColor;
   --icon-color-dark: var(--icon-color-light);
 
-  &:hover {
-    svg {
-      fill: var(--icon-color-light);
-    }
-  }
-
-  &.icon-text {
-    width: auto;
-    height: auto;
-    line-height: 1;
-    vertical-align: middle;
-  }
-
   svg {
     width: 100%;
     height: 100%;
-    fill: var(--icon-color-light);
   }
 
-  &[name='twitter'] {
+  &[name="twitter"] {
     --icon-color-light: #07a3f2;
   }
-  &[name='github'] {
+  &[name="github"] {
     --icon-color-light: #3d7ac0;
   }
-  &[name='instagram'] {
+  &[name="instagram"] {
     --icon-color-light: #e43e6c;
   }
-  &[name='dribbble'] {
+  &[name="dribbble"] {
     --icon-color-light: #ed5689;
   }
-  &[name='unsplash'] {
+  &[name="unsplash"] {
     --icon-color-light: #ffffff;
     --icon-color-dark: #000000;
   }
-  &[name='discord'] {
+  &[name="discord"] {
     --icon-color-light: #718cda;
   }
-  &[name='league-of-legends'] {
+  &[name="league-of-legends"] {
     --icon-color-light: #947341;
   }
 }
@@ -57,9 +44,6 @@
 
 @include themeLight() {
   .icon {
-    &:hover svg,
-    svg {
-      fill: var(--icon-color-dark);
-    }
+    color: var(--icon-color-dark);
   }
 }

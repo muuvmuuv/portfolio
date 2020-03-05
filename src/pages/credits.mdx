@@ -3,28 +3,20 @@ title: 'Credits'
 ---
 
 import Code from '../components/Code.jsx'
-import { usePackageJson } from '../hooks/use-package-json.js'
-export const packageJson = () => {
-  const pkg = usePackageJson()
-  const arrayToObject = (array) =>
-    array.reduce((obj, { name, version }) => {
-      obj[name] = version
-      return obj
-    }, {})
-  return {
-    dependencies: arrayToObject(pkg.dependencies),
-    devDependencies: arrayToObject(pkg.devDependencies),
-  }
-}
+import { usePackages } from '../hooks/use-package-json.js'
 
-# Thanks to…
+## Thanks to…
 
 - [RSMS](https://twitter.com/rsms) for the awesome font [Inter](https://rsms.me/inter/)
 - JetBrains for [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-- [Deepl](https://www.deepl.com/translator) for their awesome free translater
+- [Deepl](https://www.deepl.com/translator) for their awesome free translator
 - [Microtip](https://github.com/ghosh/microtip/blob/master/microtip.css) for the awesome
   CSS only tooltip
+- [GatsbyJS](https://www.gatsbyjs.org/) to be the one and only
+- [Preact](https://preactjs.com/) to have a React like experience but with better web
+  support
+- [Now by Zeit](https://zeit.co/home) for the best personal CDN available
 
-## Packages used
+## …and all package authors
 
-<Code language="json">{JSON.stringify(packageJson(), null, 2)}</Code>
+<Code language="json">{usePackages()}</Code>

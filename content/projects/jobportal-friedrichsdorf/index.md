@@ -4,10 +4,13 @@ subtitle: A modern job portal for the city Friedrichsdorf
 image: new-design.png
 thumb: new-design.png
 
-status: wip
-started: null
-ended: null
+status: finished
+started: 2019-07-16
+ended: 2020-03-05
 website: https://jobportal-friedrichsdorf.de/
+roles:
+  - design
+  - development
 
 categories: [website]
 tags: [jobportal, website]

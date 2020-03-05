@@ -5,6 +5,7 @@ import copy from 'copy-text-to-clipboard'
 import { normalize } from '../utils/normalize'
 import { lightTheme, darkTheme } from './CodeThemes'
 import { ThemeContext, Mode } from '../provider/theme'
+import { Link } from '../elements/Link'
 
 const highlightStart = (line) => {
   return line.some((token) => token.content.includes('highlight-start'))
@@ -12,6 +13,29 @@ const highlightStart = (line) => {
 
 const highlightEnd = (line) => {
   return line.some((token) => token.content.includes('highlight-end'))
+}
+
+const parser = {
+  link: ({ content }, key, props) => {
+    const [match, alt, url] = new RegExp('!\\[(.+?)\\]\\((.+?)\\)').exec(content)
+    const [before, after] = content.split(match)
+    return (
+      <span key={key} {...props}>
+        {before}
+        <Link href={url}>{alt}</Link>
+        {after}
+      </span>
+    )
+  },
+}
+
+const tokenType = ({ content }) => {
+  switch (true) {
+    case new RegExp('!\\[.+?\\]\\(.+?\\)').test(content):
+      return 'link'
+    default:
+      return null
+  }
 }
 
 const renderTokens = (tokens, getLineProps, getTokenProps) => {
@@ -33,9 +57,14 @@ const renderTokens = (tokens, getLineProps, getTokenProps) => {
         {...getLineProps({ line, key: i })}
         className={lineHighlighted ? 'highlight-line' : ''}
       >
-        {line.map((token, key) => (
-          <span key={key} {...getTokenProps({ token, key })} />
-        ))}
+        {line.map((token, key) => {
+          const props = getTokenProps({ token, key })
+          const type = tokenType(token)
+          if (Object.keys(parser).indexOf(type) !== -1) {
+            return parser[type](token, key, props)
+          }
+          return <span key={key} {...props} />
+        })}
       </div>
     )
 

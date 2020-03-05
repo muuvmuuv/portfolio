@@ -1,3 +1,55 @@
+## [5.4.0](https://github.com/muuvmuuv/portfolio/compare/v5.3.0...v5.4.0) (2020-03-05)
+
+
+### Features
+
+* add a11y landmarks ([49bb02c](https://github.com/muuvmuuv/portfolio/commit/49bb02c6d2793bc00a9ec0453764bea422bfc0ee))
+* add better text align to figure ([5c5bf94](https://github.com/muuvmuuv/portfolio/commit/5c5bf944d0818c35a26bf5473113de2cf7326344))
+* add fixed height to portfolio image ([ea81072](https://github.com/muuvmuuv/portfolio/commit/ea81072272694d12a9ff682f6ac49018c6cb584a))
+* add new github actions ([0a88a60](https://github.com/muuvmuuv/portfolio/commit/0a88a603ca578dc247de156c15743187d69d9727))
+* add normalize-url as ast plugin ([0b25a12](https://github.com/muuvmuuv/portfolio/commit/0b25a126f9f10585adfae24a5ecb6eb9b8e4512e))
+* add webpack define env ([676b0c3](https://github.com/muuvmuuv/portfolio/commit/676b0c3c20d52a9a18f80c453d53618c3ad50035))
+* added awards page ([7c4a148](https://github.com/muuvmuuv/portfolio/commit/7c4a14807334b7f1d05d47d5138d1d979501c0b8))
+* added breadcrump slug overrides ([ce2f4ff](https://github.com/muuvmuuv/portfolio/commit/ce2f4ff751d186e9a172f52461b49ba6f8e6a387))
+* added descriptions to issues and changelog page ([bde6da2](https://github.com/muuvmuuv/portfolio/commit/bde6da281c6c86e966dc12a7785677886465c2b2))
+* added education and experience content ([a311582](https://github.com/muuvmuuv/portfolio/commit/a3115828b31ba10e0e45e93bc6170bed50b3a051))
+* added experience and education pages ([9d1acfd](https://github.com/muuvmuuv/portfolio/commit/9d1acfd061b07e47ce52ab91e84b7d84be7f33bd))
+* added experience and education pages ([72487c9](https://github.com/muuvmuuv/portfolio/commit/72487c951f628fa4cab42fd37be3e7c0f1f4162f))
+* added preview image to additive-gallery ([7b20f84](https://github.com/muuvmuuv/portfolio/commit/7b20f8429044c4fbeb411e8424b30ee793c4526a))
+* added react-axe and budle-stats ([d2be877](https://github.com/muuvmuuv/portfolio/commit/d2be877870ff7e1490be3d495903d11da2236616))
+* added styled plyr player with lazy loading ([d1592db](https://github.com/muuvmuuv/portfolio/commit/d1592db0fc5c7ec01a13414782a2908df8c72344))
+* added token parser to code ([279dc9d](https://github.com/muuvmuuv/portfolio/commit/279dc9d3bef5228b888977df08e9b8d0e175d42f))
+* added webpack bundle analyzer and bundle-stats ([7cea1da](https://github.com/muuvmuuv/portfolio/commit/7cea1da9cb3cb005b5f068d496eff00e596de330))
+* do not do a rebuild before release ([f27b7b3](https://github.com/muuvmuuv/portfolio/commit/f27b7b3e102d43f1a7773871867858fb602945a5))
+* fix footer alignments ([5e89c98](https://github.com/muuvmuuv/portfolio/commit/5e89c98effa4f6a4a7e593290ec2e06ee66f9fe8))
+* improved lightbox ([acc1825](https://github.com/muuvmuuv/portfolio/commit/acc18259e82765e75801eb7558122d2c0e8ddf2d)), closes [#15](https://github.com/muuvmuuv/portfolio/issues/15)
+* made showcase more readable ([3ff2297](https://github.com/muuvmuuv/portfolio/commit/3ff22974e170e1ef7d1fd57338105818bc2a5123))
+* re-add analytics menu ([17db1bb](https://github.com/muuvmuuv/portfolio/commit/17db1bbfedfe4485cb11766c585a9667f798d9f6))
+* remove normalize-url from link script and handle it elsewhere ([60928fa](https://github.com/muuvmuuv/portfolio/commit/60928fa25503971cbeaad284df34c8823eb45f9d))
+* remove styled player ([0e72761](https://github.com/muuvmuuv/portfolio/commit/0e72761af7a3f01206a43d850a25e8115e2ee292))
+* single page prop fixes ([2505880](https://github.com/muuvmuuv/portfolio/commit/2505880fa802a60d744eb53d4504f20935141a82))
+* update issues page ([e94dfe1](https://github.com/muuvmuuv/portfolio/commit/e94dfe11eaf7ee4efc558466fd715a4fda2e456b))
+* update own source plugin ([e4b99ce](https://github.com/muuvmuuv/portfolio/commit/e4b99ce60dad208f5eb3628ed0062c8a5aa5dc14))
+* update scroll to top with better logic ([a2d506b](https://github.com/muuvmuuv/portfolio/commit/a2d506b758ab56b44aade0bd45ed8c65b39404f8))
+* update sketch file ([3a8edda](https://github.com/muuvmuuv/portfolio/commit/3a8edda984c2629c1cf570dbc959b427eda03f13))
+* updated credits packages with links ([f900b80](https://github.com/muuvmuuv/portfolio/commit/f900b80a642a375c01a970b55407ff407f6bedfb))
+* updated icons to use react-icons ([24b333b](https://github.com/muuvmuuv/portfolio/commit/24b333b87deaa2d3dacbee10934f573cbfc014d4))
+* updated issue page styles ([eeb5323](https://github.com/muuvmuuv/portfolio/commit/eeb53239454fc4b24145b36437e536efe68f71ee))
+* updated navigation with react spring ([e6a8271](https://github.com/muuvmuuv/portfolio/commit/e6a827141d9cfea046da9bf8e8e4f1b4d7eee241))
+* updated projects ([6684199](https://github.com/muuvmuuv/portfolio/commit/6684199f5762829b5fc2db4481bc66936f10e241))
+* use double quotes for SCSS files ([e8eae31](https://github.com/muuvmuuv/portfolio/commit/e8eae3165976b20063e7f70506f552889513412c))
+
+
+### Bug Fixes
+
+* element can not be wrapped in p tags ([c35f633](https://github.com/muuvmuuv/portfolio/commit/c35f6337f692dfe338563a0256d131f5bbdf1672))
+* element link wrong way of defining class ([69bece0](https://github.com/muuvmuuv/portfolio/commit/69bece0bbac23e1cebef1da3048b95492657fb57))
+* eslint wasn't working ([cc98734](https://github.com/muuvmuuv/portfolio/commit/cc987346792a80a5e5c14ab4d5769a59f24b7869))
+* issue with actions ([2f7124a](https://github.com/muuvmuuv/portfolio/commit/2f7124a18634daec8e596c171ed6b5d35f83ccb9))
+* node_modules was included in eslint ([6783bf4](https://github.com/muuvmuuv/portfolio/commit/6783bf494392ebd2a94dca2c851238e3a883502a))
+* prevent issues with package version ([98db577](https://github.com/muuvmuuv/portfolio/commit/98db57705198c486ae802c4127a9c32aad31fb48))
+* wrong keyword and description on pages ([31c852f](https://github.com/muuvmuuv/portfolio/commit/31c852f2bde4c2f2c19687f196dc3b0e24bb0b21))
+
 ## [5.3.0](https://github.com/muuvmuuv/portfolio/compare/v5.2.0...v5.3.0) (2020-02-14)
 
 

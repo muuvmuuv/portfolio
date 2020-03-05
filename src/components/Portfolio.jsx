@@ -1,29 +1,38 @@
 import React from 'react'
+import { Link as NativeLink } from 'gatsby'
 import Img from 'gatsby-image'
 
-import Link from './Link'
+import Placeholder from './Placeholder'
+import Time from './Time'
 
 const Portfolio = ({ item: { frontmatter, fields } }) => (
   <div className="portfolio">
     <div className="image">
-      <Link to={fields.slug}>
-        <Img
-          fluid={frontmatter.image.childImageSharp.fluid}
-          alt={frontmatter.title}
-          imgStyle={{
-            objectPosition: 'top center',
-          }}
-        />
-      </Link>
+      <NativeLink to={fields.slug}>
+        {frontmatter.image?.childImageSharp.fluid ? (
+          <Img
+            fluid={frontmatter.image.childImageSharp.fluid}
+            alt={frontmatter.title}
+            imgStyle={{
+              objectPosition: 'top center',
+            }}
+          />
+        ) : (
+          <Placeholder>{frontmatter.title}</Placeholder>
+        )}
+      </NativeLink>
     </div>
     <div className="info">
-      <Link to={fields.slug}>
+      <div className="timespan">
+        <Time date={frontmatter.started} /> – <Time date={frontmatter.ended} />
+      </div>
+      <NativeLink to={fields.slug}>
         <h2>{frontmatter.title}</h2>
-      </Link>
+      </NativeLink>
       <h3>{frontmatter.subtitle}</h3>
-      <Link to={fields.slug}>
+      <NativeLink to={fields.slug}>
         <div className="btn btn-primary">Show more</div>
-      </Link>
+      </NativeLink>
     </div>
   </div>
 )

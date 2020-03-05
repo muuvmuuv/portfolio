@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { red } = require('kleur')
+const { red, yellow } = require('kleur')
 const open = require('open')
 const { getVersion, transformVersion } = require('../utils/version')
 
@@ -17,10 +17,9 @@ const filename = process.argv[2]
 const filePath = path.resolve(versionDir, filename)
 
 if (!fs.existsSync(filePath)) {
-  console.log(red(`File does not exist: ${filePath} \n`))
-  process.exit(1)
+  console.log(yellow(`File does not exist: ${filePath} \n`))
+} else {
+  open(filePath, {
+    background: true,
+  })
 }
-
-open(filePath, {
-  background: true,
-})

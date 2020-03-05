@@ -3,8 +3,8 @@
   position: relative;
   z-index: 10;
   top: 0;
-  grid-template-areas: 'logo breadcrumb nav';
-  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "logo breadcrumb theme nav";
+  grid-template-columns: auto 1fr auto auto;
   align-items: center;
   width: 100%;
   padding: var(--spacing-lg) var(--container-padding-x);
@@ -13,9 +13,8 @@
   user-select: none;
   will-change: padding, position;
 
-  @include breakpoint-up(md) {
-    grid-template-areas: 'logo breadcrumb nav theme';
-    grid-template-columns: auto 1fr auto auto;
+  @include breakpoint-up(lg) {
+    grid-template-areas: "logo breadcrumb nav theme";
   }
 
   &.sticky {
@@ -44,12 +43,6 @@
   #theme-switch {
     grid-area: theme;
     margin-left: var(--spacing-xs);
-  }
-
-  > #theme-switch {
-    @include breakpoint-down(sm) {
-      display: none;
-    }
   }
 }
 

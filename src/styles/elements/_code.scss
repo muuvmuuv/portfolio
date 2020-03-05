@@ -15,7 +15,7 @@ p code {
 .prism-code {
   display: grid;
   position: relative;
-  grid-template-areas: 'numbers code';
+  grid-template-areas: "numbers code";
   grid-template-columns: auto 1fr;
   margin-bottom: var(--content-margin);
   background: var(--color-10);
@@ -42,7 +42,7 @@ p code {
     display: block;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       z-index: -1;
       width: calc(100% + 24px);
@@ -63,7 +63,6 @@ p code {
     border-right: 0;
     color: var(--color-07);
     text-align: center;
-    pointer-events: none;
     user-select: none;
 
     .highlight-line::before {

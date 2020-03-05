@@ -67,3 +67,41 @@ export function stringSlugify(text, separator) {
 
   return text
 }
+
+/**
+ * Truncate a string from the middle.
+ *
+ * @param {string} str string to truncate
+ * @param {number} maxLength string max length
+ * @param {string} separator set a separator
+ */
+export function stringTruncateMiddle(str, maxLength = 50, separator = '...') {
+  if (str.length < maxLength) {
+    return str
+  }
+
+  const length = str.length
+  const charsToShow = maxLength - separator.length
+  const frontChars = Math.ceil(charsToShow / 2)
+  const backChars = Math.floor(charsToShow / 2)
+
+  return str.substr(0, frontChars) + separator + str.substr(length - backChars)
+}
+
+// 100 - 50 = 50
+
+/**
+ * Turn an array to an object by key/value.
+ *
+ * @param {any[]} array
+ * @param {string} key
+ * @param {string} value
+ *
+ * @returns {object}
+ */
+export function arrayToObject(array, key, value) {
+  return array.reduce((obj, item) => {
+    obj[item[key]] = item[value]
+    return obj
+  }, {})
+}

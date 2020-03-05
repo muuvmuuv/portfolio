@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { MDXProvider } from '@mdx-js/react'
 import { globalHistory } from '@reach/router'
 import { scroller } from 'react-scroll'
 
-import { ThemeContext } from '../provider/theme'
+import { useTheme } from '../hooks/use-theme'
 import Header from './Header'
 import Footer from './Footer'
 import ScrollToTop from '../components/ScrollToTop'
 import mdxElements from '../components/MDXElements'
 
-export default class Index extends React.Component {
-  static contextType = ThemeContext
+const Index = ({ children }) => {
+  const { theme } = useTheme()
 
-  componentDidMount() {
+  useEffect(() => {
     const hash = globalHistory.location.hash
     if (hash) {
       setTimeout(() => {
@@ -24,21 +24,21 @@ export default class Index extends React.Component {
         })
       }, 300)
     }
-  }
+  }, [globalHistory.location.hash])
 
-  render() {
-    return (
-      <>
-        <Helmet htmlAttributes={{ theme: this.context.theme }} />
-        <Header></Header>
-        <MDXProvider components={mdxElements}>
-          <main role="main" id="main">
-            {this.props.children}
-          </main>
-        </MDXProvider>
-        <Footer></Footer>
-        <ScrollToTop />
-      </>
-    )
-  }
+  return (
+    <>
+      <Helmet htmlAttributes={{ theme }} />
+      <Header></Header>
+      <MDXProvider components={mdxElements}>
+        <main role="main" id="main">
+          {children}
+        </main>
+      </MDXProvider>
+      <Footer></Footer>
+      <ScrollToTop />
+    </>
+  )
 }
+
+export default Index

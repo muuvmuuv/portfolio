@@ -1,4 +1,4 @@
-const { red, bold, dim } = require('kleur')
+const { bold, dim } = require('kleur')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const { isProd, isDev } = require('../../utils/environment')
@@ -15,17 +15,14 @@ module.exports = async ({ node, getNode, actions }) => {
       console.log()
       console.log(dim(`Creating ${source} node`))
       console.log(bold(fileNode.relativePath))
-      console.log(node.frontmatter)
       console.log(fileNode)
     }
 
     if (node.frontmatter.published === false && isProd) {
-      if (isDev) {
-        console.log(red('SKIPPING'))
-      }
       return // skip this unpublished stuff only in production
     }
 
+    let parent = null // set parent if the source is a children of another source
     let slug = node.frontmatter.slug || undefined
     if (!slug) {
       slug = createFilePath({ node, getNode })
@@ -49,20 +46,42 @@ module.exports = async ({ node, getNode, actions }) => {
         }
         node.frontmatter = { ...defaults, ...node.frontmatter }
         break
+
       case 'writings':
         defaults = {
           ...defaults,
           categories: [],
           tags: [],
         }
+        break
+
+      case 'education':
+        parent = 'about'
+        defaults = {
+          ...defaults,
+          qualifications: [],
+        }
         node.frontmatter = { ...defaults, ...node.frontmatter }
         break
+
+      case 'experience':
+        parent = 'about'
+        defaults = {
+          ...defaults,
+          responsibilities: [],
+        }
+        node.frontmatter = { ...defaults, ...node.frontmatter }
+        break
+    }
+
+    if (isDev) {
+      console.log(node.frontmatter)
     }
 
     createNodeField({
       node,
       name: 'slug',
-      value: `/${source}/${slug}`,
+      value: parent ? `/${parent}/${source}/${slug}` : `/${source}/${slug}`,
     })
     createNodeField({
       node,

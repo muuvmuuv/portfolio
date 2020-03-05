@@ -57,7 +57,7 @@
 
   .container {
     display: grid;
-    grid-template-areas: 'title' 'info';
+    grid-template-areas: "title" "info";
     grid-template-columns: 1fr;
     align-items: center;
     justify-content: space-between;
@@ -71,7 +71,7 @@
     }
 
     @include breakpoint-up(md) {
-      grid-template-areas: 'title info';
+      grid-template-areas: "title info";
       grid-template-columns: auto auto;
       padding-top: 150px;
     }

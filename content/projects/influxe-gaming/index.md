@@ -5,13 +5,13 @@ image: influxe-preview.jpg
 thumb: influxe-preview.jpg
 
 status: offline
-started: null
-ended: null
+started: 2015-07-01
+ended: 2017-07-20
 website: null
 team:
   - name: Till Plüer
     link: https://www.xing.com/profile/Till_Plueer
-role:
+roles:
   - design
   - development
   - ui
@@ -51,4 +51,19 @@ life, but we often feel to start some kind of that again someday!
 
 If you want to see a demo, it is not possible at the moment but I'm working on it.
 
-![inFluxe Gaming](influxe.png)
+https://youtu.be/FtzRsqhzCus
+
+## Website screenshots
+
+|                                |                                |
+| ------------------------------ | ------------------------------ |
+| ![inFluxe Gaming](influxe.png) | ![inFluxe Gaming](influxe.png) |
+
+## Other files
+
+|                                                |                                                                   |
+| ---------------------------------------------- | ----------------------------------------------------------------- |
+| ![Playersheet Version 1](playersheet_v1.jpg)   | ![Playersheet Version 2](playersheet_v2.jpg)                      |
+| ![Facebook banner](facebook-banner.jpg)        | ![Wall poster](poster.jpg)                                        |
+| ![Phone cover](phone-cover.jpg)                |                                                                   |
+| ![How be did bug reporting](bug-reporting.png) | ![Image that defined how we versioned everything](versioning.png) |

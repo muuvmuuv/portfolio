@@ -1,16 +1,16 @@
 :root {
-  --font-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Roboto, Arial,
-    'Segoe UI', 'Noto Sans', sans-serif, var(--font-emoji);
-  --font-serif: 'Playfair Display', serif, var(--font-emoji);
-  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', 'mononoki', Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace, var(--font-emoji);
+  --font-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto, Arial,
+    "Segoe UI", "Noto Sans", sans-serif, var(--font-emoji);
+  --font-serif: "Playfair Display", serif, var(--font-emoji);
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", "mononoki", Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace, var(--font-emoji);
 
   @supports (font-variation-settings: normal) {
     // Enable variable font for supported browsers
-    --font-sans: 'Inter var experimental', -apple-system, BlinkMacSystemFont,
-      'Helvetica Neue', Roboto, Arial, 'Segoe UI', 'Noto Sans', sans-serif,
+    --font-sans: "Inter var experimental", -apple-system, BlinkMacSystemFont,
+      "Helvetica Neue", Roboto, Arial, "Segoe UI", "Noto Sans", sans-serif,
       var(--font-emoji);
   }
 

@@ -1,9 +1,8 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link as NativeLink } from 'gatsby'
 
 import { HistoryConsumer } from '../provider/history'
 import Head from '../components/Head'
-import Link from '../components/Link'
 import Time from '../components/Time'
 
 class Page extends React.Component {
@@ -36,13 +35,13 @@ class Page extends React.Component {
           <div className="list">
             {edges.map(({ node: { frontmatter, fields, excerpt } }, index) => (
               <div className="item" key={index}>
-                <Link to={fields.slug}>
+                <NativeLink to={fields.slug}>
                   <header>
                     <h2>{frontmatter.title}</h2>
                     <Time date={frontmatter.created} />
                   </header>
                   <p>{excerpt}</p>
-                </Link>
+                </NativeLink>
               </div>
             ))}
           </div>

@@ -21,7 +21,7 @@
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       width: calc(var(--dot-width) * var(--dot-scale));
       height: calc(var(--dot-width) * var(--dot-scale));

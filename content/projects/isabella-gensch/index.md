@@ -4,13 +4,17 @@ subtitle: Makeup & Hair by Isabella Marie Gensch
 image: isabella-preview.jpg
 thumb: isabella-preview.jpg
 
-status: idle
-started: null
-ended: null
+status: finished
+started: 2018-01-05
+ended: 2018-08-20
 website: https://www.isabellagensch.com/
 team:
   - name: Isabella Marie Gensch
     link: https://www.isabellagensch.com/
+roles:
+  - design
+  - development
+  - publishing
 
 created: 2019-09-23
 modified: 2019-07-12

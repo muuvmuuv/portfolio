@@ -33,27 +33,31 @@ class Page extends React.Component {
       },
     } = this.props.data
 
-    const attr = {}
-
-    if (frontmatter.tags && frontmatter.tags.length > 0) {
-      attr.keywords = frontmatter.tags
-    }
-
-    const image = frontmatter?.image?.childImageSharp?.fluid || null
+    const keywords = frontmatter.tags
+    const backdrop = frontmatter.image?.childImageSharp.fluid || null
+    const homeUrl = this.props.location.origin
+    const ogImage = frontmatter.image
+      ? `${homeUrl}${frontmatter.image.facebook.resize.src}`
+      : null
+    const twitterCard = frontmatter.image
+      ? `${homeUrl}${frontmatter.image.twitter.resize.src}`
+      : null
 
     return (
       <>
         <Head
           pageTitle={frontmatter.title}
           pageName={this.state.pageName}
+          pageDescription={excerpt}
+          pageKeywords={keywords}
+          ogImage={ogImage}
+          twitterCard={twitterCard}
           bodyClasses="single header-float"
-          siteDescription={excerpt}
-          siteKeywords={frontmatter.tags}
         />
 
         <HeroWritings
           title={frontmatter.title}
-          backdrop={image}
+          backdrop={backdrop}
           time={frontmatter.created}
           lang={frontmatter.language}
           keywords={frontmatter.tags}
@@ -79,11 +83,6 @@ export const query = graphql`
       excerpt(pruneLength: 150)
       timeToRead
       tableOfContents(maxDepth: 3)
-      # wordCount {
-      #   words
-      #   sentences
-      #   paragraphs
-      # }
       fields {
         slug
       }
@@ -94,6 +93,16 @@ export const query = graphql`
           childImageSharp {
             fluid(maxWidth: 2100, srcSetBreakpoints: [576, 768, 992, 1200]) {
               ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+          twitter: childImageSharp {
+            resize(height: 471, width: 900) {
+              src
+            }
+          }
+          facebook: childImageSharp {
+            resize(height: 900, width: 600) {
+              src
             }
           }
         }

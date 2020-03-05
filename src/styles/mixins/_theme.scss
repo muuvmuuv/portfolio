@@ -1,17 +1,17 @@
 @mixin themeLight() {
-  [theme='light'] {
+  [theme="light"] {
     @content;
   }
 }
 
 @mixin themeDark() {
-  [theme='dark'] {
+  [theme="dark"] {
     @content;
   }
 }
 
 @mixin themeHighContrast() {
-  [theme='hc'] {
+  [theme="hc"] {
     @content;
   }
 }

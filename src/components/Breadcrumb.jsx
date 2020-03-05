@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link } from 'gatsby'
+import { Link as NativeLink } from 'gatsby'
 import titleize from 'titleize'
 
 import { HistoryContext } from '../provider/history'
@@ -9,6 +9,11 @@ const Breadcrumb = () => {
 
   if (!crumbs || !location) {
     return <div id="breadcrumb"></div>
+  }
+
+  const slugOverrides = {
+    about: 'About Me',
+    lifephases: 'Life Phases',
   }
 
   // skip first; `arr.shift()` does not work here
@@ -22,12 +27,16 @@ const Breadcrumb = () => {
         </span>,
         location === pathname ? (
           <span key={index} className="breadcrumb__item">
-            {titleize(crumbLabel || label)}
+            {slugOverrides[label] || titleize(crumbLabel || label)}
           </span>
         ) : (
-          <Link key={index} className="breadcrumb__item breadcrumb__link" to={pathname}>
-            {titleize(label)}
-          </Link>
+          <NativeLink
+            key={index}
+            to={pathname}
+            className="breadcrumb__item breadcrumb__link"
+          >
+            {slugOverrides[label] || titleize(label)}
+          </NativeLink>
         ),
       ])}
     </div>

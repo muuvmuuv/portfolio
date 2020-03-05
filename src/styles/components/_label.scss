@@ -6,7 +6,7 @@
   background: var(--background-color-light);
   color: var(--text-color-medium);
   font-size: var(--text-sm);
-  line-height: 1;
+  line-height: 1.2;
   cursor: default;
   user-select: none;
 
@@ -20,8 +20,8 @@
   &--todo,
   &--fixme,
   &--issue {
-    border: 1px solid var(--green-red);
-    background: var(--green-red-20);
-    color: var(--green-red);
+    border: 1px solid var(--color-green);
+    background: var(--color-green-20);
+    color: var(--color-green);
   }
 }

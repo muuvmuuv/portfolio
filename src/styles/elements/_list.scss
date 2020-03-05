@@ -31,7 +31,7 @@ article {
   ul {
     > li:not(.task-list-item) {
       &::before {
-        content: '▁';
+        content: "▁";
         display: flex;
         top: 6px;
         left: 0;
@@ -52,7 +52,7 @@ article {
       counter-increment: counter;
 
       &::before {
-        content: counter(counter) '.';
+        content: counter(counter) ".";
         display: flex;
         top: 7px;
         left: 0;

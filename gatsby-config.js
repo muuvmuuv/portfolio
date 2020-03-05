@@ -8,15 +8,12 @@ require('dotenv').config({
   path: `.env.build`,
 })
 
-const { yellow, blue, bold } = require('kleur')
-const { getVersion, transformVersion } = require('./utils/version')
-const { activeEnv, isAudit, isProd } = require('./utils/environment')
+const path = require('path')
 const siteMetadata = require('./metadata')
+const { isProd, buildPath, reportsPath } = require('./utils/environment')
 
-console.log(bold(siteMetadata.siteTitle))
-console.log(`Version: ${blue(getVersion())}`)
-console.log(`Environment: ${yellow(activeEnv)}`)
-console.log(`Auditing: ${yellow(isAudit)}\n`)
+// ✨ Welcome ✨
+require('./utils/welcome')()
 
 module.exports = {
   siteMetadata,
@@ -89,19 +86,19 @@ module.exports = {
     //     },
     //   },
     // },
+    // Not used ATM
+    // {
+    //   resolve: 'gatsby-source-graphql',
+    //   options: {
+    //     typeName: 'GitHub',
+    //     fieldName: 'github',
+    //     url: 'https://api.github.com/graphql',
+    //     headers: {
+    //       Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+    //     },
+    //   },
+    // },
     {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'GitHub',
-        fieldName: 'github',
-        url: 'https://api.github.com/graphql',
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
-        },
-      },
-    },
-    {
-      // TODO: wait for https://github.com/gatsbyjs/gatsby/issues/21219
       resolve: `gatsby-source-files`,
       options: {
         name: `package`,
@@ -139,9 +136,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `leasot`,
-        // TODO: wait for https://github.com/gatsbyjs/gatsby/issues/21219
-        path: `${__dirname}/gatsby`,
+        name: `education`,
+        path: `${__dirname}/content/education`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `experience`,
+        path: `${__dirname}/content/experience`,
       },
     },
     {
@@ -153,6 +156,7 @@ module.exports = {
         },
         // BUG: https://github.com/gatsbyjs/gatsby/issues/15486
         plugins: [`gatsby-remark-images`],
+        remarkPlugins: [require('remark-unwrap-images')],
         rehypePlugins: [require(`rehype-accessible-emojis`).rehypeAccessibleEmojis],
         gatsbyRemarkPlugins: [
           {
@@ -175,15 +179,28 @@ module.exports = {
               showCaptions: true,
             },
           },
+          `gatsby-remark-embedder`,
           'gatsby-remark-check-links',
           `gatsby-remark-copy-linked-files`,
+          {
+            resolve: require.resolve('./plugins/gatsby-remark-normalize-url'),
+          },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-files`,
+      options: {
+        name: `leasot`,
+        files: [`${__dirname}/gatsby`, `${__dirname}/src`],
+        extensions: ['js', 'jsx', 'md', 'mdx', 'scss'],
       },
     },
     {
       resolve: `gatsby-transformer-leasot`,
       options: {
         sourceInstanceName: `leasot`,
+        internalType: 'SingleFile',
         customTags: [`BUG`], // additionally to: TODO, FIXME
         mode: 'mdx',
       },
@@ -208,13 +225,13 @@ module.exports = {
             Twitter: '@muuvmuuv',
           },
         ],
-        thanks: [`Gatsby`, `Node`],
+        thanks: [`Gatsby`, 'RSMS', 'Now by Zeit', 'Deepl'],
         site: {
-          Standards: 'HTML5, SCSS, JSON, TXT, ESNEXT, GraphQL, API, Rest',
-          Components: 'Normalize.css, Preact, React',
-          Softwares: 'VS Code, SublimeText, Brave, Firefox Developer Edition',
+          Standards: 'HTML5, SCSS, ESNEXT, GraphQL',
+          Components: 'https://github.com/muuvmuuv/portfolio/blob/master/package.json',
+          Softwares: 'VS Code, SublimeText, Microsoft Edge, Sketch, iTerm',
         },
-        note: `Made in the beautiful city Frankfurt am Main 🏙`,
+        note: `Built in beautiful Frankfurt am Main 🏙\nMore on https://marvin.digital/credits`,
       },
     },
     {
@@ -250,21 +267,6 @@ module.exports = {
         removeVersionOnly: true,
       },
     },
-    // ISSUE(#35): Setup Axe
-    // isDev && 'gatsby-plugin-react-axe',
-    {
-      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
-      options: {
-        analyzerMode: 'static',
-        production: true,
-        disable: !isAudit, // only run when doing production builds to perform audits
-        openAnalyzer: false,
-        reportFilename: `${__dirname}/reports/v${transformVersion(getVersion(), [
-          'major',
-          'minor',
-        ])}.0/treemap.html`,
-      },
-    },
     {
       resolve: `gatsby-plugin-offline`,
       options: {
@@ -281,6 +283,17 @@ module.exports = {
           '/writings/',
           '/writings/*',
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-bundle-stats',
+      options: {
+        // https://github.com/relative-ci/bundle-stats/tree/master/packages/webpack-plugin
+        compare: true,
+        outDir: path.relative(buildPath, reportsPath),
+        stats: {
+          context: './src',
+        },
       },
     },
   ],

@@ -6,12 +6,10 @@ import Language from './Language'
 import Separator from './Separator'
 import Keywords from './Keywords'
 import TimeToRead from './TimeToRead'
+import Hero from './Hero'
 
 const HeroWritings = ({ title, backdrop, keywords, lang, time, ttr }) => (
-  <header
-    id="hero"
-    className={backdrop ? 'content-center' : 'content-center size-medium'}
-  >
+  <Hero centered={true} size={backdrop ? 'medium' : false}>
     <Backdrop img={backdrop} alt={title}></Backdrop>
 
     <div className="container">
@@ -28,7 +26,7 @@ const HeroWritings = ({ title, backdrop, keywords, lang, time, ttr }) => (
         </h2>
       </div>
     </div>
-  </header>
+  </Hero>
 )
 
 export default HeroWritings

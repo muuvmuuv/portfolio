@@ -1,1 +1,8 @@
-{}
+{
+  "name": "gatsby-plugin-files",
+  "description": "Source files by folder once and by extensions.",
+  "version": "1.0.0",
+  "dependencies": {
+    "gatsby-source-filesystem": "^2.1.48"
+  }
+}

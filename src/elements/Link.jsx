@@ -1,49 +1,64 @@
 import React from 'react'
-import normalizeUrl from 'normalize-url'
+import { Link as NativeLink } from 'gatsby'
 
 import Icon from '../components/Icon'
 
-const Link = (props) => {
-  const { href, children, ...restProps } = props
+const Link = ({
+  href,
+  title,
+  children,
+  key,
+  className = '',
+  noStyling = false,
+  noIcon = false,
+  ...props
+}) => {
+  let classes = 'link ' + className
+  if (noStyling) {
+    classes = className
+  }
 
-  const isAnchor = href[0] === '#'
-  const isInternal = href[0] === '/'
-
-  if (isAnchor) {
-    return (
-      <a href={href} title={`Anchor to ${href}`} {...restProps} tabIndex="0">
-        {children}
-      </a>
-    )
-  } else if (isInternal) {
-    return (
-      <a href={href} title={`Open link to ${href}`} {...restProps} tabIndex="0">
-        {children}
-      </a>
-    )
-  } else {
-    const normalizedHref = normalizeUrl(href, {
-      normalizeProtocol: true,
-      stripAuthentication: true,
-      forceHttps: true,
-      stripHash: false,
-      stripProtocol: false,
-      stripWWW: false,
-      removeTrailingSlash: true,
-      removeDirectoryIndex: true,
-    })
-
+  if (href.startsWith('#')) {
+    // ANCHOR
     return (
       <a
-        href={normalizedHref}
-        title={`Open link to ${href}`}
-        target="_blank"
-        rel="noopener noreferrer nofollow"
+        href={href}
+        title={title ? title : `Anchor to ${href}`}
+        className={classes}
         tabIndex="0"
-        {...restProps}
+        key={key}
       >
         {children}
-        <Icon name="arrow-top-right" />
+      </a>
+    )
+  } else if (href.startsWith('/')) {
+    // INTERNAL
+    return (
+      <NativeLink
+        to={href}
+        title={title ? title : `Open link to ${href}`}
+        className={classes}
+        tabIndex="0"
+        key={key}
+        {...props}
+      >
+        {children}
+      </NativeLink>
+    )
+  } else {
+    // EXTERNAL
+    return (
+      <a
+        href={href}
+        title={title ? title : `Open link to ${href}`}
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        className={classes}
+        tabIndex="0"
+        key={key}
+      >
+        {children}
+        {!noIcon && <Icon name="arrow-up-right" />}
       </a>
     )
   }

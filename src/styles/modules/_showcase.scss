@@ -1,16 +1,16 @@
 .showcase {
   display: grid;
   grid-template-areas:
-    '.'
-    '.'
-    '.';
+    "."
+    "."
+    ".";
   grid-template-columns: 100%;
   grid-template-rows: 1fr 1fr 1fr;
   height: 100vh;
   user-select: none;
 
   @include breakpoint-up(lg) {
-    grid-template-areas: '. . .';
+    grid-template-areas: ". . .";
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100%;
   }
@@ -20,6 +20,13 @@
       .backdrop {
         &::after {
           opacity: 1;
+        }
+      }
+
+      .content {
+        @include breakpoint-up(lg) {
+          transform: translateY(-70px);
+          opacity: 0;
         }
       }
     }
@@ -32,6 +39,10 @@
     justify-content: center;
     overflow: hidden;
     cursor: pointer;
+
+    @include breakpoint-down(sm) {
+      min-height: 250px;
+    }
 
     @include noReducedMotion() {
       transition: all ease-in-out 220ms;
@@ -77,13 +88,12 @@
     .content {
       text-align: center;
 
-      @include noReducedMotion() {
-        transition: all 200ms ease-in-out;
+      @include breakpoint-up(lg) {
+        transform: translateY(-100px);
       }
 
-      @include breakpoint-up(lg) {
-        transform: translateY(-70px);
-        opacity: 0;
+      @include noReducedMotion() {
+        transition: all 200ms ease-in-out;
       }
 
       h2 {

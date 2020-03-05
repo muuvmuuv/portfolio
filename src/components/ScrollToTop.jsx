@@ -1,17 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { animateScroll } from 'react-scroll'
+import { useSpring, animated } from '@react-spring/web'
 
 import Icon from './Icon'
-import { useScrollPosition } from '../hooks/use-scroll-position'
+import { useScroll } from '../hooks/use-window'
 
 const ScrollToTop = () => {
-  const [visible, setVisibility] = useState(false)
+  const [animation, setStyle] = useSpring(() => ({
+    config: { duration: 180 },
+    opacity: 0,
+  }))
 
-  useScrollPosition(({ currPos }) => {
-    if (currPos.y < -600) {
-      setVisibility(true)
+  useScroll(({ top }) => {
+    if (top > 400) {
+      setStyle({
+        opacity: 1,
+      })
     } else {
-      setVisibility(false)
+      setStyle({
+        opacity: 0,
+      })
     }
   })
 
@@ -23,16 +31,15 @@ const ScrollToTop = () => {
   }
 
   return (
-    <div
-      aria-label="Scroll back to top"
-      className={`scroll-to-top ${visible ? 'show' : 'hide'}`}
-      onKeyPress={scrollToTop}
-      onClick={scrollToTop}
-      tabIndex="0"
-      role="button"
-    >
-      <Icon name="arrow-top" />
-    </div>
+    <animated.div className="scroll-to-top" role="complementary" style={animation}>
+      <button
+        aria-label="Scroll back to top"
+        onKeyPress={scrollToTop}
+        onClick={scrollToTop}
+      >
+        <Icon name="arrow-up" />
+      </button>
+    </animated.div>
   )
 }
 
