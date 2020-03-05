@@ -8,7 +8,6 @@ require('./src/styles/app.scss') // main styling
 
 const React = require('react')
 const ReactDOM = require('react-dom')
-const reactAxe = require('react-axe')
 
 const { activeEnv, isDev } = require('./utils/environment')
 const printCorporateMessage = require('./gatsby/browser/corporateMessage')
@@ -25,7 +24,9 @@ module.exports.onClientEntry = () => {
 module.exports.onInitialClientRender = () => {
   if (isDev) {
     // https://github.com/dequelabs/react-axe
-    reactAxe(React, ReactDOM, 1000)
+    import('react-axe').then(({ default: reactAxe }) => {
+      reactAxe(React, ReactDOM, 1000)
+    })
   } else {
     printCorporateMessage()
   }
@@ -34,4 +35,5 @@ module.exports.onInitialClientRender = () => {
 module.exports.onServiceWorkerUpdateReady = () => {
   console.info('NEW VERSION AVAILABLE')
   // window.location.reload()
+  // TODO: show modal here or in sw.js?
 }

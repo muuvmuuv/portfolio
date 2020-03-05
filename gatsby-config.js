@@ -8,17 +8,12 @@ require('dotenv').config({
   path: `.env.build`,
 })
 
-// const path = require('path')
-const { yellow, blue, bold } = require('kleur')
-
-const { getVersion } = require('./utils/version')
-const { activeEnv, isAudit, isProd } = require('./utils/environment')
+const path = require('path')
 const siteMetadata = require('./metadata')
+const { isProd, buildPath, reportsPath } = require('./utils/environment')
 
-console.log(bold(siteMetadata.siteTitle))
-console.log(`Version: ${blue(getVersion())}`)
-console.log(`Environment: ${yellow(activeEnv)}`)
-console.log(`Auditing: ${yellow(isAudit)}\n`)
+// ✨ Welcome ✨
+require('./utils/welcome')()
 
 module.exports = {
   siteMetadata,
@@ -294,8 +289,11 @@ module.exports = {
       resolve: 'gatsby-plugin-bundle-stats',
       options: {
         // https://github.com/relative-ci/bundle-stats/tree/master/packages/webpack-plugin
-        // outDir: path.relative(__dirname, reportsPath),
-        outDir: 'reports',
+        compare: true,
+        outDir: path.relative(buildPath, reportsPath),
+        stats: {
+          context: './src',
+        },
       },
     },
   ],
