@@ -2,8 +2,7 @@
   "default": "https://github.com/release-it/release-it/blob/master/conf/release-it.json",
   "hooks": {
     "before:init": [
-      "pnpm run lint",
-      "pnpm run rebuild"
+      "pnpm run lint"
     ]
   },
   "git": {
