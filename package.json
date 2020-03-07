@@ -92,6 +92,7 @@
     "react-scroll": "^1.7.16",
     "rehype-accessible-emojis": "^0.3.2",
     "remark-unwrap-images": "^1.0.0",
+    "rxjs": "^6.5.4",
     "titleize": "^2.1.0",
     "unique-string": "^2.0.0"
   },

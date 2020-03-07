@@ -5,6 +5,7 @@ import MobileNavigation from './MobileNavigation'
 import { useResize, getBoundingRect } from '../../hooks/use-window'
 
 const Navigation = () => {
+  const windowResize = useResize()
   const [isMobile, setMobile] = useState(false)
 
   const setState = ({ width }) => {
@@ -15,12 +16,16 @@ const Navigation = () => {
     }
   }
 
-  useResize((bound) => {
-    setState(bound)
-  })
-
   useEffect(() => {
     setState(getBoundingRect())
+
+    const sub = windowResize.subscribe((bound) => {
+      setState(bound)
+    })
+
+    return () => {
+      sub.unsubscribe()
+    }
   }, [])
 
   return isMobile ? <MobileNavigation /> : <DesktopNavigation />

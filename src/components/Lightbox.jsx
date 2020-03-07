@@ -1,11 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react'
 
 import { useOverlay } from '../hooks/use-overlay'
+import { useScroll } from '../hooks/use-window'
 
 const Lightbox = ({ children, style: globalStyle }) => {
   const elementRef = useRef(null)
   const [visible, setVisibility] = useState(false)
   const overlay = useOverlay()
+  const windowScroll = useScroll()
+  let subscription = undefined
 
   const zoomIn = () => {
     const element = elementRef.current
@@ -92,39 +95,39 @@ const Lightbox = ({ children, style: globalStyle }) => {
   }
 
   const open = () => {
-    setVisibility(true)
     zoomIn()
     overlay.show()
-    window.addEventListener('scroll', handleScroll)
+    setVisibility(true)
+    overlay.onClick(() => {
+      close()
+    })
+    subscription = windowScroll.subscribe(() => {
+      close()
+    })
   }
-
   const close = () => {
+    if (subscription) {
+      subscription.unsubscribe()
+    }
     setVisibility(false)
-    window.removeEventListener('scroll', handleScroll)
     overlay.hide()
     zoomOut()
   }
 
-  const handleScroll = () => {
-    close()
-  }
-
-  const onClick = ($event) => {
-    $event.preventDefault()
-
+  const onClick = () => {
     if (visible) {
       close()
     } else {
       open()
-      overlay.onClick(() => {
-        close()
-      })
     }
   }
 
   useEffect(() => {
     return () => {
       overlay.hide() // if something breaks hide the overlay
+      if (subscription) {
+        subscription.unsubscribe()
+      }
     }
   }, [elementRef])
 

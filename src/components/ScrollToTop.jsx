@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { animateScroll } from 'react-scroll'
 import { useSpring, animated } from '@react-spring/web'
 
@@ -6,21 +6,26 @@ import Icon from './Icon'
 import { useScroll } from '../hooks/use-window'
 
 const ScrollToTop = () => {
+  const windowScroll = useScroll()
   const [animation, setStyle] = useSpring(() => ({
     config: { duration: 180 },
     opacity: 0,
   }))
 
-  useScroll(({ top }) => {
-    if (top > 400) {
-      setStyle({
-        opacity: 1,
-      })
-    } else {
-      setStyle({
-        opacity: 0,
-      })
-    }
+  useEffect(() => {
+    const subscription = windowScroll.subscribe(({ top }) => {
+      if (top > 400) {
+        setStyle({
+          opacity: 1,
+        })
+      } else {
+        setStyle({
+          opacity: 0,
+        })
+      }
+    })
+
+    return () => subscription.unsubscribe()
   })
 
   const scrollToTop = () => {

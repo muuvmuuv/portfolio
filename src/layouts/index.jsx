@@ -4,6 +4,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { globalHistory } from '@reach/router'
 import { scroller } from 'react-scroll'
 
+import { activeEnv } from '../utils/environment'
 import { useTheme } from '../hooks/use-theme'
 import Header from './Header'
 import Footer from './Footer'
@@ -28,7 +29,9 @@ const Index = ({ children }) => {
 
   return (
     <>
-      <Helmet htmlAttributes={{ theme }} />
+      <Helmet htmlAttributes={{ theme }}>
+        <meta name="environment" content={activeEnv} />
+      </Helmet>
       <Header></Header>
       <MDXProvider components={mdxElements}>
         <main role="main" id="main">
