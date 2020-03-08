@@ -1,22 +1,22 @@
 name: Lint files
 
-on: [push]
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
-  build:
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run lint:js-source
-      - run: npm run lint:js-engine
-      - run: npm run lint:scss
+          node-version: 12.x
+      - run: yarn install --frozen-lockfile --silent --ignore-engines --non-interactive --production=false
+      - run: yarn run lint:js-source
+      - run: yarn run lint:js-engine
+      - run: yarn run lint:scss

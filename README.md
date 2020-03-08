@@ -16,6 +16,8 @@ A beautiful Portfolio page made by me for me based on the awesome static site ge
 [![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/marvin.digital)](https://observatory.mozilla.org/analyze/marvin.digital)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4ff1821236f428215929/maintainability)](https://codeclimate.com/github/muuvmuuv/portfolio/maintainability)
 [![JavaScript Grade](https://img.shields.io/lgtm/grade/javascript/g/muuvmuuv/portfolio.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/muuvmuuv/portfolio/context:javascript)
+![Lint files](https://github.com/muuvmuuv/portfolio/workflows/Lint%20files/badge.svg)
+![Build website](https://github.com/muuvmuuv/portfolio/workflows/Build%20website/badge.svg)
 
 - [Development](#development)
 - [Building](#building)

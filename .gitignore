@@ -10,6 +10,12 @@ public
 .stylelintcache
 
 #
+# pnpm
+#
+
+.pnpm-store
+
+#
 # macOS
 #
 
