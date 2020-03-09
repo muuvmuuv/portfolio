@@ -1,7 +1,6 @@
 name: Lint files
 
 on:
-  push:
   pull_request:
     types: [opened, synchronize]
 
