@@ -1,3 +1,22 @@
+## [5.5.0](https://github.com/muuvmuuv/portfolio/compare/v5.4.0...v5.5.0) (2020-03-10)
+
+
+### Features
+
+* add line highlighting to GH issue file link ([c765aab](https://github.com/muuvmuuv/portfolio/commit/c765aab8a73ae56b3428b56102f11b4e4b7e826c))
+* only run lint on PR ([439b502](https://github.com/muuvmuuv/portfolio/commit/439b502a5b77b2ee3396d056d1644ad3c487b556))
+* replace indexOf with includes ([b69adfa](https://github.com/muuvmuuv/portfolio/commit/b69adfab0c384b3b3d243da49fa666e856379764))
+* update GH actions ([f7cf33d](https://github.com/muuvmuuv/portfolio/commit/f7cf33d05772d5c64629641904177ce20c76b6b0))
+* update timeline line center ([2249727](https://github.com/muuvmuuv/portfolio/commit/224972747c74bec302418ecc2ed3ce2d539b1861))
+
+
+### Bug Fixes
+
+* first run to fix jumping overlay ([9f8dcd3](https://github.com/muuvmuuv/portfolio/commit/9f8dcd3abf80fc340e4816a1563e625b154a43e8))
+* lightbox issue on mobile and new use-window logic ([078042c](https://github.com/muuvmuuv/portfolio/commit/078042c0e1c7955e49f19816f18a0a0c939bac50))
+* overlay wasn't render properly and caused flickering ([eef4380](https://github.com/muuvmuuv/portfolio/commit/eef438050595105118a648e47aea3bea9f161362))
+* wrong Issue file url ([4eb588d](https://github.com/muuvmuuv/portfolio/commit/4eb588d7f529e5331956099adb69662d66647914))
+
 ## [5.4.0](https://github.com/muuvmuuv/portfolio/compare/v5.3.0...v5.4.0) (2020-03-05)
 
 
