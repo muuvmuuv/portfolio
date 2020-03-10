@@ -1,35 +1,50 @@
 import React, { createContext, useState, useRef } from 'react'
+import { useSpring, animated } from '@react-spring/web'
 
 const OverlayContext = createContext()
 const OverlayConsumer = OverlayContext.Consumer
 
 function OverlayProvider({ children }) {
   const elementRef = useRef()
-  const [visible, setVisibility] = useState(false)
   const [events, on] = useState({
     click: () => {},
   })
 
+  const [styles, set, stop] = useSpring(() => ({
+    config: {
+      duration: 80,
+    },
+    display: 'none',
+    opacity: 0,
+  }))
+
   const show = () => {
-    setVisibility(true)
+    stop()
+    set({
+      from: { display: 'none', opacity: 0 },
+      to: [{ display: 'block' }, { opacity: 1 }],
+    })
     return elementRef
   }
   const hide = () => {
-    setVisibility(false)
+    stop()
+    set({
+      from: { display: 'block', opacity: 1 },
+      to: [{ opacity: 0 }, { display: 'none' }],
+    })
   }
 
-  // TODO: use react spring
-  // - expose on animation start and end
+  // BUG: Try to use Portal, to overcome jumping to top
 
   return (
     <OverlayContext.Provider value={{ show, hide, on }}>
-      <div
+      <animated.div
         id="overlay"
+        style={styles}
         ref={elementRef}
-        style={{ display: visible ? 'block' : 'none' }}
         onClick={(event) => events.click(event)}
         role="presentation"
-      ></div>
+      ></animated.div>
 
       {children}
     </OverlayContext.Provider>

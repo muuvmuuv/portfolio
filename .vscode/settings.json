@@ -1,4 +1,5 @@
 {
+  "discord.enabled": true,
   "css.validate": false,
   "scss.validate": false,
   "editor.codeActionsOnSave": {
@@ -6,7 +7,7 @@
   },
   "todo-tree.filtering.excludeGlobs": [
     "**/node_modules/**",
-    "**/content/**",
+    "**/content/**"
   ],
   "cSpell.words": [
     "dayjs",
