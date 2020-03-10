@@ -76,7 +76,8 @@ export const query = graphql`
             line
             value
             file {
-              relativePath
+              absolutePath
+              base
             }
           }
         }

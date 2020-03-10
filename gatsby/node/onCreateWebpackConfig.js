@@ -3,7 +3,12 @@ const { IgnorePlugin } = require('webpack')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const { getVersion } = require('../../utils/version')
-const { activeEnv, reportsPath, isAudit } = require('../../utils/environment')
+const {
+  activeEnv,
+  reportsPath,
+  isAudit,
+  projectRoot,
+} = require('../../utils/environment')
 
 module.exports = ({ stage, actions, plugins }) => {
   const { setWebpackConfig } = actions
@@ -13,6 +18,7 @@ module.exports = ({ stage, actions, plugins }) => {
       'process.env': {
         GATSBY_APP_VERSION: JSON.stringify(getVersion()),
         GATSBY_ACTIVE_ENV: JSON.stringify(activeEnv),
+        GATSBY_PROJECT_ROOT: JSON.stringify(projectRoot),
       },
     }),
   ]

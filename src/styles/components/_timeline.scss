@@ -43,14 +43,14 @@
       content: "";
       position: absolute;
       top: 10px;
-      left: 15px;
+      left: 14px;
       width: 2px;
       height: 110%;
       background: var(--color-light);
       background: linear-gradient(0deg, transparent 0%, var(--color-light) 30%);
 
       @include breakpoint-up(md) {
-        left: 25px;
+        left: 24px;
         height: 130%;
       }
     }
@@ -68,7 +68,7 @@
         content: "";
         position: absolute;
         top: 5px;
-        left: 10px;
+        left: 9px;
         width: 12px;
         height: 12px;
         border: 2px solid var(--color-light);
@@ -78,7 +78,7 @@
 
         @include breakpoint-up(md) {
           top: 4px;
-          left: 18px;
+          left: 17px;
           width: 16px;
           height: 16px;
         }

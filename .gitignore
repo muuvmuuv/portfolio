@@ -1,18 +1,19 @@
+.cache
+node_modules
 docker/nginx/certs
 reports
 .env.*
 !.env.tmpl
 public
 .now
-
-#
-# Node
-#
-
-node_modules
-.cache
 .eslintcache
 .stylelintcache
+
+#
+# pnpm
+#
+
+.pnpm-store
 
 #
 # macOS

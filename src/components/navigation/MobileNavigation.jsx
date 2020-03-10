@@ -8,6 +8,7 @@ import { useResize } from '../../hooks/use-window'
 import MenuLinks from './MenuLinks'
 
 const Navigation = () => {
+  const windowResize = useResize()
   const [visible, setVisibility] = useState(false)
   const menuLinks = useMenuLinks()
   const [bind, { width, height }] = useClientRect()
@@ -66,12 +67,6 @@ const Navigation = () => {
     }
   }
 
-  useResize(() => {
-    if (visible) {
-      closeNav()
-    }
-  })
-
   useEffect(() => {
     const unsubscribe = globalHistory.listen(({ action }) => {
       if (action === 'PUSH') {
@@ -79,7 +74,14 @@ const Navigation = () => {
       }
     })
 
-    return () => unsubscribe()
+    const resizeSub = windowResize.subscribe(() => {
+      closeNav()
+    })
+
+    return () => {
+      unsubscribe()
+      resizeSub.unsubscribe()
+    }
   })
 
   return (

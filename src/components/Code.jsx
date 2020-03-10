@@ -60,7 +60,7 @@ const renderTokens = (tokens, getLineProps, getTokenProps) => {
         {line.map((token, key) => {
           const props = getTokenProps({ token, key })
           const type = tokenType(token)
-          if (Object.keys(parser).indexOf(type) !== -1) {
+          if (Object.keys(parser).includes(type)) {
             return parser[type](token, key, props)
           }
           return <span key={key} {...props} />

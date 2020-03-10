@@ -36,6 +36,5 @@ export function prefersHighContrast() {
  * Browser is Safari.
  */
 export function isSafari() {
-  const UA = navigator.userAgent.toLowerCase()
-  return UA.indexOf('safari') !== -1
+  return navigator.userAgent.toLowerCase().includes('safari')
 }

@@ -1,0 +1,14 @@
+*/.cache
+.git
+.github
+.now
+.pnpm-store
+.vscode
+docker
+node_modules
+public
+reports
+tests
+*/.eslintcache
+*/.stylelintcache
+*/.DS_Store
