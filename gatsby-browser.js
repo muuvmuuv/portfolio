@@ -13,7 +13,7 @@ const { isDev } = require('./utils/environment')
 const printCorporateMessage = require('./gatsby/browser/corporateMessage')
 const setDefaultTime = require('./gatsby/browser/defaultTime')
 
-// module.exports.wrapPageElement = require('./gatsby/wrapPageElement')
+module.exports.wrapPageElement = require('./gatsby/wrapPageElement')
 module.exports.wrapRootElement = require('./gatsby/wrapRootElement')
 
 module.exports.onClientEntry = () => {

@@ -28,11 +28,8 @@ export default function HTML(props) {
         <noscript key="noscript" id="gatsby-noscript">
           I mean... we have {thisYear}, please enable JavaScript!
         </noscript>
-        <div
-          key={`body`}
-          id="___gatsby"
-          dangerouslySetInnerHTML={{ __html: props.body }}
-        />
+        <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: props.body }} />
+        <div key="temp" id="portal" />
         {props.postBodyComponents}
       </body>
     </html>

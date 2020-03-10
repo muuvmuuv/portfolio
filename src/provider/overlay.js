@@ -1,14 +1,20 @@
 import React, { createContext, useState, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 
-const OverlayContext = createContext()
+const OverlayDefaults = {
+  show: () => {},
+  hide: () => {},
+  on: {
+    click: () => {},
+  },
+}
+
+const OverlayContext = createContext(OverlayDefaults)
 const OverlayConsumer = OverlayContext.Consumer
 
 function OverlayProvider({ children }) {
   const elementRef = useRef()
-  const [events, on] = useState({
-    click: () => {},
-  })
+  const [events, on] = useState(OverlayDefaults.on)
 
   const [styles, set, stop] = useSpring(() => ({
     config: {
@@ -33,8 +39,6 @@ function OverlayProvider({ children }) {
       to: [{ opacity: 0 }, { display: 'none' }],
     })
   }
-
-  // BUG: Try to use Portal, to overcome jumping to top
 
   return (
     <OverlayContext.Provider value={{ show, hide, on }}>
