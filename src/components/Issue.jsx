@@ -9,7 +9,7 @@ import DataType from './DataType'
 const Issue = ({ data: { tag, ref, modifiedTime, line, text, value, file } }) => {
   const filePath = file?.absolutePath.replace(process.env.GATSBY_PROJECT_ROOT, '') || null
   const fileUrl = filePath
-    ? `https://github.com/muuvmuuv/portfolio/blob/master${filePath}`
+    ? `https://github.com/muuvmuuv/portfolio/blob/master${filePath}#L${line}`
     : '#0'
 
   return (
