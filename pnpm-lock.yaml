@@ -20,7 +20,6 @@ dependencies:
   gatsby-plugin-mdx: 1.0.78_48af87626be11f1a2f9cb7c62b6c17dc
   gatsby-plugin-offline: 3.0.38_gatsby@2.19.35
   gatsby-plugin-pnpm: 1.2.3_gatsby@2.19.35
-  gatsby-plugin-postcss: 2.1.21_gatsby@2.19.35
   gatsby-plugin-preact: 3.1.27_gatsby@2.19.35+preact@10.3.3
   gatsby-plugin-react-helmet-async: 1.0.16_0e575ab0513b27f643a928a2f14b3c12
   gatsby-plugin-react-svg: 3.0.0
@@ -8261,18 +8260,6 @@ packages:
       gatsby: ~2.x.x
     resolution:
       integrity: sha512-bvOTO11RfbW+OJUrPVidceUEXarbdXM2L7U4dh3dQIbW9MrWw/aEKQNeOkg0ACEL2qF3kAaT/7TKlYtRDGo5fA==
-  /gatsby-plugin-postcss/2.1.21_gatsby@2.19.35:
-    dependencies:
-      '@babel/runtime': 7.8.7
-      gatsby: 2.19.35_a54fd8e88667d083901cc9bd6dfe8de1
-      postcss-loader: 3.0.0
-    dev: false
-    engines:
-      node: '>=8.0.0'
-    peerDependencies:
-      gatsby: ^2.0.0
-    resolution:
-      integrity: sha512-l2EIyL6kJJVsxOATj3IorxHh6fknWWHEwvcqiKr4cRiQ7OcFcL7HKzatIJFznPu1IFF6Iq/WLXFAOk3xK7+V3Q==
   /gatsby-plugin-preact/3.1.27_gatsby@2.19.35+preact@10.3.3:
     dependencies:
       '@babel/runtime': 7.8.7
@@ -18808,7 +18795,6 @@ specifiers:
   gatsby-plugin-mdx: ^1.0.78
   gatsby-plugin-offline: ^3.0.38
   gatsby-plugin-pnpm: ^1.2.3
-  gatsby-plugin-postcss: ^2.1.21
   gatsby-plugin-preact: ^3.1.27
   gatsby-plugin-react-helmet-async: ^1.0.16
   gatsby-plugin-react-svg: ^3.0.0

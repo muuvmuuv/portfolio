@@ -30,9 +30,8 @@ module.exports = {
       },
     },
     'gatsby-plugin-simple-analytics',
-    `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-postcss`,
+      resolve: `gatsby-plugin-sass`,
       options: {
         postCssPlugins: [
           require('autoprefixer'),
