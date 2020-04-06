@@ -29,10 +29,15 @@ module.exports = {
         stripQueryString: true,
       },
     },
-    'gatsby-plugin-simple-analytics',
-    `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-postcss`,
+      resolve: `gatsby-plugin-simple-analytics`,
+      options: {
+        domain: 'sa.marvin.digital',
+        trackPageViews: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sass`,
       options: {
         postCssPlugins: [
           require('autoprefixer'),

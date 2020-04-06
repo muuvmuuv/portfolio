@@ -1,3 +1,13 @@
+## [5.6.0](https://github.com/muuvmuuv/portfolio/compare/v5.5.0...v5.6.0) (2020-04-06)
+
+
+### Features
+
+* add note for gradient plugin ([fa63823](https://github.com/muuvmuuv/portfolio/commit/fa63823192fb704776f28c08bb3410026c9f2114))
+* bypass adblockers by using sa. DNS ([87c8442](https://github.com/muuvmuuv/portfolio/commit/87c84424fd5606990c62fa6610cb22fac47bb0fc))
+* remove stale action ([63ee4b5](https://github.com/muuvmuuv/portfolio/commit/63ee4b54260e97097813c1309d936b714f8d0d32))
+* update lefthook command ([ca8078c](https://github.com/muuvmuuv/portfolio/commit/ca8078c453804319ef1e07e70b3f857782290e59))
+
 ## [5.5.0](https://github.com/muuvmuuv/portfolio/compare/v5.4.0...v5.5.0) (2020-03-10)
 
 

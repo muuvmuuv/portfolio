@@ -1,0 +1,15 @@
+# Basis
+
+printWidth: 90
+semi: false
+proseWrap: always
+singleQuote: true
+
+# Overrides
+
+overrides:
+  - files:
+      - "*.scss"
+      - "*.css"
+    options:
+      singleQuote: false
