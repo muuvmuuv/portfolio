@@ -29,7 +29,13 @@ module.exports = {
         stripQueryString: true,
       },
     },
-    'gatsby-plugin-simple-analytics',
+    {
+      resolve: `gatsby-plugin-simple-analytics`,
+      options: {
+        domain: 'sa.marvin.digital',
+        trackPageViews: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
