@@ -5,19 +5,19 @@ pre-commit:
   parallel: true
   commands:
     lint-commit:
-      run: commitlint --from HEAD~1
+      run: pnpx commitlint --from HEAD~1
       tags: commit
     lint-scripts-source:
       root: src/
       glob: "*.{js,jsx,mdx}"
-      run: eslint {staged_files}
+      run: pnpx eslint {staged_files}
       tags: lint
     lint-scripts-engine:
       exclude: src/
       glob: "*.{js,jsx}"
-      run: eslint {staged_files}
+      run: pnpx eslint {staged_files}
       tags: lint
     lint-styles:
       glob: "*.{scss,css}"
-      run: stylelint {staged_files}
+      run: pnpx stylelint {staged_files}
       tags: lint
