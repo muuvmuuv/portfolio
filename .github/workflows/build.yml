@@ -5,18 +5,39 @@ on:
 
 jobs:
   build:
-    name: Build Ubuntu
-    runs-on: ubuntu-latest
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        node:
+          - 14
+          - 15
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
+
+      - name: Use Node ${{ matrix.node_version }} on ${{ matrix.os }}
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
-      - run: yarn install --frozen-lockfile --silent --ignore-engines --non-interactive --production
-      - run: yarn run build
+          node-version: ${{ matrix.node }}
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
         env:
-          CI: true
-    # TODO: run on Windows
-    # TODO: run on macOS
+          cache-name: cache-pnpm-modules
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node }}-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node }}-
+
+      - name: Use pnpm
+        uses: pnpm/action-setup@v1.2.1
+        with:
+          version: 5.17.2
+
+      - run: pnpm run build
