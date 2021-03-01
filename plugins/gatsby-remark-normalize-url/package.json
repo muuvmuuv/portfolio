@@ -1,9 +1,0 @@
-{
-  "name": "gatsby-remark-normalize-url",
-  "description": "Normalize URL's with sindresorhus popular normalize-url lib",
-  "version": "1.0.0",
-  "dependencies": {
-    "normalize-url": "^5.0.0",
-    "unist-util-visit": "^2.0.2"
-  }
-}

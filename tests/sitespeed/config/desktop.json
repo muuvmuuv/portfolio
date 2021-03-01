@@ -1,9 +1,0 @@
-{
-  "extends": "/config/common.json",
-  "browsertime": {},
-  "lighthouse": {
-    "settings": {
-      "emulatedFormFactor": "desktop"
-    }
-  }
-}

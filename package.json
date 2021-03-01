@@ -1,40 +1,19 @@
 {
   "name": "marvin-digital",
-  "version": "5.6.0",
-  "private": true,
+  "version": "6.0.0",
   "description": "Portfolio of and by Marvin Heilemann (@muuvmuuv)",
   "repository": "git@github.com:muuvmuuv/portfolio.git",
   "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "start": "pnpm run develop",
     "develop": "gatsby develop",
-    "build": "gatsby build",
-    "build-dev": "gatsby build --no-uglify",
-    "rebuild": "run-s clean build",
-    "clean": "gatsby clean",
-    "serve": "now dev --listen 59235",
-    "−−−−−−−−−−−−−−−−–−−  AUDITS/ANALYTICS  −−−−−−−−−−−−−−−−–": "",
-    "audit": "cross-env SITE_URL=\"https://marvin.lcl\" AUDIT=true run-s build audit-server lighthouse audit-open",
-    "audit-server": "make restart",
-    "audit-open": "run-p audit-open:*",
-    "audit-open:mobile": "node scripts/open-report.js lhr.mobile.html",
-    "audit-open:desktop": "node scripts/open-report.js lhr.desktop.html",
-    "audit-open:treemap": "node scripts/open-report.js treemap.html",
-    "audit-open:stats": "node scripts/open-report.js bundle-stats.html",
-    "lighthouse": "node tests/lighthouse/index.js",
-    "−−−−−−−−−−−−−−−−–−---−  LINT/TEST  −−−−−−−−−−−−−−−−−−−−–": "",
-    "pretest": "pnpm run build && make restart",
-    "test": "run-s test:*",
-    "test:gatsby": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "test:sitespeed": "echo \"Test sitespeed with sitespeed.io\"",
+    "−−−−−−−−−−−−−−−−-−---−  LINT/TEST  −−−−−−−−−−−−−−−−−−−−-": "",
     "lint": "run-p lint:*",
-    "lint:js-source": "eslint --cache --cache-location src/.eslintcache --config src/.eslintrc.json --ext js,jsx,mdx src",
-    "lint:js-engine": "eslint --cache --ext js,jsx .",
-    "lint:scss": "stylelint --cache src/**/*.{scss,css}",
-    "lint:commit": "commitlint --from HEAD~1",
-    "−-−−−−−−−−−−−−−−−–−----−  TOOLS  −−−−−−----−−−−−−−−−−–−−": "",
-    "release": "env-cmd -f .env.build release-it",
-    "pretty": "pretty-quick"
+    "lint:eslint": "eslint --cache --ext js,jsx,mdx .",
+    "lint:stylelint": "stylelint --cache src/**/*.scss",
+    "−-−−−−−−−−−−−−−−−-−----−  TOOLS  −−−−−−----−−−−−−−−−−-−−": "",
+    "tool": "echo 'Tools'"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.8",
@@ -130,9 +109,5 @@
     "stylelint-prettier": "^1.1.2",
     "stylelint-scss": "^3.16.0",
     "taskz": "^2.0.0"
-  },
-  "engines": {
-    "node": ">=12",
-    "pnpm": ">=4"
   }
 }
