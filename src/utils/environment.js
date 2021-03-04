@@ -1,8 +1,6 @@
-const activeEnv = process.env.GATSBY_ACTIVE_ENV || 'production'
+export const activeEnvironment = process.env.GATSBY_ACTIVE_ENV || "production"
 
-const isDev = activeEnv === 'development'
-const isProd = activeEnv === 'production'
+export const isDevelopment = activeEnvironment === "development"
+export const isProduction = activeEnvironment === "production"
 
-const isSSR = typeof window === 'undefined'
-
-export { activeEnv, isDev, isProd, isSSR }
+export const isSSR = typeof window === "undefined"

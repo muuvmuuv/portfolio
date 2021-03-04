@@ -1,29 +1,22 @@
-const path = require('path')
+const path = require("path")
 
-const { getVersion, transformVersion } = require('./version')
+const activeEnvironment =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
 
-const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development'
-
-const isDev = activeEnv === 'development'
-const isProd = activeEnv === 'production'
+const isDevelopment = activeEnvironment === "development"
+const isProduction = activeEnvironment === "production"
 const isAudit = process.env.AUDIT || false
 const isCI = process.env.CI || false
 
-const projectRoot = path.resolve(__dirname, '..')
-const buildPath = path.resolve(__dirname, '..', 'build')
-const reportsPath = path.join(
-  projectRoot,
-  'reports',
-  `v${transformVersion(getVersion(), ['major', 'minor'])}.0`
-)
+const projectRoot = path.resolve(__dirname, "..")
+const buildPath = path.resolve(__dirname, "..", "build")
 
 module.exports = {
-  activeEnv,
-  isDev,
-  isProd,
+  activeEnvironment,
+  isDevelopment,
+  isProduction,
   isAudit,
   isCI,
   projectRoot,
   buildPath,
-  reportsPath,
 }

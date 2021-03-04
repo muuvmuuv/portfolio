@@ -26,8 +26,8 @@
     }
 
     h2 {
-      font-family: var(--font-serif);
       font-size: var(--text-xl);
+      font-family: var(--font-serif);
 
       @include breakpoint-up(lg) {
         font-size: var(--text-xxl);

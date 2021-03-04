@@ -5,12 +5,12 @@
  * @file .cache/default-html.js
  */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import dayjs from 'dayjs'
+import React from "react"
+import PropTypes from "prop-types"
+import dayjs from "dayjs"
 
 export default function HTML(props) {
-  const thisYear = dayjs().get('y')
+  const thisYear = dayjs().get("y")
 
   return (
     <html lang="en" theme="dark" {...props.htmlAttributes}>

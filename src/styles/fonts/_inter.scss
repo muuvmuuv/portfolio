@@ -7,29 +7,29 @@ $font-display: swap;
 // https://github.com/rsms/inter/
 
 @font-face {
+  font-weight: 400;
   font-family: $font-name;
   font-style: normal;
-  font-weight: 400;
-  font-display: $font-display;
   src: local($font-name), local($font-slug), local("#{$font-slug}-Regular"),
     url("#{$font-path}/#{$font-slug}-Regular.woff2?v=#{$font-version}") format("woff2"),
     url("#{$font-path}/#{$font-slug}-Regular.woff?v=#{$font-version}") format("woff");
+  font-display: $font-display;
 }
 
 @font-face {
+  font-weight: 700;
   font-family: $font-name;
   font-style: normal;
-  font-weight: 700;
-  font-display: $font-display;
   src: local("#{$font-slug}-Bold"), url("#{$font-path}/Inter-Bold.woff2") format("woff2"),
     url("#{$font-path}/Inter-Bold.woff?v=#{$font-version}") format("woff");
+  font-display: $font-display;
 }
 
 // NOTE: keep a look at the progress here (at new releases). Sadly, there is now release or progress page
 @font-face {
+  font-weight: 100 900;
   font-family: "Inter var experimental";
   font-style: oblique 0deg 10deg;
-  font-weight: 100 900;
-  font-display: $font-display;
   src: url("#{$font-path}/Inter.var.woff2?v=#{$font-version}") format("woff2");
+  font-display: $font-display;
 }

@@ -1,17 +1,17 @@
-import React from 'react'
-import dayjs from 'dayjs'
+import dayjs from "dayjs"
+import React from "react"
 
-import { useFooterLinks } from '../hooks/use-footer-links'
-import { useSocialLinks } from '../hooks/use-social-links'
-import Logo from '../components/Logo'
-import { Link } from '../elements/Link'
-import Icon from '../components/Icon'
+import Icon from "../components/Icon"
+import Logo from "../components/Logo"
+import { Link } from "../elements/Link"
+import { useFooterLinks } from "../hooks/use-footer-links"
+import { useSocialLinks } from "../hooks/use-social-links"
 
 const Footer = () => {
   const footerLinks = useFooterLinks()
   const socialLinks = useSocialLinks()
 
-  const thisYear = dayjs().get('y')
+  const thisYear = dayjs().get("y")
 
   return (
     <footer id="footer" role="contentinfo">

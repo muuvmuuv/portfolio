@@ -1,11 +1,26 @@
 ::-moz-selection {
-  background-color: var(--color-primary-light);
   color: var(--color-dark);
+  background-color: var(--color-primary-light);
 }
 
 ::selection {
-  background-color: var(--color-primary-light);
   color: var(--color-dark);
+  background-color: var(--color-primary-light);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-color-medium);
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: var(--text-color-medium);
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: var(--text-color-medium);
 }
 
 html {
@@ -15,10 +30,10 @@ html {
 
 body {
   position: relative;
-  background: var(--background-color-normal);
   color: var(--text-color-normal);
   font-family: var(--font-sans);
   line-height: 1.5;
+  background: var(--background-color-normal);
   overscroll-behavior: none;
   scroll-behavior: smooth;
   font-feature-settings: "calt" 1, "liga" 1;
@@ -28,8 +43,8 @@ body {
   }
 
   &::before {
-    content: "xs";
     display: none;
+    content: "xs";
   }
 
   @each $breakpoint, $max-width in $container-max-widths {
@@ -52,12 +67,13 @@ body {
 
 /* Remove GatsbyJS announcer */
 #gatsby-announcer {
+  /* stylelint-disable-next-line declaration-no-important */
   position: fixed !important;
 }
 
 hr {
-  margin-top: var(--content-margin);
-  margin-bottom: var(--content-margin);
+  margin-block-start: var(--content-margin);
+  margin-block-end: var(--content-margin);
   border-bottom: 1px solid var(--border-color-normal);
 }
 

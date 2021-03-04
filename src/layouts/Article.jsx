@@ -1,13 +1,13 @@
-import React from 'react'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXRenderer } from "gatsby-plugin-mdx"
+import React from "react"
 
 const Article = ({ children, mdx, slug }) => {
-  const props = {
-    id: 'article',
-    className: 'container container--small',
-    itemScope: '',
-    itemType: 'https://schema.org/Article',
-    itemRef: 'hero',
+  const properties = {
+    id: "article",
+    className: "container container--small",
+    itemScope: "",
+    itemType: "https://schema.org/Article",
+    itemRef: "hero",
   }
 
   // console.log(props.toc)
@@ -20,7 +20,7 @@ const Article = ({ children, mdx, slug }) => {
   // )
 
   return (
-    <article {...props}>
+    <article {...properties}>
       {/* {toc && <header>{toc}</header>} */}
       {mdx ? <MDXRenderer slug={slug}>{mdx}</MDXRenderer> : children}
       {/* <footer>EMPTY</footer> */}

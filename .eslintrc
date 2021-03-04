@@ -1,1 +1,100 @@
-{}
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2021
+  },
+  "plugins": [
+    "import"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:unicorn/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "allowSeparatedGroups": true
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "src/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "groups": [
+          "builtin",
+          "external",
+          [
+            "internal",
+            "parent",
+            "sibling"
+          ],
+          "index",
+          "object"
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "gatsby/*.jsx",
+        "gatsby/browser/*.js",
+        "src/**/*.jsx",
+        "src/**/*.js"
+      ],
+      "env": {
+        "browser": true,
+        "webextensions": true
+      },
+      "extends": [
+        "plugin:react/recommended",
+        "plugin:mdx/recommended",
+        "plugin:jsx-a11y/strict"
+      ],
+      "settings": {
+        "react": {
+          "version": "detect"
+        },
+        "import/resolver": {
+          "node": {
+            "extensions": [
+              ".js",
+              ".jsx",
+              ".mdx"
+            ]
+          }
+        }
+      },
+      "rules": {
+        // BUG: https://github.com/sindresorhus/eslint-plugin-unicorn/issues/203
+        "unicorn/filename-case": "off"
+      }
+    }
+  ]
+}

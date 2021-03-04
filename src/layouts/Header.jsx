@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react"
 
-import Logo from '../components/Logo'
-import Breadcrumb from '../components/Breadcrumb'
-import Navigation from '../components/navigation/Navigation'
-import ThemeSwitch from '../components/ThemeSwitch'
+import Breadcrumb from "../components/Breadcrumb"
+import Logo from "../components/Logo"
+import Navigation from "../components/navigation/Navigation"
+import ThemeSwitch from "../components/ThemeSwitch"
 
 class Header extends React.PureComponent {
   render() {

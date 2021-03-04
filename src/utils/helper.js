@@ -1,4 +1,4 @@
-import moment from 'moment'
+import moment from "moment"
 
 /**
  * Update current location hash.
@@ -7,6 +7,7 @@ import moment from 'moment'
  */
 export function updateLocationHash(newHash) {
   if (window.history.pushState) {
+    // eslint-disable-next-line unicorn/no-null
     window.history.pushState(null, null, `#${newHash}`)
   } else {
     window.location.hash = newHash
@@ -53,15 +54,15 @@ export function stringSlugify(text, separator) {
     .toString()
     .toLowerCase()
     .trim()
-    .replace(/[·/_,:;']/g, '-') // Replace unwanted characters with -
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w-]+/g, '') // Remove all non-word chars
-    .replace(/-+/g, '-') // Replace multiple - with single -
-    .replace(/^-+/, '') // Trim - from start of text
-    .replace(/-+$/, '') // Trim - from end of text
+    .replace(/[',/:;_·]/g, "-") // Replace unwanted characters with -
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/&/g, "-and-") // Replace & with 'and'
+    .replace(/[^\w-]+/g, "") // Remove all non-word chars
+    .replace(/-+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start of text
+    .replace(/-+$/, "") // Trim - from end of text
 
-  if (separator && separator !== '-') {
+  if (separator && separator !== "-") {
     text = text.replace(/-/g, separator)
   }
 
@@ -75,20 +76,22 @@ export function stringSlugify(text, separator) {
  * @param {number} maxLength string max length
  * @param {string} separator set a separator
  */
-export function stringTruncateMiddle(str, maxLength = 50, separator = '...') {
-  if (str.length < maxLength) {
-    return str
+export function stringTruncateMiddle(string, maxLength = 50, separator = "...") {
+  if (string.length < maxLength) {
+    return string
   }
 
-  const length = str.length
+  const length = string.length
   const charsToShow = maxLength - separator.length
   const frontChars = Math.ceil(charsToShow / 2)
   const backChars = Math.floor(charsToShow / 2)
 
-  return str.substr(0, frontChars) + separator + str.substr(length - backChars)
+  return (
+    string.slice(0, Math.max(0, frontChars)) +
+    separator +
+    string.slice(length - backChars)
+  )
 }
-
-// 100 - 50 = 50
 
 /**
  * Turn an array to an object by key/value.
@@ -100,8 +103,9 @@ export function stringTruncateMiddle(str, maxLength = 50, separator = '...') {
  * @returns {object}
  */
 export function arrayToObject(array, key, value) {
-  return array.reduce((obj, item) => {
-    obj[item[key]] = item[value]
-    return obj
-  }, {})
+  const result = []
+  for (const item of array) {
+    result[item[key]] = item[value]
+  }
+  return result
 }

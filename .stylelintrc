@@ -1,1 +1,24 @@
-{}
+{
+  "extends": [
+    "stylelint-config-recommended-scss",
+    "stylelint-config-rational-order",
+    "stylelint-config-prettier",
+    "stylelint-a11y/recommended"
+  ],
+  "rules": {
+    "declaration-no-important": true,
+    "property-disallowed-list": [
+      "float",
+      "padding",
+      "padding-left",
+      "padding-right",
+      "padding-top",
+      "padding-bottom",
+      "margin",
+      "margin-left",
+      "margin-right",
+      "margin-top",
+      "margin-bottom"
+    ]
+  }
+}

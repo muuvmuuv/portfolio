@@ -1,4 +1,4 @@
-const appVersion = require('../package.json').version
+const appVersion = require("../package.json").version
 
 /**
  * Return the app version.
@@ -16,14 +16,9 @@ module.exports.getVersion = () => {
  */
 module.exports.transformVersion = (
   version,
-  parts = ['major', 'minor', 'patch'],
+  parts = ["major", "minor", "patch"],
   includeDots = true
 ) => {
   const versionParts = parts.map((part) => require(`semver/functions/${part}`)(version))
-
-  if (includeDots) {
-    return versionParts.join('.')
-  } else {
-    return versionParts.join('')
-  }
+  return includeDots ? versionParts.join(".") : versionParts.join("")
 }
