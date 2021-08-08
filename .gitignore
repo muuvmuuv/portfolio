@@ -1,8 +1,5 @@
-__next__
-
-# Next.js
-/.next
-/build
+__old__
+!.env.default
 
 # Created by https://www.toptal.com/developers/gitignore/api/git,node,macos,windows,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=git,node,macos,windows,linux

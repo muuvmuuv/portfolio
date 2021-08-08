@@ -3,7 +3,7 @@
   <b>Marvin Heilemann</b>
 </h1>
 
-A beautiful Portfolio page made by me for me based on the awesome static site generator
+A beautiful Portfolio page made by me for me developed with
 [Gatsby](https://www.gatsbyjs.org/).
 
 [![Websites Uptime](https://img.shields.io/uptimerobot/ratio/m784322945-86582158b8ce476f87e64860)](https://stats.uptimerobot.com/g7xpvhlxwW)
@@ -13,44 +13,18 @@ A beautiful Portfolio page made by me for me based on the awesome static site ge
 ![Build website](https://github.com/muuvmuuv/portfolio/workflows/Build%20website/badge.svg)
 
 - [Development](#development)
-- [Linting](#linting)
-- [Deployment](#deployment)
-- [Release](#release)
+- [Resources](#resources)
 
 ## Development
 
-Developing this project is easy, simply run this in your shell:
-
 ```
-pnpm start
+pnpm dev
 ```
 
-## Linting
+## Resources
 
-```
-pnpm run lint
-```
-
-## Deployment
-
-I'm using [Vercel](https://vercel.com/) to deploy my site.
-
-## Release
-
-```
-pnpm run release
-```
-
-Commits follow [conventional commits](https://www.conventionalcommits.org/) flow and must
-look like:
-
-```yml
-<type>: <description>
-
-[optional body]
-
-[optional footer]
-```
+- https://github.com/GraphCMS/gatsby-source-graphcms
+- https://github.com/GraphCMS/gatsby-starter-graphcms-blog
 
 ---
 

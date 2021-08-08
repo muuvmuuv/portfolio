@@ -1,0 +1,23 @@
+fragment Company on Company {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  name
+  industry
+  website
+  address {
+    ... on Location {
+      latitude
+      longitude
+    }
+  }
+  experiences {
+    ... on Experience {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+}

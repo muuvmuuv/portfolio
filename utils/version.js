@@ -14,11 +14,11 @@ module.exports.getVersion = () => {
  * @param {string[]} parts select which parts to return
  * @param {boolean} noDots remove the dots
  */
-module.exports.transformVersion = (
-  version,
+module.exports.transformVersion = ({
+  version = this.getVersion(),
   parts = ["major", "minor", "patch"],
-  includeDots = true
-) => {
+  includeDots = true,
+}) => {
   const versionParts = parts.map((part) => require(`semver/functions/${part}`)(version))
   return includeDots ? versionParts.join(".") : versionParts.join("")
 }

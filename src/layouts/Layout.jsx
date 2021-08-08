@@ -2,12 +2,7 @@ import PropType from "prop-types"
 import React from "react"
 
 const Layout = ({ children }) => {
-  return (
-    <div id="layout">
-      HI
-      {children}
-    </div>
-  )
+  return <>{children}</>
 }
 
 Layout.propTypes = {

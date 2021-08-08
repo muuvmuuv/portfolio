@@ -4,15 +4,9 @@
  * @see https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-require("./src/styles/app.scss") // main styling
+import "./src/styles/index.scss"
 
-const { printBrowserWelcome } = require("./gatsby/browser/corporate-message")
-const { setupTime } = require("./gatsby/browser/setup-time")
-
-module.exports.onClientEntry = () => {
-  setupTime()
-}
-
-module.exports.onInitialClientRender = () => {
-  printBrowserWelcome()
-}
+export { onClientEntry } from "./gatsby/browser/client-entry"
+export { onInitialClientRender } from "./gatsby/browser/client-render"
+export { wrapPageElement } from "./gatsby/browser/wrap-page"
+export { wrapRootElement } from "./gatsby/browser/wrap-root"

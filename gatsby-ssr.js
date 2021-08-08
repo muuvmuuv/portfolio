@@ -3,3 +3,6 @@
  *
  * @see https://www.gatsbyjs.org/docs/ssr-apis/
  */
+
+export { wrapPageElement } from "./gatsby/browser/wrap-page"
+export { wrapRootElement } from "./gatsby/browser/wrap-root"

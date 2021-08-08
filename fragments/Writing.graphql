@@ -1,0 +1,10 @@
+fragment Writing on Writing {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  title
+  description
+  content
+}

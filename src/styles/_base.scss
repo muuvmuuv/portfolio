@@ -41,34 +41,6 @@ body {
   @include reducedMotion() {
     scroll-behavior: auto;
   }
-
-  &::before {
-    display: none;
-    content: "xs";
-  }
-
-  @each $breakpoint, $max-width in $container-max-widths {
-    @include breakpoint-up($breakpoint) {
-      &::before {
-        content: "#{$breakpoint}";
-      }
-    }
-  }
-}
-
-.no-scroll {
-  overflow: hidden;
-}
-
-#___gatsby {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Remove GatsbyJS announcer */
-#gatsby-announcer {
-  /* stylelint-disable-next-line declaration-no-important */
-  position: fixed !important;
 }
 
 hr {

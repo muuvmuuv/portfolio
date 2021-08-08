@@ -1,0 +1,34 @@
+@import "breakpoint";
+
+.showcase {
+  display: grid;
+  grid-template-areas:
+    "."
+    "."
+    ".";
+
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 100%;
+  height: 100vh;
+  user-select: none;
+
+  @include breakpoint-up(lg) {
+    grid-template-areas: ". . .";
+    grid-template-rows: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &:hover,
+  &:focus {
+    a > div::after {
+      opacity: 1;
+    }
+
+    .content {
+      @include breakpoint-up(lg) {
+        transform: translateY(-70px);
+        opacity: 0;
+      }
+    }
+  }
+}

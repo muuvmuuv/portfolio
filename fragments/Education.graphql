@@ -1,0 +1,19 @@
+fragment Education on Education {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  title
+  started
+  ended
+  qualifications
+  institution {
+    ... on Institution {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  content
+}

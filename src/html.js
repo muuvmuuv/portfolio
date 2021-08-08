@@ -5,32 +5,28 @@
  * @file .cache/default-html.js
  */
 
-import React from "react"
 import PropTypes from "prop-types"
-import dayjs from "dayjs"
+import React from "react"
 
-export default function HTML(props) {
-  const thisYear = dayjs().get("y")
-
+export default function HTML(properties) {
   return (
-    <html lang="en" theme="dark" {...props.htmlAttributes}>
+    <html lang="en" theme="dark" {...properties.htmlAttributes}>
       <head>
         <meta charSet="utf-8" />
-        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
         />
-        {props.headComponents}
+        {properties.headComponents}
       </head>
-      <body {...props.bodyAttributes}>
-        {props.preBodyComponents}
-        <noscript key="noscript" id="gatsby-noscript">
-          I mean... we have {thisYear}, please enable JavaScript!
-        </noscript>
-        <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: props.body }} />
-        <div key="temp" id="portal" />
-        {props.postBodyComponents}
+      <body {...properties.bodyAttributes}>
+        {properties.preBodyComponents}
+        <div
+          key="body"
+          id="___gatsby"
+          dangerouslySetInnerHTML={{ __html: properties.body }}
+        />
+        {properties.postBodyComponents}
       </body>
     </html>
   )

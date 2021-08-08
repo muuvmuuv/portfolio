@@ -1,1 +1,6 @@
-{}
+{
+  "typescript.validate.enable": false,
+  "cSpell.words": [
+    "avif"
+  ]
+}

@@ -18,6 +18,9 @@
     "plugin:unicorn/recommended",
     "prettier"
   ],
+  "ignorePatterns": [
+    "__old__"
+  ],
   "rules": {
     "sort-imports": [
       "error",
@@ -63,8 +66,10 @@
   "overrides": [
     {
       "files": [
-        "gatsby/*.jsx",
+        "gatsby/**/*.jsx",
         "gatsby/browser/*.js",
+        "gatsby-browser.js",
+        "gatsby-ssr.js",
         "src/**/*.jsx",
         "src/**/*.js"
       ],
@@ -74,13 +79,11 @@
       },
       "extends": [
         "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
         "plugin:mdx/recommended",
         "plugin:jsx-a11y/strict"
       ],
       "settings": {
-        "react": {
-          "version": "detect"
-        },
         "import/resolver": {
           "node": {
             "extensions": [

@@ -1,4 +1,4 @@
-import moment from "moment"
+import dayjs from "dayjs"
 
 /**
  * Update current location hash.
@@ -15,30 +15,20 @@ export function updateLocationHash(newHash) {
 }
 
 /**
- * Get elapsed time of a date.
+ * Get elapsed time between two dates.
  *
- * @param {string} start iso date string
- * @param {string} end iso date string
+ * @param {string} start date string
+ * @param {string} end date string
  *
  * @returns {object} object containing all time relevant information
  */
-export function getElapsedTime(start, end = new Date()) {
-  // TODO: replace with https://github.com/iamkun/dayjs/issues/564
-  start = new moment(start)
-  end = new moment(end)
+export function getElapsedTime(start, end) {
+  start = dayjs(start)
+  end = dayjs(end)
 
-  const duration = moment.duration(end.diff(start))
+  const duration = dayjs.duration(end.diff(start))
 
-  const out = {
-    years: duration.years(),
-    months: duration.months(),
-    days: duration.days(),
-    hours: duration.hours(),
-    minutes: duration.minutes(),
-    seconds: duration.seconds(),
-  }
-
-  return out
+  return duration
 }
 
 /**

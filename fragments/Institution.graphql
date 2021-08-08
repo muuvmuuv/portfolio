@@ -1,0 +1,22 @@
+fragment Institution on Institution {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  name
+  website
+  location {
+    ... on Location {
+      latitude
+      longitude
+    }
+  }
+  educations {
+    ... on Education {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+}
