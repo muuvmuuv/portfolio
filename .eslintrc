@@ -1,25 +1,20 @@
 {
   "root": true,
+  "plugins": ["import"],
   "env": {
-    "node": true,
-    "es6": true
+    "node": true
   },
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2021
+    "project": "tsconfig.node.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
-  "plugins": [
-    "import"
-  ],
   "extends": [
     "eslint:recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:unicorn/recommended",
     "prettier"
-  ],
-  "ignorePatterns": [
-    "__old__"
   ],
   "rules": {
     "sort-imports": [
@@ -39,9 +34,7 @@
           "order": "asc",
           "caseInsensitive": true
         },
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "pathGroups": [
           {
             "pattern": "src/**",
@@ -52,11 +45,7 @@
         "groups": [
           "builtin",
           "external",
-          [
-            "internal",
-            "parent",
-            "sibling"
-          ],
+          ["internal", "parent", "sibling"],
           "index",
           "object"
         ]
@@ -65,39 +54,56 @@
   },
   "overrides": [
     {
-      "files": [
-        "gatsby/**/*.jsx",
-        "gatsby/browser/*.js",
-        "gatsby-browser.js",
-        "gatsby-ssr.js",
-        "src/**/*.jsx",
-        "src/**/*.js"
-      ],
-      "env": {
-        "browser": true,
-        "webextensions": true
-      },
-      "extends": [
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:mdx/recommended",
-        "plugin:jsx-a11y/strict"
-      ],
-      "settings": {
-        "import/resolver": {
-          "node": {
-            "extensions": [
-              ".js",
-              ".jsx",
-              ".mdx"
-            ]
-          }
-        }
+      "files": ["*.ts", "*.vue"],
+      "extends": ["plugin:import/typescript", "plugin:@typescript-eslint/recommended"],
+      "rules": {
+        "import/named": "off",
+        "import/namespace": "off",
+        "import/default": "off",
+        "import/no-cycle": "off",
+        "import/no-deprecated": "off",
+        "import/no-unused-modules": "off",
+        "import/no-anonymous-default-export": "off",
+        "import/no-named-as-default-member": "off",
+        "import/no-named-as-default": "off",
+        "@typescript-eslint/indent": "off"
+      }
+    },
+    {
+      "files": ["*.vue"],
+      "extends": ["plugin:vue/vue3-recommended"],
+      "parser": "vue-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": ["vue"]
       },
       "rules": {
-        // BUG: https://github.com/sindresorhus/eslint-plugin-unicorn/issues/203
-        "unicorn/filename-case": "off"
+        "unicorn/filename-case": [
+          "error",
+          {
+            "case": "pascalCase"
+          }
+        ]
       }
+    },
+    {
+      "files": ["src/**/*.ts", "src/**/*.vue"],
+      "extends": ["plugin:sonarjs/recommended", "plugin:compat/recommended"],
+      "env": {
+        "node": false,
+        "browser": true,
+        "worker": true
+      },
+      "parserOptions": {
+        "project": "tsconfig.json"
+      }
+      // "settings": {
+      //   "import/resolver": {
+      //     "node": {
+      //       "paths": ["."]
+      //     }
+      //   }
+      // },
     }
   ]
 }

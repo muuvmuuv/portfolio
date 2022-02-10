@@ -1,40 +1,29 @@
-name: Lint files
+name: Lint
 
 on:
-  - push
-  - pull_request
+  push:
 
 jobs:
-  lint:
-    name: Lint
+  build:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node:
-          - 14
+        node-version: [16]
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Use Node
-        uses: actions/setup-node@v1
+      - uses: pnpm/action-setup@v2.0.1
         with:
-          node-version: ${{ matrix.node }}
-
-      - name: Cache pnpm modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-pnpm-modules
+          version: 6.20.3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node }}-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node }}-
-
-      - name: Use pnpm
-        uses: pnpm/action-setup@v1.2.1
-        with:
-          version: 5.17.2
-
-      - run: pnpm run lint:eslint
-      - run: pnpm run lint:stylelint
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
+      - name: Lint styles
+        run: pnpm lint-styles
+      - name: Lint scripts
+        run: pnpm lint-scripts

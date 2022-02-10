@@ -4,13 +4,13 @@ pre-commit:
   parallel: true
   commands:
     lint-scripts:
-      glob: "*.{js,jsx,mdx}"
-      run: pnpx eslint {staged_files}
+      glob: "*.{js,ts,vue}"
+      run: $(pnpm bin)/eslint {staged_files}
     lint-styles:
       glob: "*.{scss,css}"
-      run: pnpx stylelint {staged_files}
+      run: $(pnpm bin)/stylelint {staged_files}
 
 commit-msg:
   commands:
     lint-commit-msg:
-      run: pnpx commitlint --edit
+      run: $(pnpm bin)/commitlint --edit
