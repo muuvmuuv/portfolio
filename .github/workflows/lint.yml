@@ -22,8 +22,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --prefer-offline --frozen-lockfile --dev
       - name: Lint styles
-        run: pnpm lint-styles
+        run: pnpm stylelint '**/*.{scss,vue}'
       - name: Lint scripts
-        run: pnpm lint-scripts
+        run: pnpm eslint '**/*.{js,ts,vue}'
