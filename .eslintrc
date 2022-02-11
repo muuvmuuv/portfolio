@@ -83,7 +83,8 @@
           {
             "case": "pascalCase"
           }
-        ]
+        ],
+        "vue/multi-word-component-names": "off"
       }
     },
     {

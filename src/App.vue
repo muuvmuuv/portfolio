@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Logo from './components/Logo.vue'
+</script>
 
 <template>
-  <h1>Marvin/Digital</h1>
+  <Logo />
+
+  <h1>Marvin</h1>
 </template>
 
 <style>
