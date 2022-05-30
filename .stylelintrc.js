@@ -12,6 +12,12 @@ module.exports = {
     'stylelint-prettier/recommended',
   ],
   rules: {
+    'scss/at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['tailwind'],
+      },
+    ],
     'declaration-empty-line-before': [
       'always',
       {

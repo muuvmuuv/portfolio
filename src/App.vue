@@ -1,22 +1,14 @@
 <script setup lang="ts">
-import Logo from './components/Logo.vue'
+import Footer from './components/Footer.vue'
+import Header from './components/Header.vue'
 </script>
 
 <template>
-  <Logo />
+  <Header></Header>
 
-  <h1>Marvin</h1>
+  <main>
+    <router-view></router-view>
+  </main>
+
+  <Footer></Footer>
 </template>
-
-<style>
-#app {
-  margin-top: 60px;
-
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  color: #2c3e50;
-  text-align: center;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-</style>

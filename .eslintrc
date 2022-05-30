@@ -71,7 +71,7 @@
     },
     {
       "files": ["*.vue"],
-      "extends": ["plugin:vue/vue3-recommended"],
+      "extends": ["plugin:vue/vue3-recommended", "prettier"],
       "parser": "vue-eslint-parser",
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
@@ -84,7 +84,7 @@
             "case": "pascalCase"
           }
         ],
-        "vue/multi-word-component-names": "off"
+        "vue/multi-word-component-names": "off" // Why?
       }
     },
     {
