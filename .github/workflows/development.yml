@@ -1,9 +1,6 @@
 name: Development
 
 on:
-  push:
-    branches: [dev]
-
   workflow_run:
     workflows: ["Default"]
     branches: [dev]
