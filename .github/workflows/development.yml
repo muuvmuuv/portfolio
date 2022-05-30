@@ -1,0 +1,27 @@
+name: Development
+
+on:
+  push:
+    branches: [dev]
+
+  workflow_run:
+    workflows: ["Default"]
+    branches: [dev]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: www
+      - name: Vercel
+        uses: amondnet/vercel-action@v20.0.1
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}

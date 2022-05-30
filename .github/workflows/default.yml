@@ -1,51 +1,50 @@
-name: Build, lint and test
+name: Default
 
 on:
   push:
+  pull_request:
 
 jobs:
   lint:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16]
-
     steps:
       - uses: actions/checkout@v2
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.20.3
-      - name: Use Node.js ${{ matrix.node-version }}
+          version: 7.0.0
+      - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 17
           cache: "pnpm"
       - name: Install dependencies
-        run: pnpm install --prefer-offline --frozen-lockfile
+        run: pnpm install
       - name: Lint styles
         run: pnpm stylelint '**/*.{scss,vue}'
       - name: Lint scripts
         run: pnpm eslint '**/*.{js,ts,vue}'
 
   build:
+    needs: lint
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16]
 
     steps:
       - uses: actions/checkout@v2
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.20.3
-      - name: Use Node.js ${{ matrix.node-version }}
+          version: 7.0.0
+      - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 17
           cache: "pnpm"
       - name: Install dependencies
-        run: pnpm install --prefer-offline --frozen-lockfile
+        run: pnpm install
       - name: Build site
         run: pnpm build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: www
+          path: dist/
+          retention-days: 7
