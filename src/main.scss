@@ -15,7 +15,7 @@ body,
 }
 
 body {
-  @apply overscroll-none  antialiased bg-gradient-to-tl from-mud-shade to-mud-tint;
+  @apply overscroll-none antialiased bg-gradient-to-tl from-mud-shade to-mud-tint bg-fixed;
 }
 
 #app {

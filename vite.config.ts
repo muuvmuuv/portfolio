@@ -2,6 +2,8 @@ import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 
+import { version } from './package.json'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -23,5 +25,8 @@ export default defineConfig({
         replacement: '$1',
       },
     ],
+  },
+  define: {
+    __APP_VERSION__: JSON.stringify(version),
   },
 })
