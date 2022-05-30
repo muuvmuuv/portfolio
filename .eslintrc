@@ -16,6 +16,7 @@
     "plugin:unicorn/recommended",
     "prettier"
   ],
+  "ignorePatterns": ["dist/**"],
   "rules": {
     "sort-imports": [
       "error",
