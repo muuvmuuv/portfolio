@@ -1,14 +1,13 @@
-name: Development
+name: Release
 
 on:
-  workflow_run:
-    workflows: ["Default"]
-    branches: [dev]
-    types:
-      - completed
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
   build:
+    needs: lint
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +23,7 @@ jobs:
       - name: Install & build
         run: |
           pnpm install
-          pnpm vite build -m development --sourcemap
+          pnpm vite build
       - uses: actions/upload-artifact@v3
         with:
           name: www
@@ -34,7 +33,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - uses: actions/download-artifact@v3
@@ -46,5 +44,21 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          # alias-domains: |
-          #   development.muuvmuuv.vercel.app
+          vercel-args: "--prod"
+
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            New release 🎉 (no automatic changelog yet)
+          prerelease: false
+          draft: false
