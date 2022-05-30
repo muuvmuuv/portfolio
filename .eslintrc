@@ -56,7 +56,11 @@
   "overrides": [
     {
       "files": ["*.ts", "*.vue"],
-      "extends": ["plugin:import/typescript", "plugin:@typescript-eslint/recommended"],
+      "extends": [
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+      ],
       "rules": {
         "import/named": "off",
         "import/namespace": "off",
@@ -76,7 +80,7 @@
       "parser": "vue-eslint-parser",
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
-        "extraFileExtensions": ["vue"]
+        "extraFileExtensions": [".vue"]
       },
       "rules": {
         "unicorn/filename-case": [
@@ -99,13 +103,6 @@
       "parserOptions": {
         "project": "tsconfig.json"
       }
-      // "settings": {
-      //   "import/resolver": {
-      //     "node": {
-      //       "paths": ["."]
-      //     }
-      //   }
-      // },
     }
   ]
 }

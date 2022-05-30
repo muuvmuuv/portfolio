@@ -1,7 +1,3 @@
-<script setup lang="ts">
-// Wow
-</script>
-
 <template>
   <section class="container">
     <h1
@@ -12,7 +8,7 @@
   </section>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 h1 {
   font-size: 17vw;
   font-feature-settings: 'cpsp';

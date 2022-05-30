@@ -1,7 +1,3 @@
-<script setup lang="ts">
-// :)
-</script>
-
 <template>
   <footer class="container flex w-full pb-12 justify-between">
     <div></div>
@@ -14,7 +10,3 @@
     </a>
   </footer>
 </template>
-
-<style lang="scss">
-// :(
-</style>

@@ -18,7 +18,7 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        // BUG: https://github.com/vitejs/vite/issues/5764
+        // NOTE: https://github.com/vitejs/vite/issues/5764
         find: /^~(.*)$/,
         replacement: '$1',
       },
