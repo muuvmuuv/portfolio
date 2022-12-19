@@ -24,4 +24,19 @@ export default defineConfig({
       },
     ],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          v: ['vue'],
+          t: ['three'],
+          f: [
+            '@fortawesome/fontawesome-svg-core',
+            '@fortawesome/free-brands-svg-icons',
+            '@fortawesome/vue-fontawesome',
+          ],
+        },
+      },
+    },
+  },
 })

@@ -18,12 +18,12 @@ import Logo from './Logo.vue'
 #logo {
   filter: drop-shadow(0 0 19px var(--tw-shadow-color));
 
-  animation: m-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: m-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes m-pulse {
   50% {
-    filter: drop-shadow(0 0 16px var(--tw-shadow-color));
+    filter: drop-shadow(0 0 14px var(--tw-shadow-color));
   }
 }
 </style>

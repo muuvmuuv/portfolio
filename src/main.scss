@@ -15,11 +15,11 @@ body,
 }
 
 body {
-  @apply overscroll-none  antialiased bg-gradient-to-tl from-mud-shade to-mud-tint;
+  @apply overscroll-none antialiased bg-gradient-to-tl from-secondary-900 to-secondary-700;
 }
 
 #app {
   grid-template-rows: auto 1fr auto;
 
-  @apply grid;
+  @apply grid overflow-x-hidden;
 }

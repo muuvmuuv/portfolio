@@ -10,21 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
         with:
-          version: 7.0.0
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: 17
-          cache: "pnpm"
-      - name: Install dependencies
-        run: pnpm install
+          run_install: true
+          version: 7
+
       - name: Lint styles
         run: pnpm stylelint '**/*.{scss,vue}'
+
       - name: Lint scripts
         run: pnpm eslint '**/*.{js,ts,vue}'
+
       - name: Lint types
         run: pnpm vue-tsc --noEmit
 
@@ -33,19 +35,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
         with:
-          version: 7.0.0
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: 17
-          cache: "pnpm"
-      - name: Install & build
-        run: |
-          pnpm install
-          pnpm vite build -m development --sourcemap
+          run_install: true
+          version: 7
+
+      - name: Build
+        run: pnpm build -m development --sourcemap
+
       - uses: actions/upload-artifact@v3
         with:
           name: www
@@ -57,17 +60,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/download-artifact@v3
         with:
           name: www
+
       - name: Vercel
-        uses: amondnet/vercel-action@v20.0.1
+        uses: amondnet/vercel-action@v25
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          # alias-domains: |
-          #   ${{ branch }}.muuvmuuv.vercel.app
-          #   pr-${{ pr }}.muuvmuuv.vercel.app
+          alias-domains: |
+            {{BRANCH}}.muuvmuuv.vercel.app
+            pr-{{PR_NUMBER}}.muuvmuuv.vercel.app
