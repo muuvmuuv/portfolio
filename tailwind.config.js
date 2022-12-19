@@ -7,6 +7,8 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      serif: ['Inter', ...defaultTheme.fontFamily.serif],
+      mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
     },
     container: {
       center: true,

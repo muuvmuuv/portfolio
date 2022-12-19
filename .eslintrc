@@ -57,8 +57,10 @@
     {
       "files": ["*.ts", "*.vue"],
       "extends": [
-        "plugin:import/typescript",
         "plugin:@typescript-eslint/recommended",
+        "plugin:import/typescript",
+        "plugin:sonarjs/recommended",
+        "plugin:compat/recommended",
         "prettier"
       ],
       "rules": {
@@ -94,11 +96,9 @@
     },
     {
       "files": ["src/**/*.ts", "src/**/*.vue"],
-      "extends": ["plugin:sonarjs/recommended", "plugin:compat/recommended"],
       "env": {
         "node": false,
-        "browser": true,
-        "worker": true
+        "browser": true
       },
       "parserOptions": {
         "project": "tsconfig.json"
