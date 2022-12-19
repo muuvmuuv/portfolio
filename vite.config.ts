@@ -31,7 +31,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           v: ['vue'],
-          t: ['three'],
+          t: ['three', 'gsap'],
           f: [
             '@fortawesome/fontawesome-svg-core',
             '@fortawesome/free-brands-svg-icons',

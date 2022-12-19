@@ -7,11 +7,13 @@ const Nova = defineAsyncComponent(() => import('../components/Nova.vue'))
 </script>
 
 <template>
-  <Nova class="-z-10 fixed bottom-0 right-0 opacity-40"></Nova>
+  <Nova class="-z-10 fixed bottom-0 left-0 opacity-40"></Nova>
 
   <section class="container">
-    <h1 class="text-secondary-900 select-none opacity-10 mt-8 sm:mt-20 md:mt-32">
-      <Headline class="not-sr-only !w-[98vw] !min-w-[1000px]"></Headline>
+    <h1 class="text-secondary-900 select-none mt-8 sm:mt-20 md:mt-32">
+      <Headline
+        class="not-sr-only fixed sm:relative top-0 left-[110%] sm:left-auto origin-top-left rotate-90 sm:rotate-0 sm:!w-[98vw] sm:!min-w-[1000px] w-[83vh]"
+      ></Headline>
       <span class="sr-only">MARVIN</span>
     </h1>
   </section>

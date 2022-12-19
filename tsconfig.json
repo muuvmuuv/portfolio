@@ -6,7 +6,7 @@
     "useDefineForClassFields": true,
     "esModuleInterop": true,
     "jsx": "preserve",
-    "lib": ["ESNext", "Dom"],
+    "lib": ["ESNext", "Dom", "DOM.Iterable"],
     "moduleResolution": "Node",
     "module": "ESNext",
     "target": "ESNext"

@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import Logo from './Logo.vue'
+
+// For menu https://codepen.io/tinkletons/pen/EJVOPO
+// Satellite https://codepen.io/chrisgannon/pen/EjVyXN
 </script>
 
 <template>
