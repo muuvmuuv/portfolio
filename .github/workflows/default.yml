@@ -58,6 +58,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment: preview
 
     steps:
       - uses: actions/checkout@v3
@@ -75,4 +76,3 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           alias-domains: |
             {{BRANCH}}.muuvmuuv.vercel.app
-            pr-{{PR_NUMBER}}.muuvmuuv.vercel.app
