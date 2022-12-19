@@ -30,8 +30,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          v: ['vue'],
-          t: ['three', 'gsap'],
+          t: ['three'],
           f: [
             '@fortawesome/fontawesome-svg-core',
             '@fortawesome/free-brands-svg-icons',

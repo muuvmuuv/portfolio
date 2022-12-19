@@ -1,8 +1,9 @@
-@use '~inter-ui/variable' with (
-  $inter-font-display: swap,
-  $inter-font-path: '~inter-ui/Inter (web)'
+@use '@fontsource/inter/scss/mixins' as Inter;
+@include Inter.fontFaceVariable(
+  $fontName: 'Inter',
+  $fontDir: '@fontsource/inter/files',
+  $type: 'full'
 );
-@include variable.default;
 
 @tailwind base;
 @tailwind components;

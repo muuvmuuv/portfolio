@@ -15,12 +15,12 @@
     "lint:types": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource/inter": "^4.5.14",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^3.0.2",
     "animejs": "^3.2.1",
     "dayjs": "^1.11.7",
-    "inter-ui": "^3.19.3",
     "three": "0.136.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
@@ -32,8 +32,8 @@
     "@types/animejs": "^3.1.6",
     "@types/node": "^18.11.17",
     "@types/three": "^0.136.0",
-    "@typescript-eslint/eslint-plugin": "^5.46.1",
-    "@typescript-eslint/parser": "^5.46.1",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.30.0",
