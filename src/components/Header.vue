@@ -3,7 +3,7 @@ import Logo from './Logo.vue'
 </script>
 
 <template>
-  <header class="container flex w-full pt-12 pb-16">
+  <header class="container flex w-full py-5 sm:py-8 md:py-12">
     <router-link
       id="logo"
       class="block text-primary h-6 shadow-primary select-none drop-shadow-primary"

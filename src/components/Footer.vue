@@ -7,22 +7,23 @@ const version = __APP_VERSION__
 
 <template>
   <footer
-    class="container flex w-full pb-12 pt-12 justify-between text-mud-tint opacity-60 font-mono text-sm"
+    class="container flex w-full py-5 sm:py-8 md:py-12 justify-between text-secondary-400 opacity-40 font-mono text-sm select-none"
   >
-    <div class="text-mud-tint">
-      <router-link to="/imprint" class="hover:text-mud-shade transition-colors"
-        >Imprint</router-link
-      >
+    <div>
+      <router-link to="/imprint" class="hover:text-secondary-600 transition-colors">
+        Imprint
+      </router-link>
     </div>
-    <div class="select-none">
+    <div>
       <span>{{ year }} &copy; Marvin Heilemann</span>
       <span> &middot; </span>
       <a
         href="https://github.com/muuvmuuv/portfolio"
         target="_blank"
-        class="hover:text-mud-shade transition-colors"
-        >v{{ version }}</a
+        class="hover:text-secondary-600 transition-colors"
       >
+        v{{ version }}
+      </a>
     </div>
   </footer>
 </template>
