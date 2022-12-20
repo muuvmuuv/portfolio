@@ -25,6 +25,7 @@ const renderer = new WebGLRenderer({ alpha: true })
 renderer.setClearColor(0x00_00_00, 0)
 renderer.setSize(innerWidth, innerHeight)
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function onResize() {
   camera.aspect = innerWidth / innerHeight
   camera.updateProjectionMatrix()
@@ -53,7 +54,7 @@ const pts = Array.from({ length: 20_000 })
     return new Vector3().randomDirection().multiplyScalar(Math.random() * 0.5 + 9.5)
   })
 
-for (let index = 0; index < 100_000; index++) {
+for (let index = 0; index < 40_000; index++) {
   let r = 10,
     R = 40
   let rand = Math.pow(Math.random(), 1.5)
@@ -113,7 +114,7 @@ scene.add(p)
 let clock = new Clock()
 
 onUnmounted(() => {
-  window.removeEventListener('resize', onResize)
+  // window.removeEventListener('resize', onResize)
 })
 
 onMounted(() => {
@@ -130,7 +131,7 @@ onMounted(() => {
     renderer.render(scene, camera)
   })
 
-  window.addEventListener('resize', onResize)
+  // window.addEventListener('resize', onResize)
 })
 </script>
 

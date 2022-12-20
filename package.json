@@ -31,7 +31,7 @@
     "@tailwindcss/typography": "^0.5.8",
     "@types/animejs": "^3.1.6",
     "@types/node": "^18.11.17",
-    "@types/three": "^0.136.0",
+    "@types/three": "^0.136.1",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
     "@vitejs/plugin-vue": "^4.0.0",
@@ -49,7 +49,7 @@
     "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.1",
-    "sass": "^1.57.0",
+    "sass": "^1.57.1",
     "stylelint": "^14.16.0",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-recess-order": "^3.0.0",
@@ -63,6 +63,6 @@
     "typescript": "^4.9.4",
     "vite": "^4.0.2",
     "vite-plugin-html": "^3.2.0",
-    "vue-tsc": "^1.0.14"
+    "vue-tsc": "^1.0.16"
   }
 }
