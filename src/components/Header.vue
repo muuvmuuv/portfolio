@@ -20,7 +20,6 @@ import Logo from './Logo.vue'
 <style lang="scss">
 #logo {
   filter: drop-shadow(0 0 19px var(--tw-shadow-color));
-
   animation: m-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 

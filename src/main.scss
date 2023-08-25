@@ -1,9 +1,4 @@
-@use '@fontsource/inter/scss/mixins' as Inter;
-@include Inter.fontFaceVariable(
-  $fontName: 'Inter',
-  $fontDir: '@fontsource/inter/files',
-  $type: 'full'
-);
+@import '@fontsource-variable/inter';
 
 @tailwind base;
 @tailwind components;

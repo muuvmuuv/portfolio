@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "composite": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "Node",
-    "module": "ESNext"
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["*.ts", "*.json"]
 }

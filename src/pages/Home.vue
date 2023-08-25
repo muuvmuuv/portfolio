@@ -7,13 +7,13 @@ const Nova = defineAsyncComponent(() => import('../components/Nova.vue'))
 </script>
 
 <template>
-  <Nova class="-z-10 fixed bottom-0 left-0 opacity-40"></Nova>
+  <Nova class="-z-10 fixed bottom-0 left-0 opacity-40" />
 
   <section class="container">
     <h1 class="text-secondary-900 select-none mt-8 sm:mt-20 md:mt-32">
       <Headline
         class="not-sr-only fixed sm:relative top-0 left-[110%] sm:left-auto origin-top-left rotate-90 sm:rotate-0 sm:!w-[98vw] sm:!min-w-[1000px] w-[83vh]"
-      ></Headline>
+      />
       <span class="sr-only">MARVIN</span>
     </h1>
   </section>
@@ -27,7 +27,7 @@ const Nova = defineAsyncComponent(() => import('../components/Nova.vue'))
             class="transition-colors hover:text-secondary-400"
             href="https://github.com/muuvmuuv"
           >
-            <icon icon="fab fa-github-square"></icon>
+            <icon icon="fab fa-github-square" />
           </a>
         </li>
         <li>
@@ -36,7 +36,7 @@ const Nova = defineAsyncComponent(() => import('../components/Nova.vue'))
             class="transition-colors hover:text-secondary-400"
             href="https://twitter.com/muuvmuuv"
           >
-            <icon icon="fab fa-twitter-square"></icon>
+            <icon icon="fab fa-twitter-square" />
           </a>
         </li>
         <li>
@@ -45,7 +45,7 @@ const Nova = defineAsyncComponent(() => import('../components/Nova.vue'))
             class="transition-colors hover:text-secondary-400"
             href="https://instagram.com/the_marvin17"
           >
-            <icon icon="fab fa-instagram-square"></icon>
+            <icon icon="fab fa-instagram-square" />
           </a>
         </li>
       </ul>

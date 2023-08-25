@@ -35,7 +35,7 @@ export const welcome = (): void => {
   console.log(
     `%cMarvin/Design%cv${process.env.GATSBY_APP_VERSION}`,
     styleName,
-    styleVersion
+    styleVersion,
   )
   console.log(
     `%c
@@ -47,6 +47,6 @@ https://github.com/muuvmuuv/portfolio 🔓
     `,
     styleShared,
     styleBold,
-    styleShared
+    styleShared,
   )
 }

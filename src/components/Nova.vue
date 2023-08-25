@@ -11,12 +11,15 @@ import {
   Vector3,
   WebGLRenderer,
 } from 'three'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 /**
  * Thanks to {@link https://codepen.io/prisoner849/pen/RwyzrVj}
  */
 const canvas = ref<HTMLDivElement>()
+
+const innerWidth = window.innerWidth
+const innerHeight = window.innerHeight
 
 const scene = new Scene()
 const camera = new PerspectiveCamera(60, innerWidth / innerHeight, 1, 1000)
@@ -24,13 +27,6 @@ camera.position.set(-14, 6, 22)
 const renderer = new WebGLRenderer({ alpha: true })
 renderer.setClearColor(0x00_00_00, 0)
 renderer.setSize(innerWidth, innerHeight)
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function onResize() {
-  camera.aspect = innerWidth / innerHeight
-  camera.updateProjectionMatrix()
-  renderer.setSize(innerWidth, innerHeight)
-}
 
 let gu = {
   time: { value: 0 },
@@ -43,7 +39,7 @@ const pushShift = () => {
     Math.random() * Math.PI,
     Math.random() * Math.PI * 2,
     (Math.random() * 0.9 + 0.1) * Math.PI * 0.1,
-    Math.random() * 0.9 + 0.1
+    Math.random() * 0.9 + 0.1,
   )
 }
 const pts = Array.from({ length: 20_000 })
@@ -63,8 +59,8 @@ for (let index = 0; index < 40_000; index++) {
     new Vector3().setFromCylindricalCoords(
       radius,
       Math.random() * 2 * Math.PI,
-      (Math.random() - 0.5) * 2
-    )
+      (Math.random() - 0.5) * 2,
+    ),
   )
   sizes.push(Math.random() * 1.5 + 0.5)
   pushShift()
@@ -88,21 +84,21 @@ m.onBeforeCompile = (shader) => {
       .replace(`gl_PointSize = size;`, `gl_PointSize = size * sizes;`)
       .replace(
         `#include <color_vertex>`,
-        `#include <color_vertex> \n float d = length(abs(position) / vec3(1.,0.165,0.655));d = clamp(d, 0., 1.);vColor = mix(vec3(1.,0.165,0.655), vec3(1.,0.165,0.655), d) / 255.;`
+        `#include <color_vertex> \n float d = length(abs(position) / vec3(1.,0.165,0.655));d = clamp(d, 0., 1.);vColor = mix(vec3(1.,0.165,0.655), vec3(1.,0.165,0.655), d) / 255.;`,
       )
       .replace(
         `#include <begin_vertex>`,
-        `#include <begin_vertex> \n float t = time;float moveT = mod(shift.x + shift.z * t, PI2);float moveS = mod(shift.y + shift.z * t, PI2);transformed += vec3(cos(moveS) * sin(moveT), cos(moveT), sin(moveS) * sin(moveT)) * shift.w;`
+        `#include <begin_vertex> \n float t = time;float moveT = mod(shift.x + shift.z * t, PI2);float moveS = mod(shift.y + shift.z * t, PI2);transformed += vec3(cos(moveS) * sin(moveT), cos(moveT), sin(moveS) * sin(moveT)) * shift.w;`,
       )
 
   shader.fragmentShader = `varying vec3 vColor;${shader.fragmentShader}`
     .replace(
       `#include <clipping_planes_fragment>`,
-      `#include <clipping_planes_fragment> \n float d = length(gl_PointCoord.xy - 0.5);`
+      `#include <clipping_planes_fragment> \n float d = length(gl_PointCoord.xy - 0.5);`,
     )
     .replace(
       `vec4 diffuseColor = vec4( diffuse, opacity );`,
-      `vec4 diffuseColor = vec4( vColor, smoothstep(0.5, 0.1, d) );`
+      `vec4 diffuseColor = vec4( vColor, smoothstep(0.5, 0.1, d) );`,
     )
 }
 
@@ -112,10 +108,6 @@ p.rotation.z = 0.2
 scene.add(p)
 
 let clock = new Clock()
-
-onUnmounted(() => {
-  // window.removeEventListener('resize', onResize)
-})
 
 onMounted(() => {
   if (!canvas.value) {
@@ -130,11 +122,9 @@ onMounted(() => {
     p.rotation.y = t * 0.05
     renderer.render(scene, camera)
   })
-
-  // window.addEventListener('resize', onResize)
 })
 </script>
 
 <template>
-  <div ref="canvas"></div>
+  <div ref="canvas" />
 </template>

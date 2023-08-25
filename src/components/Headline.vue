@@ -10,7 +10,6 @@ onMounted(() => {
   if (!group.value) {
     return
   }
-  console.log(group.value)
 
   anime({
     targets: group.value.children,
@@ -22,22 +21,6 @@ onMounted(() => {
     },
     loop: false,
   })
-
-  // for (const child of group.value.children) {
-  //   if (child instanceof SVGGeometryElement) {
-  //     const path = anime.path(child)
-
-  //     anime({
-  //       targets: child,
-  //       translateX: path('x'),
-  //       translateY: path('y'),
-  //       rotate: path('angle'),
-  //       easing: 'linear',
-  //       duration: 5000,
-  //       loop: true,
-  //     })
-  //   }
-  // }
 })
 </script>
 
