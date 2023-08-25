@@ -36,13 +36,13 @@ jobs:
         run: pnpm install
 
       - name: Lint styles
-        run: pnpm stylelint '**/*.{scss,vue}'
+        run: pnpm lint:styles
 
       - name: Lint scripts
-        run: pnpm eslint '**/*.{js,ts,vue}'
+        run: pnpm lint:scripts
 
       - name: Lint types
-        run: pnpm vue-tsc --noEmit
+        run: pnpm lint:types
 
   build:
     needs: lint
