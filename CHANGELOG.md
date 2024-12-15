@@ -1,3 +1,8 @@
+## <small>6.4.2 (2024-12-15)</small>
+
+- docs: update readme otf ([9e260d2](https://github.com/muuvmuuv/portfolio/commit/9e260d2))
+- build: update some scripts ([175212d](https://github.com/muuvmuuv/portfolio/commit/175212d))
+
 ## <small>6.4.1 (2024-12-15)</small>
 
 - build: release v6.4.1 ([baec00c](https://github.com/muuvmuuv/portfolio/commit/baec00c))
