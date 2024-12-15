@@ -19,6 +19,8 @@
 		"@fortawesome/fontawesome-svg-core": "^6.7.1",
 		"@fortawesome/free-brands-svg-icons": "^6.7.1",
 		"@fortawesome/vue-fontawesome": "^3.0.8",
+		"@vercel/analytics": "^1.4.1",
+		"@vercel/speed-insights": "^1.1.0",
 		"animejs": "^3.2.2",
 		"dayjs": "^1.11.13",
 		"three": "0.136.0",
