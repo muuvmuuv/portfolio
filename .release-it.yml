@@ -12,6 +12,7 @@ npm:
 hooks:
   before:git:beforeRelease:
     - biome format --write package.json
+    - prettier --write *.md
 plugins:
   "@release-it/conventional-changelog":
     infile: CHANGELOG.md
