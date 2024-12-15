@@ -1,16 +1,14 @@
 # https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
 
 pre-commit:
-  parallel: true
   commands:
-    lint-scripts:
-      glob: "*.{js,ts,vue}"
-      run: $(pnpm bin)/eslint {staged_files}
-    lint-styles:
-      glob: "*.{scss,css}"
-      run: $(pnpm bin)/stylelint {staged_files}
+    check:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run:
+        node_modules/.bin/biome check --no-errors-on-unmatched --files-ignore-unknown=true
+        {staged_files}
 
 commit-msg:
   commands:
     lint-commit-msg:
-      run: $(pnpm bin)/commitlint --edit
+      run: node_modules/.bin/commitlint -x "@commitlint/config-conventional" --edit

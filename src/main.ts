@@ -1,21 +1,23 @@
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import "@fontsource-variable/inter";
 
-import App from './App.vue'
-import { routes } from './routes'
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { createApp } from "vue";
+import { createRouter, createWebHistory } from "vue-router";
 
-import './main.scss'
-import './icons'
+import App from "./App.vue";
+import { routes } from "./routes";
 
-const app = createApp(App)
+import "./main.scss";
+import "./icons";
+
+const app = createApp(App);
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
-})
-app.use(router)
+	history: createWebHistory(),
+	routes,
+});
+app.use(router);
 
-app.component('icon', FontAwesomeIcon)
+app.component("icon", FontAwesomeIcon);
 
-app.mount('#app')
+app.mount("#app");

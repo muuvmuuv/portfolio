@@ -1,7 +1,4 @@
 node_modules/
 dist/
-tmp/
 .env
-.stylelintcache
-.eslintcache
 .vercel

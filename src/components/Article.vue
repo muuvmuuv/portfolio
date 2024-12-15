@@ -1,110 +1,112 @@
 <template>
-  <article class="text-slate-100">
-    <slot />
-  </article>
+	<article class="text-slate-100">
+		<slot />
+	</article>
 </template>
 
 <style lang="scss">
 article {
-  blockquote,
-  dl,
-  dd,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  hr,
-  figure,
-  p,
-  pre,
-  ul,
-  ol,
-  img,
-  picture,
-  iframe {
-    @apply mb-4;
-  }
 
-  // Utils
+	blockquote,
+	dl,
+	dd,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	hr,
+	figure,
+	p,
+	pre,
+	ul,
+	ol,
+	img,
+	picture,
+	iframe {
+		@apply mb-4;
+	}
 
-  a {
-    @apply underline underline-offset-1 decoration-dotted decoration-slate-400;
-  }
+	// Utils
 
-  hr {
-    @apply border-secondary-400;
-  }
+	a {
+		@apply underline underline-offset-1 decoration-dotted decoration-slate-400;
+	}
 
-  // Headlines
+	hr {
+		@apply border-secondary-400;
+	}
 
-  h1 {
-    @apply text-4xl;
-  }
+	// Headlines
 
-  h2 {
-    @apply text-3xl;
-  }
+	h1 {
+		@apply text-4xl;
+	}
 
-  h3 {
-    @apply text-2xl;
-  }
+	h2 {
+		@apply text-3xl;
+	}
 
-  h4 {
-    @apply text-xl;
-  }
+	h3 {
+		@apply text-2xl;
+	}
 
-  h5 {
-    @apply text-lg;
-  }
+	h4 {
+		@apply text-xl;
+	}
 
-  h6 {
-    @apply text-sm text-slate-600;
-  }
+	h5 {
+		@apply text-lg;
+	}
 
-  h1,
-  h2 {
-    @apply text-primary drop-shadow-primary shadow-primary;
-  }
+	h6 {
+		@apply text-sm text-slate-600;
+	}
 
-  h3,
-  h4,
-  h5 {
-    @apply text-slate-400;
-  }
+	h1,
+	h2 {
+		@apply text-primary drop-shadow-primary shadow-primary;
+	}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    + {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        @apply -mt-3 mb-5;
-      }
-    }
-  }
+	h3,
+	h4,
+	h5 {
+		@apply text-slate-400;
+	}
 
-  // Lists
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		+ {
 
-  ul,
-  ol {
-    list-style-position: outside;
-  }
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				@apply -mt-3 mb-5;
+			}
+		}
+	}
 
-  ul {
-    > li::before {
-      content: '＿';
+	// Lists
 
-      @apply align-text-bottom text-slate-400 mr-2;
-    }
-  }
+	ul,
+	ol {
+		list-style-position: outside;
+	}
+
+	ul {
+		>li::before {
+			content: "＿";
+
+			@apply align-text-bottom text-slate-400 mr-2;
+		}
+	}
 }
 </style>

@@ -1,13 +1,13 @@
-import Home from './pages/Home.vue'
-import Imprint from './pages/Imprint.vue'
+import Home from "./pages/Home.vue";
+import Imprint from "./pages/Imprint.vue";
 
 export const routes = [
-  {
-    path: '/',
-    component: Home,
-  },
-  {
-    path: '/imprint',
-    component: Imprint,
-  },
-]
+	{
+		path: "/",
+		component: Home,
+	},
+	{
+		path: "/imprint",
+		component: Imprint,
+	},
+];
