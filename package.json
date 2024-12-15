@@ -10,7 +10,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
-		"lint": "biome lint .",
+		"check": "biome check .",
 		"format": "biome check --write --unsafe .",
 		"pwa-assets": "pwa-assets-generator --preset minimal public/favicon.svg"
 	},

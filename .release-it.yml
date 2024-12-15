@@ -12,3 +12,6 @@ npm:
 hooks:
   before:git:beforeRelease:
     - biome format --write package.json
+plugins:
+  "@release-it/conventional-changelog":
+    infile: CHANGELOG.md
