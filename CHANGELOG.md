@@ -1,3 +1,10 @@
+# Changelog
+
+## <small>6.4.3 (2025-01-11)</small>
+
+- build: update deps ([c0ce04d](https://github.com/muuvmuuv/portfolio/commit/c0ce04d))
+- ci: checkout wrong version ([0a34c21](https://github.com/muuvmuuv/portfolio/commit/0a34c21))
+
 ## <small>6.4.2 (2024-12-15)</small>
 
 - docs: update readme otf ([9e260d2](https://github.com/muuvmuuv/portfolio/commit/9e260d2))
