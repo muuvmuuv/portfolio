@@ -7,7 +7,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
 import { routes } from "./routes";
 
-import "./main.scss";
+import "./main.css";
 import "./icons";
 
 const app = createApp(App);
