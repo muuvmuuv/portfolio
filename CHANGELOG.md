@@ -1,5 +1,20 @@
 # Changelog
 
+## 6.5.0 (2025-09-17)
+
+- fix: eslint vue issues ([3b62c5a](https://github.com/muuvmuuv/portfolio/commit/3b62c5a))
+- feat: complete tailwind v4 migration with typography and container utilities ([144082d](https://github.com/muuvmuuv/portfolio/commit/144082d))
+- feat: migrate to eslint cause vue and biome is a no no ([47a5487](https://github.com/muuvmuuv/portfolio/commit/47a5487))
+- feat: migrate to font awesome latest ([899f1f0](https://github.com/muuvmuuv/portfolio/commit/899f1f0))
+- feat: refactor to tailwind v4 ([4398a23](https://github.com/muuvmuuv/portfolio/commit/4398a23))
+- feat: updated twitter icon ([b4a006d](https://github.com/muuvmuuv/portfolio/commit/b4a006d))
+- feat: updating to latest and greatest phase one ([e006a9e](https://github.com/muuvmuuv/portfolio/commit/e006a9e))
+- feat: upgrade to anime v4 ([a933951](https://github.com/muuvmuuv/portfolio/commit/a933951))
+- build: added claude ([1ae5e85](https://github.com/muuvmuuv/portfolio/commit/1ae5e85))
+- build: chunking ([adf2ac5](https://github.com/muuvmuuv/portfolio/commit/adf2ac5))
+- build: fix deployment with corepack ([32c33a7](https://github.com/muuvmuuv/portfolio/commit/32c33a7))
+- build: fix lock file and build scripts approval ([6af6f53](https://github.com/muuvmuuv/portfolio/commit/6af6f53))
+
 ## <small>6.4.3 (2025-01-11)</small>
 
 - build: update deps ([c0ce04d](https://github.com/muuvmuuv/portfolio/commit/c0ce04d))
