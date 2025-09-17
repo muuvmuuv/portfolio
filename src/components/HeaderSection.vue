@@ -9,7 +9,7 @@ import Logo from "./LogoBrand.vue";
 	<header class="container flex w-full py-5 sm:py-8 md:py-12">
 		<router-link
 			id="logo"
-			class="block text-primary h-6 shadow-primary select-none drop-shadow-primary"
+			class="block text-primary h-6 shadow-primary select-none"
 			to="/"
 		>
 			<Logo />

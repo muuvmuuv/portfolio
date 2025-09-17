@@ -1,45 +1,41 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@utility container {
+	margin-inline: auto;
+	padding-inline: 1.2rem;
+
+	@media (min-width: 1024px) {
+		padding-inline: 2rem;
+	}
+}
 
 @theme {
-  --font-family-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  
-  --color-primary-50: #FF85CC;
-  --color-primary-100: #FF64BF;
-  --color-primary-200: #FF4DB5;
-  --color-primary-300: #FF37AC;
-  --color-primary-400: #FF2AA7;
-  --color-primary-500: #F7219F;
-  --color-primary-600: #EC1B95;
-  --color-primary-700: #DA1689;
-  --color-primary-800: #C6127C;
-  --color-primary-900: #AF0F6D;
-  
-  --color-secondary-50: #999eb6;
-  --color-secondary-100: #878ba1;
-  --color-secondary-200: #74788c;
-  --color-secondary-300: #626577;
-  --color-secondary-400: #595c6c;
-  --color-secondary-500: #4f5261;
-  --color-secondary-600: #3d3f4c;
-  --color-secondary-700: #2a2c36;
-  --color-secondary-800: #171921;
-  --color-secondary-900: #04050b;
-  
-  --drop-shadow-primary: 0 0 16px var(--tw-shadow-color);
-}
+	--font-family-sans:
+		"Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-html,
-body,
-#app {
-	@apply w-full h-full;
-}
+	--color-primary: #ff2aa7;
+	--color-primary-50: #ff85cc;
+	--color-primary-100: #ff64bf;
+	--color-primary-200: #ff4db5;
+	--color-primary-300: #ff37ac;
+	--color-primary-400: #ff2aa7;
+	--color-primary-500: #f7219f;
+	--color-primary-600: #ec1b95;
+	--color-primary-700: #da1689;
+	--color-primary-800: #c6127c;
+	--color-primary-900: #af0f6d;
 
-body {
-	@apply overscroll-none antialiased bg-gradient-to-tl from-secondary-900 to-secondary-700 bg-fixed;
-}
-
-#app {
-	grid-template-rows: auto 1fr auto;
-
-	@apply grid overflow-x-hidden;
+	--color-secondary: #2a2c36;
+	--color-secondary-50: #999eb6;
+	--color-secondary-100: #878ba1;
+	--color-secondary-200: #74788c;
+	--color-secondary-300: #626577;
+	--color-secondary-400: #595c6c;
+	--color-secondary-500: #4f5261;
+	--color-secondary-600: #3d3f4c;
+	--color-secondary-700: #2a2c36;
+	--color-secondary-800: #171921;
+	--color-secondary-900: #04050b;
 }
