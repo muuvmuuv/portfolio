@@ -28,7 +28,7 @@ const renderer = new WebGLRenderer({ alpha: true });
 renderer.setClearColor(0x00_00_00, 0);
 renderer.setSize(innerWidth, innerHeight);
 
-let gu = {
+const gu = {
 	time: { value: 0 },
 };
 
@@ -47,16 +47,14 @@ const pts = Array.from({ length: 20_000 })
 	.map(() => {
 		sizes.push(Math.random() * 1.5 + 0.5);
 		pushShift();
-		return new Vector3()
-			.randomDirection()
-			.multiplyScalar(Math.random() * 0.5 + 9.5);
+		return new Vector3().randomDirection().multiplyScalar(Math.random() * 0.5 + 9.5);
 	});
 
 for (let index = 0; index < 40_000; index++) {
-	let r = 10;
-	let R = 40;
-	let rand = Math.random() ** 1.5;
-	let radius = Math.sqrt(R * R * rand + (1 - rand) * r * r);
+	const r = 10;
+	const R = 40;
+	const rand = Math.random() ** 1.5;
+	const radius = Math.sqrt(R * R * rand + (1 - rand) * r * r);
 	pts.push(
 		new Vector3().setFromCylindricalCoords(
 			radius,
@@ -68,11 +66,11 @@ for (let index = 0; index < 40_000; index++) {
 	pushShift();
 }
 
-let g = new BufferGeometry().setFromPoints(pts);
+const g = new BufferGeometry().setFromPoints(pts);
 g.setAttribute("sizes", new Float32BufferAttribute(sizes, 1));
 g.setAttribute("shift", new Float32BufferAttribute(shift, 4));
 
-let m = new PointsMaterial({
+const m = new PointsMaterial({
 	size: 0.125,
 	transparent: true,
 	depthTest: false,
@@ -104,12 +102,12 @@ m.onBeforeCompile = (shader) => {
 		);
 };
 
-let p = new Points(g, m);
+const p = new Points(g, m);
 p.rotation.order = "ZYX";
 p.rotation.z = 0.2;
 scene.add(p);
 
-let clock = new Clock();
+const clock = new Clock();
 
 function windowResized() {
 	if (renderer) {
@@ -128,7 +126,7 @@ onMounted(() => {
 	canvas.value.append(renderer.domElement);
 
 	renderer.setAnimationLoop(() => {
-		let t = clock.getElapsedTime() * 0.5;
+		const t = clock.getElapsedTime() * 0.5;
 		gu.time.value = t * Math.PI;
 		p.rotation.y = t * 0.05;
 		renderer.render(scene, camera);

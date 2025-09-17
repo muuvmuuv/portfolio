@@ -11,7 +11,7 @@ npm:
   publish: false
 hooks:
   before:git:beforeRelease:
-    - biome format --write package.json
+    - pnpm format
     - prettier --write *.md
 plugins:
   "@release-it/conventional-changelog":

@@ -1,4 +1,6 @@
 import "@fontsource-variable/inter";
+import "./icons";
+import "./main.css";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { createApp } from "vue";
@@ -6,9 +8,6 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import App from "./App.vue";
 import { routes } from "./routes";
-
-import "./main.css";
-import "./icons";
 
 const app = createApp(App);
 

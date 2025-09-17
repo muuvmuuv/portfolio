@@ -1,4 +1,4 @@
-import { library ,config} from "@fortawesome/fontawesome-svg-core";
+import { config,library } from "@fortawesome/fontawesome-svg-core";
 import {
 	faGithubSquare,
 	faInstagramSquare,

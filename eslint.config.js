@@ -1,22 +1,31 @@
-
 import eslint from "@eslint/js";
+import { defineConfigWithVueTs, vueTsConfigs } from "@vue/eslint-config-typescript";
+import { globalIgnores } from "eslint/config";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 import vue from "eslint-plugin-vue";
 import globals from "globals";
-import tseslint from "typescript-eslint";
+import ts from "typescript-eslint";
 
-export default tseslint.config(
-	{
-		ignores: ["*.d.ts", "**/dist/**"]
-	},
+export default defineConfigWithVueTs(
+	[globalIgnores(["*.d.ts", "**/coverage", "**/dist"])],
 	eslint.configs.recommended,
-	...vue.configs["flat/strongly-recommended"],
+	ts.configs.eslintRecommended,
+	ts.configs.recommended,
+	vue.configs["flat/essential"],
+	vueTsConfigs.recommended,
 	{
 		files: ["**/*.vue"],
 		languageOptions: {
 			globals: globals.browser,
 		},
+	},
+	{
+		plugins: {
+			"simple-import-sort": simpleImportSort,
+		},
 		rules: {
-			"vue/html-indent": ["error", "tab"],
+			"simple-import-sort/imports": "error",
+			"simple-import-sort/exports": "error",
 		},
 	},
 );
