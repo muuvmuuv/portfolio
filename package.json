@@ -11,8 +11,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "eslint --ext=ts,js,mjs,vue .",
-    "format": "eslint --ext=ts,js,mjs,vue --fix .",
-    "pwa-assets": "pwa-assets-generator --preset minimal public/favicon.svg"
+    "format": "eslint --ext=ts,js,mjs,vue --fix ."
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",

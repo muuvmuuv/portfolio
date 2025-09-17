@@ -13,4 +13,18 @@ export default defineConfig({
 	define: {
 		__APP_VERSION__: JSON.stringify(version),
 	},
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks: {
+					t: ["three"],
+					f: [
+						"@fortawesome/fontawesome-svg-core",
+						"@fortawesome/free-brands-svg-icons",
+						"@fortawesome/vue-fontawesome",
+					],
+				},
+			},
+		},
+	},
 });
