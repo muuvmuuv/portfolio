@@ -1,5 +1,5 @@
-import Home from "./pages/Home.vue";
-import Imprint from "./pages/Imprint.vue";
+import Home from "./pages/HomePage.vue";
+import Imprint from "./pages/ImprintPage.vue";
 
 export const routes = [
 	{

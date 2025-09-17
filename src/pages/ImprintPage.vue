@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Article from "../components/Article.vue";
+import Article from "../components/ArticleTag.vue";
 </script>
 
 <template>
@@ -13,8 +13,7 @@ import Article from "../components/Article.vue";
 			<h3>Marvin Heilemann</h3>
 
 			<ul>
-				<li>Adresse: Auf Anfrage</li>
-				<li>Telefon: Auf Anfrage</li>
+				<li>Usa Str. 3, 61231 Bad Nauheim</li>
 				<li>
 					<span>E-Mail: </span>
 					<a href="mailt:welder-slimy.0y@icloud.com">welder-slimy.0y@icloud.com</a>

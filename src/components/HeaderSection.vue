@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Logo from "./Logo.vue";
+import Logo from "./LogoBrand.vue";
 
 // For menu https://codepen.io/tinkletons/pen/EJVOPO
 // Satellite https://codepen.io/chrisgannon/pen/EjVyXN
@@ -7,11 +7,7 @@ import Logo from "./Logo.vue";
 
 <template>
 	<header class="container flex w-full py-5 sm:py-8 md:py-12">
-		<router-link
-			id="logo"
-			class="block text-primary h-6 shadow-primary select-none drop-shadow-primary"
-			to="/"
-		>
+		<router-link id="logo" class="block text-primary h-6 shadow-primary select-none drop-shadow-primary" to="/">
 			<Logo />
 		</router-link>
 	</header>
