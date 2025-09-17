@@ -4,7 +4,7 @@ declare const __APP_VERSION__: string;
 
 declare module "*.vue" {
 	import type { DefineComponent } from "vue";
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const component: DefineComponent<object, object, any>;
 	export default component;
 }

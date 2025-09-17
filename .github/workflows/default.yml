@@ -7,7 +7,7 @@ on:
 
 env:
   node-version: 22
-  pnpm-version: 9
+  pnpm-version: 10
 
 jobs:
   check:

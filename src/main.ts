@@ -18,6 +18,6 @@ const router = createRouter({
 });
 app.use(router);
 
-app.component("icon", FontAwesomeIcon);
+app.component("FaIcon", FontAwesomeIcon);
 
 app.mount("#app");

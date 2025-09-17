@@ -8,7 +8,7 @@ import Article from "../components/Article.vue";
 			<h2>Imprint</h2>
 			<h6>Angaben gemäß § 5 TMG</h6>
 
-			<hr />
+			<hr>
 
 			<h3>Marvin Heilemann</h3>
 

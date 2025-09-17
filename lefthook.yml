@@ -4,9 +4,7 @@ pre-commit:
   commands:
     check:
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
-      run:
-        node_modules/.bin/biome check --no-errors-on-unmatched --files-ignore-unknown=true
-        {staged_files}
+      run: node_modules/.bin/eslint {staged_files}
 
 commit-msg:
   commands:
