@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import anime from "animejs";
+import { stagger } from "animejs";
+import { animate, } from "animejs";
 import { onMounted, ref } from "vue";
 
 // https://codepen.io/chrisgannon/pen/LEQmwP
@@ -11,12 +12,19 @@ onMounted(() => {
 		return;
 	}
 
-	anime({
-		targets: group.value.children,
-		strokeDashoffset: [anime.setDashoffset, 0],
-		easing: "easeInOutSine",
+	const segments = group.value.children as never as SVGPathElement[]
+
+	Array.from(segments).forEach((child) => {
+		const length = child.getTotalLength();
+		child.style.strokeDasharray = length.toString();
+		child.style.strokeDashoffset = length.toString();
+	});
+
+	animate(group.value.children, {
+		strokeDashoffset: 0,
+		ease: "inOutSine",
 		duration: 1500,
-		delay: (_, index) => index * 217,
+		delay: stagger(217),
 		loop: false,
 	});
 });
