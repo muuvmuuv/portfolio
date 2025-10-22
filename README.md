@@ -9,6 +9,8 @@
 - [Deployment](#deployment)
 - [Release](#release)
 
+![Status](https://api.checklyhq.com/v1/badges/checks/2fcb79b5-a9ad-4c7d-b380-a403079e26a8?style=flat&theme=default&responseTime=true)
+
 ## Development
 
 ```
