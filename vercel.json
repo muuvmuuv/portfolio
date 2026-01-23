@@ -4,6 +4,6 @@
   "trailingSlash": false,
   "regions": ["fra1"],
   "rewrites": [
-    { "source": "/:path*", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
