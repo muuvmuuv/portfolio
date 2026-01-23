@@ -12,12 +12,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Code Quality
 
-- `pnpm check` - Run ESLint to check code quality
-- `pnpm format` - Auto-fix ESLint issues
-
-### Assets Generation
-
-- `pnpm pwa-assets` - Generate PWA assets from public/favicon.svg
+- `pnpm check` - Run Biome to check code quality
+- `pnpm format` - Auto-fix Biome issues
 
 ### Release
 
@@ -33,9 +29,9 @@ This is a Vue 3 portfolio website for Marvin Heilemann built with:
 - **TypeScript** with strict mode enabled
 - **Vite** as build tool and dev server
 - **Vue Router** for client-side routing
-- **Tailwind CSS** for styling
-- **Three.js** (v0.136.0) for 3D graphics
-- **PWA** support via vite-plugin-pwa
+- **Tailwind CSS v4** for styling
+- **Three.js** for 3D particle globe graphics
+- **Biome** for linting and formatting
 
 ### Project Structure
 
@@ -48,16 +44,12 @@ This is a Vue 3 portfolio website for Marvin Heilemann built with:
 ### Key Configuration
 
 - TypeScript config uses ES2022 target with strict mode
-- Tailwind configured with custom primary/secondary colors and Inter font
-- Vite configured with:
-  - PWA plugin for offline support
-  - Manual chunks for optimized loading (Three.js and FontAwesome separately)
-  - mkcert for local HTTPS development
-  - HTML minification and injection
+- Tailwind CSS v4 configured with custom primary/secondary colors and Inter font
+- Vite configured with manual chunks for optimized loading (Three.js and FontAwesome separately)
 
 ### Development Notes
 
-- The project uses ESLint with TypeScript and Vue plugins for linting
+- The project uses Biome for linting and formatting
 - Git hooks are managed by lefthook
 - Deployment is handled via Vercel
 - Theme color is `#2a2c36`

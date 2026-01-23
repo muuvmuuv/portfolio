@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { stagger } from "animejs";
-import { animate, } from "animejs";
+import { animate, stagger } from "animejs";
 import { onMounted, ref } from "vue";
 
 // https://codepen.io/chrisgannon/pen/LEQmwP
@@ -12,7 +11,7 @@ onMounted(() => {
 		return;
 	}
 
-	const segments = group.value.children as never as SVGPathElement[]
+	const segments = group.value.children as never as SVGPathElement[];
 
 	Array.from(segments).forEach((child) => {
 		const length = child.getTotalLength();

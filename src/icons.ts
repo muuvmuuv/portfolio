@@ -1,4 +1,4 @@
-import { config,library } from "@fortawesome/fontawesome-svg-core";
+import { config, library } from "@fortawesome/fontawesome-svg-core";
 import {
 	faGithubSquare,
 	faInstagramSquare,
@@ -9,4 +9,3 @@ library.add(faGithubSquare, faSquareXTwitter, faInstagramSquare);
 
 config.familyDefault = "classic";
 config.styleDefault = "regular";
-
