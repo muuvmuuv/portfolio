@@ -6,8 +6,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "regions": ["fra1"],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
