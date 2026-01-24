@@ -1,0 +1,238 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+html,
+body {
+	overscroll-behavior: none;
+}
+
+@utility container {
+	margin-inline: auto;
+	padding-inline: 1.2rem;
+
+	@media (min-width: 1024px) {
+		padding-inline: 2rem;
+	}
+}
+
+@theme {
+	--font-family-sans:
+		"Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+	--color-primary: #ff2aa7;
+	--color-primary-50: #ff85cc;
+	--color-primary-100: #ff64bf;
+	--color-primary-200: #ff4db5;
+	--color-primary-300: #ff37ac;
+	--color-primary-400: #ff2aa7;
+	--color-primary-500: #f7219f;
+	--color-primary-600: #ec1b95;
+	--color-primary-700: #da1689;
+	--color-primary-800: #c6127c;
+	--color-primary-900: #af0f6d;
+
+	--color-secondary: #2a2c36;
+	--color-secondary-50: #999eb6;
+	--color-secondary-100: #878ba1;
+	--color-secondary-200: #74788c;
+	--color-secondary-300: #626577;
+	--color-secondary-400: #595c6c;
+	--color-secondary-500: #4f5261;
+	--color-secondary-600: #3d3f4c;
+	--color-secondary-700: #2a2c36;
+	--color-secondary-800: #171921;
+	--color-secondary-900: #04050b;
+}
+
+/* Header logo animation */
+#logo {
+	filter: drop-shadow(0 0 19px var(--tw-shadow-color));
+	animation: m-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes m-pulse {
+	50% {
+		filter: drop-shadow(0 0 14px var(--tw-shadow-color));
+	}
+}
+
+/* Footer blend mode */
+footer {
+	mix-blend-mode: exclusion;
+}
+
+/* Article custom list */
+.custom-list ul > li::before {
+	content: "_";
+	@apply align-text-bottom text-slate-400 mr-2;
+}
+
+/* Headline SVG styles */
+.headline-shadow {
+	fill: #04050b35;
+	stroke: #2a2c3678;
+}
+
+.headline-stroke {
+	filter: url("#g");
+	fill: none;
+	stroke: #ff2aa7;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1;
+}
+
+.headline-stroke path {
+	animation: flicker 4s infinite;
+}
+
+.headline-stroke path:nth-child(1) {
+	animation-delay: 0.6s;
+}
+
+.headline-stroke path:nth-child(2) {
+	animation-delay: 0.2s;
+}
+
+.headline-stroke path:nth-child(3) {
+	animation-delay: 1s;
+}
+
+.headline-stroke path:nth-child(4) {
+	animation-delay: 0.3s;
+}
+
+.headline-stroke path:nth-child(5) {
+	animation-delay: 0.7s;
+}
+
+.headline-stroke path:nth-child(6) {
+	animation-delay: 0.2s;
+}
+
+@keyframes flicker {
+	0% {
+		opacity: 1;
+	}
+
+	4% {
+		opacity: 0.9;
+	}
+
+	6% {
+		opacity: 0.85;
+	}
+
+	8% {
+		opacity: 0.95;
+	}
+
+	10% {
+		opacity: 0.9;
+	}
+
+	11% {
+		opacity: 0.922;
+	}
+
+	12% {
+		opacity: 0.9;
+	}
+
+	14% {
+		opacity: 0.95;
+	}
+
+	16% {
+		opacity: 0.98;
+	}
+
+	17% {
+		opacity: 0.9;
+	}
+
+	19% {
+		opacity: 0.93;
+	}
+
+	20% {
+		opacity: 0.99;
+	}
+
+	24% {
+		opacity: 1;
+	}
+
+	26% {
+		opacity: 0.94;
+	}
+
+	28% {
+		opacity: 0.98;
+	}
+
+	37% {
+		opacity: 0.93;
+	}
+
+	38% {
+		opacity: 0.5;
+	}
+
+	39% {
+		opacity: 0.96;
+	}
+
+	42% {
+		opacity: 1;
+	}
+
+	44% {
+		opacity: 0.97;
+	}
+
+	46% {
+		opacity: 0.94;
+	}
+
+	56% {
+		opacity: 0.9;
+	}
+
+	58% {
+		opacity: 0.9;
+	}
+
+	60% {
+		opacity: 0.99;
+	}
+
+	68% {
+		opacity: 1;
+	}
+
+	70% {
+		opacity: 0.9;
+	}
+
+	72% {
+		opacity: 0.95;
+	}
+
+	93% {
+		opacity: 0.93;
+	}
+
+	95% {
+		opacity: 0.95;
+	}
+
+	97% {
+		opacity: 0.93;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

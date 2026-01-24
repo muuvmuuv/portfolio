@@ -3,7 +3,7 @@
 pre-commit:
   commands:
     check:
-      glob: "*.{js,ts,cjs,mjs,vue,jsx,tsx,json,jsonc}"
+      glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc}"
       run: node_modules/.bin/biome check {staged_files}
 
 commit-msg:

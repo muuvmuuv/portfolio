@@ -11,12 +11,13 @@
       "**/*.js",
       "**/*.mjs",
       "**/*.ts",
-      "**/*.vue",
+      "**/*.tsx",
       "!**/*generated*",
       "!.git",
       "!.cache",
       "!node_modules",
       "!dist",
+      "!.next",
       "!tmp"
     ]
   },
@@ -30,22 +31,5 @@
     "rules": {
       "recommended": true
     }
-  },
-  "overrides": [
-    {
-      "includes": ["**/*.vue"],
-      "linter": {
-        "rules": {
-          "correctness": {
-            "noUnusedImports": "off",
-            "noUnusedVariables": "off"
-          },
-          "style": {
-            "useConst": "off",
-            "useImportType": "off"
-          }
-        }
-      }
-    }
-  ]
+  }
 }

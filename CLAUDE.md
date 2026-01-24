@@ -6,9 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Development
 
-- `pnpm dev` - Start development server with hot module replacement
+- `pnpm dev` - Start development server with Turbopack
 - `pnpm build` - Build production version
-- `pnpm preview` - Preview production build locally
+- `pnpm start` - Start production server locally
 
 ### Code Quality
 
@@ -21,36 +21,45 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-This is a Vue 3 portfolio website for Marvin Heilemann built with:
+This is a Next.js portfolio website for Marvin Heilemann built with:
 
 ### Tech Stack
 
-- **Vue 3** with Composition API
+- **Next.js 15** with App Router
+- **React 19** with Server and Client Components
 - **TypeScript** with strict mode enabled
-- **Vite** as build tool and dev server
-- **Vue Router** for client-side routing
 - **Tailwind CSS v4** for styling
 - **Three.js** for 3D particle globe graphics
 - **Biome** for linting and formatting
 
 ### Project Structure
 
-- `/src/components/` - Vue components (ArticleTag, FooterSection, HeaderSection, HeadlineTag, LogoBrand, NovaGlobe)
-- `/src/pages/` - Page components (HomePage, ImprintPage)
-- `/src/routes.ts` - Route definitions
-- `/src/main.ts` - App entry point with router setup
-- `/src/icons.ts` - FontAwesome icon imports
+- `/app/` - Next.js App Router pages and layouts
+  - `layout.tsx` - Root layout with metadata, fonts, analytics
+  - `page.tsx` - Home page with globe and headline
+  - `imprint/page.tsx` - Legal imprint page
+  - `globals.css` - Tailwind CSS v4 styles and custom utilities
+- `/components/` - React components
+  - `header.tsx` - Site header with animated logo
+  - `footer.tsx` - Site footer with copyright and version
+  - `logo-brand.tsx` - SVG logo component
+  - `headline.tsx` - Animated "MARVIN" SVG with anime.js
+  - `nova-globe.tsx` - Three.js particle globe (client component)
+  - `article.tsx` - Prose wrapper for content pages
+- `/public/` - Static assets (favicons, og image, PWA icons)
 
 ### Key Configuration
 
-- TypeScript config uses ES2022 target with strict mode
-- Tailwind CSS v4 configured with custom primary/secondary colors and Inter font
-- Vite configured with manual chunks for optimized loading (Three.js and FontAwesome separately)
+- TypeScript uses ES2022 target with strict mode
+- Tailwind CSS v4 with custom primary/secondary colors and Inter font
+- Next.js configured with Turbopack for development
+- FontAwesome icons loaded via @fortawesome/react-fontawesome
 
 ### Development Notes
 
-- The project uses Biome for linting and formatting
-- Git hooks are managed by lefthook
+- Client components are marked with "use client" directive
+- NovaGlobe is dynamically imported with ssr: false (Three.js)
 - Deployment is handled via Vercel
-- Theme color is `#2a2c36`
-- Version is exposed as `__APP_VERSION__` global
+- Theme color is `#04050b`
+- Version is read from package.json in footer
+- Git hooks are managed by lefthook
