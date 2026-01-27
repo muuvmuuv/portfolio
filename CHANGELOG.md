@@ -1,5 +1,26 @@
 # Changelog
 
+# [7.0.0](https://github.com/muuvmuuv/portfolio/compare/v6.5.0...v7.0.0) (2026-01-27)
+
+
+### Bug Fixes
+
+* add 200.html SPA fallback for Vercel ([ba4bcda](https://github.com/muuvmuuv/portfolio/commit/ba4bcda1c259c54a63845f241ca82afefd4d7538))
+* add installCommand and remove framework null ([8ca84a3](https://github.com/muuvmuuv/portfolio/commit/8ca84a34185019fbe2ca8d25a69411c685042268))
+* add preset to release-it conventional-changelog plugin ([339b85f](https://github.com/muuvmuuv/portfolio/commit/339b85f391ea0f855d1acd230774f4d5791f7ac1))
+* correct Vercel rewrite pattern for SPA routing ([1b35369](https://github.com/muuvmuuv/portfolio/commit/1b35369a23299d38b03fcad4ba946f9b3e9e82bd))
+* explicitly set Vite framework for Vercel ([90c68c6](https://github.com/muuvmuuv/portfolio/commit/90c68c6187530455a4d5a13ff297e90aabaed203))
+* ignore unmatched files in biome pre-commit hook ([95059a4](https://github.com/muuvmuuv/portfolio/commit/95059a4393a7864a8822eac4cd5832b5bae83789))
+* improve mobile UX and SPA routing ([4bf1e1e](https://github.com/muuvmuuv/portfolio/commit/4bf1e1e761239f88cf5ee818f222af2cb060d81b)), closes [#04050b](https://github.com/muuvmuuv/portfolio/issues/04050b)
+* use regex pattern for SPA rewrite ([6659a0a](https://github.com/muuvmuuv/portfolio/commit/6659a0aab17462dfd2d84abbb4da511c2b739e51))
+* use rewrites instead of deprecated routes ([27f69f7](https://github.com/muuvmuuv/portfolio/commit/27f69f7e8a652015f1a6bd0384e0b9ef68c201ad))
+* use routes with filesystem handler for SPA fallback ([5c9ed48](https://github.com/muuvmuuv/portfolio/commit/5c9ed48883064aac4810bbcbfcc2d20261e06ab8))
+
+
+### Features
+
+* added checkly status ([f65ec0a](https://github.com/muuvmuuv/portfolio/commit/f65ec0a8583ed340bd52567adb33e210f16c798a))
+
 ## 6.5.0 (2025-09-17)
 
 - fix: eslint vue issues ([3b62c5a](https://github.com/muuvmuuv/portfolio/commit/3b62c5a))
