@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.1](https://github.com/muuvmuuv/portfolio/compare/v7.0.0...v7.0.1) (2026-01-27)
+
+
+### Bug Fixes
+
+* add SPA fallback rewrite for Vercel ([37ba379](https://github.com/muuvmuuv/portfolio/commit/37ba3794154c98897ba0790f13aca1c57769f18a))
+
 # [7.0.0](https://github.com/muuvmuuv/portfolio/compare/v6.5.0...v7.0.0) (2026-01-27)
 
 
