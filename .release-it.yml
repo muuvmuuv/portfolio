@@ -9,9 +9,6 @@ github:
   releaseName: Release ${version}
 npm:
   publish: false
-hooks:
-  before:git:beforeRelease:
-    - pnpm format
 plugins:
   "@release-it/conventional-changelog":
     preset: angular
