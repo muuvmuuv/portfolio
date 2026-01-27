@@ -4,7 +4,7 @@ pre-commit:
   commands:
     check:
       glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc}"
-      run: node_modules/.bin/biome check {staged_files}
+      run: node_modules/.bin/biome check --no-errors-on-unmatched {staged_files}
 
 commit-msg:
   commands:
