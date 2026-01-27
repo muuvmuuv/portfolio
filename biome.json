@@ -12,12 +12,11 @@
       "**/*.mjs",
       "**/*.ts",
       "**/*.tsx",
-      "!**/*generated*",
+      "!**/*.gen.ts",
       "!.git",
       "!.cache",
       "!node_modules",
       "!dist",
-      "!.next",
       "!tmp"
     ]
   },
@@ -25,11 +24,22 @@
     "enabled": true,
     "useEditorconfig": true
   },
-  "assist": { "actions": { "source": { "organizeImports": "on" } } },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "correctness": {
+        "noUndeclaredDependencies": "error",
+        "noUnusedImports": "error"
+      }
     }
   }
 }

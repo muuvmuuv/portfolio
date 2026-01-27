@@ -1,5 +1,5 @@
-import Link from "next/link";
-import packageJson from "../package.json";
+import { Link } from "@tanstack/react-router";
+import packageJson from "../../package.json";
 
 export default function Footer() {
 	const year = new Date().getFullYear();
@@ -9,7 +9,7 @@ export default function Footer() {
 		<footer className="container flex w-full py-5 sm:py-8 md:py-12 justify-between text-secondary-400 opacity-40 font-mono text-sm select-none">
 			<div>
 				<Link
-					href="/imprint"
+					to="/imprint"
 					className="hover:text-secondary-600 transition-colors"
 				>
 					Imprint

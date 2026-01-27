@@ -1,7 +1,5 @@
-"use client";
-
 import { animate, stagger } from "animejs";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "preact/hooks";
 
 interface HeadlineProps {
 	className?: string;

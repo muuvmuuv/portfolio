@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@tanstack/react-router";
 import LogoBrand from "./logo-brand";
 
 export default function Header() {
@@ -7,7 +7,7 @@ export default function Header() {
 			<Link
 				id="logo"
 				className="block text-primary h-6 shadow-primary select-none"
-				href="/"
+				to="/"
 			>
 				<LogoBrand />
 			</Link>

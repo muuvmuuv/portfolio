@@ -1,18 +1,13 @@
-"use client";
-
 import {
 	faGithubSquare,
 	faInstagramSquare,
 	faSquareXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import dynamic from "next/dynamic";
+import { lazy } from "preact/compat";
+import Headline from "../components/headline";
 
-import Headline from "@/components/headline";
-
-const NovaGlobe = dynamic(() => import("@/components/nova-globe"), {
-	ssr: false,
-});
+const NovaGlobe = lazy(() => import("../components/nova-globe"));
 
 export default function HomePage() {
 	return (
@@ -21,7 +16,7 @@ export default function HomePage() {
 
 			<section className="container">
 				<h1 className="text-secondary-900 select-none mt-8 sm:mt-20 md:mt-32">
-					<Headline className="not-sr-only fixed sm:relative top-0 left-[110%] sm:left-auto origin-top-left rotate-90 sm:rotate-0 sm:!w-[98vw] sm:!min-w-[1000px] w-[83vh]" />
+					<Headline className="not-sr-only fixed sm:relative top-0 left-[110%] sm:left-auto origin-top-left rotate-90 sm:rotate-0 sm:w-[98vw]! sm:min-w-250! w-[83vh]" />
 					<span className="sr-only">MARVIN</span>
 				</h1>
 			</section>
@@ -37,7 +32,7 @@ export default function HomePage() {
 								href="https://github.com/muuvmuuv"
 								aria-label="GitHub profile"
 							>
-								<FontAwesomeIcon icon={faGithubSquare} />
+								<FontAwesomeIcon className="w-auto!" icon={faGithubSquare} />
 							</a>
 						</li>
 						<li>
@@ -48,7 +43,7 @@ export default function HomePage() {
 								href="https://twitter.com/muuvmuuv"
 								aria-label="X (Twitter) profile"
 							>
-								<FontAwesomeIcon icon={faSquareXTwitter} />
+								<FontAwesomeIcon className="w-auto!" icon={faSquareXTwitter} />
 							</a>
 						</li>
 						<li>
@@ -59,7 +54,7 @@ export default function HomePage() {
 								href="https://instagram.com/the_marvin17"
 								aria-label="Instagram profile"
 							>
-								<FontAwesomeIcon icon={faInstagramSquare} />
+								<FontAwesomeIcon className="w-auto!" icon={faInstagramSquare} />
 							</a>
 						</li>
 					</ul>

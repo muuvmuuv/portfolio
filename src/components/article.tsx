@@ -1,5 +1,7 @@
+import type { ComponentChildren } from "preact";
+
 interface ArticleProps {
-	children: React.ReactNode;
+	children: ComponentChildren;
 }
 
 export default function Article({ children }: ArticleProps) {

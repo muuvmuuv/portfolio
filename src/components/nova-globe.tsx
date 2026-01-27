@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "preact/hooks";
 import {
 	AdditiveBlending,
 	BufferGeometry,
@@ -192,7 +190,5 @@ void main() {`,
 		};
 	}, []);
 
-	return (
-		<div ref={canvasRef} className="-z-10 fixed bottom-0 left-0 opacity-20" />
-	);
+	return <div ref={canvasRef} className="fixed bottom-0 left-0 opacity-10" />;
 }
