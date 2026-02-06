@@ -13,12 +13,8 @@ export default function ImprintPage() {
 
 				<ul>
 					<li>Usa Str. 3, 61231 Bad Nauheim</li>
-					<li>
-						<span>E-Mail: </span>
-						<a href="mailto:welder-slimy.0y@icloud.com">
-							welder-slimy.0y@icloud.com
-						</a>
-					</li>
+					<li>E-Mail: welder-slimy.0y@icloud.com</li>
+					<li>Telefon: 060327842239</li>
 				</ul>
 
 				<h3>Haftung für Inhalte</h3>
