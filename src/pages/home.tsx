@@ -5,9 +5,14 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { lazy } from "preact/compat";
+
 import Headline from "../components/headline";
 
 const NovaGlobe = lazy(() => import("../components/nova-globe"));
+
+const visitsBadge = `https://visits.github.marvin.digital/api/image.svg?theme=mosaic&color=%23ff2aa7${
+	import.meta.env.DEV ? "&debug=true" : ""
+}`;
 
 export default function HomePage() {
 	return (
@@ -15,15 +20,15 @@ export default function HomePage() {
 			<NovaGlobe />
 
 			<section className="container">
-				<h1 className="text-secondary-900 select-none mt-8 sm:mt-20 md:mt-32">
-					<Headline className="not-sr-only fixed sm:relative top-0 left-[110%] sm:left-auto origin-top-left rotate-90 sm:rotate-0 sm:w-[98vw]! sm:min-w-250! w-[83vh]" />
+				<h1 className="mt-8 text-secondary-900 select-none sm:mt-20 md:mt-32">
+					<Headline className="not-sr-only fixed top-0 left-[110%] w-[83vh] origin-top-left rotate-90 sm:relative sm:left-auto sm:w-[98vw]! sm:min-w-250! sm:rotate-0" />
 					<span className="sr-only">MARVIN</span>
 				</h1>
 			</section>
 
-			<section className="container">
-				<div className="mt-12 text-secondary-200 opacity-30 text-4xl">
-					<ul className="list-none flex gap-x-6">
+			<section className="container mt-12">
+				<div className="text-4xl text-secondary-200 opacity-30">
+					<ul className="flex list-none gap-x-6">
 						<li>
 							<a
 								target="_blank"
@@ -59,6 +64,12 @@ export default function HomePage() {
 						</li>
 					</ul>
 				</div>
+			</section>
+
+			<section className="container mt-10">
+				<a href="https://muuvmuuv.goatcounter.com">
+					<img src={visitsBadge} alt="My page visits" className="h-10" />
+				</a>
 			</section>
 		</>
 	);

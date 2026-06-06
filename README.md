@@ -1,7 +1,4 @@
-<h1 align="left">
-  <img align="right" src="public/me.gif" width="100" />
-  <b>Marvin Heilemann</b>
-</h1>
+# Marvin
 
 > A beautiful Portfolio page made by me for me.
 
@@ -10,6 +7,8 @@
 - [Release](#release)
 
 ![Status](https://api.checklyhq.com/v1/badges/checks/2fcb79b5-a9ad-4c7d-b380-a403079e26a8?style=flat&theme=default&responseTime=true)
+
+<a href="https://muuvmuuv.goatcounter.com"><img src="https://visits.github.marvin.digital/api/image.svg" height="60" alt="My page visits"></a>
 
 ## Development
 

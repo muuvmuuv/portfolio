@@ -52,9 +52,7 @@ export default function NovaGlobe() {
 			.map(() => {
 				sizes.push(Math.random() * 1.5 + 0.5);
 				pushShift();
-				return new Vector3()
-					.randomDirection()
-					.multiplyScalar(Math.random() * 0.5 + 9.5);
+				return new Vector3().randomDirection().multiplyScalar(Math.random() * 0.5 + 9.5);
 			});
 
 		for (let index = 0; index < 40_000; index++) {
@@ -140,10 +138,8 @@ void main() {`,
 		const smoothing = 0.05;
 
 		function onPointerMove(event: MouseEvent | TouchEvent) {
-			const clientX =
-				"touches" in event ? event.touches[0].clientX : event.clientX;
-			const clientY =
-				"touches" in event ? event.touches[0].clientY : event.clientY;
+			const clientX = "touches" in event ? event.touches[0].clientX : event.clientX;
+			const clientY = "touches" in event ? event.touches[0].clientY : event.clientY;
 
 			// Normalize to -1 to 1
 			mouse.x = (clientX / window.innerWidth) * 2 - 1;
@@ -167,8 +163,7 @@ void main() {`,
 			gu.time.value = t * Math.PI;
 
 			// Smooth interpolation towards target rotation
-			p.rotation.x +=
-				(targetRotation.x + baseRotation.x - p.rotation.x) * smoothing;
+			p.rotation.x += (targetRotation.x + baseRotation.x - p.rotation.x) * smoothing;
 			p.rotation.y += (targetRotation.y + t * 0.05 - p.rotation.y) * smoothing;
 			p.rotation.z += (baseRotation.z - p.rotation.z) * smoothing;
 
@@ -190,5 +185,7 @@ void main() {`,
 		};
 	}, []);
 
-	return <div ref={canvasRef} className="fixed bottom-0 left-0 opacity-10" />;
+	return (
+		<div ref={canvasRef} className="pointer-events-none fixed bottom-0 left-0 opacity-10" />
+	);
 }
