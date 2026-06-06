@@ -1,7 +1,7 @@
 import "@fontsource-variable/inter";
 import "./globals.css";
-
 import { config } from "@fortawesome/fontawesome-svg-core";
+
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 
@@ -13,6 +13,7 @@ import {
 	RouterProvider,
 } from "@tanstack/react-router";
 import { render } from "preact";
+
 import Footer from "./components/footer";
 import Header from "./components/header";
 import HomePage from "./pages/home";
@@ -20,8 +21,8 @@ import ImprintPage from "./pages/imprint";
 
 const rootRoute = createRootRoute({
 	component: () => (
-		<div className="w-full h-full antialiased bg-linear-to-tl from-secondary-900 to-secondary-700 bg-fixed">
-			<div className="w-full h-full grid overflow-x-hidden grid-rows-[auto_1fr_auto]">
+		<div className="h-full w-full bg-linear-to-tl from-secondary-900 to-secondary-700 bg-fixed antialiased">
+			<div className="grid h-full w-full grid-rows-[auto_1fr_auto] overflow-x-hidden">
 				<Header />
 				<main>
 					<Outlet />

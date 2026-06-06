@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "sortImports": true,
+  "sortPackageJson": true,
+  "sortTailwindcss": {
+    "stylesheet": "./src/globals.css"
+  },
+  "ignorePatterns": ["CHANGELOG.md", "pnpm-lock.yaml"]
+}

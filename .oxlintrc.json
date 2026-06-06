@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "react", "import"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    // Side-effect imports (CSS, fonts) are idiomatic in Vite apps
+    "import/no-unassigned-import": "off",
+    // Obsolete with the automatic JSX runtime (jsxImportSource: preact)
+    "react/react-in-jsx-scope": "off"
+  },
+  "env": {
+    "browser": true
+  },
+  "ignorePatterns": ["dist", "**/*.gen.ts"]
+}

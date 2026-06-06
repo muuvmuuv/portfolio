@@ -6,7 +6,7 @@ interface ArticleProps {
 
 export default function Article({ children }: ArticleProps) {
 	return (
-		<article className="prose prose-slate prose-invert max-w-none prose-lg custom-list">
+		<article className="custom-list prose prose-lg max-w-none prose-slate prose-invert">
 			{children}
 		</article>
 	);

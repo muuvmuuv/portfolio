@@ -1,10 +1,13 @@
-# https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
+# https://lefthook.dev/configuration/
 
 pre-commit:
   commands:
-    check:
-      glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc}"
-      run: node_modules/.bin/biome check --no-errors-on-unmatched {staged_files}
+    lint:
+      glob: "*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"
+      run: node_modules/.bin/oxlint {staged_files}
+    format:
+      glob: "*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,json,jsonc,css,html,md,yml,yaml,toml}"
+      run: node_modules/.bin/oxfmt --check --no-error-on-unmatched-pattern {staged_files}
 
 commit-msg:
   commands:

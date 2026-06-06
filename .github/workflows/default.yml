@@ -6,8 +6,8 @@ on:
   pull_request:
 
 env:
-  node-version: 22
-  pnpm-version: 10
+  node-version: 24
+  pnpm-version: 11
 
 jobs:
   check:
@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Check proejct
+      - name: Check project
         run: pnpm check
 
   build:

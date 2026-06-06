@@ -1,2 +1,8 @@
-onlyBuiltDependencies:
-  - lefthook
+allowBuilds:
+  "@parcel/watcher": false
+  esbuild: false
+  lefthook: true
+minimumReleaseAgeExclude:
+  - "@tanstack/react-router@1.170.15"
+  - "@tanstack/router-core@1.171.13"
+  - "@types/node@25.9.2"

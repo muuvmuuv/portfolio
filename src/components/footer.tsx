@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+
 import packageJson from "../../package.json";
 
 export default function Footer() {
@@ -6,12 +7,9 @@ export default function Footer() {
 	const version = packageJson.version;
 
 	return (
-		<footer className="container flex w-full py-5 sm:py-8 md:py-12 justify-between text-secondary-400 opacity-40 font-mono text-sm select-none">
+		<footer className="container flex w-full justify-between py-5 font-mono text-sm text-secondary-400 opacity-40 select-none sm:py-8 md:py-12">
 			<div>
-				<Link
-					to="/imprint"
-					className="hover:text-secondary-600 transition-colors"
-				>
+				<Link to="/imprint" className="transition-colors hover:text-secondary-600">
 					Imprint
 				</Link>
 			</div>
@@ -22,7 +20,7 @@ export default function Footer() {
 					href="https://github.com/muuvmuuv/portfolio"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="hover:text-secondary-600 transition-colors"
+					className="transition-colors hover:text-secondary-600"
 				>
 					v{version}
 				</a>

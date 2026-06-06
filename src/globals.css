@@ -65,7 +65,7 @@ footer {
 /* Article custom list */
 .custom-list ul > li::before {
 	content: "_";
-	@apply align-text-bottom text-slate-400 mr-2;
+	@apply mr-2 align-text-bottom text-slate-400;
 }
 
 /* Headline SVG styles */
